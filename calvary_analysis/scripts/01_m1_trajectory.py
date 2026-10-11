@@ -91,9 +91,9 @@ for col, role, lab in [("government", "government", "Government (audit basis; 99
            edgecolor="white", linewidth=1.5)
     bottom += vals
 for i, (x, g, t) in enumerate(zip(mix.fy_label, mix.gov_share, mix.total_revenue)):
-    ax.text(i, t + 1.2e5, f"{g:.0%}", ha="center", fontsize=8.5, color=style.TEXT_2)
+    ax.text(i, max(t, bottom[i]) + 1.2e5, f"{g:.0%}", ha="center", fontsize=8.5, color=style.TEXT_2)  # stack top can exceed total revenue
 style.money_axis(ax)
-ax.set_ylim(0, mix.total_revenue.max() * 1.12)
+ax.set_ylim(0, max(mix.total_revenue.max(), bottom.max()) * 1.12)
 ax.legend(loc="upper left", ncol=1)
 ax.text(0.99, 0.97, "Labels: government share of revenue", transform=ax.transAxes, ha="right", fontsize=8.5, color=style.TEXT_2)
 style.finish(f, ax, "m1_02_revenue_mix",

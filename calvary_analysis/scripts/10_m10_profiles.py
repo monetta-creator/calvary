@@ -41,7 +41,7 @@ f.text(0.01, 0.985, "DWC grew from $6M to $34M in a decade with government risin
        fontsize=12.5, fontweight="bold", color=style.INK, va="top")
 f.text(0.01, 0.005, "Source: fact_org_financials (IRS 990 e-file returns via GivingTuesday / ProPublica / IRS SOI; government = Part VIII line 1e). Labels: government share. Data as of 2026-10-10. Chart m10_01_comparator_trajectories.",
        fontsize=7.5, color=style.TEXT_MUTED)
-f.tight_layout(rect=(0, 0.03, 1, 0.90)); f.savefig(style.CHARTS / "m10_01_comparator_trajectories.png", dpi=200); plt.close(f)
+style.polish(f, "m10_01_comparator_trajectories"); f.tight_layout(rect=(0, 0.03, 1, 0.90)); f.savefig(style.CHARTS / "m10_01_comparator_trajectories.png", dpi=200); plt.close(f)
 
 # federal programs (FAC) for DWC
 g = load("fact_gov_awards", usecols=["recipient_ein", "source_type", "fiscal_year", "assistance_listing", "program_name", "awarding_agency", "pass_through_entity", "flow_type", "amount", "source_id"])

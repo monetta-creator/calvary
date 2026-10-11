@@ -146,17 +146,22 @@ function chart(slide, type, labels, series, { x = M, y = BODY_Y, w = 8.0, h = BO
   const opts = {
     x, y, w, h, barDir, barGrouping: stacked ? "stacked" : "clustered", barGapWidthPct: gapWidth,
     chartColors: series.map(s => s.color),
-    catAxisLabelColor: HEX.text2, valAxisLabelColor: HEX.text2, catAxisLabelFontSize: catFontSize, valAxisLabelFontSize: 9,
+    // House axis style (engagement lead, 2026-10-11; matches scripts/lib/style.py polish()): no grid lines, black x and y
+    // axis lines, bold black axis and data labels.
+    catAxisLabelColor: HEX.text, valAxisLabelColor: HEX.text, catAxisLabelFontSize: catFontSize, valAxisLabelFontSize: 9,
+    catAxisLabelFontBold: true, valAxisLabelFontBold: true,
     catAxisLabelFontFace: "+mn-lt", valAxisLabelFontFace: "+mn-lt", dataLabelFontFace: "+mn-lt", legendFontFace: "+mn-lt",
-    valGridLine: { color: HEX.grid, size: 0.5 }, catGridLine: { style: "none" }, valAxisLineShow: false, catAxisLineShow: true,
+    valGridLine: { style: "none" }, catGridLine: { style: "none" }, valAxisLineShow: true, catAxisLineShow: true,
+    valAxisLineColor: HEX.text, catAxisLineColor: HEX.text, valAxisLineSize: 1, catAxisLineSize: 1,
     valAxisLabelFormatCode: valFmt, showLegend: showLegend && series.length > 1, legendPos, legendFontSize: 9, legendColor: HEX.text2,
-    showValue: dataLabels, dataLabelColor: HEX.text2, dataLabelFontSize: 8, dataLabelFormatCode: dataFmt || valFmt,
+    showValue: dataLabels, dataLabelColor: HEX.text, dataLabelFontSize: 8, dataLabelFontBold: true, dataLabelFormatCode: dataFmt || valFmt,
     dataLabelPosition: stacked ? "ctr" : (type === "line" ? "t" : "outEnd"),
     showTitle: !!title, title, titleColor: HEX.ink, titleFontSize: 11, titleFontFace: "+mn-lt",
     lineSize: 2, lineDataSymbol: "circle", lineDataSymbolSize: 7, lineDataSymbolLineColor: HEX.surface,
     plotArea: { fill: { color: HEX.surface } }, chartArea: { fill: { color: HEX.surface }, roundedCorners: false },
     valAxisMinVal: 0, objectName: title || "chart",
   };
+  if (type !== "line") opts.dataBorder = { pt: 0.5, color: HEX.text };  // 1 px black outline on bars, as on the PNG charts
   if (valMax != null) opts.valAxisMaxVal = valMax;
   const t = type === "line" ? slide._presLayout ? "line" : "line" : type;
   slide.addChart(t === "bar" ? "bar" : t === "line" ? "line" : "bar", data, opts);

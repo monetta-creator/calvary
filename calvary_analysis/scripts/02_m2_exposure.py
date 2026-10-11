@@ -199,7 +199,7 @@ f.suptitle("Since pandemic money ended in FY2023, DC's homeless and victim-servi
            x=0.01, ha="left", fontsize=12, fontweight="bold", color=style.INK)
 f.text(0.01, 0.005, "Source: supp_dc_budget_lines (DC budget books FY2024-FY2027, Council committee reports). Data as of 2026-10-10. Chart m2_04_dc_budget_context.",
        fontsize=7.5, color=style.TEXT_MUTED)
-f.tight_layout(rect=(0, 0.03, 1, 0.93))
+style.polish(f, "m2_04_dc_budget_context"); f.tight_layout(rect=(0, 0.03, 1, 0.93))
 f.savefig(style.CHARTS / "m2_04_dc_budget_context.png", dpi=200); plt.close(f)
 
 # ------------------------------------------------------------------ Calvary's share of the OVSJG and CoC pools

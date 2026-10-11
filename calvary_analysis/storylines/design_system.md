@@ -89,11 +89,11 @@ Where the method needs more than one clause, the slide footnote cites a numbered
 
 ## 5. Chart style
 
-- Form follows the job: trend → line; composition over time → stacked area/column with a 2 px white gap; magnitude comparison → horizontal bars sorted by value; change between two points → slope; one number → stat tile; flows → Sankey (PNG); relationships → network (PNG); geography → ward map (PNG).
+- Form follows the job: trend → line; composition over time → stacked area/column; magnitude comparison → horizontal bars sorted by value; change between two points → slope; one number → stat tile; flows → Sankey (PNG); relationships → network (PNG); geography → ward map (PNG).
 - Native PowerPoint charts (editable) for bar, column, line, stacked and scatter; PNG at 200 dpi for network, Sankey, map, small multiples and anything annotated.
 - One y-axis, always. Two measures → two charts or an index.
-- Marks: bars ≤ 60% of slot width with a flat baseline; lines 2 px; markers ≥ 8 px with a white ring; area fills at 10–15% opacity.
-- Gridlines: horizontal only, hairline `grid`; no top/right spines; axis ticks rounded with thousands commas; money in $M (one decimal) or $K.
+- Marks: bars ≤ 60% of slot width with a flat baseline and a 1 px black outline (0.5 pt at 200 dpi; no white gaps between stacked segments, no outline on empty segments, legend swatches match) — engagement lead, 2026-10-11; lines 2 px; markers ≥ 8 px with a white ring; area fills at 10–15% opacity.
+- Axes (engagement lead, 2026-10-11): no gridlines; x and y axis lines in black (`text`); no top/right spines; axis tick labels, axis titles and data labels bold and black. Enforced at save time by `scripts/lib/style.py` `polish()` for PNGs and by `decks/lib/deck.js` `chart()` for native charts; notes placed in axes coordinates keep regular weight. `polish()` also nudges data labels off each other and off scatter dots, with a thin leader line back to the point when a label moves 9 pt or more, and prints any label it could not clear. Ticks rounded with thousands commas; money in $M (one decimal) or $K.
 - Labels: a legend whenever ≥ 2 series; direct labels only at endpoints, extremes or the series the story is about; text never wears the series color.
 - Emphasis: the story series in its role color, everything else `peer` gray; one gold annotation per chart at most.
 - Every PNG carries: title (full sentence takeaway when standalone), source line naming the clean table(s), as-of date, chart id. Every chart slide carries the same in the footer.

@@ -180,7 +180,7 @@ f.text(0.01, 0.985, "Government share has been stable for most peers since 2017;
        fontsize=12.5, fontweight="bold", color=style.INK, va="top")
 f.text(0.01, 0.005, "Source: fact_org_financials, 990 line 1e / total revenue (Calvary on the audit basis FY17-23). Data as of 2026-10-10. Chart m3_05_gov_share_trajectories. Core peers provisional; DWC and CBWC Institute are LA reference organizations.",
        fontsize=7.5, color=style.TEXT_MUTED)
-f.tight_layout(rect=(0, 0.03, 1, 0.95)); f.savefig(style.CHARTS / "m3_05_gov_share_trajectories.png", dpi=200); plt.close(f)
+style.polish(f, "m3_05_gov_share_trajectories"); f.tight_layout(rect=(0, 0.03, 1, 0.95)); f.savefig(style.CHARTS / "m3_05_gov_share_trajectories.png", dpi=200); plt.close(f)
 
 # ------------------------------------------------------------------ m3_06 institutional funder base
 d = bench.dropna(subset=["institutional_funders"]).sort_values("institutional_per_revenue_dollar")
@@ -252,7 +252,7 @@ f.text(0.01, 0.985, "Three ways peers reduced exposure or grew through it: repla
        fontsize=12, fontweight="bold", color=style.INK, va="top")
 f.text(0.01, 0.005, "Source: fact_org_financials (990 preferred rows; government = line 1e). Labels: government share. Data as of 2026-10-10. Chart m3_08_case_studies_mix. Core peers provisional; DWC is an LA reference.",
        fontsize=7.5, color=style.TEXT_MUTED)
-f.tight_layout(rect=(0, 0.03, 1, 0.95)); f.savefig(style.CHARTS / "m3_08_case_studies_mix.png", dpi=200); plt.close(f)
+style.polish(f, "m3_08_case_studies_mix"); f.tight_layout(rect=(0, 0.03, 1, 0.95)); f.savefig(style.CHARTS / "m3_08_case_studies_mix.png", dpi=200); plt.close(f)
 
 # ------------------------------------------------------------------ m3_09 OVSJG and CoC among peers (government concentration in the same pools)
 g = load("fact_gov_awards", usecols=["recipient_ein", "fiscal_year", "amount", "source_type", "program_name", "source_id"])

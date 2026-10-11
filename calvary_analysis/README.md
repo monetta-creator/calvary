@@ -45,10 +45,12 @@ checkpoints/       CP1-CP3 memos
 | M10 Named comparators | `10_m10_profiles.py` | `m10_comparator_profiles.md` | m10_01–m10_05 |
 
 ## Deliverables
-- **Executive one-pager:** `decks/executive_one_pager.pptx` and `reports/executive_one_pager.md`.
-- **Leadership and board deck:** `decks/leadership_deck.pptx` (22 content slides plus five section dividers; spine `storylines/leadership_headline_spine.md`).
-- **Consulting deck:** `decks/consulting_deck.pptx` (55 content slides plus dividers and table continuations; spine `storylines/consulting_headline_spine.md`).
-- **Appendix decks:** `decks/appendix_A_calvary_government.pptx`, `appendix_B_peers_comparators.pptx`, `appendix_C_funders_pipeline.pptx`, `appendix_D_data_methods.pptx` (spines in `storylines/appendix_headline_spine.md`; method notes A1–D3 in D and in `reports/methodology.md`).
+**Share the PDFs in `decks/pdf/`.** They are rendered from the PPTX files by LibreOffice and look the same in every viewer. The PPTX files are the editable source: their charts are native PowerPoint charts, which PowerPoint draws correctly but Keynote, Google Slides and Mac Quick Look do not (stacking, number formats and styling get lost). Edit the decks through `decks/build_*.js`, then rebuild the PPTX and PDF together.
+
+- **Executive one-pager:** `decks/pdf/executive_one_pager.pdf` (source `decks/executive_one_pager.pptx`) and `reports/executive_one_pager.md`.
+- **Leadership and board deck:** `decks/pdf/leadership_deck.pdf` (source `decks/leadership_deck.pptx`; 22 content slides plus five section dividers; spine `storylines/leadership_headline_spine.md`).
+- **Consulting deck:** `decks/pdf/consulting_deck.pdf` (source `decks/consulting_deck.pptx`; 55 content slides plus dividers and table continuations; spine `storylines/consulting_headline_spine.md`).
+- **Appendix decks:** `decks/pdf/appendix_A_calvary_government.pdf`, `appendix_B_peers_comparators.pdf`, `appendix_C_funders_pipeline.pdf`, `appendix_D_data_methods.pdf` (sources are the matching `decks/*.pptx`; spines in `storylines/appendix_headline_spine.md`; method notes A1–D3 in D and in `reports/methodology.md`).
 - **Reports:** executive summary, full findings, methodology, recommendations; board readout talking points; consulting team briefing.
 
 ## How to rerun
