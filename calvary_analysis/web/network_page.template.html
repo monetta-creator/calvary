@@ -42,6 +42,16 @@ button, input, select { font: inherit; color: inherit; }
 .info[open] summary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
 .info[open] summary::before { background: var(--surface); color: var(--ink); }
 .info-pop { position: absolute; z-index: 30; right: 0; top: calc(100% + 8px); width: min(640px, calc(100vw - 32px)); max-height: min(70vh, 560px); overflow: auto; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); box-shadow: 0 12px 32px rgb(0 0 0 / .18); font-size: 13px; color: var(--text-2); }
+.info.dl summary::before { content: "↓"; font-size: 10.5px; }
+.files { display: grid; gap: 10px; margin-top: 12px; }
+.file { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; }
+.file b { color: var(--ink); font-size: 14px; }
+.file .cols { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+.file .acts { display: flex; gap: 6px; grid-row: 1 / span 2; grid-column: 2; }
+.file button { border: 1px solid var(--line); background: var(--surface); border-radius: 7px; padding: 5px 10px; font-size: 12.5px; font-weight: 600; cursor: pointer; color: var(--ink); white-space: nowrap; }
+.file button.primary { background: var(--ink); color: var(--surface); border-color: var(--ink); }
+#dlStatus { margin-top: 10px; min-height: 1.2em; }
+@media (max-width: 560px) { .file { grid-template-columns: minmax(0, 1fr); } .file .acts { grid-row: auto; grid-column: 1; } }
 .info-pop h2 { margin: 0 0 8px; font: 700 16px/1.2 var(--display); color: var(--ink); }
 .info-pop p { margin: 0; }
 .info-pop p + p { margin-top: 8px; }
@@ -54,23 +64,47 @@ button, input, select { font: inherit; color: inherit; }
 @media (max-width: 560px) { .info-pop dl { grid-template-columns: minmax(0, 1fr); gap: 2px; } .info-pop dd { margin-bottom: 6px; } }
 h1 { margin: 0; font: 800 clamp(26px, 3.2vw, 38px)/1.05 var(--display); color: var(--ink); letter-spacing: -.01em; text-wrap: balance; }
 
-.controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.controls { display: grid; gap: 10px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.bar1 { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.bar2 { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.views { display: flex; flex-wrap: wrap; gap: 6px; }
+.view { display: inline-flex; align-items: baseline; gap: 6px; padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 13px; color: var(--text-2); cursor: pointer; }
+.view b { font-size: 12px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.view:hover { background: var(--wash); }
+.view[aria-pressed=true] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.view[aria-pressed=true] b { color: inherit; opacity: .75; }
+.tally { margin-left: auto; display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tally strong { color: var(--ink); }
+.linkbtn { border: 0; background: none; padding: 2px 0; font-size: 13px; color: var(--text-2); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.linkbtn:disabled { opacity: .4; cursor: default; text-decoration: none; }
+.dd { position: relative; }
+.dd summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 13px; }
+.dd summary::-webkit-details-marker { display: none; }
+.dd summary::after { content: "▾"; font-size: 10px; color: var(--muted); }
+.dd summary .k { color: var(--muted); }
+.dd summary .v { color: var(--text); font-weight: 600; }
+.dd.on summary { border-color: var(--ink); background: var(--wash); }
+.dd.on summary .v { color: var(--ink); }
+.dd[open] summary { border-color: var(--ink); }
+.menu { position: absolute; z-index: 25; top: calc(100% + 6px); left: 0; width: max-content; min-width: 240px; max-width: min(360px, calc(100vw - 32px)); max-height: 60vh; overflow: auto; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 28px rgb(0 0 0 / .16); font-size: 13.5px; }
+.menu .note2 { padding: 4px 8px 6px; font-size: 12px; color: var(--muted); max-width: 320px; }
+.menu .acts2 { padding: 2px 8px 6px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+.opt { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; cursor: pointer; }
+.opt:hover { background: var(--wash); }
+.opt input { margin: 0; accent-color: var(--ink); }
+.opt .n { display: inline-flex; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.opt.zero > span:nth-child(2) { color: var(--muted); }
+.opt .only { visibility: hidden; padding: 0; border: 0; background: none; font-size: 11.5px; color: var(--text-2); text-decoration: underline; cursor: pointer; }
+.opt:hover .only, .opt:focus-within .only { visibility: visible; }
+.listbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 10px; }
+.listbar select { padding: 4px 6px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); font-size: 13px; }
+.listbar .linkbtn { margin-left: auto; }
 .search { position: relative; flex: 1 1 240px; max-width: 360px; min-width: 0; }
 .search input { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); }
 .results { position: absolute; z-index: 5; top: calc(100% + 4px); left: 0; right: 0; display: grid; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 8px 24px rgb(0 0 0 / .14); overflow: hidden; }
 .results button { text-align: left; padding: 7px 10px; border: 0; background: none; cursor: pointer; display: flex; justify-content: space-between; gap: 10px; }
 .results button:hover, .results button:focus-visible { background: var(--wash); }
 .results small { color: var(--muted); white-space: nowrap; }
-.ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--text-2); }
-.ctl input[type=range] { width: 130px; accent-color: var(--calvary); }
-.ctl output { font-weight: 700; color: var(--ink); min-width: 2ch; font-variant-numeric: tabular-nums; }
-.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.seg button { border: 0; background: none; padding: 6px 10px; font-size: 13px; cursor: pointer; color: var(--text-2); }
-.seg button[aria-pressed=true] { background: var(--ink); color: var(--surface); }
-.types { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 9px; border: 1px solid var(--line); border-radius: 999px; font-size: 12.5px; cursor: pointer; color: var(--text-2); user-select: none; }
-.chip input { margin: 0; accent-color: var(--ink); }
-.showing { margin-left: auto; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
 
 .body { display: grid; grid-template-columns: minmax(0, 1fr) clamp(380px, 27vw, 500px); gap: 12px; min-height: 0; }
 .graph { position: relative; min-height: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
@@ -151,7 +185,7 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
   .legend { position: static; background: none; padding: 6px 12px 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 10px; }
   .legend .sub { grid-column: 1 / -1; }
   .panel { overflow: visible; }
-  .showing { margin-left: 0; }
+  .tally { margin-left: 0; }
   .meta { align-items: flex-start; }
   .info-pop { right: auto; left: 0; }
   .hint { display: none; }
@@ -192,11 +226,15 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
             <dt>Tax year (TY)</dt><dd>The grantmaker's tax year for the return that reports the grant. 2020–24 is used because most 2025 returns are not filed yet.</dd>
             <dt>Granted, amount</dt><dd>Cash and non-cash grants as filed, added up over TY2020–24, in dollars of the day (not adjusted for inflation). Lines that cover several years at once are left out.</dd>
             <dt>Funding link</dt><dd>A grantmaker–organization pair with at least one grant in TY2020–24. Drawn as a line; its width shows the dollars.</dd>
-            <dt>Organizations funded</dt><dd>How many of the 19 (Calvary and 18 peers) a grantmaker gave to. Sets the circle's size and the slider.</dd>
+            <dt>Organizations funded</dt><dd>How many of the 19 (Calvary and 18 peers) a grantmaker gave to. Sets the circle's size and the Reach filter.</dd>
             <dt>Peers</dt><dd>In lists, how many of the 18 peers a grantmaker gave to.</dd>
             <dt>Funds Calvary</dt><dd>At least one grant to Calvary appears in the grantmaker's returns for TY2020–24.</dd>
             <dt>Not yet</dt><dd>The grantmaker gives to peers but no grant to Calvary appears in its returns. Calvary may still have received a gift that is not itemized there, such as a recent gift not yet filed.</dd>
             <dt>Bars 2020 → 2024</dt><dd>Dollars by tax year for one grantmaker–organization pair. Bars in the same list share one scale; hover a row for the exact figures.</dd>
+            <dt>Lapsed from Calvary</dt><dd>Gave to Calvary in tax years 2020–22, but no grant to Calvary appears in its 2023–24 returns. Some 2024 returns are still arriving, so a few may only be late.</dd>
+            <dt>Recent</dt><dd>Whether a grantmaker gave to any of the 19 in tax years 2023–24.</dd>
+            <dt>Size</dt><dd>A grantmaker's total grants to the 19 organizations over tax years 2020–24.</dd>
+            <dt>Prospects</dt><dd>Quick view: grantmakers that fund 3 or more of Calvary's peers and have no grant to Calvary in the filings.</dd>
             <dt>Winding down</dt><dd>A status note from the engagement's independent review. It currently applies only to the Clark Charitable Foundation.</dd>
           </dl>
         </div>
@@ -240,23 +278,29 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
           <p>Pro bono analysis prepared for Calvary Women's Services from public records. Not a Calvary publication.</p>
         </div>
       </details>
+      <details class="info dl" id="dl">
+        <summary>Download data</summary>
+        <div class="info-pop">
+          <h2>Download the data</h2>
+          <p>Spreadsheet files (CSV) for Excel or Google Sheets. Each file holds the full data, not just what the filters show. Amounts are grants as filed, tax years 2020–24; column meanings are in the Data dictionary. "Copy" puts the table on your clipboard to paste straight into a spreadsheet.</p>
+          <div class="files" id="files"></div>
+          <p class="sub" id="dlStatus" role="status"></p>
+        </div>
+      </details>
       </div>
     </div>
   </header>
 
   <div class="controls" role="group" aria-label="Filters">
-    <div class="search">
-      <input id="q" type="search" placeholder="Find a grantmaker or organization" autocomplete="off" aria-label="Find a grantmaker or organization" aria-controls="results">
-      <div class="results" id="results" hidden></div>
+    <div class="bar1">
+      <div class="search">
+        <input id="q" type="search" placeholder="Find a grantmaker or organization" autocomplete="off" aria-label="Find a grantmaker or organization" aria-controls="results">
+        <div class="results" id="results" hidden></div>
+      </div>
+      <div class="views" id="views" role="group" aria-label="Quick views"></div>
+      <div class="tally"><span id="showing"></span><button type="button" class="linkbtn" id="listBtn">List</button><button type="button" class="linkbtn" id="resetBtn">Reset</button></div>
     </div>
-    <label class="ctl" for="minOrgs">Funds at least <output id="minOut">3</output> of 19 organizations <input id="minOrgs" type="range" min="1" max="18" step="1" value="3"></label>
-    <div class="seg" role="group" aria-label="Which grantmakers">
-      <button type="button" id="show-all" data-show="all" aria-pressed="true">All grantmakers</button>
-      <button type="button" id="show-cal" data-show="cal" aria-pressed="false">Fund Calvary</button>
-      <button type="button" id="show-not" data-show="not" aria-pressed="false">Not yet</button>
-    </div>
-    <div class="types" id="types" role="group" aria-label="Grantmaker types"></div>
-    <span class="showing" id="showing"></span>
+    <div class="bar2" id="slicers" role="group" aria-label="Filter grantmakers"></div>
   </div>
 
   <main class="body">
@@ -286,6 +330,60 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
 const DATA = /*__DATA__*/null;
+// <tables> The files offered under "Download data". Pure: DATA in, tables out, so the build can check their totals.
+function buildTables(DATA) {
+  const cal = DATA.orgs.find((o) => o.calvary).id, yrs = DATA.years;
+  const org = new Map(DATA.orgs.map((o) => [o.id, o]));
+  const group = (rows, key) => { const m = new Map(); rows.forEach((r) => { if (!m.has(r[key])) m.set(r[key], []); m.get(r[key]).push(r); }); return m; };
+  const byF = group(DATA.links, "f"), byO = group(DATA.links, "o");
+  const ein = (id) => (/^\d{9}$/.test(id) ? id : "");  // grantmakers without an EIN carry a name-based id
+  const role = (id) => (id === cal ? "Calvary" : "Peer");
+  const calFunders = new Set((byO.get(cal) || []).map((l) => l.f));
+  const name = new Map(DATA.funders.map((f) => [f.id, f]));
+  const sumAmt = (ls) => ls.reduce((a, l) => a + l.amount, 0);
+  const grantmakers = {
+    id: "grantmakers", title: "Grantmakers", filename: `calvary_grantmakers_TY2020-24_asof_${DATA.asOf}.csv`,
+    desc: "One row per grantmaker: type, reach across the 19 organizations, and grants to Calvary.",
+    columns: ["Grantmaker", "Legal name", "EIN", "Type", "Organizations funded (of 19)", "Peers funded (of 18)", "Funds Calvary",
+      "Grants to Calvary, TY2020-24 ($)", "Grants to the 19, TY2020-24 ($)", "Grants filed", "Organizations funded", "Status note"],
+    rows: DATA.funders.map((f) => {
+      const ls = byF.get(f.id) || [], c = ls.find((l) => l.o === cal);
+      return [f.name, f.legal, ein(f.id), DATA.typeLabels[f.type] || f.type, f.orgs, ls.filter((l) => l.o !== cal).length, f.calvary ? "yes" : "no",
+        c ? c.amount : 0, f.amount, f.grants, ls.map((l) => org.get(l.o).name).sort().join("; "), f.note || ""];
+    }),
+  };
+  const linkRows = DATA.links.slice().sort((a, b) => (a.o === cal ? 0 : 1) - (b.o === cal ? 0 : 1) || org.get(a.o).name.localeCompare(org.get(b.o).name) || b.amount - a.amount);
+  const grants = {
+    id: "grants", title: "Grants by organization and year", filename: `calvary_grants_by_organization_and_year_TY2020-24_asof_${DATA.asOf}.csv`,
+    desc: "One row per grantmaker and organization, with the five-year total and each tax year.",
+    columns: ["Grantmaker", "Grantmaker EIN", "Organization", "Organization EIN", "Calvary or peer", "Total, TY2020-24 ($)", "Grants filed", ...yrs.map((y) => `TY${y} ($)`)],
+    rows: linkRows.map((l) => [name.get(l.f).name, ein(l.f), org.get(l.o).name, l.o, role(l.o), l.amount, l.grants, ...l.years]),
+  };
+  const orgRows = DATA.orgs.slice().sort((a, b) => (b.calvary - a.calvary) || a.group.localeCompare(b.group) || (b.revenue || 0) - (a.revenue || 0));
+  const orgs = {
+    id: "organizations", title: "The 19 organizations", filename: `calvary_and_18_peers_asof_${DATA.asOf}.csv`,
+    desc: "Calvary and its 18 peers: what each does, where, size, and its grantmakers in the filings.",
+    columns: ["Organization", "Legal name", "EIN", "Calvary or peer", "Group", "Location", "What it does", "Revenue ($)", "Revenue fiscal year",
+      "Government share, FY2022-24 average (%)", "Grantmakers in filings", "Grants from them, TY2020-24 ($)", "Grantmakers shared with Calvary"],
+    rows: orgRows.map((o) => {
+      const ls = byO.get(o.id) || [];
+      return [o.calvary ? "Calvary Women's Services" : o.name, o.legal, o.id, role(o.id), o.calvary ? "" : o.group, o.place, o.what, o.revenue, o.revYear,
+        o.gov == null ? "" : Math.round(o.gov * 1000) / 10, ls.length, sumAmt(ls), o.calvary ? "" : ls.filter((l) => calFunders.has(l.f)).length];
+    }),
+  };
+  return [grantmakers, grants, orgs];
+}
+function toDelimited(t, sep) {
+  const cell = (v) => {
+    if (v == null) return "";
+    if (typeof v === "number") return String(v);
+    let s = String(v);
+    if (/^[=+\-@]/.test(s)) s = "'" + s;  // keep spreadsheets from reading text as a formula
+    return sep === "," ? (/[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s) : s.replace(/[\t\n\r]+/g, " ");
+  };
+  return [t.columns, ...t.rows].map((r) => r.map(cell).join(sep)).join("\r\n");
+}
+// </tables>
 (() => {
   "use strict";
   const $ = (id) => document.getElementById(id);
@@ -424,33 +522,156 @@ const DATA = /*__DATA__*/null;
   $("zfit").onclick = () => { userMoved = false; fit(true); };
 
   // ---------------------------------------------------------------- filters
-  const state = { min: 3, show: "all", types: new Set(Object.keys(DATA.typeLabels)), sel: null, hover: null };
-  const typeCounts = d3.rollup(funders, (v) => v.length, (f) => f.type);
-  Object.entries(DATA.typeLabels).filter(([t]) => typeCounts.get(t)).forEach(([t, label]) => {
-    const lab = el("label", "chip"); const cb = el("input"); cb.type = "checkbox"; cb.checked = true; cb.id = "type-" + t;
-    cb.onchange = () => { cb.checked ? state.types.add(t) : state.types.delete(t); applyFilters(); };
-    lab.append(cb, document.createTextNode(label.replace(" (United Way and similar)", "")));
-    lab.title = `${label}: ${typeCounts.get(t)} grantmakers`;
-    $("types").append(lab);
+  // One state object behind every filter. Quick views are presets of it; each dropdown option shows how many grantmakers
+  // it would leave, given the other filters.
+  const ALL_TYPES = Object.keys(DATA.typeLabels).filter((t) => funders.some((f) => f.type === t));
+  const i23 = DATA.years.indexOf(2023), recentLink = (l) => l.years.slice(i23).some((v) => v > 0);
+  funders.forEach((f) => {
+    f.active = f.links.some(recentLink);
+    const c = f.links.find((l) => l.cal); f.lapsed = !!c && !recentLink(c);
   });
-  function visible(d) {
-    if (d.kind === "org") return true;
-    if (state.sel === d) return true;
-    return d.orgs >= state.min && state.types.has(d.type) && (state.show === "all" || (state.show === "cal") === d.calvary);
+  const fresh = () => ({ cal: "all", min: 3, types: new Set(ALL_TYPES), peers: new Set(), size: 0, recent: "any" });
+  const state = { ...fresh(), sel: null, hover: null, mode: "overview", sort: "orgs" };
+  function passes(f, st = state) {
+    if (f.orgs < st.min || !st.types.has(f.type) || f.amount < st.size) return false;
+    if ((st.cal === "funds" && !f.calvary) || (st.cal === "lapsed" && !f.lapsed) || (st.cal === "not" && f.calvary)) return false;
+    if ((st.recent === "active" && !f.active) || (st.recent === "quiet" && f.active)) return false;
+    return !st.peers.size || f.links.some((l) => st.peers.has(l.target.id));
   }
+  const count = (patch) => { const st = { ...state, ...patch }; let n = 0; for (const f of funders) if (passes(f, st)) n++; return n; };
+  function visible(d) { return d.kind === "org" || state.sel === d || passes(d); }
   function applyFilters() {
     nodeSel.attr("display", (d) => visible(d) ? null : "none");
     linkSel.attr("display", (l) => visible(l.source) ? null : "none");
-    const n = funders.filter(visible).length;
-    $("showing").textContent = `Showing ${n.toLocaleString()} of ${T.funders.toLocaleString()} grantmakers`;
     updateFunLabels(); highlight();
   }
-  $("minOrgs").oninput = (e) => { state.min = +e.target.value; $("minOut").textContent = state.min; applyFilters(); };
-  document.querySelectorAll(".seg button").forEach((b) => b.onclick = () => {
-    state.show = b.dataset.show;
-    document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+
+  const sumBy = (xs, fn) => xs.reduce((a, x) => a + fn(x), 0);
+  const names = (xs, n, fmt = (f) => f.name) => xs.slice(0, n).map(fmt).join(", ");
+  const TYPE_PLURAL = { private_foundation: "private foundation", community_foundation: "community foundation", corporate_foundation: "corporate foundation",
+    daf_sponsor: "donor-advised fund sponsor", federated_giving: "federated fund", public_charity_grantmaker: "public charity grantmaker", other: "other grantmaker" };
+  const typeMix = (xs) => d3.rollups(xs, (v) => v.length, (f) => f.type).sort((a, b) => b[1] - a[1])
+    .map(([t, n]) => `${n} ${TYPE_PLURAL[t] || t}${n === 1 ? "" : "s"}`).join(", ");
+  const winding = (xs) => xs.filter((f) => f.note).map((f) => ` ${f.name} is winding down.`).join("");
+  const byPeers = (a, b) => b.peers - a.peers || b.amount - a.amount, byCal = (a, b) => b.calAmount - a.calAmount;
+  const VIEWS = [
+    { id: "overview", label: "Overview", tip: "Grantmakers that fund 3 or more of the 19", set: {} },
+    { id: "prospects", label: "Prospects", title: "Prospects: peers' grantmakers that do not fund Calvary yet", sort: "orgs",
+      tip: "Fund 3 or more peers, with no grant to Calvary in the filings", set: { cal: "not" },
+      explain: (xs) => [
+        ["p", "Grantmakers that gave to three or more of Calvary's peers in tax years 2020–24 but have no grant to Calvary in their filings. They already fund work like Calvary's, which makes them a natural place to look for new support."],
+        ["p", `These ${xs.length} gave ${money(sumBy(xs, (f) => f.amount))} to the peers over the five years, and ${xs.filter((f) => f.active).length} of them gave in 2023–24. They are ${typeMix(xs)}. Most connected: ${names(xs.slice().sort(byPeers), 3, (f) => `${f.name} (${f.peers} peers)`)}.`],
+        ["sub", `A grant to a peer does not mean a grantmaker takes applications or would fund Calvary, so check each one's guidelines first.${winding(xs)}`],
+      ] },
+    { id: "calvary", label: "Calvary's grantmakers", title: "Calvary's grantmakers", sort: "cal",
+      tip: "Every grantmaker with a grant to Calvary in the filings", set: { cal: "funds", min: 1 },
+      explain: (xs) => [
+        ["p", `Every grantmaker that reported a grant to Calvary on its own IRS return, tax years 2020–24: ${xs.length} grantmakers and ${money(sumBy(xs, (f) => f.calAmount))} in total. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
+        ["p", `${xs.filter((f) => f.peers >= 3).length} of them also fund three or more of Calvary's peers. ${xs.filter((f) => f.lapsed).length} show no grant to Calvary in their 2023–24 returns; see Lapsed from Calvary.`],
+        ["sub", "Individual donors, events, direct company gifts and government grants are not in these returns, so this is one part of Calvary's support."],
+      ] },
+    { id: "lapsed", label: "Lapsed from Calvary", title: "Lapsed from Calvary", sort: "cal",
+      tip: "Gave to Calvary in 2020–22 but nothing to Calvary in 2023–24 filings; some 2024 returns are still arriving", set: { cal: "lapsed", min: 1 },
+      explain: (xs) => [
+        ["p", `Grantmakers that gave to Calvary in tax years 2020–22 but show no grant to Calvary in their 2023–24 returns: ${xs.length} grantmakers that gave Calvary ${money(sumBy(xs, (f) => f.calAmount))} in those earlier years. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
+        ["p", `${xs.filter((f) => f.active).length} of them still gave to Calvary's peers in 2023–24, so they remain active in this field and the relationship may be worth renewing.`],
+        ["sub", "Some 2024 returns are still arriving, so a few may only be late. A gift can also move to a channel these returns do not show, such as a donor's own donor-advised fund."],
+      ] },
+    { id: "hubs", label: "Major hubs", title: "Major hubs", sort: "orgs",
+      tip: "Fund 9 or more of the 19", set: { min: 9 },
+      explain: (xs) => {
+        const daf = xs.filter((f) => f.type === "daf_sponsor"), own = xs.filter((f) => f.type !== "daf_sponsor");
+        return [
+          ["p", `Grantmakers that fund nine or more of the 19 organizations, the most connected part of the web. These ${xs.length} gave ${money(sumBy(xs, (f) => f.amount))} to the 19 over five years, and ${xs.filter((f) => f.calvary).length} of them fund Calvary.`],
+          ["p", `${daf.length} are donor-advised fund sponsors (${names(daf, 6)}). Their grants are recommended by individual donors, so the relationship that matters is with those donors. The other ${own.length}: ${names(own, 8)}.${own.some((f) => f.type === "community_foundation") ? " Community foundations also manage donor-advised funds, so some of their grants come from individual donors too." : ""}`],
+          ["sub", "Hubs that already fund Calvary are relationships to deepen; hubs that do not are the most connected prospects."],
+        ];
+      } },
+  ];
+  const sameSet = (a, b) => a.size === b.size && [...a].every((x) => b.has(x));
+  const matches = (v) => { const t = { ...fresh(), ...v.set };
+    return t.cal === state.cal && t.min === state.min && t.size === state.size && t.recent === state.recent && sameSet(t.types, state.types) && sameSet(t.peers, state.peers); };
+  function applyView(v) {
+    Object.assign(state, fresh(), v.set, { mode: "overview", sort: v.sort || "orgs", sel: null });
+    update(); if (!userMoved) fit(true);
+  }
+  function paintViews() {
+    $("views").replaceChildren(...VIEWS.map((v) => {
+      const b = el("button", "view"); b.type = "button"; b.title = v.tip; b.setAttribute("aria-pressed", String(matches(v)));
+      b.append(document.createTextNode(v.label), el("b", null, count({ ...fresh(), ...v.set }).toLocaleString()));
+      b.onclick = () => applyView(v); return b;
+    }));
+  }
+
+  const closeOthers = (keep) => document.querySelectorAll("details.info[open], details.dd[open]").forEach((d) => { if (d !== keep) d.open = false; });
+  const painters = [];
+  function dropdown(key, label, paintMenu, valueText, isOn) {
+    const d = el("details", "dd"); d.id = "dd-" + key;
+    const sum = el("summary"), v = el("span", "v"); sum.append(el("span", "k", label), v);
+    const menu = el("div", "menu"); d.append(sum, menu); $("slicers").append(d);
+    const paint = () => {  // rebuild the menu with fresh counts, keeping keyboard focus on the same option
+      const fk = menu.contains(document.activeElement) ? document.activeElement.dataset.k : null;
+      paintMenu(menu);
+      if (fk != null) { const t = [...menu.querySelectorAll("[data-k]")].find((x) => x.dataset.k === fk); if (t) t.focus(); }
+    };
+    painters.push(() => { v.textContent = valueText(); d.classList.toggle("on", isOn()); if (d.open) paint(); });
+    d.addEventListener("toggle", () => { if (d.open) { closeOthers(d); paint(); } });
+  }
+  function radios(menu, key, opts, note) {
+    menu.replaceChildren();
+    if (note) menu.append(el("div", "note2", note));
+    opts.forEach(([val, text]) => {
+      const lab = el("label", "opt"), r = el("input"); r.type = "radio"; r.name = "r-" + key; r.checked = state[key] === val; r.dataset.k = String(val);
+      r.onchange = () => { state[key] = val; update(); };
+      const n = count({ [key]: val });
+      lab.classList.toggle("zero", n === 0);
+      lab.append(r, el("span", null, text), el("span", "n", n.toLocaleString()));
+      menu.append(lab);
+    });
+  }
+  function checks(menu, key, items, { anyLabel, reset, only }) {
+    const top = el("div", "acts2"), all = el("button", "linkbtn", anyLabel); all.type = "button"; all.dataset.k = "__all";
+    all.onclick = () => { state[key] = reset(); update(); };
+    top.append(all); menu.replaceChildren(top);
+    items.forEach(([val, text]) => {
+      const lab = el("label", "opt"), c = el("input"); c.type = "checkbox"; c.checked = state[key].has(val); c.dataset.k = val;
+      c.onchange = () => { const nx = new Set(state[key]); c.checked ? nx.add(val) : nx.delete(val); state[key] = nx; update(); };
+      const n = count({ [key]: new Set([val]) }), right = el("span", "n");
+      if (only) { const o = el("button", "only", "only"); o.type = "button"; o.title = "Show only this type"; o.onclick = (e) => { e.preventDefault(); state[key] = new Set([val]); update(); }; right.append(o); }
+      right.append(document.createTextNode(n.toLocaleString()));
+      lab.classList.toggle("zero", n === 0);
+      lab.append(c, el("span", null, text), right);
+      menu.append(lab);
+    });
+  }
+  const typeShort = (t) => DATA.typeLabels[t].replace(" (United Way and similar)", "");
+  const CAL = { all: "All", funds: "Fund Calvary", lapsed: "Lapsed", not: "Not yet" };
+  dropdown("cal", "Calvary", (m) => radios(m, "cal", [["all", "All grantmakers"], ["funds", "Fund Calvary"], ["lapsed", "Lapsed: no Calvary grant in 2023–24 filings"], ["not", "Not yet: no Calvary grant in the filings"]]),
+    () => CAL[state.cal], () => state.cal !== "all");
+  dropdown("min", "Reach", (m) => radios(m, "min", [[1, "1 or more of the 19"], [2, "2 or more"], [3, "3 or more"], [5, "5 or more"], [9, "9 or more (major hubs)"]], "How many of the 19 organizations a grantmaker funds"),
+    () => `${state.min}+ of 19`, () => state.min !== 3);
+  dropdown("types", "Type", (m) => checks(m, "types", ALL_TYPES.map((t) => [t, typeShort(t)]), { anyLabel: "All types", reset: () => new Set(ALL_TYPES), only: true }),
+    () => state.types.size === ALL_TYPES.length ? "All" : state.types.size === 1 ? typeShort([...state.types][0]) : `${state.types.size} of ${ALL_TYPES.length}`,
+    () => state.types.size !== ALL_TYPES.length);
+  const peersByName = peers.slice().sort((a, b) => a.name.localeCompare(b.name));
+  dropdown("peers", "Funds peer", (m) => checks(m, "peers", peersByName.map((o) => [o.id, o.name]), { anyLabel: "Any peer", reset: () => new Set(), only: false }),
+    () => state.peers.size === 0 ? "Any" : state.peers.size === 1 ? byKey.get("o-" + [...state.peers][0]).name : `${state.peers.size} peers`, () => state.peers.size > 0);
+  dropdown("size", "Size", (m) => radios(m, "size", [[0, "Any amount"], [25e3, "$25K or more"], [1e5, "$100K or more"], [5e5, "$500K or more"], [1e6, "$1M or more"]], "Total granted to the 19, tax years 2020–24"),
+    () => state.size ? `${money(state.size)}+` : "Any", () => state.size > 0);
+  dropdown("recent", "Recent", (m) => radios(m, "recent", [["any", "Any time 2020–24"], ["active", "Gave in 2023–24"], ["quiet", "Nothing since 2022"]], "Any grant to the 19 in tax years 2023–24. Some 2024 returns are still arriving."),
+    () => ({ any: "Any", active: "2023–24", quiet: "Not since 2022" })[state.recent], () => state.recent !== "any");
+
+  function update() {
     applyFilters();
-  });
+    painters.forEach((p) => p());
+    paintViews();
+    const n = funders.filter((f) => passes(f)).length;
+    $("showing").replaceChildren(el("strong", null, n.toLocaleString()), document.createTextNode(` of ${T.funders.toLocaleString()} grantmakers`));
+    $("resetBtn").disabled = matches(VIEWS[0]);
+    if (!state.sel) renderPanel();
+  }
+  $("resetBtn").onclick = () => applyView(VIEWS[0]);
+  $("listBtn").onclick = () => { state.mode = "list"; select(null); };
 
   // ---------------------------------------------------------------- selection and labels
   function neighbours(d) {
@@ -539,7 +760,7 @@ const DATA = /*__DATA__*/null;
   }
   function list(title, items, make, limit = 12) {
     const frag = document.createDocumentFragment();
-    frag.append(el("h3", null, title));
+    if (title) frag.append(el("h3", null, title));
     if (!items.length) { frag.append(el("p", "sub", "None in the filings.")); return frag; }
     const box = el("div", "rows"); frag.append(box);
     const draw = (n) => { box.replaceChildren(...items.slice(0, n).map(make)); };
@@ -551,7 +772,11 @@ const DATA = /*__DATA__*/null;
     return frag;
   }
   function kpis(pairs) { const g = el("div", "kpis"); pairs.forEach(([v, l]) => { const c = el("div", "kpi"); c.append(el("b", null, v), el("span", null, l)); g.append(c); }); return g; }
-  const back = () => { const b = el("button", "back", "← Overview"); b.type = "button"; b.onclick = () => select(null); return b; };
+  const listing = () => state.mode === "list" || !matches(VIEWS[0]);
+  const back = () => {
+    const v = VIEWS.find(matches), label = !listing() ? "Overview" : v && v.id !== "overview" ? v.label : "List";
+    const b = el("button", "back", `← ${label}`); b.type = "button"; b.onclick = () => select(null); return b;
+  };
   const yearsTitle = (l) => DATA.years.map((y, i) => `TY${y}: ${money(l.years[i])}`).join(" · ");
 
   const govTxt = (o) => o.gov == null ? "" : `${Math.round(o.gov * 100)}% government`;
@@ -589,7 +814,7 @@ const DATA = /*__DATA__*/null;
       el("p", "sub", "Returns are filed months after year end, so some 2024 grants are not in yet. Methodology lists everything these filings leave out."),
     );
     const how = el("ul", "how"); panel.append(how);
-    ["Click any circle to see who it funds, by year.", "Click a peer to list its grantmakers that do not fund Calvary yet.", "Move the slider to 1 or 2 to show the smaller grantmakers."].forEach((t) => how.append(el("li", null, t)));
+    ["Click any circle to see who it funds, by year.", "Click a peer to list its grantmakers that do not fund Calvary yet.", "Use a quick view such as Prospects, or the filters, to focus the map. List shows the grantmakers in view."].forEach((t) => how.append(el("li", null, t)));
     panel.append(orgDirectory());
     panel.append(
       list(`Fund 3+ peers, not Calvary yet (${gaps.length})`, gaps, (f) => row(f, `${f.peers} peers`, `${money(f.amount)} · ${DATA.typeLabels[f.type]}${f.note ? " · winding down" : ""}`), 10),
@@ -629,7 +854,43 @@ const DATA = /*__DATA__*/null;
     panel.append(list(`Fund ${o.name}, not Calvary (${notCal.length})`, notCal, (l) => row(l.source, money(l.amount), `${plural(l.source.orgs, "organization", "organizations")} funded${l.source.note ? " · winding down" : ""}`, { title: yearsTitle(l) }), 12));
     panel.append(list(`Also fund Calvary (${shared.length})`, shared, (l) => row(l.source, money(l.amount), `to ${o.name}; ${money(l.source.calAmount)} to Calvary`, { title: yearsTitle(l) }), 8));
   }
-  function renderPanel() { const s = state.sel; if (!s) renderOverview(); else if (s.kind === "funder") renderFunder(s); else renderOrg(s); panel.scrollTop = 0; }
+  function describe() {
+    const parts = [{ all: "All grantmakers", funds: "Fund Calvary", lapsed: "Lapsed from Calvary (no Calvary grant in 2023–24 filings)", not: "No grant to Calvary in the filings" }[state.cal],
+      `fund ${state.min}+ of the 19`];
+    if (state.types.size !== ALL_TYPES.length) parts.push([...state.types].map(typeShort).join(", "));
+    if (state.peers.size) parts.push("fund " + [...state.peers].map((id) => byKey.get("o-" + id).name).join(" or "));
+    if (state.size) parts.push(`${money(state.size)}+ to the 19`);
+    if (state.recent !== "any") parts.push(state.recent === "active" ? "gave in 2023–24" : "nothing since 2022");
+    return parts.join(" · ");
+  }
+  const SORTS = {
+    orgs: ["Organizations funded", (a, b) => b.orgs - a.orgs || b.amount - a.amount, (f) => `${f.orgs} of 19`],
+    amount: ["Granted to the 19", (a, b) => b.amount - a.amount, (f) => money(f.amount)],
+    cal: ["Granted to Calvary", (a, b) => b.calAmount - a.calAmount || b.orgs - a.orgs, (f) => (f.calAmount ? money(f.calAmount) : "none")],
+    name: ["Name", (a, b) => a.name.localeCompare(b.name), (f) => `${f.orgs} of 19`],
+  };
+  function renderList() {
+    const v = VIEWS.find(matches), preset = v && v.id !== "overview" ? v : null;
+    const [, cmp, val] = SORTS[state.sort], items = funders.filter((f) => passes(f)).sort(cmp);
+    const exit = el("button", "back", "← Overview"); exit.type = "button"; exit.onclick = () => applyView(VIEWS[0]);
+    panel.replaceChildren(exit, el("h2", null, preset ? preset.title : "Grantmakers in this view"));
+    const paras = preset ? preset.explain(items) : [["sub", describe()],
+      ["p", `${items.length.toLocaleString()} grantmakers gave ${money(sumBy(items, (f) => f.amount))} to the 19 over tax years 2020–24, and ${items.filter((f) => f.calvary).length} of them fund Calvary.`]];
+    paras.forEach(([c, t]) => panel.append(el("p", c === "sub" ? "sub" : null, t)));
+    panel.append(el("h3", null, `${preset ? preset.label : "Grantmakers"} (${items.length.toLocaleString()})`));
+    const bar = el("div", "listbar"), sel = el("select"); sel.id = "sortBy"; sel.setAttribute("aria-label", "Sort by");
+    Object.entries(SORTS).forEach(([k, [label]]) => { const o = el("option", null, label); o.value = k; o.selected = k === state.sort; sel.append(o); });
+    sel.onchange = () => { state.sort = sel.value; renderList(); };
+    const exp = el("button", "linkbtn", "Download this list (CSV)"); exp.type = "button"; exp.onclick = () => exportView(items);
+    bar.append(el("span", "sub", "Sort by"), sel, exp); panel.append(bar);
+    if (!items.length) { panel.append(el("p", "sub", "No grantmaker matches these filters. Reset, or loosen one of them.")); return; }
+    panel.append(list(null, items, (f) => row(f, val(f), `${typeShort(f.type)}${f.calvary ? (f.lapsed ? " · lapsed from Calvary" : " · funds Calvary") : ""}${f.note ? " · winding down" : ""}`), 40));
+  }
+  function exportView(items) {  // the grantmakers file, cut to this view, in the list's order
+    const t = tables[0], rowById = new Map(DATA.funders.map((f, i) => [f.id, t.rows[i]]));
+    save({ ...t, filename: `calvary_grantmakers_this_view_asof_${DATA.asOf}.csv`, rows: items.map((f) => rowById.get(f.id)) });
+  }
+  function renderPanel() { const s = state.sel; if (!s) (listing() ? renderList : renderOverview)(); else if (s.kind === "funder") renderFunder(s); else renderOrg(s); panel.scrollTop = 0; }
 
   // ---------------------------------------------------------------- search
   const q = $("q"), results = $("results");
@@ -648,20 +909,48 @@ const DATA = /*__DATA__*/null;
   q.onkeydown = (e) => { if (e.key === "Enter") { const b = results.querySelector("button"); if (b) b.click(); } if (e.key === "Escape") { results.hidden = true; } };
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".search")) results.hidden = true;
-    document.querySelectorAll("details.info[open]").forEach((d) => { if (!d.contains(e.target)) d.open = false; });
+    document.querySelectorAll("details.info[open], details.dd[open]").forEach((d) => { if (!d.contains(e.target)) d.open = false; });
   });
-  document.querySelectorAll("details.info").forEach((d) => d.addEventListener("toggle", () => {
-    if (d.open) document.querySelectorAll("details.info[open]").forEach((o) => { if (o !== d) o.open = false; });
-  }));
+  document.querySelectorAll("details.info").forEach((d) => d.addEventListener("toggle", () => { if (d.open) closeOthers(d); }));
   document.addEventListener("keydown", (e) => {
-    const d = document.querySelector("details.info[open]");
+    const d = document.querySelector("details.info[open], details.dd[open]");
     if (e.key === "Escape" && d) { d.open = false; d.querySelector("summary").focus(); }
   });
+
+  // ---------------------------------------------------------------- downloads
+  const status = (t) => { $("dlStatus").textContent = t; };
+  const tables = buildTables(DATA);
+  function save(t) {
+    const csv = "\uFEFF" + toDelimited(t, ",");  // byte-order mark so Excel reads the en dashes and accents
+    const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    const a = el("a"); a.href = url; a.download = t.filename; document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+    status(`Downloaded ${t.filename}.`);
+  }
+  async function copy(t) {
+    const tsv = toDelimited(t, "\t");
+    try { await navigator.clipboard.writeText(tsv); status(`Copied ${t.rows.length.toLocaleString()} rows. Paste into a spreadsheet.`); }
+    catch (e) {
+      const ta = el("textarea"); ta.value = tsv; ta.style.position = "fixed"; ta.style.opacity = "0"; document.body.append(ta); ta.select();
+      const ok = document.execCommand && document.execCommand("copy"); ta.remove();
+      status(ok ? `Copied ${t.rows.length.toLocaleString()} rows. Paste into a spreadsheet.` : "Copy is blocked here. Use Download instead.");
+    }
+  }
+  $("files").replaceChildren(...tables.map((t) => {
+    const box = el("div", "file"), head = el("div");
+    head.append(el("b", null, t.title), document.createTextNode(` · ${t.rows.length.toLocaleString()} rows`));
+    const acts = el("div", "acts");
+    const d = el("button", "primary", "Download CSV"); d.type = "button"; d.onclick = () => save(t);
+    const c = el("button", null, "Copy"); c.type = "button"; c.onclick = () => copy(t);
+    acts.append(d, c);
+    box.append(head, acts, el("div", "sub", t.desc), el("div", "cols", "Columns: " + t.columns.join(" · ")));
+    return box;
+  }));
 
   // ---------------------------------------------------------------- start
   $("asof").textContent = DATA.asOf;
   $("calgov").textContent = `${Math.round(calvary.gov * 100)}%`;
-  applyFilters();
+  update();
   renderPanel();
   fit(false);
   // Refit until the viewer zooms or pans: fonts and the panel settle after first paint and change the map's size.

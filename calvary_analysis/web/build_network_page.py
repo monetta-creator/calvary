@@ -93,7 +93,7 @@ def build_data() -> dict:
     for r in fun.sort_values(["orgs", "amount"], ascending=False).itertuples():
         legal = df.funder_name.get(r.funder_id, r.funder_id)
         ftype = df.funder_type.get(r.funder_id, "other") if pd.notna(df.funder_type.get(r.funder_id)) else "other"
-        funders.append({"id": r.funder_id, "name": FUNDER_SHORT.get(r.funder_id, display_name(legal)), "legal": display_name(legal),
+        funders.append({"id": r.funder_id, "name": FUNDER_SHORT[r.funder_id].replace(" Fdn", " Foundation") if r.funder_id in FUNDER_SHORT else display_name(legal), "legal": display_name(legal),
                         "type": ftype, "orgs": int(r.orgs), "amount": round(float(r.amount)), "grants": int(r.grants),
                         "calvary": r.funder_id in cal_funders, "note": NOTES.get(r.funder_id, "")})
     out_links = [{"f": r.funder_id, "o": r.recipient_ein, "amount": round(float(r.amount)), "grants": int(r.grants),
