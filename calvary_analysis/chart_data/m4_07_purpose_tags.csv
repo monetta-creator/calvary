@@ -1,0 +1,14 @@
+tag,amount,grants,funders,share_of_tagged_dollars,source_tables,source_ids
+other,130881791.0,2391,352,0.44098117048635493,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+general_operating,103600521.0,2043,212,0.34906214733550056,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+health,17503548.0,293,81,0.05897485834911975,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+housing,16601783.0,209,50,0.055936533596949854,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+workforce,8760145.0,54,21,0.02951563365854452,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+behavioral_health,6652500.0,36,13,0.022414326807771723,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+women,5021104.0,79,27,0.016917649904819216,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+veterans,2761000.0,20,8,0.00930266160334577,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+education,2402423.0,80,27,0.008094504960918056,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+aging,1332000.0,6,4,0.004487919324757901,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+reentry,490000.0,4,3,0.0016509613131616904,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+dv,434964.0,28,13,0.0014655280339144112,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+maternal_health,355000.0,9,6,0.0011961046248416328,fact_grants;dim_program_area,bulk_gt_datalake;bulk_irs_xml

@@ -1,0 +1,19 @@
+indicator,geo,value,moe,source_tables,source_ids
+Poverty rate,Ward 7,0.228832,0.023696,dim_geo,api_census_acs5
+Poverty rate,Ward 8,0.306103,0.028144,dim_geo,api_census_acs5
+Poverty rate,DC,0.154394,0.006533,dim_geo,api_census_acs5
+Female poverty rate,Ward 7,0.248198,0.025708,dim_geo,api_census_acs5
+Female poverty rate,Ward 8,0.316905,0.02936,dim_geo,api_census_acs5
+Female poverty rate,DC,0.163116,0.00763,dim_geo,api_census_acs5
+Renters paying 30%+ of income,Ward 7,0.553418,0.049356,dim_geo,api_census_acs5
+Renters paying 30%+ of income,Ward 8,0.545627,0.037189,dim_geo,api_census_acs5
+Renters paying 30%+ of income,DC,0.465974,0.013418,dim_geo,api_census_acs5
+Renters paying 50%+,Ward 7,0.333229,0.039859,dim_geo,api_census_acs5
+Renters paying 50%+,Ward 8,0.324502,0.027751,dim_geo,api_census_acs5
+Renters paying 50%+,DC,0.236237,0.009361,dim_geo,api_census_acs5
+Unemployment,Ward 7,0.126856,0.019525,dim_geo,api_census_acs5
+Unemployment,Ward 8,0.1335,0.021051,dim_geo,api_census_acs5
+Unemployment,DC,0.063476,0.004103,dim_geo,api_census_acs5
+"Female householder, no spouse",Ward 7,0.289722,0.02209,dim_geo,api_census_acs5
+"Female householder, no spouse",Ward 8,0.298072,0.022964,dim_geo,api_census_acs5
+"Female householder, no spouse",DC,0.130595,0.004511,dim_geo,api_census_acs5

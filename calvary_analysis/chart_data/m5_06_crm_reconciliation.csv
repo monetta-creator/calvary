@@ -1,0 +1,6 @@
+status,funders,crm_total,source_tables,source_ids
+not_exempt_filer,92,2553047.0,supp_crm_cash_verification,input_crm_funders_2023_2026
+no_filing_rows,29,1613137.0,supp_crm_cash_verification,input_crm_funders_2023_2026
+confirmed_in_window,25,4632578.0,supp_crm_cash_verification,input_crm_funders_2023_2026
+attachment_only_list,7,1279435.0,supp_crm_cash_verification,input_crm_funders_2023_2026
+confirmed_earlier_only,7,477879.0,supp_crm_cash_verification,input_crm_funders_2023_2026

@@ -1,0 +1,47 @@
+# Pipeline scoring weights and tier cutoffs for M7 (scripts/07_m7_pipeline.py). Edit and rerun.
+# Each dimension is scored 0-1 from the evidence in chart_data/m5_00_candidate_funders.csv and m6_05_relationship_paths.csv.
+weights:
+  mission_fit: 0.20        # funder's issue tags and share of its DC-sector giving whose purpose names housing/DV/women
+  peer_giving: 0.20        # how many of the 18 core peers it funds (TY2020-24 filings)
+  regional_giving: 0.10    # dollars to DC-sector organizations TY2020-24 (log scale)
+  award_size: 0.15         # typical grant to peers (median), log scale $5K -> $250K
+  accessibility: 0.10      # funder type and breadth of recipients (open process vs closed family foundation); 'see attached' filers penalized
+  durability: 0.10         # years funding peers and years active in the DC sector
+  relationship: 0.15       # M6 path strength (shared peers, co-funders, high-confidence board links) plus current / lapsed / CRM status
+
+award_size_scale: {min_amount: 5000, max_amount: 250000}      # log-linear 0 -> 1
+regional_scale: {min_amount: 50000, max_amount: 10000000}     # log-linear 0 -> 1
+peer_giving_cap: 8                                            # peers funded at which the score reaches 1
+
+accessibility_scores:
+  community_foundation: 0.85
+  public_charity_grantmaker: 0.75
+  federated_giving: 0.70
+  corporate_foundation: 0.55
+  private_foundation_broad: 0.70      # >= 20 distinct DC-sector recipients
+  private_foundation_mid: 0.50        # 8-19 recipients
+  private_foundation_narrow: 0.30     # < 8 recipients (family / closed)
+  daf_sponsor: 0.15                   # donor intermediaries: not a grant pipeline
+  other: 0.40
+placeholder_penalty: 0.15             # subtract when the funder files 'see attached' lists (harder to verify, often closed)
+in_kind_penalty: 0.30                 # subtract for in-kind / workplace-giving channels (config list below)
+in_kind_channels: ["521593963", "521167581", "541517707", "810693451"]   # Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively
+daf_like_channels: ["311709466"]     # T. Rowe Price Program for Charitable Giving: a donor-advised program, scored like a DAF sponsor
+
+relationship_bonus:
+  current_funder: 0.35
+  lapsed_funder: 0.20
+  on_calvary_list_or_crm: 0.15
+
+tiers:
+  tier1_min_score: 0.62
+  tier2_min_score: 0.48
+  tier1_min_award: 25000      # a Tier 1 target must write grants of at least this size to peers (median)
+  max_tier1: 20
+
+government_rows:               # retained / expansion rows added to the pipeline with analyst scores (basis = inferred)
+  - {id: GOV-DC-1, name: "DC OVSJG Victim Services grants (Reach Up, New Foundations)", track: government_dc, score: 0.80, tier: 1, note: "retain and grow: annual continuation; Council restored proposed cuts FY26 and FY27"}
+  - {id: GOV-DC-2, name: "DHS homeless services via TCP (TH contract, Sisters Rise)", track: government_dc, score: 0.72, tier: 1, note: "largest single exposure; confirm FY25-26 contract values and draw-down against ceilings"}
+  - {id: GOV-FED-1, name: "HUD Continuum of Care via TCP (Sister Circle, Reach Up, New Foundations 2)", track: government_federal, score: 0.78, tier: 1, note: "annual renewal; 5% of DC CoC; protect renewals, consider a PSH expansion project in the next competition"}
+  - {id: GOV-DC-3, name: "DHS Permanent Supportive Housing (local PSH lines, $145-166M)", track: government_dc, score: 0.55, tier: 2, note: "expansion: Calvary holds 16 PSH beds; the local PSH budget is 25x the CoC pool"}
+  - {id: GOV-FED-2, name: "HUD Community Project Funding (earmark) renewal", track: government_federal, score: 0.45, tier: 2, note: "$200K awarded 2023 for a capital project; member-request cycle each spring"}

@@ -1,0 +1,12 @@
+calvary_funding_data/raw/
+calvary_funding_data/interim/
+calvary_funding_data/.venv/
+calvary_analysis/decks/node_modules/
+pdf-data/
+.DS_Store
+__pycache__/
+*.pyc
+*.lock
+*.pkl
+calvary_funding_data/clean/fact_grants.csv
+calvary_funding_data/clean/fact_org_relationships.csv

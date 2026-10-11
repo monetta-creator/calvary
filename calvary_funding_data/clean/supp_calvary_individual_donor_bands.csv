@@ -1,0 +1,5 @@
+source_id,document,report_year,gift_band_raw,band_min,band_max,individual_count,notes,retrieved_date
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,"$5,000 and above",5000,,17,count of printed listings; a couple or household listed together counts as one; 'Anonymous' included,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,"$1,000 to 4,999",1000,4999,63,count of printed listings; a couple or household listed together counts as one; 'Anonymous' included,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,$500 to 999,500,999,57,count of printed listings; a couple or household listed together counts as one; 'Anonymous' included,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,$250 to 499,250,499,93,count of printed listings; a couple or household listed together counts as one; 'Anonymous' included,2026-10-10

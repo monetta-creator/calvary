@@ -1,0 +1,5 @@
+year,dc_th_beds,calvary_th_beds,calvary_share_of_th,calvary_psh_beds,calvary_rrh_beds,source_tables,source_ids
+2022,1783,45,0.025238362310712283,16,7,supp_hic_projects,doc_hud_hic_dc500
+2023,1476,73,0.0494579945799458,16,9,supp_hic_projects,doc_hud_hic_dc500
+2024,1693,60,0.03544004725339634,40,7,supp_hic_projects,doc_hud_hic_dc500
+2025,1385,94,0.06787003610108304,16,14,supp_hic_projects,doc_hud_hic_dc500

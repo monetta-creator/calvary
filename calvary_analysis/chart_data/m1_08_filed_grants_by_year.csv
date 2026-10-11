@@ -1,0 +1,6 @@
+tax_year,daf,institutional,funders,source_tables,source_ids
+2020.0,182340.0,454343.0,27,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+2021.0,206958.0,603928.0,26,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+2022.0,212264.0,947191.0,29,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+2023.0,212510.0,446649.0,29,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+2024.0,279570.0,887906.0,26,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

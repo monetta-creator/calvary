@@ -1,0 +1,15 @@
+ein,fiscal_year,fye_month,total_revenue,government,private_contributions,program_service,other,gov_share,total_expenses,net_assets_eoy,months_of_cash,source_tables,source_ids
+311597223,2014,12,6307637.0,1505778.0,4008514.0,528770.0,264575.0,0.23872299563212024,7252887.0,17792658.0,2.06,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2015,12,7435079.0,2125014.0,4528111.0,556917.0,225037.0,0.2858092025652989,7371626.0,17685957.0,2.6,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2016,12,9176562.0,2978075.0,5079605.0,553562.0,565320.0,0.3245305812786968,9046705.0,17489376.0,2.14,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2017,12,8927525.0,2928189.0,4598083.0,1120103.0,281150.0,0.32799560908538483,10092147.0,16546477.0,2.06,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2018,12,11589269.0,3535362.0,6873264.0,1110047.0,70596.0,0.3050547881837931,10935298.0,16891322.0,3.05,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2019,12,11728685.0,3783833.0,6379373.0,1243185.0,322294.0,0.32261357517914413,11962655.0,17097947.0,2.89,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2020,12,14724778.0,5841251.0,7380276.0,1356408.0,146843.0,0.39669535255472105,13433897.0,18411155.0,4.42,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2021,12,20994562.0,9310478.0,9914051.0,1173738.0,596295.0,0.4434709330921026,16941771.0,22403467.0,3.1,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2022,12,24112515.0,13657270.0,9017048.0,1297220.0,140977.0,0.566397574039871,23762411.0,21955706.0,2.09,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2023,12,27162816.0,15727674.0,9608643.0,1638283.0,188216.0,0.5790148561916408,27127703.0,22321663.0,1.81,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+311597223,2024,12,34403997.0,19624976.0,12804317.0,1799024.0,175680.0,0.570427209373376,28943860.0,28330491.0,2.4,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+882046704,2023,6,1377300.0,1207810.0,169349.0,0.0,141.0,0.8769403906193277,404768.0,972532.0,28.48,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+882046704,2024,6,1486733.0,1257177.0,223274.0,1800.0,4482.0,0.8455970238099242,1747039.0,712222.0,4.84,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+882046704,2025,6,1840152.0,1280310.0,558331.0,1511.0,0.0,0.6957631760854538,1506943.0,1043635.0,8.23,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile

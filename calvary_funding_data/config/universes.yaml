@@ -1,0 +1,156 @@
+# Universe definitions. scripts/20_build_universes.py reads this file; every rule_id below appears in
+# clean/dim_universe_membership.csv. Edit here and rerun to rebuild.
+#
+# NTEE codes are matched on the first 3 characters of BMF NTEE_CD (e.g. "L41Z" -> "L41").
+# Labels come from the IRS EO BMF documentation (eo-info.pdf), written to config/ntee_codes.csv.
+
+public_charity:
+  subsection: "03"
+  exclude_foundation_codes: ["02", "03", "04", "09"]   # 02-04 private foundations, 09 suspense
+
+private_foundation:
+  foundation_codes: ["02", "03", "04"]
+  or_pf_filing_req_cd: "1"
+
+recent_filing:
+  # Evidence of a return for a period ending 2021-01 or later (TY2020+): BMF TAX_PERIOD or IRS e-file index.
+  min_tax_period: 202101
+
+ntee:
+  core:          # homelessness, temporary housing, DV shelters and victim services
+    - L40   # Temporary Housing
+    - L41   # Homeless Shelters
+    - P85   # Homeless Centers
+    - P43   # Family Violence Shelters
+    - I70   # Protection Against Abuse
+    - I71   # Spouse Abuse, Prevention
+    - I73   # Sexual Abuse, Prevention
+    - P62   # Victims' Services
+    - F42   # Rape Victim Services
+  adjacent:      # housing, related human services, behavioral health, reentry, workforce, food, veterans, women's rights
+    - L01
+    - L02
+    - L03
+    - L05
+    - L11
+    - L12
+    - L19
+    - L20
+    - L21
+    - L24
+    - L25
+    - L30
+    - L80
+    - L81
+    - L82
+    - L99
+    - P20
+    - P24
+    - P26
+    - P27
+    - P28
+    - P40
+    - P42
+    - P44
+    - P46
+    - P50
+    - P60
+    - P70
+    - P73
+    - P75
+    - P80
+    - P99
+    - F20
+    - F21
+    - F22
+    - F30
+    - F32
+    - F33
+    - F40
+    - F60
+    - F70
+    - F99
+    - I31
+    - I40
+    - I43
+    - I44
+    - J20
+    - J21
+    - J22
+    - J30
+    - W30
+    - K30
+    - K31
+    - K35
+    - R24
+    - P83   # Women's Centers (NCCS code; not in the IRS eo-info table)
+  shelter_dv:    # used for size_matched and national_women
+    - L40
+    - L41
+    - P85
+    - P43
+    - P83   # Women's Centers (e.g. Downtown Women's Center, LA)
+  women_name_codes:   # codes in which a women-focused name qualifies for national_women
+    - L40
+    - L41
+    - P85
+    - L80
+    - L20
+    - L21
+    - L99
+    - P20
+    - P60
+  grantmaking_pc:     # grantmaking public charities (community foundations, federated giving, public foundations)
+    - T20
+    - T21
+    - T22
+    - T30
+    - T31
+    - T50
+    - T70
+    - T90
+    - T99
+
+women_name_regex: "(?i)\\b(?:women|womens|woman|womans|sister|sisters|mothers|ladies|girls|ywca|house of ruth|domestic violence|battered|survivors)\\b"
+dv_housing_name_regex: "(?i)\\b(?:shelter|house|housing|home|haven|safe)\\b"
+
+calvary:
+  ein: "521307706"
+  # Total revenue by tax year (TY2022 from the 990 XML/ProPublica; TY2023 = prior-year column of the TY2024 990; TY2024 from the TY2024 990).
+  revenue_by_tax_year: {2022: 4456814, 2023: 5817167, 2024: 4967995}
+  size_band_multipliers: [0.5, 2.0]   # band = [0.5x, 2x] of the 3-year median
+
+geo:
+  dc_state: DC
+  dmv_states: [DC, MD, VA]
+  msa_cbsa: "47900"     # Washington-Arlington-Alexandria, DC-VA-MD-WV (OMB July 2023); WV excluded from scope
+
+universes:
+  calvary:
+    - {rule_id: SUBJ, desc: "Calvary Women's Services (subject organization)"}
+  dc_sector:
+    - {rule_id: DCS1, desc: "DC public charity, NTEE core or adjacent, recent filing (TY2020+)"}
+    - {rule_id: DCS2, desc: "DC public charity, NTEE core or adjacent, no return since TY2020 in BMF/e-file index (likely 990-N filer or inactive)"}
+  dmv_sector:
+    - {rule_id: DMV1, desc: "Public charity in a DC-MSA county of DC/MD/VA (by ZIP->county), NTEE core or adjacent, recent filing"}
+    - {rule_id: DMV2, desc: "Same as DMV1 but no return since TY2020 (likely 990-N filer or inactive)"}
+  national_women:
+    - {rule_id: NW1, desc: "Public charity nationwide, NTEE P43 Family Violence Shelters, recent filing"}
+    - {rule_id: NW2, desc: "Public charity nationwide, homeless/housing/human-services NTEE (women_name_codes) with a women-focused name, recent filing"}
+    - {rule_id: NW3, desc: "Public charity nationwide, NTEE I71 with a housing/shelter term in the name, recent filing"}
+    - {rule_id: NW4, desc: "Public charity nationwide, NTEE P83 Women's Centers, recent filing"}
+  size_matched:
+    - {rule_id: SZ1, desc: "Public charity nationwide, NTEE shelter_dv (L40/L41/P85/P43/P83), BMF revenue within [0.5x, 2x] of Calvary's TY2022-24 median, recent filing"}
+  dmv_funders:
+    - {rule_id: F1, desc: "Private foundation (FOUNDATION 02/03/04 or PF_FILING_REQ_CD=1) in DC/MD/VA"}
+    - {rule_id: F2, desc: "Public charity in DC/MD/VA with grantmaking NTEE (T20-T99 set), recent filing"}
+    - {rule_id: F3, desc: "Pinned grantmaking public charity in DC/MD/VA (config/funder_pins.csv)"}
+  daf_sponsors:
+    - {rule_id: DAF1, desc: "National donor-advised-fund sponsor (config/daf_sponsors.csv), parsed for Schedule I grants to DC/MD/VA recipients"}
+  calvary_known_funders:
+    - {rule_id: KF1, desc: "Exempt organization named as a Calvary funder in Calvary's CRM export, annual reports or support page, matched to an EIN (interim/known_funder_matches.csv, accept=yes)"}
+    - {rule_id: KF2, desc: "Inferred foundation of a corporate donor named in Calvary's sources (accept=inferred; low/medium confidence link)"}
+  named_comparators:
+    - {rule_id: NC1, desc: "Organization named by Calvary leadership for inclusion in every analysis (config/named_comparators.csv)"}
+  core_peers:
+    - {rule_id: CP1, desc: "Approved core peer (config/core_peers.csv), selected at Checkpoint 2"}

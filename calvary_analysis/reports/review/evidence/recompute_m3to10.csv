@@ -1,0 +1,927 @@
+item,as_shown,recomputed,match,notes
+APP.B10.FY17.My Sister's Place,82%,82.1554,exact,preferred row FY2017
+APP.B10.FY18.N Street Village,42%,41.8479,exact,preferred row FY2018
+APP.B10.FY19.New Endeavors by Women,76%,76.4466,exact,preferred row FY2019
+APP.B10.FY20.Open Arms Housing,86%,85.5392,exact,preferred row FY2020
+APP.B10.FY22.House of Ruth DC,50%,50.2786,exact,preferred row FY2022
+APP.B10.FY22.Samaritan Inns,72%,72.1909,exact,preferred row FY2022
+APP.B10.FY23.House of Ruth MD,58%,58.089,exact,preferred row FY2023
+APP.B10.FY23.Thrive DC,21%,21.3973,exact,preferred row FY2023
+APP.B11.Calvary percentile.National women's/DV orgs,46th,,skipped,duplicate of M3 sector-distribution item
+APP.B11.Calvary.Size-matched national,61%,,skipped,duplicate of M3 sector-distribution item
+APP.B11.p90.DC sector,90%,90.1824,exact,drop orgs with no gov line (n=163); zero-fill variant would give 71%
+"APP.B13.Other.DWC (LA, reference)","$140,977",140977.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B13.Other.N Street Village,"$326,685",326685.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B13.Other.N Street Village,$0,0.0,exact,"private = contributions_total - government; other = total - contributions - program service; residual is -42672 (negative), deck shows $0 -> author floors negative other at 0"
+"APP.B13.Private contributions.DWC (LA, reference)","$6,379,373",6379373.0,exact,private = contributions_total - government; other = total - contributions - program service
+"APP.B13.Private contributions.DWC (LA, reference)","$12,804,317",12804317.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B13.Private contributions.N Street Village,"$6,533,630",6533630.0,exact,private = contributions_total - government; other = total - contributions - program service
+"APP.B13.Total revenue.DWC (LA, reference)","$20,994,562",20994562.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B13.Total revenue.N Street Village,"$8,856,653",8856653.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B13.Total revenue.N Street Village,"$9,977,639",9977639.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Other.Miriam's Kitchen,$0,0.0,exact,"private = contributions_total - government; other = total - contributions - program service; residual is -82470 (negative), deck shows $0 -> author floors negative other at 0"
+APP.B14.Other.Samaritan Inns,"$92,589",92589.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Other.Samaritan Inns,"$171,866",171866.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Private contributions.Miriam's Kitchen,"$3,684,589",3684589.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Private contributions.Miriam's Kitchen,"$6,279,951",6279951.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Private contributions.Samaritan Inns,"$1,281,200",1281200.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Total revenue.Miriam's Kitchen,"$8,193,619",8193619.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Total revenue.Samaritan Inns,"$2,888,629",2888629.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B14.Total revenue.Samaritan Inns,"$5,937,792",5937792.0,exact,private = contributions_total - government; other = total - contributions - program service
+APP.B15.CoC ÷ revenue.Calvary,30%,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B15.CoC ÷ revenue.Christ House,61%,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B15.CoC ÷ revenue.DASH,20%,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B15.CoC ÷ revenue.My Sister's Place,28%,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B15.CoC ÷ revenue.N Street Village,2%,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B15.OVSJG awards DC FY2026.Community of Hope,0.0,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B15.OVSJG awards DC FY2026.My Sister's Place,3805746.0,,skipped,duplicate of M3 OVSJG/CoC item
+APP.B16.Jaccard (institutional).Christ House,0.12,0.1228,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Jaccard (institutional).Coalition for the Homeless,0.05,0.0455,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Jaccard (institutional).New Endeavors by Women,0.24,0.24,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer institutional funde.DC SAFE,5,5.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer institutional funde.Doorways (VA),29,29.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer institutional funde.My Sister's Place,13,13.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer's institutional.Covenant House DC,23,23.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer's institutional.Everyone Home DC,10,10.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer's institutional.Heartly House (MD),18,18.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Peer's institutional.House of Ruth DC,83,83.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Shared institutional.DASH,14,14.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Shared institutional.N Street Village,9,9.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Shared institutional.Open Arms Housing,2,2.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B16.Shared institutional.Samaritan Inns,5,5.0,exact,"filed grants TY20-24, exclusions applied; Calvary funder count 50"
+APP.B18.Government share.FY2014,24%,23.8723,exact,
+APP.B18.Government share.FY2024,57%,57.0427,exact,
+APP.B18.Government.FY2020,"$5,841,251",5841251.0,exact,
+APP.B18.Months of cash.FY2017,2.1,2.0618,exact,
+APP.B18.Net assets.FY2016,"$17,489,376",17489376.0,exact,
+APP.B18.Other.FY2023,"$188,216",188216.0,exact,
+APP.B18.Private contributions.FY2021,"$9,914,051",9914051.0,exact,
+APP.B18.Program service.FY2022,"$1,297,220",1297220.0,exact,
+APP.B18.Total expenses.FY2015,"$7,371,626",7371626.0,exact,
+APP.B18.Total revenue.FY2019,"$11,728,685",11728685.0,exact,
+APP.B19.Expenditures FY2020–25.10.561,"$142,557",142557.0,exact,
+APP.B19.Listing.16.575,16.575,,skipped,label
+APP.B2.Rationale.District Alliance for Safe Hou,Safe housing for DV and sexual-violence survivors in DC; Calvary's New Foundations site is also DV-designated; 90% government,,skipped,"rationale text from config/core_peers.csv, not a clean-table number"
+APP.B20.Amount.Bainum Family Foundation,"$8,000",8000.0,exact,funder 237000192 BAINUM FAMILY FOUNDATION
+APP.B20.Amount.The Bank of America Charitable,"$154,328",154328.0,exact,funder 200721133 BANK OF AMERICA CHARITABL
+APP.B20.Funders.DWC,280,280.0,exact,"distinct funder_id, source_type=annual report"
+APP.B20.Funders.DWC,6,6.0,exact,"distinct funder_id, source_type=web"
+APP.B20.Year.The Ahmanson Foundation,2023,,skipped,label / year column
+APP.B21.Government share.FY2023,88%,87.694,exact,
+APP.B21.Net assets.FY2024,"$712,222",712222.0,exact,
+APP.B3.Rationale.Covenant House Washington DC,Ward 8 shelter and crisis services (youth); similar size ($7.3M); same ward-level funders,,skipped,"rationale text from config/core_peers.csv, not a clean-table number"
+APP.B3.Rationale.Everyone Home DC,DC homelessness prevention and housing; nearly identical revenue ($4.9M); 85% government,,skipped,"rationale text from config/core_peers.csv, not a clean-table number"
+APP.B4.Fundraising cost per pri.Everyone Home DC,$0.14,0.1368,exact,pooled fundraising_expenses / (contributions_total - government_grants) FY22-24; FY2024-only = 0.80
+APP.B4.Gov. share FY22–24.House of Ruth MD,60%,,skipped,duplicate of M3 item
+APP.B4.Gov. share latest.New Endeavors by Women,38%,38.1639,exact,FY2024 share; latest filed FY with gov line = FY2025 (82%)
+APP.B4.Months of cash FY22–24.Open Arms Housing,0.9,0.9097,exact,mean of annual months of cash FY22-24
+APP.B4.Months of cash FY24.DC SAFE,0.9,,skipped,duplicate of M3 item
+APP.B4.Program service share.My Sister's Place,0%,0.0,exact,pooled program_service_revenue / total_revenue FY22-24
+APP.B4.Real CAGR FY19–24.Calvary,13.8%,,skipped,duplicate of M3 item
+APP.B4.Real CAGR FY19–24.House of Ruth DC,5.0%,,skipped,duplicate of M3 item
+APP.B4.Revenue FY2024.Coalition for the Homeless,$7.5M,7532311.0,exact,preferred FY2024 total_revenue
+APP.B4.Tier.DASH,1b,,skipped,label
+"APP.B5.Fundraising cost per pri.DWC (LA, reference)",$0.12,0.1231,exact,pooled fundraising_expenses / (contributions_total - government_grants) FY22-24; FY2024-only = 0.13
+APP.B5.Fundraising cost per pri.N Street Village,$0.20,0.1998,exact,pooled fundraising_expenses / (contributions_total - government_grants) FY22-24; FY2024-only = 0.25
+APP.B5.Gov. share FY22–24.Miriam's Kitchen,0%,,skipped,duplicate of M3 item
+"APP.B5.Months of cash FY22–24.CBWC Inst. / SheWorks (LA, ref",16.7,16.6617,exact,mean of annual months of cash FY22-24
+APP.B5.Months of cash FY22–24.Doorways (VA),13.4,13.4167,exact,mean of annual months of cash FY22-24
+APP.B5.Months of cash FY24.Covenant House DC,1.1,,skipped,duplicate of M3 item
+APP.B5.Program service share.Samaritan Inns,18%,18.3602,exact,pooled program_service_revenue / total_revenue FY22-24
+APP.B5.Revenue FY2024.Thrive DC,$2.6M,2629115.0,exact,preferred FY2024 total_revenue
+APP.B5.Tier.Christ House,2,,skipped,label
+APP.B6.DAF $.Heartly House (MD),$49K,48954.0,exact,
+APP.B6.DAF share of filed.Open Arms Housing,0%,0.0,exact,
+APP.B6.Filed grants TY2020–24.Coalition for the Homeless,$472K,471709.0,exact,
+APP.B6.Funders.Everyone Home DC,15,15.0,exact,
+APP.B6.Institutional $ ÷ revenu.New Endeavors by Women,6.1%,,skipped,duplicate of M3 item
+APP.B6.Institutional $.House of Ruth MD,$4.72M,4717654.0,exact,
+APP.B6.Institutional funders.DC SAFE,7,,skipped,duplicate of M3 item
+APP.B7.DAF $.Community of Hope,$3.50M,3497571.0,exact,
+"APP.B7.DAF share of filed.DWC (LA, reference)",0%,0.0,exact,
+APP.B7.DAF share of filed.Doorways (VA),42%,,skipped,duplicate of M3 item
+APP.B7.Filed grants TY2020–24.Thrive DC,$2.44M,2443831.0,exact,
+APP.B7.Funders.N Street Village,64,64.0,exact,
+APP.B7.Institutional $.Miriam's Kitchen,$5.61M,5613532.0,exact,
+APP.B7.Institutional funders.Covenant House DC,23,,skipped,duplicate of M3 item
+APP.B9.FY18.Coalition for the Homeless,95%,94.6068,exact,preferred row FY2018
+APP.B9.FY18.Everyone Home DC,84%,84.0904,exact,preferred row FY2018
+APP.B9.FY20.Community of Hope,46%,45.7189,exact,preferred row FY2020
+APP.B9.FY21.Heartly House (MD),53%,53.0488,exact,preferred row FY2021
+APP.B9.FY22.Covenant House DC,54%,53.6387,exact,preferred row FY2022
+APP.B9.FY23.DASH,50%,50.3426,exact,preferred row FY2023
+APP.B9.FY24.DC SAFE,94%,93.5065,exact,preferred row FY2024
+APP.B9.FY25.Calvary,58%,58.2247,exact,preferred row FY2025
+APP.B9.FY25.Doorways (VA),47%,47.2984,exact,preferred row FY2025
+APP.C10.Median peer grant.Capital Area Food Bank,"$12,226",12226.0,exact,CAPITAL AREA FOOD BANK
+APP.C10.Median peer grant.Robert I Schattner Foundation ,"$60,000",60000.0,exact,ROBERT I SCHATTNER FOUNDATION 
+APP.C10.Peers.Clark Charitable Foundation In,5,5.0,exact,CLARK CHARITABLE FOUNDATION IN
+APP.C10.Peers.Naomi and Nehemiah Cohen Found,3,3.0,exact,NAOMI AND NEHEMIAH COHEN FOUND
+APP.C10.Peers.T Rowe Price Program for Chari,8,8.0,exact,T ROWE PRICE PROGRAM FOR CHARI
+APP.C11.Median peer grant.Eugene B Casey Foundation,"$100,000",100000.0,exact,EUGENE B CASEY FOUNDATION
+APP.C11.Median peer grant.Jerome a and Deena L Kaplan Fa,"$2,500",2500.0,exact,JEROME A AND DEENA L KAPLAN FA
+APP.C11.Median peer grant.The Washington Home Inc,"$62,900",62900.0,exact,THE WASHINGTON HOME INC
+APP.C11.Peers.Alisann and Terry Collins Foun,3,3.0,exact,ALISANN AND TERRY COLLINS FOUN
+APP.C11.Peers.Melamed Foundation,3,3.0,exact,MELAMED FOUNDATION
+APP.C12.Median peer grant.Mary Catherine Bunting Fundati,"$35,000",35000.0,exact,MARY CATHERINE BUNTING FUNDATI
+APP.C12.Median peer grant.Morrison & Foerster Foundation,"$10,000",10000.0,exact,MORRISON & FOERSTER FOUNDATION
+APP.C12.Median peer grant.Solar Quest Foundation Inc,"$30,000",30000.0,exact,SOLAR QUEST FOUNDATION INC
+APP.C12.Peers.Arlington Community Foundation,2,2.0,exact,ARLINGTON COMMUNITY FOUNDATION
+APP.C12.Peers.United Planning Organization,2,2.0,exact,UNITED PLANNING ORGANIZATION
+APP.C12.Peers.Washington Area Womens Foundat,2,2.0,exact,WASHINGTON AREA WOMENS FOUNDAT
+APP.C13.Median peer grant.Sherman Fairchild Foundation I,"$25,000",25000.0,exact,SHERMAN FAIRCHILD FOUNDATION I
+APP.C13.Median peer grant.The Dorney-Koppel Foundation I,"$6,000",6000.0,exact,THE DORNEY-KOPPEL FOUNDATION I
+APP.C13.Peers.ImpactAssets Inc,2,2.0,exact,IMPACTASSETS INC
+APP.C13.Peers.Taste of the South Committee,2,2.0,exact,TASTE OF THE SOUTH COMMITTEE
+APP.C13.Peers.The Jewish Federation of Great,2,2.0,exact,THE JEWISH FEDERATION OF GREAT
+APP.C14.Median peer grant.Annie E Casey Foundation,$500,500.0,exact,ANNIE E CASEY FOUNDATION
+APP.C14.Median peer grant.Center for Nonprofit Advanceme,"$11,000",11000.0,exact,CENTER FOR NONPROFIT ADVANCEME
+APP.C14.Median peer grant.Lester Poretsky Family Foundat,$500,500.0,exact,LESTER PORETSKY FAMILY FOUNDAT
+APP.C14.Peers.For the Girls,2,2.0,exact,FOR THE GIRLS
+APP.C14.Peers.The Robert P and Arlene R Kogo,2,2.0,exact,THE ROBERT P AND ARLENE R KOGO
+APP.C15.Median peer grant.Christian Perspectives,$500,500.0,exact,CHRISTIAN PERSPECTIVES
+APP.C15.Median peer grant.Fulcrum Foundation Inc,$500,500.0,exact,FULCRUM FOUNDATION INC
+APP.C15.Peers.Gary & Carol Berman Family Fou,2,2.0,exact,GARY & CAROL BERMAN FAMILY FOU
+APP.C15.Peers.Samuel J Gorlitz Foundation,2,2.0,exact,SAMUEL J GORLITZ FOUNDATION
+APP.C16.Funder.Whispering Bells Foundation Ch,Whispering Bells Foundation Charitable Tr UA 122690,,skipped,label / year column
+APP.C16.Last grant.Jacquemin Family Foundation In,"$5,000",5000.0,exact,JACQUEMIN FAMILY FOUNDATION IN
+APP.C16.Last grant.Robert M Fisher Memorial Found,"$25,000",25000.0,exact,ROBERT M FISHER MEMORIAL FOUND
+APP.C16.Total to Calvary.Many Hands Inc,"$55,500",55500.0,exact,MANY HANDS INC
+APP.C16.Total to Calvary.The Phase Foundation,"$9,000",9000.0,exact,THE PHASE FOUNDATION
+APP.C17.Calvary total TY2020–24.Ada Harris Maley Memorial Fund,"$20,000",20000.0,exact,ADA HARRIS MALEY MEMORIAL FUND
+APP.C17.Calvary total TY2020–24.United Way of the National Cap,"$89,549",89549.0,exact,UNITED WAY OF THE NATIONAL CAP
+APP.C17.Calvary years.John Edward Fowler Memorial Fo,2,2.0,exact,JOHN EDWARD FOWLER MEMORIAL FO
+APP.C17.Calvary years.Morris and Gwendolyn Cafritz F,5,5.0,exact,MORRIS AND GWENDOLYN CAFRITZ F
+APP.C17.Headroom (largest).Alice Shaver Foundation,"$15,000",15000.0,exact,ALICE SHAVER FOUNDATION
+APP.C17.Headroom (largest).Sidgmore Family Foundation,"$1,000",1000.0,exact,SIDGMORE FAMILY FOUNDATION
+APP.C17.Median peer grant.Greater Washington Community F,"$32,525",32525.0,exact,GREATER WASHINGTON COMMUNITY F
+APP.C17.Median peer grant.Max & Victoria Dreyfus Foundat,"$13,500",13500.0,exact,MAX & VICTORIA DREYFUS FOUNDAT
+APP.C17.Peers funded.Carol and Gene Ludwig Family F,2,2.0,exact,CAROL AND GENE LUDWIG FAMILY F
+APP.C17.Peers funded.Miller & Chevalier Charitable ,5,5.0,exact,MILLER & CHEVALIER CHARITABLE 
+APP.C18.Calvary total TY2020–24.World Bank Community Connectio,"$100,000",100000.0,exact,WORLD BANK COMMUNITY CONNECTIO
+APP.C18.Calvary years.Levatus Charitable Trust,1,1.0,exact,LEVATUS CHARITABLE TRUST
+APP.C18.Headroom (largest).Dimick Foundation,"−$3,000",-3000.0,exact,DIMICK FOUNDATION
+APP.C18.Largest to Calvary.RCLCO Foundation Inc,"$1,000",1000.0,exact,RCLCO FOUNDATION INC
+APP.C18.Largest to Calvary.William S Abell Foundation Inc,"$270,000",270000.0,exact,WILLIAM S ABELL FOUNDATION INC
+APP.C18.Largest to a peer.Association of American Medica,"$20,000",20000.0,exact,ASSOCIATION OF AMERICAN MEDICA
+APP.C18.Median peer grant.MGM Resorts Foundation,"$10,000",10000.0,exact,MGM RESORTS FOUNDATION
+APP.C18.Peers funded.Omidyar Network Fund Inc,3,3.0,exact,OMIDYAR NETWORK FUND INC
+APP.C19.DC recipients.Pepsico Foundation Inc,1,1.0,exact,PEPSICO FOUNDATION INC
+APP.C19.DC recipients.Wal-Mart Foundation,5,5.0,exact,WAL-MART FOUNDATION
+APP.C19.DC-sector $.The Morningstar Philanthropic ,$5.6M,5636500.0,exact,THE MORNINGSTAR PHILANTHROPIC 
+APP.C19.Max grant.Diana Davis Spencer Foundation,$1.03M,1030000.0,exact,DIANA DAVIS SPENCER FOUNDATION
+APP.C19.Median grant.Capital Area Food Bank,"$15,000",15000.0,exact,CAPITAL AREA FOOD BANK
+APP.C19.Mission share.Clark Charitable Foundation In,26%,25.9865,exact,CLARK CHARITABLE FOUNDATION IN
+APP.C19.Mission share.Wells Fargo Foundation,14%,13.708,exact,WELLS FARGO FOUNDATION
+APP.C19.Peers funded.Annie E Casey Foundation,2,2.0,exact,ANNIE E CASEY FOUNDATION
+APP.C19.Peers funded.The Washington Home Inc,3,3.0,exact,THE WASHINGTON HOME INC
+APP.C19.See-attached years.Rast Foundation,0,0.0,exact,RAST FOUNDATION
+APP.C2.Funders.TY2020,361,361.0,exact,"distinct in dc_sector filed grants, excl applied"
+APP.C2.Institutional and other .TY2020,49893328.0,,skipped,duplicate of M4 by-year item
+APP.C2.TY2020–24 amount.civic association,$150K,150000.0,exact,
+APP.C2.TY2020–24 amount.community foundation,$45.2M,45222245.0,exact,
+APP.C2.TY2020–24 amount.daf sponsor,$384.2M,384152850.0,exact,
+APP.C2.TY2020–24 amount.public charity grantmaker,$29.4M,29356162.0,exact,
+APP.C20.DC recipients.Revada Foundation,3,3.0,exact,REVADA FOUNDATION
+APP.C20.DC-sector $.Donors Trust Inc,$1.6M,1584500.0,exact,DONORS TRUST INC
+APP.C20.DC-sector $.Public Welfare Foundation Inc,$2.4M,2358666.0,exact,PUBLIC WELFARE FOUNDATION INC
+APP.C20.Max grant.The Coca-Cola Foundation Inc,$550K,550000.0,exact,THE COCA-COLA FOUNDATION INC
+APP.C20.Max grant.Young Womens Christian Associa,$580K,580380.0,exact,YOUNG WOMENS CHRISTIAN ASSOCIA
+APP.C20.Median grant.Bainum Family Foundation,"$75,000",75000.0,exact,BAINUM FAMILY FOUNDATION
+APP.C20.Mission share.Naomi and Nehemiah Cohen Found,0%,0.0,exact,NAOMI AND NEHEMIAH COHEN FOUND
+APP.C20.Peers funded.Workday Foundation,0,0.0,exact,WORKDAY FOUNDATION
+APP.C20.See-attached years.Marthas Table,0,0.0,exact,MARTHAS TABLE
+APP.C20.See-attached years.Robert I Schattner Foundation ,0,0.0,exact,ROBERT I SCHATTNER FOUNDATION 
+APP.C21.DC recipients.Venable Baetjer and Howard Fou,16,16.0,exact,VENABLE BAETJER AND HOWARD FOU
+APP.C21.DC-sector $.W Oneil Foundation,$850K,850000.0,exact,W ONEIL FOUNDATION
+APP.C21.Max grant.Arlington Community Foundation,$386K,386000.0,exact,ARLINGTON COMMUNITY FOUNDATION
+APP.C21.Median grant.Akerson Family Foundation,"$150,000",150000.0,exact,AKERSON FAMILY FOUNDATION
+APP.C21.Median grant.Forster-Connolly Foundation,"$100,000",100000.0,exact,FORSTER-CONNOLLY FOUNDATION
+APP.C21.Mission share.Howard and Geraldine Polinger ,0%,0.0,exact,HOWARD AND GERALDINE POLINGER 
+APP.C21.Mission share.T Rowe Price Program for Chari,0%,0.0,exact,T ROWE PRICE PROGRAM FOR CHARI
+APP.C21.Peers funded.Give Lively Foundation Inc,5,5.0,exact,GIVE LIVELY FOUNDATION INC
+APP.C21.See-attached years.Viragh Family Foundation Inc,0,0.0,exact,VIRAGH FAMILY FOUNDATION INC
+APP.C22.DC recipients.Mayberg Foundation Inc,4,4.0,exact,MAYBERG FOUNDATION INC
+APP.C22.DC recipients.Page Family Foundation,2,2.0,exact,PAGE FAMILY FOUNDATION
+APP.C22.DC-sector $.Mccutchen Foundation,$750K,750000.0,exact,MCCUTCHEN FOUNDATION
+APP.C22.DC-sector $.YWCA USA Inc,$604K,604349.0,exact,YWCA USA INC
+APP.C22.Max grant.Hill Snowdon Foundation,$45K,45000.0,exact,HILL SNOWDON FOUNDATION
+APP.C22.Median grant.Nora Roberts Foundation Inc,"$6,000",6000.0,exact,NORA ROBERTS FOUNDATION INC
+APP.C22.Mission share.Aron Family Foundation,0%,0.0,exact,ARON FAMILY FOUNDATION
+APP.C22.Peers funded.Jack Kent Cooke Foundation,0,0.0,exact,JACK KENT COOKE FOUNDATION
+APP.C22.Peers funded.Pew Charitable Trusts,3,3.0,exact,PEW CHARITABLE TRUSTS
+APP.C22.See-attached years.Americas Charities,0,0.0,exact,AMERICAS CHARITIES
+APP.C23.DC recipients.Sunrise Charitable Foundation ,1,1.0,exact,SUNRISE CHARITABLE FOUNDATION 
+APP.C23.Max grant.Wallace Global Fund II,$125K,125000.0,exact,WALLACE GLOBAL FUND II
+APP.C23.Median grant.Richard W Goldman Family Found,"$100,000",100000.0,exact,RICHARD W GOLDMAN FAMILY FOUND
+APP.C23.Mission share.Joseph E Robert Jr Charitable ,0%,0.0,exact,JOSEPH E ROBERT JR CHARITABLE 
+APP.C23.Peers funded.Alisann and Terry Collins Foun,3,3.0,exact,ALISANN AND TERRY COLLINS FOUN
+APP.C23.See-attached years.Eugene B Casey Foundation,0,0.0,exact,EUGENE B CASEY FOUNDATION
+APP.C24.Peer donor lists naming .Accenture,3,,skipped,peer donor-list name counts (annual_report/support_page raw names); not recomputed
+"APP.C24.Peer donor lists naming .Shanthi, Inc",2,,skipped,peer donor-list name counts (annual_report/support_page raw names); not recomputed
+APP.C25.CRM total.Confirmed in earlier years onl,"$477,879",477879.0,exact,
+"APP.C25.Funders.Corporate or other, no public ",92,92.0,exact,
+APP.C27.Rank.10,10,,skipped,rank label
+APP.C27.Rank.12,12,,skipped,rank label
+APP.C27.Rank.2,2,,skipped,rank label
+APP.C27.Rank.4,4,,skipped,rank label
+APP.C27.Rank.6,6,,skipped,rank label
+APP.C27.Rank.8,8,,skipped,rank label
+APP.C28.Rank.14,14,,skipped,rank label
+APP.C28.Rank.16,16,,skipped,rank label
+APP.C28.Rank.18,18,,skipped,rank label
+APP.C28.Rank.20,20,,skipped,rank label
+APP.C28.Rank.22,22,,skipped,rank label
+APP.C28.Rank.24,24,,skipped,rank label
+APP.C29.Tax year.Calvary,2021,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C29.Tax year.Calvary,2019,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C29.Tax year.Calvary,2024,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C3.DC recipients.13,19,19.0,exact,rank 13 = EUGENE & AGNES E MEYER FOUNDAT (my ranking)
+APP.C3.DC recipients.2,20,20.0,exact,rank 2 = CLARK CHARITABLE FOUNDATION IN (my ranking)
+APP.C3.DC recipients.6,5,5.0,exact,rank 6 = WAL-MART FOUNDATION (my ranking)
+APP.C3.DC-sector $ TY2020–24.9,$5.76M,5762318.0,exact,rank 9 = UNITED WAY OF THE NATIONAL CAP (my ranking)
+APP.C3.Median grant.10,"$30,000",30000.0,exact,rank 10 = THE MORNINGSTAR PHILANTHROPIC  (my ranking)
+APP.C3.Peers funded.14,7,7.0,exact,rank 14 = CAPITAL AREA FOOD BANK (my ranking)
+APP.C3.Peers funded.3,7,7.0,exact,rank 3 = JPMORGAN CHASE FOUNDATION (my ranking)
+APP.C3.Peers funded.7,2,2.0,exact,rank 7 = ANNIE E CASEY FOUNDATION (my ranking)
+APP.C3.Rank.1,1,,skipped,rank label
+APP.C3.Rank.5,5,,skipped,rank label
+APP.C3.See-attached years.11,0,0.0,exact,rank 11 = DIANA DAVIS SPENCER FOUNDATION (my ranking)
+APP.C30.Tax year.Covenant House DC,2024,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C30.Tax year.Covenant House DC,2022,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C30.Tax year.Doorways (VA),2024,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C31.Tax year.Doorways (VA),2023,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C31.Tax year.Heartly House (MD),2024,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C31.Tax year.Miriam's Kitchen,2024,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C32.Tax year.N Street Village,2024,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C32.Tax year.New Endeavors by Women,2020,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C32.Tax year.Thrive DC,2021,,skipped,board-interlock filing years (fact_org_relationships); outside M3-M10 scope
+APP.C33.Board links (high / medi.Venable Baetjer and Howard Fou,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C33.Close peers.Bank of America Charitable Fou,8,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C33.Overlapping co-funders.Fidelity Investments Charitabl,25,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C33.Overlapping co-funders.Vanguard Charitable Endowment ,18,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C33.Path strength.Morris and Gwendolyn Cafritz F,0.90,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C33.Path strength.T Rowe Price Program for Chari,0.69,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C33.Peers funded.Donor Advised Charitable Givin,15,15.0,exact,DONOR ADVISED CHARITABLE ; core peers with any filed grant TY20-24
+APP.C33.Peers funded.The Blackbaud Giving Fund,10,10.0,exact,THE BLACKBAUD GIVING FUND; core peers with any filed grant TY20-24
+APP.C34.Close peers.Capital Area Food Bank,6,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Close peers.Gifts for the Homeless,5,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Consulting variant.Bunting Family Foundation Inc,0.40,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Consulting variant.PayPal Charitable Giving Fund,0.60,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Gap category.Clark Charitable Foundation In,"peer funder (3+ peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Gap category.Robert I Schattner Foundation ,"peer funder (3+ peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Overlapping co-funders.Americas Charities,13,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Overlapping co-funders.Brendan & Helen Bechtel Founda,11,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Overlapping co-funders.Give Lively Foundation Inc,14,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C34.Path strength.JPMorgan Chase Foundation,0.64,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Board links (high / medi.Max & Victoria Dreyfus Foundat,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Close peers.Diane & Norman Bernstein Found,3,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Consulting variant.The Washington Home Inc,0.32,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Gap category.J V Schiro-Zavela Foundation,"peer funder (3+ peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Gap category.Jerome a and Deena L Kaplan Fa,"peer funder (3+ peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Overlapping co-funders.Adele M Thomas Charitable Foun,7,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Overlapping co-funders.Sidgmore Family Foundation,10,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Overlapping co-funders.World Bank Community Connectio,9,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C35.Path strength.Naomi and Nehemiah Cohen Found,0.32,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Board links (high / medi.Mayberg Foundation Inc,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Close peers.Fulcrum Foundation Inc,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Close peers.Levatus Charitable Trust,3,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Consulting variant.Annie E Casey Foundation,0.22,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Consulting variant.Grossman Family Charitable Fun,0.22,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Gap category.Rosenfeld Rumford Steckler Fam,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Overlapping co-funders.Jack R Anderson Foundation Inc,5,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Path strength.Melamed Foundation,0.26,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C36.Peers funded.Irene L Chrisman,2,2.0,exact,IRENE L CHRISMAN; core peers with any filed grant TY20-24
+APP.C37.Board links (high / medi.Aaron and Cecile Goldman Found,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Board links (high / medi.Carol and Gene Ludwig Family F,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Close peers.England Family Foundation Inc,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Close peers.Joe and Missy Walsh Foundation,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Close peers.The Jewish Federation of Great,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Consulting variant.Qlarant Foundation Inc,0.20,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Gap category.Arlington Community Foundation,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Path strength.ImpactAssets Inc,0.20,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Path strength.Washington Area Womens Foundat,0.20,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C37.Peers funded.Alisann and Terry Collins Foun,3,3.0,exact,ALISANN AND TERRY COLLINS; core peers with any filed grant TY20-24
+APP.C38.Board links (high / medi.Fund II Foundation,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Close peers.Solar Quest Foundation Inc,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Consulting variant.Samuel J Gorlitz Foundation,0.19,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Gap category.Galena-Yorktown Foundation,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Gap category.Morrison & Foerster Foundation,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Overlapping co-funders.Gary & Carol Berman Family Fou,5,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Overlapping co-funders.Pedersen Family Foundation,5,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Path strength.Stichman Family Foundation,0.19,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C38.Peers funded.Wilczynski Foundation Inc,2,2.0,exact,WILCZYNSKI FOUNDATION INC; core peers with any filed grant TY20-24
+APP.C39.Board links (high / medi.Rapoport Family Foundation,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Close peers.Live Give Run Foundation,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Close peers.The Keith Campbell Foundation ,2,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Consulting variant.Alice Shaver Foundation,0.15,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Consulting variant.Eugene B Casey Foundation,0.17,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Gap category.Meyer and Deanne Sharlin Found,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Gap category.The Rothschild Art Foundation ,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Overlapping co-funders.Weissberg Foundation,4,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Path strength.Mary Catherine Bunting Fundati,0.15,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C39.Peers funded.For the Girls,2,2.0,exact,FOR THE GIRLS; core peers with any filed grant TY20-24
+APP.C4.DC recipients.20,23,23.0,exact,rank 20 = WILLIAM S ABELL FOUNDATION INC (my ranking)
+APP.C4.DC recipients.27,9,9.0,exact,rank 27 = NAOMI AND NEHEMIAH COHEN FOUND (my ranking)
+APP.C4.DC-sector $ TY2020–24.16,$3.10M,3098483.0,exact,rank 16 = JANE BANCROFT ROBINSON FOUNDAT (my ranking)
+APP.C4.Max grant.21,$360K,360000.0,exact,rank 21 = IMPACTASSETS INC (my ranking)
+APP.C4.Median grant.17,"$52,000",52000.0,exact,rank 17 = DIANE & NORMAN BERNSTEIN FOUND (my ranking)
+APP.C4.Median grant.24,"$55,000",55000.0,exact,rank 24 = ROBERT I SCHATTNER FOUNDATION  (my ranking)
+APP.C4.Peers funded.28,0,0.0,exact,rank 28 = ASSETS UNDER MOVEMENT (my ranking)
+APP.C4.Rank.23,23,,skipped,rank label
+APP.C4.See-attached years.18,0,0.0,exact,rank 18 = PEPSICO FOUNDATION INC (my ranking)
+APP.C4.See-attached years.25,0,0.0,exact,rank 25 = DC COALITION TO END SEXUAL VIO (my ranking)
+APP.C40.Board links (high / medi.Christian Perspectives,0 / 0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Close peers.Ruppert Family Foundation Inc,1,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Consulting variant.Morgan Stanley Foundation Inc,0.10,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Gap category.United Planning Organization,"peer funder (2 peers), not Calvary",,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Overlapping co-funders.Baxt Family Foundation Inc,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Overlapping co-funders.Marion I & Henry J Knott Found,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Path strength.Aron Family Foundation,0.07,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Path strength.The George L Shields Foundatio,0.10,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C40.Peers funded.William E Cross Foundation Inc,2,2.0,exact,WILLIAM E CROSS FOUNDATIO; core peers with any filed grant TY20-24
+APP.C41.Overlapping co-funders.Forster-Connolly Foundation,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C41.Overlapping co-funders.Lavin Family Foundation Inc,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C41.Overlapping co-funders.The Morningstar Philanthropic ,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C41.Path strength.Eugene & Agnes E Meyer Foundat,0.07,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C41.Path strength.Institute for Public Health In,0.07,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C41.Path strength.Revada Foundation,0.07,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C41.Peers funded.Cornerstone Foundation Inc,1,1.0,exact,CORNERSTONE FOUNDATION IN; core peers with any filed grant TY20-24
+APP.C41.Peers funded.Howard and Geraldine Polinger ,1,1.0,exact,HOWARD AND GERALDINE POLI; core peers with any filed grant TY20-24
+APP.C41.Peers funded.Monumental Sports & Entertainm,1,1.0,exact,MONUMENTAL SPORTS & ENTER; core peers with any filed grant TY20-24
+APP.C42.Overlapping co-funders.DC Coalition to End Sexual Vio,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C42.Overlapping co-funders.Walter a Bloedorn Foundation,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C42.Path strength.Assets Under Movement,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C42.Path strength.Edward and Kathleen Quinn Fami,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C42.Path strength.W Oneil Foundation,0.07,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C42.Peers funded.Akerson Family Foundation,0,0.0,exact,AKERSON FAMILY FOUNDATION; core peers with any filed grant TY20-24
+APP.C42.Peers funded.Donors Trust Inc,0,0.0,exact,DONORS TRUST INC; core peers with any filed grant TY20-24
+APP.C42.Peers funded.Viragh Family Foundation Inc,1,1.0,exact,VIRAGH FAMILY FOUNDATION ; core peers with any filed grant TY20-24
+APP.C43.Overlapping co-funders.Jack Kent Cooke Foundation,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C43.Overlapping co-funders.Luminate Foundation Inc,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C43.Overlapping co-funders.Page Family Foundation,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C43.Path strength.Leslie Joanne Foundation,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C43.Path strength.Mccutchen Foundation,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C43.Path strength.Public Welfare Foundation Inc,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C43.Peers funded.Leafglen Foundation,0,0.0,exact,LEAFGLEN FOUNDATION; core peers with any filed grant TY20-24
+APP.C43.Peers funded.Matan Family Foundation Inc,0,0.0,exact,MATAN FAMILY FOUNDATION I; core peers with any filed grant TY20-24
+APP.C43.Peers funded.Potomac Health Foundation,0,0.0,exact,POTOMAC HEALTH FOUNDATION; core peers with any filed grant TY20-24
+APP.C44.Overlapping co-funders.Richard W Goldman Family Found,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C44.Overlapping co-funders.The Phase Foundation,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C44.Overlapping co-funders.YWCA USA Inc,0,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C44.Path strength.The Coca-Cola Foundation Inc,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C44.Path strength.Workday Foundation,0.00,,skipped,scoring-model output (path strength / close peers / co-funders / board links); not a clean-table quantity
+APP.C44.Peers funded.Sunrise Charitable Foundation ,0,0.0,exact,SUNRISE CHARITABLE FOUNDA; core peers with any filed grant TY20-24
+APP.C44.Peers funded.Wells Fargo Foundation,0,0.0,exact,WELLS FARGO FOUNDATION; core peers with any filed grant TY20-24
+APP.C45.Value.placeholder penalty ('see atta,−0.15,,skipped,scoring config value
+APP.C45.Value.tiers: tier1 min award,"$25,000",,skipped,scoring config value
+APP.C45.What it scores (comment .award size,"typical grant to peers (median), log scale $5K -> $250K",,skipped,scoring config value
+APP.C46.Analyst-scored governmen.GOV-FED-1: HUD Continuum of Ca,"GOV-FED-1: HUD Continuum of Care via TCP (Sister Circle, Reach Up, New…",,skipped,scoring config value
+APP.C46.Score.private foundation narrow,0.30,,skipped,scoring config value
+APP.C47.#.5,5,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C47.#.7,7,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C47.#.9,9,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C47.Tier.1,1,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C47.Typical grant.12,$13K,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C47.Why.10,4 peers; typical grant $60K; DC-sector $2.1M; no…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C47.Why.2,17 peers; typical grant $33K; DC-sector $43.2M…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.#.26,26,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Score.24,0.58,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Tier.14,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Tier.19,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Typical grant.17,$100,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Typical grant.22,$83K,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Why.15,8 peers; typical grant $6K; DC-sector $0.4M; no…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C48.Why.20,7 peers; typical grant $12K; DC-sector $3.8M; no…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.#.30,30,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.Peers.31,3,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.Tier.35,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.Typical grant.33,$150K,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.Typical grant.38,$10K,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.Why.27,CRM total $156K 2023-26; cash vs in-kind unverified,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C49.Why.36,3 peers; typical grant $2K; DC-sector $0.5M…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C5.DC recipients.34,1,1.0,exact,rank 34 = YOUNG WOMENS CHRISTIAN ASSOCIA (my ranking)
+APP.C5.DC-sector $ TY2020–24.30,$1.88M,1875000.0,exact,rank 30 = WORKDAY FOUNDATION (my ranking)
+APP.C5.DC-sector $ TY2020–24.37,$1.23M,1225000.0,exact,rank 37 = FORSTER-CONNOLLY FOUNDATION (my ranking)
+APP.C5.Max grant.31,$600K,600000.0,exact,rank 31 = EDWARD AND KATHLEEN QUINN FAMI (my ranking)
+APP.C5.Max grant.38,$108K,108125.0,exact,rank 38 = T ROWE PRICE PROGRAM FOR CHARI (my ranking)
+APP.C5.Median grant.41,"$12,235",12234.5,rounding,rank 41 = GIVE LIVELY FOUNDATION INC (my ranking)
+APP.C5.Peers funded.35,0,0.0,exact,rank 35 = MARTHAS TABLE (my ranking)
+APP.C5.Rank.40,40,,skipped,rank label
+APP.C5.See-attached years.32,0,0.0,exact,rank 32 = JOHN EDWARD FOWLER MEMORIAL FO (my ranking)
+APP.C5.See-attached years.42,0,0.0,exact,rank 42 = THE JEWISH FEDERATION OF GREAT (my ranking)
+APP.C50.Peers.43,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C50.Score.45,0.48,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C50.Score.51,0.45,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C50.Tier.40,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C50.Tier.47,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C50.Tier.49,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C50.Why.41,2 peers; typical grant $100K; DC-sector $0.5M; no…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Score.53,0.60,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Score.55,0.60,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Score.57,0.50,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Score.59,0.50,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Tier.61,3,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Typical grant.64,$25K,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C51.Why.62,0 peers; typical grant $250K; DC-sector $3.6M; no…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.#.78,78,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Score.76,0.45,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Tier.66,3,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Tier.71,3,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Typical grant.69,$201K,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Typical grant.74,$1.70M,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Why.67,3 peers; typical grant $14K; DC-sector $0.2M…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C52.Why.72,2 peers; typical grant $50K; DC-sector $0.3M; no…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.#.83,83,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.#.88,88,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.Peers.79,1,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.Peers.84,0,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.Peers.89,4,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.Score.81,0.43,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.Score.86,0.41,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C53.Score.91,0.40,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.#.103,103,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.#.93,93,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.#.98,98,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.Peers.104,0,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.Peers.94,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.Peers.99,3,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.Score.101,0.39,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C54.Score.96,0.39,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.#.108,108,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.#.113,113,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.Peers.109,1,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.Peers.114,0,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.Score.106,0.38,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.Score.111,0.37,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C55.Score.116,0.36,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.#.118,118,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.#.123,123,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.#.127,127,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.Peers.119,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.Peers.128,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.Score.121,0.36,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.Score.130,0.34,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C56.Why.124,status forecasted; closes 2027-03-31; tags…,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.#.132,132,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.#.137,137,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.#.142,142,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.Peers.133,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.Peers.138,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.Peers.143,1,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.Score.135,0.33,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C57.Score.140,0.32,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.#.147,147,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.#.152,152,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.Peers.148,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.Peers.153,0,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.Score.145,0.31,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.Score.150,0.30,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C58.Score.155,0.29,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.#.157,157,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.#.162,162,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.#.167,167,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.Peers.158,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.Peers.163,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.Peers.168,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.Score.160,0.28,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C59.Score.165,0.27,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C6.DC recipients.44,5,5.0,exact,rank 44 = ARLINGTON COMMUNITY FOUNDATION (my ranking)
+APP.C6.Median grant.48,"$150,000",150000.0,exact,rank 48 = AKERSON FAMILY FOUNDATION (my ranking)
+APP.C6.Rank.47,47,,skipped,rank label
+APP.C6.See-attached years.49,0,0.0,exact,rank 49 = HOWARD AND GERALDINE POLINGER  (my ranking)
+APP.C6.To Calvary.45,$100K,100000.0,exact,rank 45 = WORLD BANK COMMUNITY CONNECTIO (my ranking)
+APP.C60.#.172,172,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.#.177,177,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.#.182,182,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.Peers.173,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.Peers.178,2,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.Score.170,0.25,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.Score.175,0.24,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C60.Score.180,0.21,,skipped,pipeline score/tier/typical grant keyed by rank only; not recomputed
+APP.C61.#.11,11,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C61.#.3,3,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C61.By.6,Day 30,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C63.Next deadline or cycle.Eugene & Agnes E. Meyer Founda,Interest Form deadline per cycle (March 4 in the…,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.accessibility -0.05 (renormali,9,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.award\_size -0.05 (renormalize,10,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.durability -0.05 (renormalized,10,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.mission\_fit -0.05 (renormaliz,10,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.peer\_giving -0.05 (renormaliz,9,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.regional\_giving -0.05 (renorm,10,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.relationship -0.05 (renormaliz,9,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C65.Top-10 overlap.tier2 cutoff -0.05,10,,skipped,action plan / web notes / sensitivity table; not a clean-table quantity
+APP.C66.Federal notices.Domestic violence and victim s,3,,skipped,duplicate of M8 appendix-C66 items
+APP.C66.Federal notices.Maternal and family health,3,,skipped,duplicate of M8 appendix-C66 items
+APP.C66.Funders ($100K+).Housing and homelessness,391 (104),,skipped,duplicate of M8 appendix-C66 items
+APP.C66.Funders ($100K+).Women veterans,152 (34),,skipped,duplicate of M8 appendix-C66 items
+APP.C66.Median grant.Workforce and employment,"$40,000",,skipped,duplicate of M8 appendix-C66 items
+APP.C67.Award ceiling.O-BJS-2026-172687,$225K,225000.0,exact,
+APP.C67.Opportunity.O-BJA-2026-172714,O-BJA-2026-172714,,skipped,label / year column
+APP.C67.Title.O-BJA-2026-172760,BJA FY 2026 National Center for Veterans Justice,,skipped,label / year column
+APP.C68.Award ceiling.PIH-2600-DC-0084,$1.7M,1700000.0,exact,
+APP.C68.Opportunity.O-NIJ-2026-172798,O-NIJ-2026-172798,,skipped,label / year column
+APP.C68.Title.O-OJJDP-2026-172751,OJJDP FY 2026 Second Chance Act Youth Reentry Program,,skipped,label / year column
+APP.C69.Award ceiling.O-OJJDP-2026-172743,$2.0M,2000000.0,exact,
+APP.C69.Opportunity.GR-RDC-25-002,GR-RDC-25-002,,skipped,label / year column
+APP.C7.Grants.public charity grantmaker,596,596.0,exact,
+APP.C7.Median.community foundation,"$40,000",40000.0,exact,
+APP.C7.Median.corporate foundation,$570,570.0,exact,
+APP.C7.p90.federated giving,"$108,084",108083.9,rounding,
+APP.C8.TY2020.American Endowment Foundation,$1.0M,1047905.0,exact,AMERICAN ENDOWMENT FOUNDA
+APP.C8.TY2020.National Philanthropic Tr,$4.6M,4641010.0,exact,NATIONAL PHILANTHROPIC TR
+APP.C8.TY2022.Vanguard Charitable Endowment ,$2.8M,2839997.0,exact,VANGUARD CHARITABLE ENDOW
+APP.C8.TY2024.American Online Giving Foundat,$13.1M,13085075.0,exact,AMERICAN ONLINE GIVING FO
+APP.C8.TY2024.PayPal Charitable Giving Fund,$719K,719341.0,exact,PAYPAL CHARITABLE GIVING 
+APP.C9.DC share.The Pauley Family Foundation,0%,0.0,exact,THE PAULEY FAMILY FOUNDAT; DMV-recipient inst grants tagged housing/dv/women
+APP.C9.DC share.Virginia Nonproit Housing Coal,0%,0.0,exact,VIRGINIA NONPROIT HOUSING; DMV-recipient inst grants tagged housing/dv/women
+APP.C9.DC share.Wells Fargo Foundation,8%,8.327,exact,WELLS FARGO FOUNDATION; DMV-recipient inst grants tagged housing/dv/women
+APP.C9.Funders.aging,4,4.0,exact,"inst grants to dc_sector, excl applied; share = tag $ / sum over all tags"
+APP.C9.Funders.workforce,21,21.0,exact,"inst grants to dc_sector, excl applied; share = tag $ / sum over all tags"
+APP.C9.Institutional $.health,$17.5M,17503548.0,exact,"inst grants to dc_sector, excl applied; share = tag $ / sum over all tags"
+APP.C9.Institutional $.maternal health,$355K,355000.0,exact,"inst grants to dc_sector, excl applied; share = tag $ / sum over all tags"
+APP.C9.Institutional $.veterans,$2.8M,2761000.0,exact,"inst grants to dc_sector, excl applied; share = tag $ / sum over all tags"
+APP.C9.Tagged $.City First Enterprises Inc,$7.6M,7555131.0,exact,CITY FIRST ENTERPRISES IN; DMV-recipient inst grants tagged housing/dv/women
+APP.C9.Tagged $.Community Foundation of Freder,$5.1M,5105202.0,exact,COMMUNITY FOUNDATION OF F; DMV-recipient inst grants tagged housing/dv/women
+M10.cbwc_gov_share_fy2023,88%,87.7,exact,%
+M10.cbwc_gov_share_fy2025,70%,69.6,exact,%
+M10.cbwc_months_cash_fy2025,8.2,8.23,exact,
+M10.cbwc_private_contrib_fy2023,169000,169349.0,exact,other_contributions (990 VIII 1f)
+M10.cbwc_private_contrib_fy2025,558000,558331.0,exact,
+M10.cbwc_rev_fy2025,1840000.0,1840152.0,exact,
+M10.dwc_3x_since_2018,3x since 2018 (leadership 13),nominal 2.97x; real 2.38x,rounding,FY2018->FY2024 nominal 2.97x (rounds to 3x); real 2.38x. Leadership 13 does not say nominal.
+M10.dwc_5.5x_decade,5.5x (appendix B18),nominal 5.45x; real 4.12x,exact,FY2014->FY2024
+M10.dwc_gov_share_fy2014,24%,23.9,exact,%
+M10.dwc_gov_share_fy2024,57%,57.0,exact,%
+M10.dwc_months_cash_fy2024,2.4,2.4,exact,
+M10.dwc_rev_fy2014,6310000.0,6307637.0,exact,
+M10.dwc_rev_fy2024,34400000.0,34403997.0,exact,
+M10.dwc_sefa_coc_14.267,14300000.0,14300743,exact,
+M10.dwc_sefa_esg_14.231,3500000.0,3491358,exact,
+M10.dwc_sefa_pass_through_share,99%,99.1,exact,% of $ with flow_type pass_through_expenditure
+M10.dwc_sefa_total_fy20_25,21600000.0,21618528,exact,
+M10.dwc_sefa_voca_16.575,2700000.0,2675190,exact,
+M3.daf_share_filed.Calvary,0.25,0.247,exact,DAF-sponsor $ / all filed $ to org TY20-24
+M3.daf_share_filed.Doorways (VA),0.42,0.421,exact,DAF-sponsor $ / all filed $ to org TY20-24
+M3.daf_share_filed.House of Ruth DC,0.37,0.373,exact,DAF-sponsor $ / all filed $ to org TY20-24
+M3.daf_share_filed.Miriam's Kitchen,0.41,0.41,exact,DAF-sponsor $ / all filed $ to org TY20-24
+M3.daf_share_filed.N Street Village,0.51,0.51,exact,DAF-sponsor $ / all filed $ to org TY20-24
+M3.gov_share_fy22_24.CBWC Inst. / SheWorks (LA),0.8613,0.8613,exact,FY22/23/24 = nan/0.8769/0.8456
+M3.gov_share_fy22_24.Calvary,0.5254,0.5254,exact,FY22/23/24 = 0.6137/0.5119/0.4506
+M3.gov_share_fy22_24.Christ House,0.2716,0.2715,rounding,FY22/23/24 = 0.2338/0.2260/0.3549
+M3.gov_share_fy22_24.Coalition for the Homeless,0.6179,0.6179,exact,FY22/23/24 = 0.9093/0.0207/0.9236
+M3.gov_share_fy22_24.Community of Hope,0.4039,0.4039,exact,FY22/23/24 = 0.4324/0.4035/0.3759
+M3.gov_share_fy22_24.Covenant House DC,0.5251,0.525,rounding,FY22/23/24 = 0.5364/0.5085/0.5303
+M3.gov_share_fy22_24.DASH,0.7011,0.7011,exact,FY22/23/24 = 0.7566/0.5034/0.8434
+M3.gov_share_fy22_24.DC SAFE,0.8869,0.8869,exact,FY22/23/24 = 0.8844/0.8412/0.9351
+M3.gov_share_fy22_24.DWC (Los Angeles),0.5719,0.5719,exact,FY22/23/24 = 0.5664/0.5790/0.5704
+M3.gov_share_fy22_24.Doorways (VA),0.4434,0.4434,exact,FY22/23/24 = 0.3422/0.5628/0.4251
+M3.gov_share_fy22_24.Everyone Home DC,0.7588,0.7589,rounding,FY22/23/24 = 0.8497/0.5754/0.8514
+M3.gov_share_fy22_24.Heartly House (MD),0.7355,0.7355,exact,FY22/23/24 = 0.7314/0.6927/0.7825
+M3.gov_share_fy22_24.House of Ruth DC,0.5258,0.5258,exact,FY22/23/24 = 0.5028/0.5104/0.5643
+M3.gov_share_fy22_24.House of Ruth MD,0.5973,0.5973,exact,FY22/23/24 = 0.6022/0.5809/0.6088
+M3.gov_share_fy22_24.Miriam's Kitchen,0.0049,0.0049,exact,FY22/23/24 = 0.0049/nan/nan
+M3.gov_share_fy22_24.My Sister's Place,0.8328,0.8328,exact,FY22/23/24 = 0.8682/0.7965/0.8337
+M3.gov_share_fy22_24.N Street Village,0.423,0.423,exact,FY22/23/24 = 0.3548/0.4299/0.4842
+M3.gov_share_fy22_24.New Endeavors by Women,0.5436,0.5436,exact,FY22/23/24 = 0.4477/0.8014/0.3816
+M3.gov_share_fy22_24.Open Arms Housing,0.8381,0.8381,exact,FY22/23/24 = 0.8495/0.8272/0.8376
+M3.gov_share_fy22_24.Samaritan Inns,0.4365,0.4365,exact,FY22/23/24 = 0.7219/0.5587/0.0289
+M3.gov_share_fy22_24.Thrive DC,0.129,0.129,exact,FY22/23/24 = 0.1638/0.2140/0.0091
+M3.gov_share_rank_calvary,11th of 19,11th of 19,exact,descending rank by FY22-24 mean among Calvary+18 peers
+M3.hud_coc_fy25.Calvary,1766814,1766814,exact,3 rows
+M3.hud_coc_fy25.Christ House,2978155,2978155,exact,1 rows
+M3.hud_coc_fy25.Community of Hope,866902,866902,exact,1 rows
+M3.hud_coc_fy25.DASH,1380480,1380480,exact,1 rows
+M3.hud_coc_fy25.DC SAFE,0,0,exact,0 rows
+M3.hud_coc_fy25.House of Ruth DC,1380385,1380385,exact,3 rows
+M3.hud_coc_fy25.My Sister's Place,2062174,2062174,exact,1 rows
+M3.hud_coc_fy25.N Street Village,157690,157690,exact,1 rows
+M3.hud_coc_fy25.New Endeavors by Women,1143319,1143319,exact,3 rows
+M3.inst_funder_count.Calvary,42,42,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 29
+M3.inst_funder_count.Christ House,22,22,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 18
+M3.inst_funder_count.Coalition for the Homeless,4,4,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 3
+M3.inst_funder_count.Community of Hope,43,43,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 35
+M3.inst_funder_count.Covenant House DC,23,23,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 17
+M3.inst_funder_count.DASH,23,23,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 19
+M3.inst_funder_count.DC SAFE,7,7,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 7
+M3.inst_funder_count.DWC (Los Angeles),7,7,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 2
+M3.inst_funder_count.Doorways (VA),36,36,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 33
+M3.inst_funder_count.Everyone Home DC,10,10,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 7
+M3.inst_funder_count.Heartly House (MD),18,18,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 17
+M3.inst_funder_count.House of Ruth DC,83,83,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 75
+M3.inst_funder_count.House of Ruth MD,86,86,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 81
+M3.inst_funder_count.Miriam's Kitchen,66,66,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 55
+M3.inst_funder_count.My Sister's Place,25,25,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 22
+M3.inst_funder_count.N Street Village,54,54,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 46
+M3.inst_funder_count.New Endeavors by Women,20,20,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 17
+M3.inst_funder_count.Open Arms Housing,2,2,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 2
+M3.inst_funder_count.Samaritan Inns,14,14,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 13
+M3.inst_funder_count.Thrive DC,8,8,exact,distinct funder_id with filed inst grants TY20-24; DMV-only 5
+M3.inst_grants_over_rev.CBWC Inst. / SheWorks (LA),not shown,0.0,skipped,inst $ 0 / rev 2864033; 0 funders
+M3.inst_grants_over_rev.Calvary,0.1242,0.1242,exact,inst $ 3340017 / rev FY20-24 26889261 (5 yrs); DMV-only funders $ 2965945
+M3.inst_grants_over_rev.Christ House,0.0511,0.0511,exact,inst $ 1190151 / rev FY20-24 23307318 (5 yrs); DMV-only funders $ 1113500
+M3.inst_grants_over_rev.Coalition for the Homeless,0.0064,0.0064,exact,inst $ 219302 / rev FY20-24 34130288 (5 yrs); DMV-only funders $ 197866
+M3.inst_grants_over_rev.Community of Hope,0.0139,0.0139,exact,inst $ 3241880 / rev FY20-24 232671682 (5 yrs); DMV-only funders $ 2890999
+M3.inst_grants_over_rev.Covenant House DC,0.0267,0.0267,exact,inst $ 986820 / rev FY20-24 37004898 (5 yrs); DMV-only funders $ 779403
+M3.inst_grants_over_rev.DASH,0.0467,0.0467,exact,inst $ 1726400 / rev FY20-24 36945923 (5 yrs); DMV-only funders $ 1608046
+M3.inst_grants_over_rev.DC SAFE,0.0286,0.0286,exact,inst $ 674281 / rev FY20-24 23612103 (5 yrs); DMV-only funders $ 674281
+M3.inst_grants_over_rev.DWC (Los Angeles),0.0017,0.0017,exact,inst $ 206796 / rev FY20-24 121398668 (5 yrs); DMV-only funders $ 18250
+M3.inst_grants_over_rev.Doorways (VA),0.0716,0.0716,exact,inst $ 2325323 / rev FY20-24 32463395 (5 yrs); DMV-only funders $ 2303516
+M3.inst_grants_over_rev.Everyone Home DC,0.0179,0.0179,exact,inst $ 387504 / rev FY20-24 21685283 (5 yrs); DMV-only funders $ 344889
+M3.inst_grants_over_rev.Heartly House (MD),0.1031,0.1031,exact,inst $ 1820318 / rev FY20-24 17658952 (5 yrs); DMV-only funders $ 1819318
+M3.inst_grants_over_rev.House of Ruth DC,0.0771,0.0771,exact,inst $ 5355781 / rev FY20-24 69483677 (5 yrs); DMV-only funders $ 5089279
+M3.inst_grants_over_rev.House of Ruth MD,0.0837,0.0837,exact,inst $ 4717654 / rev FY20-24 56334920 (5 yrs); DMV-only funders $ 4571728
+M3.inst_grants_over_rev.Miriam's Kitchen,0.1134,0.1134,exact,inst $ 5613532 / rev FY20-24 49511738 (5 yrs); DMV-only funders $ 5299705
+M3.inst_grants_over_rev.My Sister's Place,0.0758,0.0758,exact,inst $ 2396457 / rev FY20-24 31629813 (5 yrs); DMV-only funders $ 2351207
+M3.inst_grants_over_rev.N Street Village,0.0645,0.0645,exact,inst $ 3600460 / rev FY20-24 55836215 (5 yrs); DMV-only funders $ 3327368
+M3.inst_grants_over_rev.New Endeavors by Women,0.0611,0.0611,exact,inst $ 951156 / rev FY20-24 15574193 (5 yrs); DMV-only funders $ 947330
+M3.inst_grants_over_rev.Open Arms Housing,0.0254,0.0254,exact,inst $ 255250 / rev FY20-24 10065097 (5 yrs); DMV-only funders $ 255250
+M3.inst_grants_over_rev.Samaritan Inns,0.2656,0.2656,exact,inst $ 7549755 / rev FY20-24 28428008 (5 yrs); DMV-only funders $ 7549735
+M3.inst_grants_over_rev.Thrive DC,0.0505,0.0505,exact,inst $ 1136211 / rev FY20-24 22483320 (5 yrs); DMV-only funders $ 321403
+M3.miriams_tripled_since_fy18,tripled since FY18,"FY18 4661278 -> FY24 11326819 = 2.43x nominal, 1.95x real; FY25 12956122 = 2.78x nominal",MISMATCH,"revenue grew 2.4x (FY24) or 2.8x (FY25) nominal, under 2x real; not tripled"
+M3.months_cash_fy24.CBWC Inst. / SheWorks (LA),4.84,4.84,exact,cash 704805 / exp 1747039
+M3.months_cash_fy24.Calvary,5.23,5.23,exact,cash 2315867 / exp 5310627
+M3.months_cash_fy24.Christ House,6.27,6.27,exact,cash 2814085 / exp 5386277
+M3.months_cash_fy24.Coalition for the Homeless,4.11,4.11,exact,cash 2576352 / exp 7522777
+M3.months_cash_fy24.Community of Hope,4.5,4.5,exact,cash 19595132 / exp 52298669
+M3.months_cash_fy24.Covenant House DC,1.1,1.1,exact,cash 692449 / exp 7587296
+M3.months_cash_fy24.DASH,3.95,3.95,exact,cash 2623033 / exp 7974226
+M3.months_cash_fy24.DC SAFE,0.86,0.86,exact,cash 586290 / exp 8156371
+M3.months_cash_fy24.DWC (Los Angeles),2.4,2.4,exact,cash 5798382 / exp 28943860
+M3.months_cash_fy24.Doorways (VA),12.13,12.13,exact,cash 6496707 / exp 6425316
+M3.months_cash_fy24.Everyone Home DC,9.92,9.92,exact,cash 4202971 / exp 5083006
+M3.months_cash_fy24.Heartly House (MD),1.01,1.01,exact,cash 364794 / exp 4325065
+M3.months_cash_fy24.House of Ruth DC,3.83,3.83,exact,cash 4650122 / exp 14583555
+M3.months_cash_fy24.House of Ruth MD,2.72,2.72,exact,cash 2716892 / exp 11988537
+M3.months_cash_fy24.Miriam's Kitchen,4.05,4.05,exact,cash 3904170 / exp 11575563
+M3.months_cash_fy24.My Sister's Place,2.9,2.9,exact,cash 1835602 / exp 7602426
+M3.months_cash_fy24.N Street Village,7.96,7.96,exact,cash 7673939 / exp 11573573
+M3.months_cash_fy24.New Endeavors by Women,0.51,0.51,exact,cash 122578 / exp 2903508
+M3.months_cash_fy24.Open Arms Housing,1.16,1.16,exact,cash 224144 / exp 2310971
+M3.months_cash_fy24.Samaritan Inns,4.51,4.51,exact,cash 2323679 / exp 6184430
+M3.months_cash_fy24.Thrive DC,4.15,4.15,exact,cash 1084059 / exp 3134139
+M3.months_cash_fy25.Calvary,4.4,4.44,exact,"4.44 -> ""4.4"""
+M3.nstreet_8_months_cash,8 months,7.96,exact,leadership 13
+M3.nstreet_gov_about40,~40%,FY2017:0.33 FY2018:0.42 FY2019:0.37 FY2020:0.36 FY2021:0.43 FY2022:0.35 FY2023:0.43 FY2024:0.48 FY2025:0.39,exact,FY22-24 mean 0.423; FY17-25 range 0.33-0.48
+M3.ovsjg_fy26.Calvary,1050651,1050651,exact,2 rows
+M3.ovsjg_fy26.Christ House,0,0,exact,0 rows
+M3.ovsjg_fy26.Community of Hope,0,0,exact,0 rows
+M3.ovsjg_fy26.DASH,5277675,5277675,exact,2 rows
+M3.ovsjg_fy26.DC SAFE,4610998,4610998,exact,1 rows
+M3.ovsjg_fy26.House of Ruth DC,3173814,3173814,exact,3 rows
+M3.ovsjg_fy26.My Sister's Place,3805746,3805746,exact,2 rows
+M3.ovsjg_fy26.N Street Village,0,0,exact,0 rows
+M3.ovsjg_fy26.New Endeavors by Women,136878,136878,exact,1 rows
+M3.real_cagr_fy19_24.CBWC Inst. / SheWorks (LA),omitted (founded 2022),no FY2019 row,exact,rev FY19 nan -> FY24 1486733.0
+M3.real_cagr_fy19_24.Calvary,0.1378,0.1378,exact,rev FY19 2486678 -> FY24 5817167; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Christ House,-0.0069,-0.0069,exact,rev FY19 4136265 -> FY24 4903252; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Coalition for the Homeless,-0.0258,-0.0258,exact,rev FY19 6997537 -> FY24 7532311; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Community of Hope,0.0418,0.0418,exact,rev FY19 38224316 -> FY24 57568524; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Covenant House DC,0.029,0.029,exact,rev FY19 5095248 -> FY24 7213705; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.DASH,-0.0274,-0.0274,exact,rev FY19 6529485 -> FY24 6973366; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.DC SAFE,0.1765,0.1765,exact,rev FY19 2522184 -> FY24 6976728; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.DWC (Los Angeles),0.1904,0.1904,exact,rev FY19 11728685 -> FY24 34403997; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Doorways (VA),0.0254,0.0254,exact,rev FY19 4432205 -> FY24 6165670; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Everyone Home DC,0.1061,0.1061,exact,rev FY19 2396742 -> FY24 4868613; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Heartly House (MD),0.0621,0.0621,exact,rev FY19 2488324 -> FY24 4125675; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.House of Ruth DC,0.0503,0.0503,exact,rev FY19 9330994 -> FY24 14631298; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.House of Ruth MD,0.0257,0.0257,exact,rev FY19 8694197 -> FY24 12108599; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Miriam's Kitchen,0.1202,0.1202,exact,rev FY19 5233256 -> FY24 11326819; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.My Sister's Place,0.1945,0.1945,exact,rev FY19 2426739 -> FY24 7239485; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.N Street Village,-0.0169,-0.0169,exact,rev FY19 8856653 -> FY24 9977639; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.New Endeavors by Women,-0.0251,-0.0251,exact,rev FY19 2451776 -> FY24 2648708; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Open Arms Housing,0.1246,0.1246,exact,rev FY19 1011905 -> FY24 2233473; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Samaritan Inns,0.1006,0.1006,exact,rev FY19 3583188 -> FY24 7100604; deflators 1.226992/1.000000
+M3.real_cagr_fy19_24.Thrive DC,-0.0493,-0.0493,exact,rev FY19 2759654 -> FY24 2629115; deflators 1.226992/1.000000
+M3.samaritan_gov_72_to_11,72% -> 11%,FY2015:0.29 FY2016:0.45 FY2017:0.31 FY2018:0.51 FY2019:0.57 FY2020:0.54 FY2021:0.53 FY2022:0.72 FY2023:0.56 FY2024:0.03 FY2025:0.11,exact,"72% = FY2022 (0.722), 11% = FY2025 (0.113); FY2024 is 3%"
+M3.sector_dist.dc_sector_FY2023.calvary_pctile,57,57.1,exact,share of universe below Calvary (drop-missing rule); zero-fill rule would give 83.5
+M3.sector_dist.dc_sector_FY2023.calvary_share,0.51,0.512,exact,audit basis 0.5119; 990 basis 0.5522
+M3.sector_dist.dc_sector_FY2023.median,0.37,0.371,exact,"reproduces only when orgs with NO government line are DROPPED (n=163); the stated rule (no gov line counted at 0%) gives median 0.000, n=425"
+M3.sector_dist.dc_sector_FY2023.n,163,163,exact,"orgs with preferred row, revenue>0 AND a non-blank government line; zero-fill rule would give n=425"
+M3.sector_dist.dc_sector_FY2023.stated_zero_fill_rule,"median 0.37, n=163, pctile 57","median 0.000, n=425, pctile 83.5",MISMATCH,the method line on consulting 23 / appendix B11 says no-gov-line orgs count at 0%; that rule does NOT reproduce the slide numbers
+M3.sector_dist.national_women_FY2022.calvary_pctile,46,45.9,exact,share of universe below Calvary (drop-missing rule); zero-fill rule would give 73.9
+M3.sector_dist.national_women_FY2022.calvary_share,0.61,0.614,exact,audit basis 0.6137; 990 basis 0.6412
+M3.sector_dist.national_women_FY2022.median,0.65,0.651,exact,"reproduces only when orgs with NO government line are DROPPED (n=542); the stated rule (no gov line counted at 0%) gives median 0.000, n=1124"
+M3.sector_dist.national_women_FY2022.n,542,542,exact,"orgs with preferred row, revenue>0 AND a non-blank government line; zero-fill rule would give n=1124"
+M3.sector_dist.national_women_FY2022.stated_zero_fill_rule,"median 0.65, n=542, pctile 46","median 0.000, n=1124, pctile 73.9",MISMATCH,the method line on consulting 23 / appendix B11 says no-gov-line orgs count at 0%; that rule does NOT reproduce the slide numbers
+M3.sector_dist.size_matched_FY2022.calvary_pctile,57,56.9,exact,share of universe below Calvary (drop-missing rule); zero-fill rule would give 74.1
+M3.sector_dist.size_matched_FY2022.calvary_share,0.61,0.614,exact,audit basis 0.6137; 990 basis 0.6412
+M3.sector_dist.size_matched_FY2022.median,0.56,0.555,exact,"reproduces only when orgs with NO government line are DROPPED (n=334); the stated rule (no gov line counted at 0%) gives median 0.028, n=556"
+M3.sector_dist.size_matched_FY2022.n,334,334,exact,"orgs with preferred row, revenue>0 AND a non-blank government line; zero-fill rule would give n=556"
+M3.sector_dist.size_matched_FY2022.stated_zero_fill_rule,"median 0.56, n=334, pctile 57","median 0.028, n=556, pctile 74.1",MISMATCH,the method line on consulting 23 / appendix B11 says no-gov-line orgs count at 0%; that rule does NOT reproduce the slide numbers
+M3.typology_counts,anchored 7 / mixed 11 / philanthropy-led 3,anchored 7 / mixed 11 / philanthropy-led 3,exact,"anchored=['Open Arms Housing', 'DASH', ""My Sister's Place"", 'DC SAFE', 'Everyone Home DC', 'Heartly House (MD)', 'CBWC Inst. / SheWorks (LA)']; mixed=['Calvary', 'N Street Village', 'House of Ruth DC', 'New Endeavors by Women', 'Samaritan Inns', 'Coalition for the Homeless', 'Community of Hope', 'Covenant House DC', 'Doorways (VA)', 'House of Ruth MD', 'DWC (Los Angeles)']; phil=['Christ House', 'Thrive DC', ""Miriam's Kitchen""]"
+M4.daf_total.AMERICAN ENDOWMENT FOUNDATIO,5922177,5922177,exact,dc_sector recipients; DC/MD/VA-state recipients = 441813814
+M4.daf_total.AMERICAN ONLINE GIVING FOUND,48639409,48639409,exact,dc_sector recipients; DC/MD/VA-state recipients = 944624529
+M4.daf_total.CHARITIES AID FOUNDATION AME,7740878,7740878,exact,dc_sector recipients; DC/MD/VA-state recipients = 204635822
+M4.daf_total.DONOR ADVISED CHARITABLE GIV,35660005,35660005,exact,dc_sector recipients; DC/MD/VA-state recipients = 4001675369
+M4.daf_total.FIDELITY INVESTMENTS CHARITA,179219609,179219609,exact,dc_sector recipients; DC/MD/VA-state recipients = 8007241487
+M4.daf_total.NATIONAL PHILANTHROPIC TR,80015764,80015764,exact,dc_sector recipients; DC/MD/VA-state recipients = 3393611842
+M4.daf_total.PAYPAL CHARITABLE GIVING FUN,4362658,4362658,exact,dc_sector recipients; DC/MD/VA-state recipients = 145839731
+M4.daf_total.VANGUARD CHARITABLE ENDOWMEN,17534435,17534435,exact,dc_sector recipients; DC/MD/VA-state recipients = 2022451408
+M4.dc_sector_$_TY2020.daf,67301087,67301087,exact,
+M4.dc_sector_$_TY2020.institutional,49893328,49893328,exact,
+M4.dc_sector_$_TY2021.daf,81924312,81924312,exact,
+M4.dc_sector_$_TY2021.institutional,51110799,51110799,exact,
+M4.dc_sector_$_TY2022.daf,53717138,53717138,exact,
+M4.dc_sector_$_TY2022.institutional,52468996,52468996,exact,
+M4.dc_sector_$_TY2023.daf,94582122,94582122,exact,
+M4.dc_sector_$_TY2023.institutional,51093189,51093189,exact,
+M4.dc_sector_$_TY2024.daf,86628191,86628191,exact,
+M4.dc_sector_$_TY2024.institutional,71768363,71768363,exact,
+M4.dc_sector_daf_share,58%,58.2,exact,%
+M4.dc_sector_org_count,1027,1027,exact,universe size; distinct recipients with filed grants = 336
+M4.dc_sector_per_year,132M/yr,132.1,exact,$M
+M4.dc_sector_total_TY20_24,660M,660.49,exact,in $M
+M4.grant_size.community_foundation.median,40000,40000,exact,n=399
+M4.grant_size.community_foundation.p90,200000,200000,exact,
+M4.grant_size.corporate_foundation.median,1000,570,rounding,"recomputed $570 (appendix C7 also shows $570); consulting 34 rounds this to ""$1K (matching gifts)""."
+M4.grant_size.corporate_foundation.p90,250000,250000,exact,
+M4.grant_size.daf_sponsor.median,25000,25000,exact,n=2052
+M4.grant_size.daf_sponsor.p90,259000,258849,rounding,
+M4.grant_size.private_foundation.median,10000,10000,exact,n=3288
+M4.grant_size.private_foundation.n,3288,3288,exact,grants with amount
+M4.grant_size.private_foundation.p90,79000,78880,rounding,
+M4.institutional_funder_count,555,555,exact,"distinct funder_id, non-DAF, excl applied"
+M4.leadership_median_10_25K,median $10-25K,all-institutional median 10000; all-types median 15000,exact,"institutional median $10,000, DAF median $25,000, all types $15,000: wording ""median $10-25K"" consistent."
+M4.six_of_25_fund_calvary,6,6,exact,"of top-25 inst funders by $ to dc_sector, those with any filed grant to Calvary TY20-24: GREATER WASHINGTON C; MORRIS AND GWENDOLYN; BANK OF AMERICA CHAR; UNITED WAY OF THE NA; JANE BANCROFT ROBINS; WILLIAM S ABELL FOUN"
+M4.top10_share_inst,55%,55.2,exact,%
+M4.top20_set_check,Abell..GWCF (20 names),GREATER WASHINGTON COM; CLARK CHARITABLE FOUND; JPMORGAN CHASE FOUNDAT; MORRIS AND GWENDOLYN C; BANK OF AMERICA CHARIT; WAL-MART FOUNDATION; ANNIE E CASEY FOUNDATI; THE HARRY & JEANETTE W; UNITED WAY OF THE NATI; THE MORNINGSTAR PHILAN; DIANA DAVIS SPENCER FO; RAST FOUNDATION; EUGENE & AGNES E MEYER; CAPITAL AREA FOOD BANK; WELLS FARGO FOUNDATION; JANE BANCROFT ROBINSON; DIANE & NORMAN BERNSTE; PEPSICO FOUNDATION INC; THE WASHINGTON HOME IN; WILLIAM S ABELL FOUNDA,exact,"recomputed top-20 institutional funders (by $ to dc_sector, excl applied) are the same 20 names and order as consulting 33 / appendix C3."
+M4.top_inst.BANK OF AMERICA CHARITABLE FOU,11511683,11511683,exact,rank 5
+M4.top_inst.CLARK CHARITABLE FOUNDATION IN,32767000,32767000,exact,rank 2
+M4.top_inst.DIANE & NORMAN BERNSTEIN FOUND,3072334,3072334,exact,rank 17
+M4.top_inst.GREATER WASHINGTON COMMUNITY F,43178620,43178620,exact,rank 1
+M4.top_inst.JPMORGAN CHASE FOUNDATION,17990037,17990037,exact,rank 3
+M4.top_inst.MORRIS AND GWENDOLYN CAFRITZ F,12582466,12582466,exact,rank 4
+M4.top_inst.THE WASHINGTON HOME INC,2947537,2947537,exact,rank 19
+M4.top_inst.UNITED WAY OF THE NATIONAL CAP,5762318,5762318,exact,rank 9
+M4.top_inst.WILLIAM S ABELL FOUNDATION INC,2729300,2729300,exact,rank 20
+M5.all_23_itemized_TY2023plus,all 23,22 of 23,MISMATCH,not itemized: ['MELAMED FOUNDATION']
+M5.bigger.ALICE SHAVER FOUNDATIO.calvary_max,10000,10000.0,exact,
+M5.bigger.ALICE SHAVER FOUNDATIO.peer_max,25000,25000.0,exact,
+M5.bigger.BANK OF AMERICA CHARIT.calvary_max,15000,15000.0,exact,
+M5.bigger.BANK OF AMERICA CHARIT.peer_max,50000,50000.0,exact,
+M5.bigger.CAROL AND GENE LUDWIG .calvary_max,25000,25000.0,exact,
+M5.bigger.CAROL AND GENE LUDWIG .peer_max,50000,50000.0,exact,
+M5.bigger.GREATER WASHINGTON COM.calvary_max,458000,458000.0,exact,
+M5.bigger.GREATER WASHINGTON COM.peer_max,526300,526300.0,exact,
+M5.bigger.JACQUEMIN FAMILY FOUND.calvary_max,5000,5000.0,exact,
+M5.bigger.JACQUEMIN FAMILY FOUND.peer_max,10000,10000.0,exact,
+M5.bigger.JOHN EDWARD FOWLER MEM.calvary_max,40000,40000.0,exact,
+M5.bigger.JOHN EDWARD FOWLER MEM.peer_max,50000,50000.0,exact,
+M5.bigger.MAX & VICTORIA DREYFUS.calvary_max,5000,5000.0,exact,
+M5.bigger.MAX & VICTORIA DREYFUS.peer_max,15000,15000.0,exact,
+M5.bigger.MORRIS AND GWENDOLYN C.calvary_max,170000,170000.0,exact,
+M5.bigger.MORRIS AND GWENDOLYN C.peer_max,250000,250000.0,exact,
+M5.bigger.UNITED WAY OF THE NATI.calvary_max,23191,23191.0,exact,
+M5.bigger.UNITED WAY OF THE NATI.peer_max,55747,55747.0,exact,
+M5.clark_$_to_peers,7800000.0,7830000,exact,
+M5.clark_dc_sector_recipients,20,20,exact,
+M5.clark_dc_sector_total,32800000.0,32767000,exact,
+M5.clark_median_grant_to_peers,250000,250000.0,exact,n grants 21
+M5.clark_n_peers,5,5,exact,Community of Hope; House of Ruth DC; Miriam's Kitchen; N Street Village; Samaritan Inns
+M5.crm_confirmed_share,44%,43.9,exact,%
+M5.crm_status.attachment_only_list,1279435,1279435,exact,
+M5.crm_status.confirmed_earlier_only,477879,477879,exact,
+M5.crm_status.confirmed_in_window,4632578,4632578,exact,
+M5.crm_status.no_filing_rows,1613137,1613137,exact,
+M5.crm_status.not_exempt_filer,2553047,2553047,exact,
+M5.crm_total,10600000.0,10556076,exact,
+M5.current_funders_bigger_peer_grant,15,27,exact,"15 reproduces ONLY with an unstated filter: non-DAF current funders that fund >=2 core peers (table universe 25, appendix C17-18); under the stated rule alone the count is 27 (20 non-DAF). Convention not stated on slide 39."
+M5.dreyfus_itemized_TY23plus,unclear (no itemized TY2023+),False,exact,"last Calvary grant TY2022.0; dreyfus rows TY>=2023 total 0, placeholders 0"
+M5.gap3.Adele M Thomas,3,3,exact,"[('ADELE M THOMAS CHARITABLE FOUNDATION INC', 3)]"
+M5.gap3.Americas Charities,7,7,exact,"[('AMERICAS CHARITIES', 7)]"
+M5.gap3.Bechtel,4,4,exact,"[('BRENDAN & HELEN BECHTEL FOUNDATION', 4)]"
+M5.gap3.Bernstein,3,3,exact,"[('DIANE & NORMAN BERNSTEIN FOUNDATION', 3)]"
+M5.gap3.Bunting,4,4,exact,"[('BUNTING FAMILY FOUNDATION INC', 4)]"
+M5.gap3.Capital Area Food Bank,7,7,exact,"[('CAPITAL AREA FOOD BANK', 7)]"
+M5.gap3.Clark Charitable,5,5,exact,"[('CLARK CHARITABLE FOUNDATION INC', 5)]"
+M5.gap3.Collins,3,3,exact,"[('ALISANN AND TERRY COLLINS FOUNDATION', 3)]"
+M5.gap3.Dweck,3,3,exact,"[('RALPH S AND FRANCES R DWECK FAMILY FOUNDATION INC', 3)]"
+M5.gap3.Gifts For The Homeless,8,8,exact,"[('GIFTS FOR THE HOMELESS', 8)]"
+M5.gap3.Give Lively,5,5,exact,"[('GIVE LIVELY FOUNDATION INC', 5)]"
+M5.gap3.Heart Sing,3,3,exact,"[('HEART SING', 3)]"
+M5.gap3.Jack R Anderson,3,3,exact,"[('JACK R ANDERSON FOUNDATION INC', 3)]"
+M5.gap3.Jpmorgan Chase,7,7,exact,"[('JPMORGAN CHASE FOUNDATION', 7)]"
+M5.gap3.Kaplan,3,3,exact,"[('JEROME A AND DEENA L KAPLAN FAMILY FOUNDATION', 3)]"
+M5.gap3.Melamed,3,3,exact,"[('MELAMED FOUNDATION', 3)]"
+M5.gap3.Nehemiah Cohen,3,3,exact,"[('NAOMI AND NEHEMIAH COHEN FOUNDATION VIRGINIA CORPORATION', 3)]"
+M5.gap3.Pew,3,3,exact,"[('PEW CHARITABLE TRUSTS', 3)]"
+M5.gap3.Schattner,4,4,exact,"[('ROBERT I SCHATTNER FOUNDATION INC', 4)]"
+M5.gap3.Schiro,3,3,exact,"[('J V SCHIRO-ZAVELA FOUNDATION', 3)]"
+M5.gap3.T Rowe Price,8,8,exact,"[('T ROWE PRICE PROGRAM FOR CHARITABLE GIVING INC', 8)]"
+M5.gap3.Venable,10,10,exact,"[('VENABLE BAETJER AND HOWARD FOUNDATION', 10)]"
+M5.gap3.Washington Home,3,3,exact,"[('THE WASHINGTON HOME INC', 3)]"
+M5.gap3_extra_names,none,none,exact,recomputed 3+ names not on slide 37
+M5.gap_funders_2plus_count,75,75,exact,
+M5.gap_funders_3plus_count,23,23,exact,
+M5.lapsed.Fisher Memorial,25000,25000.0,exact,"[('ROBERT M FISHER MEMORIAL FOUNDATION INC', np.float64(25000.0))]"
+M5.lapsed.Grossman,1250,1250.0,exact,"[('GROSSMAN FAMILY CHARITABLE FUNDS INC', np.float64(1250.0))]"
+M5.lapsed.Jacquemin,5000,5000.0,exact,"[('JACQUEMIN FAMILY FOUNDATION INC', np.float64(5000.0))]"
+M5.lapsed.Jane Bancroft Robinson,25000,25000.0,exact,"[('JANE BANCROFT ROBINSON FOUNDATION INC', np.float64(25000.0))]"
+M5.lapsed.Junior League,15000,15000.0,exact,"[('THE JUNIOR LEAGUE OF THE CITY OF WASHINGTON INC', np.float64(15000.0))]"
+M5.lapsed.Levatus,10000,10000.0,exact,"[('LEVATUS CHARITABLE TRUST', np.float64(10000.0))]"
+M5.lapsed.Many Hands,55500,55500.0,exact,"[('MANY HANDS INC', np.float64(55500.0))]"
+M5.lapsed.Phase Foundation,9000,9000.0,exact,"[('THE PHASE FOUNDATION', np.float64(9000.0))]"
+M5.lapsed.Poole,5000,5000.0,exact,"[('HARRY AND ZOE POOLE FOUNDATION', np.float64(5000.0))]"
+M5.lapsed.Spur Local,5000,5000.0,exact,"[('SPUR LOCAL INC', np.float64(5000.0))]"
+M5.lapsed.Whispering Bells,400,400.0,exact,"[('WHISPERING BELLS FOUNDATION CHARITABLE TR UA 122690', np.float64(400.0))]"
+M5.lapsed.World Bank Community,100000,100000.0,exact,"[('WORLD BANK COMMUNITY CONNECTIONS FUND', np.float64(100000.0))]"
+M5.lapsed_count,12,14,exact,"12 reproduces only when DAF sponsors are excluded (drops PayPal Giving Fund $41,636 TY2020 and Blackbaud Giving Fund $7,232 TY2022); slide 38 method line does not say DAF excluded, the M5 header convention does. All types: 14 / $305,018."
+M5.lapsed_total,256150,305018,exact,"256,150 with DAF sponsors excluded (slide text rounds to $255K); 305,018 with all funder types."
+M5.small4.Bernstein,3-4 peers at $25-75K,3 peers; grants min 25000 median 25000 max 166667; total 908334,exact,"3 peers; median $25K (range $25K-$166,667)"
+M5.small4.Cohen,3-4 peers at $25-75K,3 peers; grants min 20000 median 75000 max 100000; total 940000,exact,3 peers; median $75K (range $20K-$100K)
+M5.small4.Schattner,3-4 peers at $25-75K,4 peers; grants min 5000 median 60000 max 150000; total 800000,exact,4 peers; median peer grant $60K (range $5K-$150K): median inside the stated $25-75K band
+M5.small4.Washington Home,3-4 peers at $25-75K,3 peers; grants min 50000 median 62900 max 273750; total 873300,exact,"3 peers; median $62,900 (range $50K-$273,750)"
+M6.distinct_funders_19orgs,330,330,exact,all types incl DAF; without exclusions 331
+M6.funders_of_3plus_orgs,58,58,exact,2+: 121
+M6.not_shared_inst.Christ House,15,15,exact,
+M6.not_shared_inst.Coalition for the Homeless,2,2,exact,
+M6.not_shared_inst.Community of Hope,33,33,exact,
+M6.not_shared_inst.Covenant House DC,14,14,exact,
+M6.not_shared_inst.DASH,9,9,exact,
+M6.not_shared_inst.DC SAFE,5,5,exact,
+M6.not_shared_inst.Doorways (VA),29,29,exact,
+M6.not_shared_inst.Everyone Home DC,6,6,exact,
+M6.not_shared_inst.Heartly House (MD),18,18,exact,
+M6.not_shared_inst.House of Ruth DC,69,69,exact,
+M6.not_shared_inst.House of Ruth MD,81,81,exact,
+M6.not_shared_inst.Miriam's Kitchen,48,48,exact,
+M6.not_shared_inst.My Sister's Place,13,13,exact,
+M6.not_shared_inst.N Street Village,45,45,exact,
+M6.not_shared_inst.New Endeavors by Women,8,8,exact,
+M6.not_shared_inst.Open Arms Housing,0,0,exact,
+M6.not_shared_inst.Samaritan Inns,9,9,exact,
+M6.not_shared_inst.Thrive DC,6,6,exact,
+M6.orgs_funded.AMERICAN ONLINE GIVING FO,18,18,exact,
+M6.orgs_funded.BANK OF AMERICA CHARITABL,10,10,exact,
+M6.orgs_funded.DONOR ADVISED CHARITABLE ,16,16,exact,
+M6.orgs_funded.GREATER WASHINGTON COMMUN,18,18,exact,
+M6.orgs_funded.MORRIS AND GWENDOLYN CAFR,14,14,exact,
+M6.orgs_funded.NATIONAL PHILANTHROPIC TR,13,13,exact,
+M6.orgs_funded.THE BLACKBAUD GIVING FUND,11,11,exact,
+M6.orgs_funded.UNITED WAY OF THE NATIONA,13,13,exact,
+M6.orgs_funded.VANGUARD CHARITABLE ENDOW,13,13,exact,
+M6.orgs_funded.VENABLE BAETJER AND HOWAR,10,10,exact,
+M6.orgs_funded.WILLIAM S ABELL FOUNDATIO,9,9,exact,
+M6.shared_inst.Christ House,7,7,exact,
+M6.shared_inst.Coalition for the Homeless,2,2,exact,
+M6.shared_inst.Community of Hope,10,10,exact,
+M6.shared_inst.Covenant House DC,9,9,exact,
+M6.shared_inst.DASH,14,14,exact,
+M6.shared_inst.DC SAFE,2,2,exact,
+M6.shared_inst.Doorways (VA),7,7,exact,
+M6.shared_inst.Everyone Home DC,4,4,exact,
+M6.shared_inst.Heartly House (MD),0,0,exact,
+M6.shared_inst.House of Ruth DC,14,14,exact,
+M6.shared_inst.House of Ruth MD,5,5,exact,
+M6.shared_inst.Miriam's Kitchen,17,17,exact,
+M6.shared_inst.My Sister's Place,12,12,exact,
+M6.shared_inst.N Street Village,9,9,exact,
+M6.shared_inst.New Endeavors by Women,12,12,exact,
+M6.shared_inst.Open Arms Housing,2,2,exact,
+M6.shared_inst.Samaritan Inns,5,5,exact,
+M6.shared_inst.Thrive DC,2,2,exact,
+M8.appC66.aging.funders,153,153,exact,
+M8.appC66.aging.funders_100K,34,34,exact,
+M8.appC66.aging.median_grant,12644,12644.0,exact,
+M8.appC66.behavioral_health.funders,251,251,exact,
+M8.appC66.behavioral_health.funders_100K,84,84,exact,
+M8.appC66.behavioral_health.median_grant,15000,15000.0,exact,
+M8.appC66.dv.funders,161,161,exact,
+M8.appC66.dv.funders_100K,34,34,exact,
+M8.appC66.dv.median_grant,10000,10000.0,exact,
+M8.appC66.education.funders,744,744,exact,
+M8.appC66.education.funders_100K,271,271,exact,
+M8.appC66.education.median_grant,5000,5000.0,exact,
+M8.appC66.health.funders,697,697,exact,
+M8.appC66.health.funders_100K,206,206,exact,
+M8.appC66.health.median_grant,10000,10000.0,exact,
+M8.appC66.housing.funders,391,391,exact,
+M8.appC66.housing.funders_100K,104,104,exact,
+M8.appC66.housing.median_grant,10000,10000.0,exact,
+M8.appC66.maternal_health.funders,60,60,exact,
+M8.appC66.maternal_health.funders_100K,12,12,exact,
+M8.appC66.maternal_health.median_grant,20000,20000.0,exact,
+M8.appC66.reentry.funders,39,39,exact,
+M8.appC66.reentry.funders_100K,8,8,exact,
+M8.appC66.reentry.median_grant,15000,15000.0,exact,
+M8.appC66.veterans.funders,152,152,exact,
+M8.appC66.veterans.funders_100K,34,34,exact,
+M8.appC66.veterans.median_grant,10000,10000.0,exact,
+M8.appC66.workforce.funders,181,181,exact,
+M8.appC66.workforce.funders_100K,66,66,exact,
+M8.appC66.workforce.median_grant,40000,40000.0,exact,
+M8.area_$_per_yr.aging,9733560.6,9733560.6,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 9733561"
+M8.area_$_per_yr.behavioral_health,20685130.2,20685130.2,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 20685130"
+M8.area_$_per_yr.dv,4462098.2,4462098.2,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 4462098"
+M8.area_$_per_yr.education,93675991.8,93675991.8,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 93675992"
+M8.area_$_per_yr.health,84151297.2,84151297.2,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 84151297"
+M8.area_$_per_yr.housing,32368511.2,32368511.2,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 32368511"
+M8.area_$_per_yr.maternal_health,4206081.2,4206081.2,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 4206081"
+M8.area_$_per_yr.reentry,1021957.6,1021957.6,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 1021958"
+M8.area_$_per_yr.veterans,7686391.4,7686391.4,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 7686391"
+M8.area_$_per_yr.workforce,30396443.2,30396443.2,exact,"variant ('recipient_in_DC_MD_VA', 'ignore_go'); recipient-in-DMV variant 30396443"
+M8.federal_notices_count,36,41,rounding,"judgment filter: my mechanical rule (agency prefix HUD/VA/DOL/USDOJ/HHS-ACF/HHS-SAMHS/USDA/Treasury(USDOT-GCR)/HHS-ACL, then drop titles matching research/tribal/rural/overseas/evaluation/statistics/agriculture/forestry/academic) keeps 41; 34 of the deck 36 are in my set; the deck keeps 2 I drop (NIJ evaluation, BJS statistics) and drops 7 I keep (ETA-TEGL, 3 HUD PIH notices, BJA 172662/172775, TI-27-001). Count is sensitive by about +-6 to keyword choice; agency-prefix alone gives 52."
+M8.federal_notices_vs_appendix_list,appendix list of 36,"my filter keeps 34 of the 36 listed; extra kept ['ETA-TEGL-09-24-CH1', 'PIH-2600-DC-0023', 'PIH-2600-DC-0034', 'PIH-2600-DC-0048', 'TI-27-001', 'VA-GPD-FORECAST-FY2026-FY2028', 'VA-GRANTS-112508-002']; listed but dropped by my keywords ['O-BJS-2026-172687', 'O-NIJ-2026-172798']",skipped,detail row for the item above
+M8.health_funders_100K_plus,206,206,exact,"funders with >=100K health-tagged $ over TY20-24 (total funders 697); per-year basis (>=100K/yr avg): 71; appendix C66 shows ""697 (206)"""
+M8.near_areas_total_per_yr,149220000.0,149219663,exact,workforce+behavioral_health+dv+education

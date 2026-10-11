@@ -1,0 +1,14 @@
+program_area,label,description,keywords,ntee3_codes,assistance_listings
+housing,Housing and homelessness,Housing and homelessness,homeless;homelessness;shelter;housing;supportive housing;transitional housing;rapid re-housing;rapid rehousing;rent;rental;eviction;permanent supportive;psh;continuum of care;coc,L01;L02;L03;L05;L11;L12;L19;L20;L21;L24;L25;L30;L40;L41;L80;L81;L82;L99;P85;P75,14.267;14.231;14.241;14.218;14.239;14.235;14.251;97.024;64.033
+dv,Domestic violence and victim services,Domestic violence and victim services,domestic violence;intimate partner;dating violence;sexual assault;sexual violence;victim;victims;survivor;survivors;abuse;trafficking;vawa;voca;safe house;family violence,P43;I70;I71;I72;I73;P62;F42,16.575;16.588;16.736;93.671;16.590
+behavioral_health,Behavioral health and recovery,Behavioral health and recovery,mental health;behavioral health;substance use;substance abuse;addiction;recovery;sobriety;opioid;therapy;counseling;psychiatric;trauma-informed,F20;F21;F22;F30;F32;F33;F40;F60;F70;F99,93.959;93.958;93.243;93.788
+workforce,Workforce and employment,Workforce and employment,workforce;employment;job training;job readiness;career;vocational;jobs;wioa;snap e&t;employment and training,J20;J21;J22;J30;J32;J33,17.258;17.259;17.278;10.561
+health,Physical health,Physical health,health care;healthcare;medical;clinic;nursing;wellness;nutrition;food;meals;hunger,E20;E21;E30;E32;K30;K31;K35,
+education,Education and life skills,Education and life skills,education;literacy;ged;classes;financial literacy;digital literacy;computer;tutoring,B20;B60;B90,
+aging,Aging and older adults,Aging and older adults,senior;seniors;older adult;older adults;aging;elderly,P81;P75;L22,93.044;93.045
+veterans,Veterans,Veterans,veteran;veterans;military,W30,64.033;17.805
+reentry,Reentry and justice-involved,Reentry and justice-involved,reentry;re-entry;returning citizens;incarceration;incarcerated;formerly incarcerated;justice-involved;second chance,I31;I40;I43;I44,16.812
+maternal_health,Maternal and family health,Maternal and family health,maternal;pregnant;pregnancy;prenatal;postpartum;mothers;infant,P47;E70,93.926
+women,Women and girls (population focus),Women and girls (population focus),women;woman;womens;girls;female;ladies;sisters,R24,
+general_operating,General operating support,General operating support,general operating;general support;operating support;unrestricted;general purposes;general purpose;charitable purposes;charitable purpose;exempt purpose,,
+other,Other or unclassified,Other or unclassified,,,

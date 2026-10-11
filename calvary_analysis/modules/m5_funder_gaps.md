@@ -1,0 +1,30 @@
+# M5 readout: funder gap analysis
+
+Script `scripts/05_m5_gaps.py`. Candidate base `chart_data/m5_00_candidate_funders.csv` (166 funders with evidence fields; input to M7 scoring); charts `charts/m5_*.png`. Insights M5-01 to M5-04.
+
+## Question
+Which funders support Calvary's peers or the DC sector but not Calvary, which former funders have lapsed, where do current funders have headroom, and how much of Calvary's CRM-recorded institutional giving can be verified?
+
+## Method
+- Filed grants (990-PF, Schedule I) TY2020–24, non-cumulative, landscape exclusions applied. "Funds Calvary" = any filed grant naming Calvary TY2020–24. "Itemized TY2023+" = the funder filed itemized grant lists in TY2023 or TY2024, so the absence of a Calvary grant is current, not filing lag. "See attached" filers are flagged.
+- Gap categories: (G1) institutional funders of ≥2 core peers with no Calvary grant; (G2) lapsed Calvary funders (last grant ≤TY2022, funder itemized since); (G3) current funders whose largest grant to a core peer exceeds their largest to Calvary; (G4) institutional funders giving ≥$500K to the DC sector with no Calvary grant; (G5) funders on ≥2 peer donor lists (web) but on no Calvary list or filing; plus the CRM reconciliation from `supp_crm_cash_verification`.
+
+## Findings
+1. **Peer funders not funding Calvary** (M5-01): 23 institutional funders give to three or more of the 18 peers with no filed grant to Calvary; 75 give to two or more. Leaders: Venable Foundation (10 peers; in Calvary's CRM for $75K, so filing lag), T. Rowe Price Program for Charitable Giving (8; a DAF-like program), Gifts for the Homeless (8; in-kind), Capital Area Food Bank (7; in-kind food), America's Charities (7; workplace giving, also in the CRM), JPMorgan Chase Foundation (7; matching gifts), **Clark Charitable Foundation (5 peers, $7.8M, median grant $250K)**, Give Lively, Schattner (4, $800K), Bunting, Bechtel, Cohen (3, $940K), Bernstein (3, $908K), The Washington Home (3, $873K), Dweck, Jack R. Anderson, Collins. All 23 filed itemized lists in TY2023+.
+2. **Lapsed funders** (M5-02): 12 former institutional funders itemized grants since TY2023 with nothing for Calvary ($255K historically): World Bank Community Connections Fund ($100K, TY2022), Many Hands ($55.5K, TY2020), Jane Bancroft Robinson ($25K, TY2020), Robert M. Fisher ($25K, TY2022), Junior League of Washington, Levatus, Phase Foundation, Poole, Spur Local, Jacquemin, Grossman, Whispering Bells. Max & Victoria Dreyfus is unclear (no itemized TY2023+ return in the data).
+3. **Headroom with current funders** (M5-03): 15 current institutional funders have written larger single grants to a core peer than to Calvary. The material ones: Cafritz ($170K to Calvary vs $250K to a peer), GWCF ($458K vs $526K), Bank of America ($15K vs $50K), United Way NCA ($23K vs $56K), Ludwig ($25K vs $50K), Shaver, Fowler ($40K vs $50K), Dreyfus.
+4. **DC-sector majors without Calvary** (G4): 65 institutional funders gave ≥$500K to DC-sector organizations TY2020–24 with no Calvary grant (41 of them appear on no other gap list), led by Clark, JPMorgan Chase, Wal-Mart, Casey, Weinberg, Morningstar, Diana Davis Spencer, Rast, Meyer, Capital Area Food Bank, Wells Fargo ("see attached" since TY2023), Bernstein, PepsiCo, The Washington Home, ImpactAssets, Public Welfare, Coca-Cola, Schattner, Bainum, Cohen.
+5. **Web-list-only gaps** (G5): 16 names appear on two or more peer donor lists but on no Calvary list or filing, mostly corporations with no public filing (Accenture, Boeing, Carlyle, Deloitte, GMMB, Mars Foundation, World Bank Group) plus Helen Bechtel Foundation, Alexander & Margaret Stewart Trust, Lenzner Family Foundation, Capitol Hill Community Foundation, Green Charitable Foundation.
+6. **CRM reconciliation** (M5-04): of the CRM's $10.56M (160 funders, 2023–26), $4.63M (44%, 25 funders) is confirmed in the funder's own TY2023+ filing; $2.55M (92 funders) is corporate or otherwise has no public filing (MGAC, IMF, Latham & Watkins, Frontier Co-op, Reservoir); $1.61M (29 exempt filers) shows no Calvary row; $1.28M comes from "see attached" filers (Philip L. Graham, Clark-Winchcole, Kay, Herb Block, Loughran, Kirkland & Ellis); $0.48M was confirmed only in earlier years.
+
+## Charts
+`m5_01_peer_funders_not_calvary`, `m5_02_lapsed_funders`, `m5_03_current_funder_headroom`, `m5_06_crm_reconciliation`; tables `m5_04_dc_majors_not_calvary.csv`, `m5_05_web_list_gaps.csv`, `m5_00_candidate_funders.csv`.
+
+## Caveats
+- A "gap" in filings can be a gift routed through a DAF, a corporate matching program or a fiscal sponsor; check the CRM before outreach.
+- Peer donor lists are undated and amount-less, and only six peers publish them.
+- Several high-count gap funders are in-kind or workplace-giving channels (Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively) rather than grantmakers; M7 scores them down on award size.
+- Core peers are provisional; the gap list moves if the peer set changes.
+
+## Confidence
+High on the filing-based gap and lapsed lists; medium on headroom (single largest grants may be capital or restricted) and on web-list gaps.
