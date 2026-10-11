@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lib import style  # noqa: E402
-from lib.common import ANALYSIS, CALVARY, NAMED, core_peers, load, log, peer_set, register_insight, save_chart_data, universe  # noqa: E402
+from lib.common import ANALYSIS, CALVARY, FUNDER_SHORT, NAMED, core_peers, load, log, peer_set, register_insight, save_chart_data, universe  # noqa: E402
 
 S = "06_m6_network"
 ps = peer_set(); short = ps.set_index("ein")["short"]
@@ -72,32 +72,84 @@ style.finish(f, ax, "m6_02_cofunding_overlap",
              note="DAF sponsors excluded from the institutional counts. Core peers provisional.")
 
 # ------------------------------------------------------------------ m6_03 network diagram (PNG)
-keep_f = set(fun[(fun.recipients >= 3)].funder_id)
-H = G.subgraph(list(keep_f) + subjects).copy()
-pos = nx.spring_layout(H, k=0.42, iterations=200, seed=11, weight=None)
-f, ax = plt.subplots(figsize=(13, 10)); style.apply()
-ax.set_axis_off()
-for u, v, d_ in H.edges(data=True):
-    ax.plot([pos[u][0], pos[v][0]], [pos[u][1], pos[v][1]], color=style.GRID if CALVARY not in (u, v) else style.CALVARY_COLOR,
-            lw=0.5 + min(d_["weight"], 1e6) / 4e5, alpha=0.9 if CALVARY in (u, v) else 0.5, zorder=1)
+# Drawn at the slides' full-width chart size (12.13 x 3.3 in, lib/deck.js wideImage) so font sizes are true points on the slide.
+# Concentric layout, in inches: Calvary at the centre; hub funders (fund HUB+ of the 19 organizations) on an inner
+# ellipse; peers on the middle ellipse, ordered by their angle around Calvary in a seed-11 spring layout; every other
+# funder at the angle of the peers it funds, Calvary's funders inside the peer ring and the rest outside it.
+HUB, RX, RY = 9, 6.6, 1.75
+keep = set(fun[(fun.recipients >= 3)].funder_id) | set(subjects)
+H = nx.Graph()  # built in sorted order: a subgraph view iterates a set, which moved the layout between runs
+H.add_nodes_from((n, G.nodes[n]) for n in sorted(keep))
+H.add_edges_from(sorted((u, v, d_) for u, v, d_ in G.edges(data=True) if u in keep and v in keep))
 fn = [n for n in H.nodes if H.nodes[n]["kind"] == "funder"]
-fc = [style.SERIES["daf"] if H.nodes[n].get("ftype") == "daf_sponsor" else (style.SERIES["institutional"] if n in fsets[CALVARY] else style.PEER_COLOR) for n in fn]
-ax.scatter([pos[n][0] for n in fn], [pos[n][1] for n in fn], s=[40 + 12 * deg[n] for n in fn], c=fc, edgecolors="white", linewidths=0.8, zorder=2)
 rn = [n for n in H.nodes if H.nodes[n]["kind"] == "recipient"]
-ax.scatter([pos[n][0] for n in rn], [pos[n][1] for n in rn], s=[520 if n == CALVARY else 300 for n in rn], c=[style.CALVARY_COLOR if n == CALVARY else style.INK for n in rn], edgecolors="white", linewidths=1.5, zorder=3)
-for n in rn:
-    ax.annotate(short[n], pos[n], xytext=(0, 12), textcoords="offset points", ha="center", fontsize=8.5, color=style.INK, fontweight="bold" if n == CALVARY else "normal", zorder=4)
-for n in sorted(fn, key=lambda n: -deg[n])[:14]:
-    ax.annotate(str(H.nodes[n]["label"]).title().replace(" Inc", "")[:30], pos[n], xytext=(0, -11), textcoords="offset points", ha="center", fontsize=6.5, color=style.TEXT_2, zorder=4)
+sp = nx.spring_layout(H, k=0.42, iterations=200, seed=11, weight=None)
+ell = lambda th, r: np.array([r * RX * np.cos(th), r * RY * np.sin(th)])
+pr = sorted([n for n in rn if n != CALVARY], key=lambda n: np.arctan2(sp[n][1] - sp[CALVARY][1], sp[n][0] - sp[CALVARY][0]))
+th_peer = {n: 2 * np.pi * (i + 0.5) / len(pr) for i, n in enumerate(pr)}
+pos = {CALVARY: np.array([0.0, 0.0])} | {n: ell(th_peer[n], 0.78) for n in pr}
+def bary_angle(n):
+    v = sum(np.array([np.cos(th_peer[m]), np.sin(th_peer[m])]) for m in H.neighbors(n) if m in th_peer)
+    return float(np.arctan2(v[1], v[0]))
+def ring(group, r, jitter, offset):
+    # Half the barycentre angle, half even spacing, so funders sit near their peers without stacking.
+    group = sorted(group, key=lambda n: (bary_angle(n), n))
+    for i, n in enumerate(group):
+        pos[n] = ell(0.35 * bary_angle(n) + 0.65 * (2 * np.pi * i / len(group) + offset), r + jitter * ((i % 3) - 1))
+ring([n for n in fn if deg[n] >= HUB], 0.40, 0.0, 0.2)
+ring([n for n in fn if deg[n] < HUB and n in fsets[CALVARY]], 0.57, 0.05, 0.05)
+ring([n for n in fn if deg[n] < HUB and n not in fsets[CALVARY]], 0.97, 0.04, 0.1)
+P = np.array([pos[n] for n in H.nodes])
+f = plt.figure(figsize=(12.13, 3.3)); style.apply()
+ax = f.add_axes([0.0, 0.05, 1.0, 0.88]); ax.set_axis_off()
+for u, v, d_ in H.edges(data=True):
+    cal = CALVARY in (u, v)
+    ax.plot([pos[u][0], pos[v][0]], [pos[u][1], pos[v][1]], color=style.CALVARY_COLOR if cal else style.GRID,
+            lw=(0.5 + min(d_["weight"], 1e6) / 4e5) * (0.8 if cal else 0.6), alpha=0.75 if cal else 0.6, zorder=1.5 if cal else 1)
+fc = [style.SERIES["daf"] if H.nodes[n].get("ftype") == "daf_sponsor" else (style.SERIES["institutional"] if n in fsets[CALVARY] else style.PEER_COLOR) for n in fn]
+ax.scatter([pos[n][0] for n in fn], [pos[n][1] for n in fn], s=[14 + 5 * deg[n] for n in fn], c=fc, edgecolors="white", linewidths=0.6, zorder=2)
+ax.scatter([pos[n][0] for n in rn], [pos[n][1] for n in rn], s=[230 if n == CALVARY else 110 for n in rn], c=[style.CALVARY_COLOR if n == CALVARY else style.INK for n in rn], edgecolors="white", linewidths=1.2, zorder=3)
+ax.set_xlim(P[:, 0].min() - 0.03 * np.ptp(P[:, 0]), P[:, 0].max() + 0.03 * np.ptp(P[:, 0]))
+ax.set_ylim(P[:, 1].min() - 0.06 * np.ptp(P[:, 1]), P[:, 1].max() + 0.06 * np.ptp(P[:, 1]))
 from matplotlib.lines import Line2D  # noqa: E402
-ax.legend(handles=[Line2D([], [], marker="o", lw=0, color=style.CALVARY_COLOR, ms=12, label="Calvary"), Line2D([], [], marker="o", lw=0, color=style.INK, ms=10, label="Core peer (provisional)"),
-                   Line2D([], [], marker="o", lw=0, color=style.SERIES["institutional"], ms=8, label="Institutional funder that funds Calvary"), Line2D([], [], marker="o", lw=0, color=style.PEER_COLOR, ms=8, label="Institutional funder that does not"),
-                   Line2D([], [], marker="o", lw=0, color=style.SERIES["daf"], ms=8, label="DAF sponsor")], loc="lower left", fontsize=8.5)
-f.text(0.01, 0.985, "Calvary sits inside the same funder web as its peers: the grey nodes are funders one step away, already giving to organizations Calvary shares funders with", fontsize=12.5, fontweight="bold", color=style.INK, va="top", wrap=True)
-f.text(0.01, 0.005, f"Source: fact_grants (990-PF and Schedule I, TY2020-24) naming Calvary and 18 provisional core peers; dim_funder. Funders shown fund 3+ of the 19 organizations ({len(fn)} funders). Edge width = dollars. Data as of 2026-10-10. Chart m6_03_network.", fontsize=7.5, color=style.TEXT_MUTED)
-f.tight_layout(rect=(0, 0.02, 1, 0.95)); f.savefig(style.CHARTS / "m6_03_network.png", dpi=200); plt.close(f)
+leg = f.legend(handles=[Line2D([], [], marker="o", lw=0, color=style.CALVARY_COLOR, ms=7, label="Calvary"), Line2D([], [], marker="o", lw=0, color=style.INK, ms=6, label="Core peer (provisional)"),
+                        Line2D([], [], marker="o", lw=0, color=style.SERIES["institutional"], ms=5, label="Institutional funder that funds Calvary"), Line2D([], [], marker="o", lw=0, color=style.PEER_COLOR, ms=5, label="Institutional funder that does not"),
+                        Line2D([], [], marker="o", lw=0, color=style.SERIES["daf"], ms=5, label="DAF sponsor")], loc="lower left", bbox_to_anchor=(0.0, 0.04), fontsize=7.5, frameon=False, handletextpad=0.2, labelspacing=0.3, borderpad=0)
+f.text(0.0, 0.995, "Calvary sits inside the same funder web as its peers: the grey nodes are funders one step away, already giving to organizations Calvary shares funders with", fontsize=9, fontweight="bold", color=style.INK, va="top")
+f.text(0.0, 0.0, f"Source: fact_grants (990-PF and Schedule I, TY2020-24) naming Calvary and 18 provisional core peers; dim_funder. Funders shown fund 3+ of the 19 organizations ({len(fn)} funders). Edge width = dollars. Data as of 2026-10-10. Chart m6_03_network.", fontsize=6.5, color=style.TEXT_MUTED, va="bottom")
+# Labels: Calvary, all peers, the hub funders. Greedy placement: the first offset that clears nodes, earlier labels and the legend.
+f.canvas.draw(); R = f.canvas.get_renderer()
+lb = leg.get_window_extent(R)
+taken = [(lb.x0, lb.y0, lb.x1, lb.y1)] + [(x - r, y - r, x + r, y + r) for (x, y), n in zip(ax.transData.transform(P), H.nodes) for r in [9 if n == CALVARY else (6 if n in rn else 3)]]
+clear = lambda b: all(b[2] < t[0] or b[0] > t[2] or b[3] < t[1] or b[1] > t[3] for t in taken)
+DIRS = [(0, 1, "center", "bottom"), (0, -1, "center", "top"), (1, 0, "left", "center"), (-1, 0, "right", "center"),
+        (0.75, 0.75, "left", "bottom"), (-0.75, 0.75, "right", "bottom"), (0.75, -0.75, "left", "top"), (-0.75, -0.75, "right", "top")]
+labels = [(CALVARY, "Calvary", 10, "bold", style.CALVARY_COLOR)] + [(n, short[n], 8.5, "bold", style.INK) for n in pr] \
+    + [(n, FUNDER_SHORT[n], 7.5, "normal", style.TEXT_2) for n in sorted(FUNDER_SHORT, key=lambda n: (-deg[n], n)) if n in pos]
+unplaced = []
+for n, txt, fs, fw, col in labels:
+    # Peers prefer the outer side of their ring (above in the top half, below in the bottom half).
+    up = pos[n][1] >= 0
+    dirs = sorted(DIRS, key=lambda d: 0 if (n in th_peer and d[1] == (1 if up else -1)) else 1) if n in th_peer else DIRS
+    for rr in (8, 15, 24, 34, 46, 58):
+        for dx, dy, ha, va in dirs:
+            t = ax.annotate(txt, pos[n], xytext=(dx * rr, dy * rr), textcoords="offset points", ha=ha, va=va, fontsize=fs, fontweight=fw, color=col, zorder=5,
+                            bbox=dict(boxstyle="square,pad=0.05", fc="white", ec="none", alpha=0.8),
+                            arrowprops=dict(arrowstyle="-", color=style.TEXT_MUTED, lw=0.5, shrinkA=0, shrinkB=3) if rr > 12 else None)
+            bb = t.get_window_extent(R); b = (bb.x0, bb.y0, bb.x1, bb.y1)
+            if clear(b) and bb.x0 > 0 and bb.x1 < f.bbox.width:
+                taken.append(b); break
+            t.remove()
+        else:
+            continue
+        break
+    else:
+        unplaced.append(txt)
+assert not unplaced, f"m6_03 labels could not be placed without overlap: {unplaced}"
+f.savefig(style.CHARTS / "m6_03_network.png", dpi=200); plt.close(f)
 nodes_out = pd.DataFrame([{"node": n, "kind": H.nodes[n]["kind"], "label": H.nodes[n]["label"], "degree": deg[n], "x": pos[n][0], "y": pos[n][1]} for n in H.nodes])
-save_chart_data(nodes_out, "m6_03_network_nodes", "Nodes and layout of the network diagram (funders of 3+ organizations)", ["fact_grants", "dim_funder"], src, S, "spring layout, seed 11")
+save_chart_data(nodes_out, "m6_03_network_nodes", "Nodes and layout of the network diagram (funders of 3+ organizations)", ["fact_grants", "dim_funder"], src, S,
+                f"concentric layout in inches: Calvary centre, hub funders ({HUB}+ organizations) inner ring, peers middle ring ordered by seed-11 spring-layout angle, other funders at the angle of the peers they fund")
 
 # ------------------------------------------------------------------ board interlocks
 rel = load("fact_org_relationships", usecols=["rel_id", "org_a_ein", "org_a_name", "org_b_ein", "org_b_name", "rel_type", "tax_year", "person_id", "confidence", "evidence", "source_id"])

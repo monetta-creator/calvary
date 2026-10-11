@@ -14,7 +14,7 @@ const TIER = { "1a_dc_women_homeless": "1a · DC women's homelessness", "1b_dc_d
 
   // 1. Title
   X.section("Appendix B");
-  X.title("Appendix B carries the full peer benchmark and the comparator profiles.",
+  X.title("Appendix B: Peers and Comparators",
     "Appendix B · Peers and named comparators · pro bono funding analysis for Calvary Women's Services. Core peers are provisional; DWC and the CBWC Empowerment Institute (SheWorks) are Los Angeles reference rows. Method notes B1–B3 and D2 are in Appendix D.");
 
   // 2. Core peers

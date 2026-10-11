@@ -18,7 +18,7 @@ const nm = (s) => trunc(tc(s), 52);
 
   // 1. Title
   X.section("Appendix C");
-  X.title("Appendix C carries the funder landscape, the gap lists, the network tables and the complete scored pipeline.",
+  X.title("Appendix C: Funder Pipelines",
     "Appendix C · Funders, gaps, network and pipeline · pro bono funding analysis for Calvary Women's Services. Core peers are provisional. Method notes C1–C3 and D1 are in Appendix D.");
 
   // 2. DC sector by year and funder type
@@ -148,11 +148,14 @@ const nm = (s) => trunc(tc(s), 52);
   X.section("Network");
   const cf = D.readCsv("m6_01_central_funders").sort((a, b) => num(b.recipients) - num(a.recipients) || num(b.amount) - num(a.amount) || a.funder_name.localeCompare(b.funder_name)).slice(0, 25);
   const cfNot = cf.filter(r => r.funds_calvary !== "True");
-  X.png("Calvary sits inside the same funder web as its peers rather than at its edge.", "m6_03_network", "Reading the network", [
-    "Nodes: Calvary, the 18 provisional peers and the funders of three or more of them.",
-    "Edges: filed grants TY2020–24; edge width = dollars.",
-    "Most of the best-connected funders already fund Calvary; the next table lists the 25 most connected."],
-    { source: SRCGR, method: "bipartite graph funders × 19 recipients; spring layout (seed 11); landscape exclusions applied", chart: "m6_03, m6_01", note: "C2" }, { wide: 0.6 });
+  {
+    const s = X.head("Calvary sits inside the same funder web as its peers rather than at its edge.");
+    D.wideImage(s, "m6_03_network", { title: "Reading the network", place: C.img, lines: [
+      "Nodes: Calvary, the 18 provisional peers and the funders of three or more of them.",
+      "Edges: filed grants TY2020–24; edge width = dollars.",
+      "Most of the best-connected funders already fund Calvary; the next table lists the 25 most connected."] });
+    D.footnote(s, { source: SRCGR, method: "bipartite graph funders × 19 recipients; concentric layout (hub funders inner ring, peers outer ring); landscape exclusions applied", chart: "m6_03, m6_01", note: "C2" });
+  }
   X.table(`The 25 most connected funders in the network (filed grants TY2020–24)`,
     ["Rank", "Funder", "Type", "Organizations funded (of 19)", "Filed grants $", "Grants", "Betweenness", "Funds Calvary"],
     cf.map((r, i) => [i + 1, nm(r.funder_name), ft(r.funder_type), r.recipients, money(r.amount, 2), r.grants, num(r.betweenness).toFixed(3), yn(r.funds_calvary)]),

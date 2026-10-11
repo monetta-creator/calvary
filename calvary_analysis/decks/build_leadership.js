@@ -155,8 +155,7 @@ function fitTitles(pres) {
 
   // 14 network
   s = D.headlineSlide(pres, "Calvary sits inside the funder web, so the next funders are one introduction away through peers that share its funders.", "Where the opportunities are");
-  D.image(s, "m6_03_network", { x: M, y: BODY_Y, w: CHART_W + 0.4, h: BODY_H });
-  D.card(s, { x: CARD_X + 0.4, y: BODY_Y, w: CARD_W - 0.4, h: BODY_H, title: "Closest neighbors", lines: ["**17 shared funders with Miriam's Kitchen; 14 each with DASH and House of Ruth DC.", "House of Ruth DC (69) and House of Ruth MD (81) have the longest lists of funders Calvary lacks.", "**Board overlaps are thin in public filings.", "One high-confidence link, not a funder; introductions run through shared funders and peers."], fontSize: 11 });
+  D.wideImage(s, "m6_03_network", { title: "Closest neighbors", lines: ["**17 shared funders with Miriam's Kitchen; 14 each with DASH and House of Ruth DC.", "House of Ruth DC (69) and House of Ruth MD (81) have the longest lists of funders Calvary lacks.", "**Board overlaps are thin in public filings.", "One high-confidence link, not a funder; introductions run through shared funders and peers."] });
   D.bumper(s, "ask the closest peers for introductions to the funders they share with each other but not yet with Calvary.");
   D.footnote(s, { source: "fact_grants (funders of Calvary and 18 peers, TY2020–24), fact_org_relationships (board links by person match confidence)", method: "bipartite funder–recipient graph; funders of 3+ organizations shown; high-confidence board links only in this deck", chart: "m6_03, m6_02", note: "C2" });
 

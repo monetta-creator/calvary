@@ -3,7 +3,7 @@
 Four appendix decks, split by topic. Every slide follows the headline rules and carries the source/method/trace footnote. Tables longer than one slide paginate with a continued headline.
 
 ## Appendix A: Calvary and government funding
-1. Appendix A collects every chart and table behind Calvary's trajectory and government exposure. *(title)*
+1. Appendix A: Calvary and Government Funding *(title)*
 2. Calvary's revenue series agrees across five sources within 1% in every year, so the trajectory rests on firm ground. (reconciliation table)
 3. Government revenue on the audit basis exceeded 990 line 1e by $1.48M in FY21 and matched it in FY22 and FY23. (m1_03 data table)
 4. Revenue, expenses, net assets, cash and months of cash by year show the FY22 capital event and the FY23 and FY25 deficits. (m1_01, m1_04, m1_05 tables)
@@ -22,7 +22,7 @@ Four appendix decks, split by topic. Every slide follows the headline rules and 
 17. The six scenarios and their parameters are reproducible from config/scenarios.yaml. (m2_07 tables)
 
 ## Appendix B: Peers and named comparators
-1. Appendix B carries the full peer benchmark and the comparator profiles. *(title)*
+1. Appendix B: Peers and Comparators *(title)*
 2. The 18 provisional core peers were chosen for model similarity in four tiers and can be swapped by editing one file. (core_peers table with rationale)
 3. The benchmark table gives every metric for all 20 organizations. (m3_00, two slides)
 4. Government-share trajectories for all 20 organizations, FY2017–FY2025. (m3_05 table)
@@ -36,7 +36,7 @@ Four appendix decks, split by topic. Every slide follows the headline rules and 
 12. The CBWC Empowerment Institute's three filings and what is known about SheWorks. (m10_01, notes)
 
 ## Appendix C: Funders, gaps, network and pipeline
-1. Appendix C carries the funder landscape, the gap lists, the network tables and the complete scored pipeline. *(title)*
+1. Appendix C: Funder Pipelines *(title)*
 2. Grants to the DC sector by year and funder type. (m4_01, m4_02)
 3. The 50 largest institutional funders of DC's sector, with Calvary status and peers funded. (m4_00 top 50, two slides)
 4. Grant-size distributions by funder type. (m4_05)
@@ -59,7 +59,7 @@ Four appendix decks, split by topic. Every slide follows the headline rules and 
 21. The expansion scan table and the relevant federal notices. (m8_01, m8_02)
 
 ## Appendix D: Data and methods
-1. Appendix D documents the inputs, universes, measures, assumptions and method notes behind every figure. *(title)*
+1. Appendix D: Data and Methods *(title)*
 2. The input map lists each input and where it lives. (input_map)
 3. Universe rules and sizes. (universe_summary)
 4. The source registry covers 238 sources plus 26 web guideline pages, each with a URL or file and retrieval date. (registry summary)

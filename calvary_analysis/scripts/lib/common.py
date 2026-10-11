@@ -92,6 +92,12 @@ SHORT_NAMES = {
     "California Black Women's Collective Empowerment Institute (runs SheWorks)": "CBWC Inst. / SheWorks (LA)",
 }
 
+# Display names for the most connected funders (legal names in dim_funder); used on the m6_03 network and the web explorer.
+FUNDER_SHORT = {"110303001": "Fidelity Charitable", "237343119": "Greater Washington Community Fdn", "810739440": "Benevity",
+                "311640316": "Schwab Charitable", "526036989": "Cafritz Foundation", "232888152": "Vanguard Charitable",
+                "237825575": "National Philanthropic Trust", "530234290": "United Way NCA", "460942102": "Blackbaud Giving Fund",
+                "521283255": "Venable Foundation", "200721133": "Bank of America Fdn", "521435573": "Abell Foundation"}
+
 
 def deflators() -> pd.Series:
     """CPI-U US deflator to 2024 dollars, indexed by calendar year (fiscal-year-end year)."""

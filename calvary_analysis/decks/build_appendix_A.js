@@ -14,7 +14,7 @@ const SRC_BUDGET = "DC Approved Budget and Financial Plan books FY2024–FY2027,
 
   // 1. Title
   X.section("Appendix A");
-  X.title("Appendix A collects every chart and table behind Calvary's trajectory and government exposure.",
+  X.title("Appendix A: Calvary and Government Funding",
     "Appendix A · Calvary and government funding · pro bono funding analysis for Calvary Women's Services. Method notes A1–A6 are in Appendix D.");
 
   // 2. Reconciliation table

@@ -93,6 +93,32 @@ function card(slide, { x, y, w, h, title, lines, fontSize = 12.5, tint = HEX.sur
   slide.addText(runs, { x: x + 0.2, y: y + 0.7, w: w - 0.4, h: h - 0.85, fontSize, color: HEX.text, margin: 0, isTextBox: true, valign: "top" });
 }
 
+// Card as a band under a full-width chart: title on the left, then one column per claim (with its bullets) or per lone bullet.
+function strip(slide, { x, y, w, h, title, lines, fontSize = 10.5, tint = HEX.surface2, titleW = 1.7 }) {
+  slide.addShape("rect", { x, y, w, h, fill: { color: tint }, line: { color: tint }, objectName: `card ${title}` });
+  slide.addText(title, { x: x + 0.2, y: y + 0.12, w: titleW - 0.2, h: h - 0.24, fontSize: 12, bold: true, color: HEX.ink, margin: 0, isTextBox: true, valign: "top" });
+  const groups = [];
+  lines.forEach(t => {
+    const last = groups[groups.length - 1];
+    if (!t.startsWith("**") && last && last[0].startsWith("**")) last.push(t); else groups.push([t]);
+  });
+  const gap = 0.3, x0 = x + titleW + 0.1, cw = (x + w - 0.2 - x0 - gap * (groups.length - 1)) / groups.length;
+  groups.forEach((g, gi) => {
+    const runs = g.map((t, i) => t.startsWith("**")
+      ? { text: t.replace(/^\*\*/, ""), options: { bold: true, color: HEX.ink, breakLine: i < g.length - 1, paraSpaceAfter: 2 } }
+      : { text: t, options: { bullet: { indent: 14 }, breakLine: i < g.length - 1, paraSpaceAfter: 2 } });
+    slide.addText(runs, { x: x0 + gi * (cw + gap), y: y + 0.12, w: cw, h: h - 0.24, fontSize, color: HEX.text, margin: 0, isTextBox: true, valign: "top" });
+  });
+}
+
+// Full-width chart with its commentary as a band underneath; for charts that need the whole width (the m6_03 network).
+// IMG_H matches the PNG's drawn height so its fonts are true points. `place` lets the appendices use their own img().
+const WIDE_IMG_H = 3.3;
+function wideImage(slide, file, { title, lines, fontSize, place = image } = {}) {
+  place(slide, file, { x: M, y: BODY_Y, w: W - 2 * M, h: WIDE_IMG_H });
+  strip(slide, { x: M, y: BODY_Y + WIDE_IMG_H + 0.1, w: W - 2 * M, h: BODY_H - WIDE_IMG_H - 0.1, title, lines, fontSize });
+}
+
 function statTiles(slide, tiles, { y = BODY_Y + 0.1, h = 2.1 } = {}) {
   const n = tiles.length, gap = 0.3, w = (W - 2 * M - gap * (n - 1)) / n;
   tiles.forEach((t, i) => {
@@ -172,4 +198,4 @@ async function finish(pres, file) {
   console.log("wrote", file);
 }
 
-module.exports = { newDeck, titleSlide, sectionSlide, headlineSlide, bullets, card, statTiles, image, chart, table, footnote, bumper, claimBullets, finish, readCsv, num, fmtM, fmtK, fmtPct, xmlSafe, HEX, W, H, M, BODY_Y, BODY_H, BUMPER_Y, AS_OF };
+module.exports = { newDeck, titleSlide, sectionSlide, headlineSlide, bullets, card, strip, wideImage, statTiles, image, chart, table, footnote, bumper, claimBullets, finish, readCsv, num, fmtM, fmtK, fmtPct, xmlSafe, HEX, W, H, M, BODY_Y, BODY_H, BUMPER_Y, AS_OF };

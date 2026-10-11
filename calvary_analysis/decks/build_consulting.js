@@ -249,9 +249,12 @@ function policyLabel(r) {
 
   // ---------------- 6. Network
   sec = SEC("6. Network", "Calvary is in the core of the funder web; paths run through shared funders and peers, not boards.");
-  pngSlide(sec, "Calvary sits inside the same funder web as its peers, and most of the best-connected funders already fund it.", "m6_03_network", "Central funders",
-    ["By organizations funded: GWCF 18, Benevity 18, Schwab 16, Cafritz 14, Vanguard 13, NPT 13, United Way NCA 13, Blackbaud 11, Venable 10, Bank of America 10, Abell 9.", "330 funders connect the 19 organizations; 58 fund three or more."],
-    { source: "fact_grants (Calvary + 18 peers, TY2020–24), dim_funder", method: "bipartite graph; spring layout; edge width = dollars", chart: "m6_03, m6_01", note: "C2" });
+  {
+    const s = D.headlineSlide(pres, "Calvary sits inside the same funder web as its peers, and most of the best-connected funders already fund it.", sec);
+    D.wideImage(s, "m6_03_network", { title: "Central funders",
+      lines: ["By organizations funded: GWCF 18, Benevity 18, Schwab 16, Cafritz 14, Vanguard 13, NPT 13, United Way NCA 13, Blackbaud 11, Venable 10, Bank of America 10, Abell 9.", "330 funders connect the 19 organizations; 58 fund three or more."] });
+    D.footnote(s, { source: "fact_grants (Calvary + 18 peers, TY2020–24), dim_funder", method: "bipartite graph; concentric layout; edge width = dollars", chart: "m6_03, m6_01", note: "C2" });
+  }
   const ov = D.readCsv("m6_02_cofunding_overlap").reverse();
   natSlide(sec, "Calvary shares the most institutional funders with Miriam's Kitchen, DASH and House of Ruth DC.",
     { labels: ov.map(r => r.org), series: [{ name: "Shared institutional funders", values: ov.map(r => D.num(r.shared_institutional_funders)), color: HEX.institutional }, { name: "Peer's institutional funders not funding Calvary", values: ov.map(r => D.num(r.peer_institutional_funders_not_calvary)), color: HEX.peer }], opts: { barDir: "bar", valFmt: "0", dataLabels: true, catFontSize: 8, h: 4.75, gapWidth: 25 } },

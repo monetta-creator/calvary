@@ -69,9 +69,12 @@ Fonts that render true-to-width in LibreOffice QA and ship with Office: **Arial*
 | `SECTION` | Divider between sections | Ink background; section title 36 pt white; one-line takeaway 16 pt gold_light |
 | `HEADLINE` | Any content slide | White; headline placeholder (0.6, 0.45, 12.1 × 1.05 in); body region below (0.6, 1.65, 12.1 × 5.1 in); footer: source/as-of (0.6, 6.95) left, logo small (12.0, 6.8) right, slide number |
 | `CHART` | One chart + commentary | HEADLINE frame; chart region (0.6, 1.65, 8.0 × 5.1 in) left; commentary card (8.9, 1.65, 3.8 × 5.1 in) right with 3–4 short bullets |
+| `WIDE` (2026-10-11) | A chart that needs the whole width (the m6_03 network) | HEADLINE frame; chart full width at (0.6, 1.75, 12.13 × 3.3 in), drawn at that size so its fonts are true points; the card becomes a band below (surface_2, title left, one column per claim or bullet). `lib/deck.js` `wideImage()` |
 | `TWO_UP` | Two charts or chart + table | HEADLINE frame; two regions 5.9 in wide |
 | `STAT` | Verdict / big numbers | HEADLINE frame; 3–4 stat tiles (number 60 pt, label 12 pt) in a row, one paragraph below |
 | `TABLE` | Pipeline, peers, scenarios | HEADLINE frame; table region 12.1 × 5.0 in, header band surface_2, 11 pt |
+
+Appendix covers (engagement lead, 2026-10-11): the white title is a short label, `Appendix X: Short Name` in title case (e.g. "Appendix C: Funder Pipelines"), not a sentence; the gold subtitle carries the description.
 
 Rules: headline position identical on every content slide; 0.6 in side margins; 0.3 in between blocks; no accent bars, stripes or lines under titles; emphasis by color (gold) and size, not decoration; nothing but the logo and the footer below y = 6.8 in.
 

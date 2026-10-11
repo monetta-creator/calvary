@@ -326,3 +326,14 @@ Append-only record of environment state, runs, row counts, decisions and failure
 ### 2026-10-10 22:32 — Phase 5 QA gates
 - All seven decks pass validate.py; zero absolute paths or usernames in slide XML; headline checks: leadership 22/22 and consulting 55/55 match their spines with no title over 20 words and no semicolons; appendices A–D under 24 words with reference headers allowed; trace test OK.
 - Visual QA: subagent pass on leadership, consulting and one-pager (about 40 fixes), appendix decks checked slide by slide by the appendix builder; final spot checks by the lead.
+
+### 2026-10-11 16:53 — 06_m6_network (cosmetic redraw of m6_03)
+- graph: 349 nodes, 701 edges; funders 330; Calvary interlocks 8; paths scored for 166 candidates (unchanged)
+- m6_03_network redrawn for a full-width slide band (12.13 x 3.3 in): concentric layout (Calvary centre, 12 hub funders inner ring, 18 peers outer ring), all peers and hub funders labelled with no overlaps; node build order sorted so the layout reproduces run to run (a set-ordered subgraph had moved it between runs). m6_03_network_nodes: only x/y changed. Other chart data byte-identical; trace test OK.
+- Slides: leadership 17, consulting 42, Appendix C 26 now use lib/deck.js wideImage (chart full width, card as a band below); footnote method text updated from "spring layout" to "concentric layout" on consulting 42 and Appendix C 26.
+
+### 2026-10-11 17:10 — web/build_network_page.py (Calvary Funder Web explorer)
+- New: interactive network page from the m6 graph (same fact_grants filters and landscape exclusions as 06). Reconciles to m6_01 before writing (funder set, organizations funded, dollars, grant counts): 330 funders (58 fund 3+), 19 organizations, 701 links, $70,079,227 TY2020-24; 50 Calvary funders.
+- Public filings only: no CRM data, no people or board links (R05 open), no pipeline tiers (R16/R17 open). One status note: Clark Charitable Foundation winding down (R16).
+- Outputs: web/Calvary_Grantmaker_Web.html (self-contained: d3 7.9.0 and the two OFL fonts embedded from web/vendor/, verified rendering with network blocked) and web/publish/funder_network.html, published as a private claude.ai artifact: https://claude.ai/artifact/WCuc16rXqs4UhqRpztfs47 (republish to this URL). FUNDER_SHORT moved to scripts/lib/common.py and shared with 06; m6_03 PNG byte-identical after the move.
+- 2026-10-11: page renamed "Calvary Grantmaker Web" (file web/Calvary_Grantmaker_Web.html) and "funder" replaced by "grantmaker" in all visible text, because the page covers only organizations that report grants on their own IRS returns. Header simplified to the title plus Data dictionary and Methodology.

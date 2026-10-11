@@ -21,6 +21,9 @@ modules/           one readout per module (question, method, findings, charts, c
 recommendations/   funding_pressure_verdict.md, strategic_recommendations.md, funder_pipeline.csv, action_plan_90day.csv
 storylines/        design_system.md, leadership_* and consulting_* storylines and headline spines, appendix_headline_spine.md
 decks/             build_*.js (pptxgenjs), theme.js, lib/deck.js, assets/ (logo), *.pptx, qa/ (rendered slide images)
+web/               Calvary Grantmaker Web: build_network_page.py + network_page.template.html -> Calvary_Grantmaker_Web.html (self-contained,
+                   d3 and fonts embedded from vendor/; download and double-click, works offline)
+                   and publish/funder_network.html (published as a private claude.ai artifact; URL in analysis_log.md)
 reports/           executive_one_pager.md, executive_summary.md, full_findings.md, methodology.md, recommendations.md,
                    board_readout.md, consulting_briefing.md, review_report.md (Phase 6)
 sources/           web_tier1_guidelines.csv (Tavily hits), source_registry_extension.csv (web guideline pages)
@@ -59,6 +62,8 @@ cd decks && npm install && NODE_PATH=$PWD/node_modules PPTX_SKILL_APPLY_THEME=<p
 $V ../scripts/lib/headline_check.py leadership_deck.pptx ../storylines/leadership_headline_spine.md
 ```
 `11_web_tier1_guidelines.py` needs `TAVILY_API_KEY` in the environment and is only rerun to refresh the guideline hits; its reviewed output is `config/guideline_notes.csv`. Rendering for visual QA: `soffice --headless --convert-to pdf deck.pptx` then `pdftoppm -jpeg`.
+
+Grantmaker Web page: `$V web/build_network_page.py` (reconciles to `m6_01` before writing), then republish `web/publish/funder_network.html` to the same artifact URL.
 
 ## Where to change things
 - **Scoring weights and tiers:** `config/scoring_weights.yaml`, then rerun 07, 12, 13.

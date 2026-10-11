@@ -31,7 +31,7 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
 
   // 1. Title
   X.section("Appendix D");
-  X.title("Appendix D documents the inputs, universes, measures, assumptions and method notes behind every figure.",
+  X.title("Appendix D: Data and Methods",
     "Appendix D · Data and methods · pro bono funding analysis for Calvary Women's Services. Method notes A1–D3 are the numbers that slide footnotes cite in Appendices A–C.");
 
   // 2. Input map
