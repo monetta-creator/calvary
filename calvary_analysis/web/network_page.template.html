@@ -25,6 +25,7 @@
   --calvary: #D3668F; --peer: #EFE6EA; --funds: #BE8A20; --notyet: #6B6367; --daf: #2593C0; --warn: #E9B95A; --warn-bg: #2C2316;
   color-scheme: dark; }
 html, body { height: 100%; }
+[hidden] { display: none !important; }  /* overlays set display, which would otherwise override the hidden attribute */
 body { background: var(--bg); color: var(--text); font: 15px/1.45 var(--body); }
 * { box-sizing: border-box; }
 button, input, select { font: inherit; color: inherit; }
@@ -125,6 +126,13 @@ svg.sel .link.hl.cal { stroke: var(--calvary); }
 svg.sel .node { opacity: .18; }
 svg.sel .node.hl { opacity: 1; }
 svg.sel .lbl.org:not(.hl) { opacity: .3; }
+.node.idle { opacity: .25; }
+.node.spot { stroke: var(--ink); stroke-width: 1.6; }
+.link.trace, svg.sel .link.trace { stroke: var(--ink); stroke-opacity: .85; }
+.link.cal.trace, svg.sel .link.cal.trace { stroke: var(--calvary); }
+.caption { top: 10px; left: 10px; max-width: min(460px, 62%); flex-direction: column; gap: 2px; padding: 8px 11px; background: color-mix(in srgb, var(--surface) 90%, transparent); border: 1px solid var(--line); border-radius: 8px; font-size: 13px; color: var(--text-2); }
+.caption b { color: var(--ink); font: 700 15px/1.2 var(--display); }
+.lbl.org.idle { opacity: .35; }
 .node.picked { stroke: var(--ink); stroke-width: 2.5; }
 .hub { position: absolute; display: flex; gap: 6px; }
 .zoom { top: 10px; right: 10px; flex-direction: column; }
@@ -231,6 +239,7 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
             <dt>Funds Calvary</dt><dd>At least one grant to Calvary appears in the grantmaker's returns for TY2020–24.</dd>
             <dt>Not yet</dt><dd>The grantmaker gives to peers but no grant to Calvary appears in its returns. Calvary may still have received a gift that is not itemized there, such as a recent gift not yet filed.</dd>
             <dt>Bars 2020 → 2024</dt><dd>Dollars by tax year for one grantmaker–organization pair. Bars in the same list share one scale; hover a row for the exact figures.</dd>
+            <dt>Faded peer</dt><dd>A peer that no grantmaker in the current view funds. Peers stay on the map as its frame; hover one to see how many grantmakers in view fund it.</dd>
             <dt>Lapsed from Calvary</dt><dd>Gave to Calvary in tax years 2020–22, but no grant to Calvary appears in its 2023–24 returns. Some 2024 returns are still arriving, so a few may only be late.</dd>
             <dt>Recent</dt><dd>Whether a grantmaker gave to any of the 19 in tax years 2023–24.</dd>
             <dt>Size</dt><dd>A grantmaker's total grants to the 19 organizations over tax years 2020–24.</dd>
@@ -319,6 +328,7 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
         <span><i class="dot daf"></i>Donor-advised fund sponsor</span>
         <span class="sub">Line width = grant dollars · circle size = organizations funded</span>
       </div>
+      <div class="hub caption" id="caption" hidden><b id="capTitle"></b><span id="capText"></span></div>
       <div class="hub hint">Scroll or pinch to zoom (names appear) · drag to pan · click a circle</div>
     </section>
     <aside class="panel" id="panel" aria-live="polite"></aside>
@@ -475,14 +485,27 @@ function toDelimited(t, sep) {
     orgLabelSel.attr("font-size", (d) => (d.calvary ? 15 : 12.5) / k)
       .attr("x", (d) => d.calvary ? d.x : d.x + Math.cos(d.angle) * off(d) * (Math.abs(Math.cos(d.angle)) > 0.25 ? 1 : 0))
       .attr("y", (d) => d.calvary ? d.y - d.r - 7 / k : d.y + (Math.abs(Math.cos(d.angle)) > 0.25 ? 4 / k : (Math.sin(d.angle) > 0 ? -off(d) - 2 / k : off(d) + 10 / k)));
-    gFunLabels.selectAll("text").attr("font-size", fs * 0.92).attr("x", (d) => d.x + d.r + 4 / k).attr("y", (d) => d.y + 4 / k);
+    gFunLabels.selectAll("text").attr("font-size", fs * 0.92);
     // Hide a funder name that would overlap a visible organization name or a higher-priority funder name.
     const boxes = [];
     orgLabelSel.each(function () { if (getComputedStyle(this).opacity !== "0") boxes.push(this.getBBox()); });
+    const tf = d3.zoomTransform($("net"));  // the caption and legend overlay the map: treat them as taken, in map units
+    [$("caption"), document.querySelector(".legend")].forEach((e) => {
+      if (e.hidden || getComputedStyle(e).position !== "absolute") return;
+      boxes.push({ x: (e.offsetLeft - 4 - tf.x) / tf.k, y: (e.offsetTop - 4 - tf.y) / tf.k, width: (e.offsetWidth + 8) / tf.k, height: (e.offsetHeight + 8) / tf.k });
+    });
     const hit = (b) => boxes.some((o) => b.x < o.x + o.width && b.x + b.width > o.x && b.y < o.y + o.height && b.y + b.height > o.y);
     gFunLabels.selectAll("text").attr("display", null).each(function (d) {
-      const b = this.getBBox();
-      if (d !== state.hover && d !== state.sel && hit(b)) this.setAttribute("display", "none"); else boxes.push(b);
+      const r = focusOn && passes(d) ? d.r * 1.5 : d.r, g = 4 / k;  // drawn radius, enlarged in a narrowed view
+      const spots = [[d.x + r + g, d.y + g, "start"], [d.x - r - g, d.y + g, "end"], [d.x, d.y - r - g, "middle"], [d.x, d.y + r + 3 * g, "middle"]];
+      let b = null;
+      for (const [x, y, a] of spots) {
+        this.setAttribute("x", x); this.setAttribute("y", y); this.setAttribute("text-anchor", a);
+        b = this.getBBox(); if (!hit(b)) break; b = null;
+      }
+      if (!b && d !== state.hover && d !== state.sel) { this.setAttribute("display", "none"); return; }
+      if (!b) { this.setAttribute("x", spots[0][0]); this.setAttribute("y", spots[0][1]); this.setAttribute("text-anchor", "start"); b = this.getBBox(); }
+      boxes.push(b);
     });
   }
 
@@ -496,25 +519,31 @@ function toDelimited(t, sep) {
   let fitK = 1, userMoved = false;
   function fit(animate) {
     // Calvary at the centre of the map; scale to the peer ring plus label room across, and the farthest visible node up/down.
+    // Then shrink only as far as needed to keep peer circles and names clear of the legend, and every visible circle and
+    // peer name clear of the caption.
     const box = $("net").getBoundingClientRect(), W = box.width, H = box.height;
     if (!W || !H) return;
-    const vis = nodes.filter(visible), labelPad = W < 560 ? 84 : 128;
+    const vis = nodes.filter(visible), labelPad = W < 560 ? 84 : 128, cx = W / 2, cy = H / 2;
     const reach = d3.max(vis, (d) => Math.abs(d.y)) || RP;
     let s = Math.min((W - 2 * labelPad) / (2 * RP), (H / 2 - 18) / reach, 2.2);
-    const leg = document.querySelector(".legend");
-    if (getComputedStyle(leg).position === "absolute") {  // legend overlays the map: keep nodes and peer labels out from under it
-      const lx = leg.offsetLeft + leg.offsetWidth + 6, ly = leg.offsetTop - 6;
+    const rect = (e) => ({ x0: e.offsetLeft - 6, y0: e.offsetTop - 6, x1: e.offsetLeft + e.offsetWidth + 6, y1: e.offsetTop + e.offsetHeight + 6 });
+    const inside = (r, x, y) => x >= r.x0 && x <= r.x1 && y >= r.y0 && y <= r.y1;
+    const leg = document.querySelector(".legend"), cap = $("caption");
+    const legR = getComputedStyle(leg).position === "absolute" ? rect(leg) : null, capR = cap.hidden ? null : rect(cap);
+    if (legR || capR) {
       const ctx = document.createElement("canvas").getContext("2d");
       ctx.font = `700 12.5px ${getComputedStyle(document.body).fontFamily}`;
-      const under = (sc) => peers.some((o) => {  // peer circles and their names only; small funder dots may sit under the legend
-        const x = W / 2 + sc * o.x, y = H / 2 + sc * o.y, c = Math.cos(o.angle), tw = ctx.measureText(o.name).width;
-        const left = c < -0.25 ? x - o.r - 6 - tw : Math.abs(c) <= 0.25 ? x - tw / 2 : x - o.r;
-        return left < lx && y + 10 > ly;
+      const peerHits = (sc, r) => peers.some((o) => {
+        const x = cx + sc * o.x, y = cy + sc * o.y, c = Math.cos(o.angle), tw = ctx.measureText(o.name).width;
+        const x0 = c < -0.25 ? x - o.r - 6 - tw : Math.abs(c) <= 0.25 ? x - tw / 2 : x - o.r, x1 = c > 0.25 ? x + o.r + 6 + tw : Math.abs(c) <= 0.25 ? x + tw / 2 : x + o.r;
+        return x0 < r.x1 && x1 > r.x0 && y + 10 > r.y0 && y - 10 < r.y1;
       });
-      for (let i = 0; i < 14 && under(s); i++) s *= 0.95;
+      const nodeHits = (sc, r) => vis.some((d) => d.kind === "funder" && inside(r, cx + sc * d.x, cy + sc * d.y));
+      const blocked = (sc) => (legR && peerHits(sc, legR)) || (capR && (peerHits(sc, capR) || nodeHits(sc, capR)));
+      for (let i = 0; i < 16 && blocked(s); i++) s *= 0.95;
     }
     fitK = s;
-    const t = d3.zoomIdentity.translate(W / 2, H / 2).scale(s);
+    const t = d3.zoomIdentity.translate(cx, cy).scale(s);
     (animate && !reduced ? svg.transition().duration(450) : svg).call(zoom.transform, t);
   }
   $("zin").onclick = () => svg.transition().duration(reduced ? 0 : 250).call(zoom.scaleBy, 1.5);
@@ -540,9 +569,18 @@ function toDelimited(t, sep) {
   }
   const count = (patch) => { const st = { ...state, ...patch }; let n = 0; for (const f of funders) if (passes(f, st)) n++; return n; };
   function visible(d) { return d.kind === "org" || state.sel === d || passes(d); }
+  const FOCUS_MAX = 40;  // a narrowed view with this many grantmakers or fewer names them on the map
+  let focusOn = false;
   function applyFilters() {
+    const inView = funders.filter((f) => passes(f)).length;
+    focusOn = !matches(VIEWS[0]) && inView <= 80;
+    nodeSel.attr("r", (d) => (focusOn && d.kind === "funder" && passes(d) ? d.r * 1.5 : d.r)).classed("spot", (d) => focusOn && d.kind === "funder" && passes(d));
     nodeSel.attr("display", (d) => visible(d) ? null : "none");
     linkSel.attr("display", (l) => visible(l.source) ? null : "none");
+    // Peers stay on the ring as the map's frame; a peer no grantmaker in view funds is faded, not removed.
+    const live = new Set([calvary]); links.forEach((l) => { if (visible(l.source)) live.add(l.target); });
+    nodeSel.classed("idle", (d) => d.kind === "org" && !live.has(d));
+    orgLabelSel.classed("idle", (d) => !live.has(d));
     updateFunLabels(); highlight();
   }
 
@@ -556,28 +594,28 @@ function toDelimited(t, sep) {
   const byPeers = (a, b) => b.peers - a.peers || b.amount - a.amount, byCal = (a, b) => b.calAmount - a.calAmount;
   const VIEWS = [
     { id: "overview", label: "Overview", tip: "Grantmakers that fund 3 or more of the 19", set: {} },
-    { id: "prospects", label: "Prospects", title: "Prospects: peers' grantmakers that do not fund Calvary yet", sort: "orgs",
+    { id: "prospects", label: "Prospects", caption: (n) => `${n} grantmakers that fund 3 or more of Calvary's peers but not Calvary. Each line runs to a peer it funds; none reaches Calvary yet.`, title: "Prospects: peers' grantmakers that do not fund Calvary yet", sort: "orgs",
       tip: "Fund 3 or more peers, with no grant to Calvary in the filings", set: { cal: "not" },
       explain: (xs) => [
         ["p", "Grantmakers that gave to three or more of Calvary's peers in tax years 2020–24 but have no grant to Calvary in their filings. They already fund work like Calvary's, which makes them a natural place to look for new support."],
         ["p", `These ${xs.length} gave ${money(sumBy(xs, (f) => f.amount))} to the peers over the five years, and ${xs.filter((f) => f.active).length} of them gave in 2023–24. They are ${typeMix(xs)}. Most connected: ${names(xs.slice().sort(byPeers), 3, (f) => `${f.name} (${f.peers} peers)`)}.`],
         ["sub", `A grant to a peer does not mean a grantmaker takes applications or would fund Calvary, so check each one's guidelines first.${winding(xs)}`],
       ] },
-    { id: "calvary", label: "Calvary's grantmakers", title: "Calvary's grantmakers", sort: "cal",
+    { id: "calvary", label: "Calvary's grantmakers", caption: (n) => `${n} grantmakers with a grant to Calvary in the filings. Purple lines run to Calvary; grey lines to the peers they also fund.`, title: "Calvary's grantmakers", sort: "cal",
       tip: "Every grantmaker with a grant to Calvary in the filings", set: { cal: "funds", min: 1 },
       explain: (xs) => [
         ["p", `Every grantmaker that reported a grant to Calvary on its own IRS return, tax years 2020–24: ${xs.length} grantmakers and ${money(sumBy(xs, (f) => f.calAmount))} in total. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
         ["p", `${xs.filter((f) => f.peers >= 3).length} of them also fund three or more of Calvary's peers. ${xs.filter((f) => f.lapsed).length} show no grant to Calvary in their 2023–24 returns; see Lapsed from Calvary.`],
         ["sub", "Individual donors, events, direct company gifts and government grants are not in these returns, so this is one part of Calvary's support."],
       ] },
-    { id: "lapsed", label: "Lapsed from Calvary", title: "Lapsed from Calvary", sort: "cal",
+    { id: "lapsed", label: "Lapsed from Calvary", caption: (n) => `${n} grantmakers that gave to Calvary in 2020–22 but not in their 2023–24 filings. Faded peers get nothing from them.`, title: "Lapsed from Calvary", sort: "cal",
       tip: "Gave to Calvary in 2020–22 but nothing to Calvary in 2023–24 filings; some 2024 returns are still arriving", set: { cal: "lapsed", min: 1 },
       explain: (xs) => [
         ["p", `Grantmakers that gave to Calvary in tax years 2020–22 but show no grant to Calvary in their 2023–24 returns: ${xs.length} grantmakers that gave Calvary ${money(sumBy(xs, (f) => f.calAmount))} in those earlier years. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
         ["p", `${xs.filter((f) => f.active).length} of them still gave to Calvary's peers in 2023–24, so they remain active in this field and the relationship may be worth renewing.`],
         ["sub", "Some 2024 returns are still arriving, so a few may only be late. A gift can also move to a channel these returns do not show, such as a donor's own donor-advised fund."],
       ] },
-    { id: "hubs", label: "Major hubs", title: "Major hubs", sort: "orgs",
+    { id: "hubs", label: "Major hubs", caption: (n) => `${n} grantmakers that fund 9 or more of the 19. Blue ones are donor-advised fund sponsors.`, title: "Major hubs", sort: "orgs",
       tip: "Fund 9 or more of the 19", set: { min: 9 },
       explain: (xs) => {
         const daf = xs.filter((f) => f.type === "daf_sponsor"), own = xs.filter((f) => f.type !== "daf_sponsor");
@@ -668,6 +706,14 @@ function toDelimited(t, sep) {
     const n = funders.filter((f) => passes(f)).length;
     $("showing").replaceChildren(el("strong", null, n.toLocaleString()), document.createTextNode(` of ${T.funders.toLocaleString()} grantmakers`));
     $("resetBtn").disabled = matches(VIEWS[0]);
+    const v = VIEWS.find(matches);
+    const capWas = $("caption").hidden;
+    $("caption").hidden = !!v && v.id === "overview";  // shown for every view except Overview, including custom filter mixes
+    if (!$("caption").hidden) {
+      $("capTitle").textContent = v ? v.label : "Custom view";
+      $("capText").textContent = v ? v.caption(n.toLocaleString()) : `${n.toLocaleString()} grantmakers: ${describe()}.`;
+    }
+    if (capWas !== $("caption").hidden && !userMoved) fit(true);
     if (!state.sel) renderPanel();
   }
   $("resetBtn").onclick = () => applyView(VIEWS[0]);
@@ -691,6 +737,7 @@ function toDelimited(t, sep) {
     const s = state.sel, want = new Set();
     if (s && s.kind === "funder") want.add(s);
     else if (s && s.kind === "org") s.links.filter((l) => visible(l.source)).sort((a, b) => b.amount - a.amount).slice(0, 10).forEach((l) => want.add(l.source));
+    else if (focusOn && funders.filter((f) => passes(f)).length <= FOCUS_MAX) funders.filter((f) => passes(f)).sort((a, b) => b.orgs - a.orgs || b.amount - a.amount).forEach((f) => want.add(f));
     else funders.filter((f) => visible(f) && ((k >= fitK * 1.8 && f.orgs >= 9) || (k >= fitK * 3 && f.orgs >= 5) || (k >= fitK * 5 && f.orgs >= 2))).forEach((f) => want.add(f));
     const first = [state.hover, state.sel].filter((d) => d && d.kind === "funder" && visible(d));
     const ordered = [...new Set([...first, ...want])];
@@ -724,14 +771,18 @@ function toDelimited(t, sep) {
       tip.append(el("div", "s", `${d.place} · ${sizeTxt(d)}`), el("div", null, d.what));
       const p = el("div"); p.append(el("span", "v", plural(d.links.length, "grantmaker", "grantmakers")), document.createTextNode(` · ${money(d.amount)} from them`)); tip.append(p);
       if (!d.calvary) tip.append(el("div", "s", `${plural(d.links.filter((l) => l.source.calvary).length, "grantmaker", "grantmakers")} shared with Calvary`));
+      tip.append(el("div", "s", `${plural(d.links.filter((l) => passes(l.source)).length, "grantmaker", "grantmakers")} in the current view`));
     }
   }
-  nodeSel.on("pointerenter", (ev, d) => { state.hover = d; tipFor(d); tip.hidden = false; updateFunLabels(); })
+  nodeSel.on("pointerenter", (ev, d) => {
+      state.hover = d; tipFor(d); tip.hidden = false;
+      linkSel.classed("trace", (l) => (l.source === d || l.target === d) && visible(l.source)); updateFunLabels();
+    })
     .on("pointermove", (ev) => {
       const w = tip.offsetWidth, h = tip.offsetHeight, x = ev.clientX + 14, y = ev.clientY + 14;
       tip.style.left = Math.min(x, innerWidth - w - 8) + "px"; tip.style.top = (y + h > innerHeight - 8 ? ev.clientY - h - 10 : y) + "px";
     })
-    .on("pointerleave", () => { state.hover = null; tip.hidden = true; updateFunLabels(); });
+    .on("pointerleave", () => { state.hover = null; tip.hidden = true; linkSel.classed("trace", false); updateFunLabels(); });
 
   // ---------------------------------------------------------------- panel
   const panel = $("panel");
