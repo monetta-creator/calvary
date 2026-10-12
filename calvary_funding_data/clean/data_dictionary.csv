@@ -1,0 +1,543 @@
+table,column,type,definition,allowed_values,sources
+candidate_interlocks,name_norm,str,Normalized name shared by both role records,,
+candidate_interlocks,ein_a,str,Organization A,,
+candidate_interlocks,ein_b,str,Organization B,,
+candidate_interlocks,signals,str,Corroborating signals found,same_metro;overlap_years;middle_initial;suffix,
+candidate_interlocks,common_name,int,1 if first+last appears at >5 organizations,0|1,
+candidate_interlocks,match_confidence,str,Always low here (not linked); review manually,low,
+candidate_interlocks,person_id_a,str,dim_person id of A,,
+candidate_interlocks,person_id_b,str,dim_person id of B,,
+dim_funder,funder_id,str,"EIN when known, else 'F' + 10-char hash of the normalized name (primary key)",,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,ein,str,EIN if the funder is an exempt organization,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,funder_name,str,Canonical funder name (BMF legal name when matched),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,funder_type,str,Funder type,private_foundation|corporate_foundation|community_foundation|daf_sponsor|federated_giving|public_charity_grantmaker|corporate|government_agency|faith|civic_association|individual_aggregate|other,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,state,str,State,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,county_fips,str,County FIPS,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,ward,str,DC ward,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,issue_focus_tags,str,"';'-joined program areas this funder's grants are tagged with (by count, top 5)",,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,universes,str,';'-joined universes the funder EIN belongs to,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,n_grants,int,Number of fact_grants rows with this funder,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,total_grant_amount,int,Sum of non-cumulative grant amounts in fact_grants (nominal USD),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_funder,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+dim_geo,geo_id,str,"Geography id: GEOID (state/county/tract), 'ward:N', 'cbsa:47900', 'us' (primary key)",,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,geo_level,str,Level,nation|state|msa|county|ward|tract,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,state_fips,str,State FIPS,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,county_fips,str,5-digit county FIPS,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,tract_geoid,str,11-digit tract GEOID,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,ward,str,DC ward,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,name,str,Name,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,acs_vintage,str,ACS 5-year vintage,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,total_pop,int,Total population (B01003),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,poverty_rate,float,Share of persons below poverty (B17001),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,female_poverty_rate,float,Share of females below poverty (B17001),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,median_hh_income,int,Median household income (B19013),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,rent_burden_30plus_share,float,Share of renter households paying >=30% of income in rent (B25070),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,rent_burden_50plus_share,float,Share of renter households paying >=50% (B25070),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,unemployment_rate,float,Unemployed / civilian labor force (B23025),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,pct_black_nh,float,Black non-Hispanic share (B03002),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,pct_hispanic,float,Hispanic share (B03002),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,pct_white_nh,float,White non-Hispanic share (B03002),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,female_hh_no_spouse_share,float,"Female householder, no spouse present, share of households",,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,veteran_share,float,Veterans share of civilian population 18+ (B21001),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,disability_share,float,Share with a disability (B18101),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,total_pop_moe,float,ACS margin of error (90%) for total_pop,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,poverty_rate_moe,float,ACS margin of error (90%) for poverty_rate,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,female_poverty_rate_moe,float,ACS margin of error (90%) for female_poverty_rate,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,median_hh_income_moe,float,ACS margin of error (90%) for median_hh_income,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,rent_burden_30plus_share_moe,float,ACS margin of error (90%) for rent_burden_30plus_share,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,rent_burden_50plus_share_moe,float,ACS margin of error (90%) for rent_burden_50plus_share,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,unemployment_rate_moe,float,ACS margin of error (90%) for unemployment_rate,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,pct_black_nh_moe,float,ACS margin of error (90%) for pct_black_nh,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,pct_hispanic_moe,float,ACS margin of error (90%) for pct_hispanic,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,pct_white_nh_moe,float,ACS margin of error (90%) for pct_white_nh,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,female_hh_no_spouse_share_moe,float,ACS margin of error (90%) for female_hh_no_spouse_share,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,veteran_share_moe,float,ACS margin of error (90%) for veteran_share,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,disability_share_moe,float,ACS margin of error (90%) for disability_share,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,confidence,str,Confidence in the value,high|medium|low,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,basis,str,documented|derived|inferred (see README),documented|derived|inferred,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_state_abbr,str,Supplementary field 'state_abbr' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_county_geoid,str,Supplementary field 'county_geoid' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_cbsa_code,str,Supplementary field 'cbsa_code' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_in_msa,str,Supplementary field 'in_msa' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_in_scope,str,Supplementary field 'in_scope' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_metro_division,str,Supplementary field 'metro_division' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_metro_division_code,str,Supplementary field 'metro_division_code' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_central_outlying,str,Supplementary field 'central_outlying' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_scope_note,str,Supplementary field 'scope_note' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_ward_majority_pop_share,str,Supplementary field 'ward_majority_pop_share' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_split_ward,str,Supplementary field 'split_ward' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_in_service_area,str,Supplementary field 'in_service_area' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_outside_dmv,str,Supplementary field 'outside_dmv' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_named_comparator_ein,str,Supplementary field 'named_comparator_ein' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_pct_asian_nh,str,Supplementary field 'pct_asian_nh' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_pct_asian_nh_moe,float,ACS margin of error (90%) for pct_asian_nh,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_pct_other_or_multi_nh,str,Supplementary field 'pct_other_or_multi_nh' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_pct_other_or_multi_nh_moe,float,ACS margin of error (90%) for pct_other_or_multi_nh,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_adult_female_poverty_rate,str,Supplementary field 'adult_female_poverty_rate' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_adult_female_poverty_rate_moe,float,ACS margin of error (90%) for adult_female_poverty_rate,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_female_hh_family_poverty_rate,str,Supplementary field 'female_hh_family_poverty_rate' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_female_hh_family_poverty_rate_moe,float,ACS margin of error (90%) for female_hh_family_poverty_rate,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_female_veteran_share,str,Supplementary field 'female_veteran_share' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_female_veteran_share_moe,float,ACS margin of error (90%) for female_veteran_share,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_female_living_alone_share_of_householders,str,Supplementary field 'female_living_alone_share_of_householders' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_female_living_alone_share_of_householders_moe,float,ACS margin of error (90%) for female_living_alone_share_of_householders,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_poverty_universe,str,Supplementary field 'n_poverty_universe' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_poverty_universe_moe,float,ACS margin of error (90%) for n_poverty_universe,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_below_poverty,str,Supplementary field 'n_below_poverty' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_below_poverty_moe,float,ACS margin of error (90%) for n_below_poverty,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_poverty_universe,str,Supplementary field 'n_female_poverty_universe' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_poverty_universe_moe,float,ACS margin of error (90%) for n_female_poverty_universe,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_below_poverty,str,Supplementary field 'n_female_below_poverty' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_below_poverty_moe,float,ACS margin of error (90%) for n_female_below_poverty,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_adult_female_poverty_universe,str,Supplementary field 'n_adult_female_poverty_universe' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_adult_female_poverty_universe_moe,float,ACS margin of error (90%) for n_adult_female_poverty_universe,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_adult_female_below_poverty,str,Supplementary field 'n_adult_female_below_poverty' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_adult_female_below_poverty_moe,float,ACS margin of error (90%) for n_adult_female_below_poverty,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_renter_hh_computed,str,Supplementary field 'n_renter_hh_computed' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_renter_hh_computed_moe,float,ACS margin of error (90%) for n_renter_hh_computed,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_renter_hh_burden30plus,str,Supplementary field 'n_renter_hh_burden30plus' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_renter_hh_burden30plus_moe,float,ACS margin of error (90%) for n_renter_hh_burden30plus,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_renter_hh_burden50plus,str,Supplementary field 'n_renter_hh_burden50plus' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_renter_hh_burden50plus_moe,float,ACS margin of error (90%) for n_renter_hh_burden50plus,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_civilian_labor_force,str,Supplementary field 'n_civilian_labor_force' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_civilian_labor_force_moe,float,ACS margin of error (90%) for n_civilian_labor_force,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_unemployed,str,Supplementary field 'n_unemployed' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_unemployed_moe,float,ACS margin of error (90%) for n_unemployed,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_race_universe,str,Supplementary field 'n_race_universe' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_race_universe_moe,float,ACS margin of error (90%) for n_race_universe,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_black_nh,str,Supplementary field 'n_black_nh' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_black_nh_moe,float,ACS margin of error (90%) for n_black_nh,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_hispanic,str,Supplementary field 'n_hispanic' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_hispanic_moe,float,ACS margin of error (90%) for n_hispanic,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_white_nh,str,Supplementary field 'n_white_nh' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_white_nh_moe,float,ACS margin of error (90%) for n_white_nh,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_households,str,Supplementary field 'n_households' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_households_moe,float,ACS margin of error (90%) for n_households,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_hh_no_spouse_families,str,Supplementary field 'n_female_hh_no_spouse_families' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_hh_no_spouse_families_moe,float,ACS margin of error (90%) for n_female_hh_no_spouse_families,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_hh_families_poverty_universe,str,Supplementary field 'n_female_hh_families_poverty_universe' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_hh_families_poverty_universe_moe,float,ACS margin of error (90%) for n_female_hh_families_poverty_universe,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_hh_families_below_poverty,str,Supplementary field 'n_female_hh_families_below_poverty' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_hh_families_below_poverty_moe,float,ACS margin of error (90%) for n_female_hh_families_below_poverty,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_civilian_18plus,str,Supplementary field 'n_civilian_18plus' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_civilian_18plus_moe,float,ACS margin of error (90%) for n_civilian_18plus,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_veterans,str,Supplementary field 'n_veterans' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_veterans_moe,float,ACS margin of error (90%) for n_veterans,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_veterans,str,Supplementary field 'n_female_veterans' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_female_veterans_moe,float,ACS margin of error (90%) for n_female_veterans,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_disability_universe,str,Supplementary field 'n_disability_universe' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_disability_universe_moe,float,ACS margin of error (90%) for n_disability_universe,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_with_disability,str,Supplementary field 'n_with_disability' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_n_with_disability_moe,float,ACS margin of error (90%) for n_with_disability,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_median_hh_income_annotation,str,Supplementary field 'median_hh_income_annotation' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_geo,x_county_fips_3,str,Supplementary field 'county_fips_3' from the staging script (see its docstring); not part of the core spec,,api_census_acs5;api_census_dec_pl;bulk_census_bef_sldu2022
+dim_org,ein,str,"Employer Identification Number, 9 digits, zero-padded (primary key)",,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,org_name,str,"Organization name (latest e-filed return when available, else BMF)",,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,org_name_bmf,str,Legal name in the IRS EO Business Master File,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,dba_name,str,Doing-business-as / care-of name from BMF ICO or filing,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,street,str,"Organization street address used for geocoding (filer address; organizational, not personal)",,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,city,str,City,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,state,str,State (USPS),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,zip5,str,5-digit ZIP,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,county_fips,str,5-digit county FIPS (state+county),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,ward,str,DC ward number (DC organizations geocoded with MAR 2; joins dim_geo.ward),1|2|3|4|5|6|7|8,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,tract_geoid,str,11-digit census tract GEOID,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,lat,float,Latitude (WGS84),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,lon,float,Longitude (WGS84),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,geo_method,str,How geography was assigned,mar2|census_geocoder|zcta_primary_county|city_modal_county|state_dc|unresolved|not_in_bmf,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,ntee_cd,str,NTEE code in BMF (4 characters incl. suffix),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,ntee3,str,First 3 characters of NTEE code,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,ntee_label,str,IRS label for ntee3 (clean/ref_ntee_codes.csv),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,subsection,str,IRC 501(c) subsection code (03 = 501(c)(3)),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,foundation_code,str,BMF FOUNDATION code (02-04 private foundations; 10-24 public charity types),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,org_class,str,Derived class,public_charity|private_foundation|other_exempt,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,ruling_year,int,Year of IRS exemption ruling,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,website,str,Website from latest e-filed return,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,mission,str,Mission/primary activity statement from latest e-filed return,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,fye_month,int,Fiscal year end month (1-12) from latest filing,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,latest_tax_year,int,Latest tax year with an e-filed return in the IRS index,,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,latest_return_type,str,Return type of that latest return,990|990EZ|990PF,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,bmf_revenue_amt,int,Total revenue per BMF (latest return on file),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,universes,str,';'-joined universes the EIN belongs to (see dim_universe_membership),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,is_calvary,int,1 for Calvary Women's Services,0|1,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_org,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,bulk_irs_eo_bmf;bulk_irs_xml;bulk_irs_xml_index
+dim_period,year,int,Calendar year (primary key),,api_bls_cpi
+dim_period,cpi_u_us,float,"CPI-U U.S. city average, annual average (BLS CUUR0000SA0)",,api_bls_cpi
+dim_period,cpi_u_dc_metro,float,CPI-U Washington-Arlington-Alexandria annual average (BLS CUURS35ASA0),,api_bls_cpi
+dim_period,deflator_to_2024_us,float,cpi_u_us(2024) / cpi_u_us(year); multiply nominal by this for 2024 dollars,,api_bls_cpi
+dim_period,federal_fy_label,str,Federal fiscal year covering Oct-Dec of this calendar year,,api_bls_cpi
+dim_period,dc_fy_label,str,DC fiscal year covering Oct-Dec of this calendar year,,api_bls_cpi
+dim_period,calvary_fiscal_year_label,str,Calvary fiscal year covering Oct-Dec of this calendar year,,api_bls_cpi
+dim_period,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,api_bls_cpi
+dim_period,source_id,str,Source,,api_bls_cpi
+dim_period,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,api_bls_cpi
+dim_period,confidence,str,Confidence in the value,high|medium|low,api_bls_cpi
+dim_period,basis,str,documented|derived|inferred (see README),documented|derived|inferred,api_bls_cpi
+dim_period,x_deflator_to_2024_dc_metro,str,Supplementary field 'deflator_to_2024_dc_metro' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_fy_jan_sep_fiscal_year,str,Supplementary field 'fy_jan_sep_fiscal_year' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_fy_oct_dec_fiscal_year,str,Supplementary field 'fy_oct_dec_fiscal_year' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_federal_fy_oct_dec_label,str,Supplementary field 'federal_fy_oct_dec_label' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_dc_fy_oct_dec_label,str,Supplementary field 'dc_fy_oct_dec_label' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_calvary_fy_oct_dec_label,str,Supplementary field 'calvary_fy_oct_dec_label' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_calvary_tax_year_jan_sep,str,Supplementary field 'calvary_tax_year_jan_sep' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_calvary_tax_year_oct_dec,str,Supplementary field 'calvary_tax_year_oct_dec' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_cpi_us_series,str,Supplementary field 'cpi_us_series' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_period,x_cpi_dc_series,str,Supplementary field 'cpi_dc_series' from the staging script (see its docstring); not part of the core spec,,api_bls_cpi
+dim_person,person_id,str,Person id (P + 10-char hash of normalized name + disambiguator) (primary key),,
+dim_person,name_display,str,Name as most often printed in filings,,
+dim_person,name_norm,str,"Normalized name (lowercase, punctuation and honorifics removed)",,
+dim_person,first_name,str,Parsed first name,,
+dim_person,middle_initial,str,Parsed middle initial,,
+dim_person,last_name,str,Parsed last name,,
+dim_person,suffix,str,"Parsed suffix (Jr, III, ...)",,
+dim_person,n_orgs,int,Distinct organizations with a role,,
+dim_person,n_filings,int,Role rows,,
+dim_person,match_notes,str,How cross-organization roles were linked to this person,,
+dim_program_area,program_area,str,Tag (primary key),,
+dim_program_area,label,str,Label,,
+dim_program_area,description,str,What the tag covers,,
+dim_program_area,keywords,str,';'-joined keywords used by lib/tagging.py,,
+dim_program_area,ntee3_codes,str,';'-joined NTEE codes mapped to the tag,,
+dim_program_area,assistance_listings,str,';'-joined federal assistance listings mapped to the tag,,
+dim_universe_membership,universe,str,Comparison universe (look up membership here; config/universes.yaml holds the rules),calvary|core_peers|named_comparators|dc_sector|dmv_sector|national_women|size_matched|dmv_funders|daf_sponsors|calvary_known_funders,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,ein,str,EIN,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,rule_id,str,Inclusion rule (config/universes.yaml),,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,criteria,str,Rule description,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,org_name_bmf,str,BMF legal name,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,city,str,BMF city,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,state,str,BMF state,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,zip5,str,BMF ZIP,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,county_fips,str,"County from ZIP (Census ZCTA-county 2020, primary by land area) or city fallback",,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,geo_method,str,How county was assigned,state_dc|zcta_primary_county|city_modal_county|unresolved|not_in_bmf,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,in_dc_msa,bool,County is in the DC MSA (CBSA 47900) within DC/MD/VA,True|False,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,ntee_cd,str,BMF NTEE code,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,ntee3,str,NTEE first 3 characters,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,subsection,str,501(c) subsection,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,foundation_code,str,BMF FOUNDATION code,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,ruling_yyyymm,str,IRS ruling date YYYYMM,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,bmf_revenue_amt,int,BMF revenue (latest return),,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,bmf_asset_amt,int,BMF assets,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,bmf_tax_period,int,BMF latest tax period YYYYMM,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,latest_efile_tax_period,int,Latest e-filed return period in IRS index 2021-2026 (YYYYMM),,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,latest_efile_return_type,str,Return type of that return,990|990EZ|990PF,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,recent_filing,bool,Return for a period ending 2021-01 or later exists,True|False,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,source_id,str,Sources,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,retrieved_date,date,Build date,,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,basis,str,Basis,derived,bulk_irs_eo_bmf;bulk_irs_xml_index
+dim_universe_membership,confidence,str,Confidence in membership,high|medium|low,bulk_irs_eo_bmf;bulk_irs_xml_index
+entity_aliases,alias_name_raw,str,Name as observed,,
+entity_aliases,alias_name_norm,str,Normalized name,,
+entity_aliases,alias_city,str,City observed with the name,,
+entity_aliases,alias_state,str,State observed,,
+entity_aliases,entity_kind,str,Role in which the name was observed,org|funder,
+entity_aliases,canonical_id,str,EIN of the matched entity (blank if unmatched),,
+entity_aliases,canonical_name,str,BMF legal name of the matched entity,,
+entity_aliases,match_method,str,Tier that produced the match,exact_ein|manual|manual_reject|known_funder|exact_name_city|exact_name_state|exact_name_national|fuzzy_name_city|unmatched,
+entity_aliases,match_score,float,0-100,,
+entity_aliases,n_occurrences,int,Rows carrying this variant,,
+entity_aliases,source_ids,str,Up to 5 source ids where seen,,
+fact_gov_awards,award_row_id,str,Row id (primary key),,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,recipient_ein,str,Recipient EIN,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,recipient_uei,str,Recipient UEI,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,recipient_name_raw,str,Recipient as named,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,awarding_agency,str,Awarding agency,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,funding_agency,str,Funding agency,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,program_name,str,Program,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,assistance_listing,str,Federal assistance listing (CFDA),,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,award_id,str,Award id (FAIN/PIID/DC grant number),,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,award_type,str,Instrument,grant|cooperative_agreement|contract|loan|direct_payment|other,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,flow_type,str,How money reached the recipient,prime|subaward|pass_through_expenditure|dc_local_grant|dc_contract,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,pass_through_entity,str,Pass-through entity name,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,pass_through_ein,str,Pass-through EIN,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,period_start,date,Period start,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,period_end,date,Period end,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,fiscal_year,int,Fiscal year of the amount,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,fiscal_year_basis,str,Which fiscal calendar,federal_fy|dc_fy|org_fy|calendar,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,amount,int,"Amount, nominal USD",,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,amount_type,str,What the amount measures,obligation|outlay|expenditure|award_amount|budget,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,amount_real_2024,int,amount in 2024 dollars,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,source_type,str,Source,usaspending|fac_sefa|audit_sefa|treasury_slfrf|dc_ovsjg|dc_oversight|dc_pass|hud_coc|other,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,source_page,str,Page in source document,,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,conflict_flag,int,1 if contradicted by another source for the same recipient/program/year,0|1,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,confidence,str,Confidence in the value,high|medium|low,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,basis,str,documented = stated by source; derived = computed from documented values; inferred = judgment,documented|derived|inferred,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_gov_awards,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,api_dcgis_ovsjg_grants;api_dcgis_pass;api_fac;bulk_treasury_slfrf;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;doc_ovsjg_recipients;input_fy23_audit;web_calvary_fy22_audit
+fact_grants,grant_id,str,Row id (G + hash of source fields) (primary key),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,funder_id,str,dim_funder.funder_id,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,funder_ein,str,Funder EIN when known,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,funder_name_raw,str,Funder name as written in the source,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,recipient_ein,str,Recipient EIN (given in source or resolved; see match_method),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,recipient_name_raw,str,Recipient name as written in the source,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,recipient_name_norm,str,Normalized recipient name,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,recipient_city,str,Recipient city,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,recipient_state,str,Recipient state,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,recipient_zip5,str,Recipient ZIP,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,tax_year,int,IRS tax year: the calendar year in which the fiscal year begins,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,fiscal_year,int,Year in which the organization's fiscal year ends,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,grant_date,date,Gift/award date when known,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,year_basis,str,What the year fields mean,funder_tax_year|report_year|gift_date|award_year,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,amount,int,"Grant amount, nominal USD (null when only a band is known)",,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,amount_band_min,int,Gift band lower bound,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,amount_band_max,int,Gift band upper bound,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,amount_kind,str,Cash vs in-kind,cash|noncash|mixed|pledge|unknown,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,cumulative_flag,int,"1 = the amount/mention spans several years (CRM totals, 'over the years' lists); never sum with annual rows",0|1,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,amount_real_2024,int,"amount in 2024 dollars (by fiscal_year, or grant_date year)",,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,purpose_text,str,Purpose as written,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,program_area_tags,str,';'-joined dim_program_area tags,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,source_type,str,Kind of source,pf_grants_paid|pf_grants_approved_future|schedule_i|crm|annual_report|support_page|audit_note|web|gov_list,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,object_id,str,IRS e-file OBJECT_ID when from XML,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,match_method,str,How recipient_ein was resolved (entity_aliases),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,match_score,float,Match score 0-100,,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,confidence,str,"Confidence in the documented grant record (amount, parties, year as filed). Recipient-match quality is in match_method / match_score",high|medium|low,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,basis,str,documented = stated by source; derived = computed from documented values; inferred = judgment,documented|derived|inferred,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_grants,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,bulk_gt_datalake;bulk_irs_xml;input_corp_found_support_2023;input_crm_funders_2023_2026;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;input_fy18_audit;input_fy19_audit;input_fy20_audit;input_fy21_audit
+fact_opportunities,opportunity_id,str,Source id (primary key),,api_grantsgov
+fact_opportunities,opportunity_number,str,Funding opportunity number,,api_grantsgov
+fact_opportunities,title,str,Title,,api_grantsgov
+fact_opportunities,funder_name,str,Agency/funder,,api_grantsgov
+fact_opportunities,agency_code,str,Agency code,,api_grantsgov
+fact_opportunities,status,str,Status at retrieval,posted|forecasted,api_grantsgov
+fact_opportunities,assistance_listings,str,';'-joined assistance listings,,api_grantsgov
+fact_opportunities,eligibility_codes,str,Grants.gov eligibility codes,,api_grantsgov
+fact_opportunities,eligibility_text,str,Eligibility text,,api_grantsgov
+fact_opportunities,award_floor,int,Award floor,,api_grantsgov
+fact_opportunities,award_ceiling,int,Award ceiling,,api_grantsgov
+fact_opportunities,estimated_total_funding,int,Estimated total program funding,,api_grantsgov
+fact_opportunities,expected_awards,int,Expected number of awards,,api_grantsgov
+fact_opportunities,post_date,date,Post date,,api_grantsgov
+fact_opportunities,close_date,date,Close date,,api_grantsgov
+fact_opportunities,forecast_award_date,date,Forecast award date,,api_grantsgov
+fact_opportunities,funding_category,str,Funding category,,api_grantsgov
+fact_opportunities,program_area_tags,str,';'-joined program areas,,api_grantsgov
+fact_opportunities,keyword_hits,str,Search keywords matched,,api_grantsgov
+fact_opportunities,url,str,Opportunity URL,,api_grantsgov
+fact_opportunities,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,api_grantsgov
+fact_opportunities,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,api_grantsgov
+fact_opportunities,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,api_grantsgov
+fact_org_financials,ein,str,Organization EIN,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,tax_year,int,IRS tax year: the calendar year in which the fiscal year begins,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,fiscal_year,int,Year in which the organization's fiscal year ends,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,fye_month,int,Fiscal year end month,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,tax_period_end,date,Last day of the fiscal year,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,return_type,str,Filing or document type,990|990EZ|990PF|audit|990_pdf,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,object_id,str,IRS e-file OBJECT_ID when from XML,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,is_amended,int,1 if an amended return,0|1,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,preferred,int,1 = preferred row for this ein+fiscal_year+fye_month. Ranking: IRS e-file XML (source_id bulk_irs_xml or bulk_gt_datalake: the same XML from IRS or the GivingTuesday mirror) > NCCS e-file (bulk_nccs_efile) > ProPublica > SOI > Calvary 990 PDF > audit,0|1,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,conflict_flag,int,1 if total_revenue differs >1% from another source for the same ein+fiscal_year,0|1,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,total_revenue,int,Total revenue,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,contributions_total,int,"Contributions, gifts, grants (990 VIII 1h)",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,federated_campaigns,int,990 VIII 1a,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,membership_dues,int,990 VIII 1b,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,fundraising_event_contributions,int,990 VIII 1c,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,related_org_contributions,int,990 VIII 1d,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,government_grants,int,Government grants/contributions (990 VIII 1e; audit: federal + state/local lines). Blank = not present in that source: SOI extracts lack the line entirely; in XML rows a blank usually means the filer left line 1e empty (zero). Government contracts are often in program_service_revenue instead,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,other_contributions,int,All other contributions (990 VIII 1f; audit: private grants and contributions),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,noncash_contributions,int,Noncash contributions (990 VIII 1g; audit: in-kind),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,program_service_revenue,int,Program service revenue,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,investment_income,int,Investment income,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,special_events_net,int,Net income from fundraising events,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,other_revenue,int,Other revenue,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,total_expenses,int,Total functional expenses,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,program_expenses,int,Program service expenses,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,management_expenses,int,Management and general,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,fundraising_expenses,int,Fundraising,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,grants_paid,int,Grants and similar amounts paid (990 IX 1-3),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,compensation_total,int,"Salaries, compensation, benefits",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,total_assets_eoy,int,"Total assets, end of year",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,total_liabilities_eoy,int,"Total liabilities, EOY",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,net_assets_eoy,int,"Net assets / fund balances, EOY",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,cash_savings_eoy,int,"Cash + savings, EOY",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,pf_fmv_assets_eoy,int,990-PF: fair market value of assets EOY,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,pf_total_grants_paid,int,"990-PF: contributions, gifts, grants paid",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,pf_qualifying_distributions,int,990-PF: qualifying distributions,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,pf_contributions_received,int,990-PF: contributions received,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,gov_share_of_revenue,float,derived: government_grants / total_revenue (preferred rows),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,months_of_cash,float,derived: cash_savings_eoy / (total_expenses / 12),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,revenue_growth_yoy,float,derived: total_revenue / prior fiscal year preferred total_revenue - 1,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,program_expense_ratio,float,derived: program_expenses / total_expenses,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,total_revenue_real_2024,int,"total_revenue in 2024 dollars (dim_period deflator, fiscal_year)",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,government_grants_real_2024,int,government_grants in 2024 dollars,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,total_expenses_real_2024,int,total_expenses in 2024 dollars,,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,confidence,str,Confidence in the value,high|medium|low,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,basis,str,documented = stated by source; derived = computed from documented values; inferred = judgment,documented|derived|inferred,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_financials,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,api_propublica;bulk_gt_datalake;bulk_irs_soi_extract;bulk_irs_xml;bulk_nccs_efile;input_990_ty2014;input_990_ty2015;input_990_ty2017;input_990_ty2018;input_990_ty2019;input_fy15_audit;input_fy16_audit
+fact_org_relationships,rel_id,str,Row id (primary key),,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,org_a_ein,str,Organization A EIN (funder / filer),,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,org_a_name,str,Organization A,,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,org_b_ein,str,Organization B EIN (recipient / related org),,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,org_b_name,str,Organization B,,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,rel_type,str,"Relationship. shared_board_member = the two organizations share a linked person in any filed role (board, officer, key employee, trustee) or Calvary report listing (incl. staff); confidence on these rows is the person-level match confidence (dim_person), signals in notes person_match_signals",grant|schedule_r_related|shared_board_member|fiscal_sponsorship|daf_sponsor_grant|pass_through_funding,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,direction,str,Direction,a_to_b|undirected,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,tax_year,int,Tax year,,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,amount,int,Amount for money relationships (sum over the year),,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,evidence,str,"Evidence text (e.g., grant count, shared person name, Schedule R relationship type)",,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,person_id,str,dim_person.person_id for shared_board_member rows,,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,confidence,str,Confidence in the value,high|medium|low,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,basis,str,documented = stated by source; derived = computed from documented values; inferred = judgment,documented|derived|inferred,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_org_relationships,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,bulk_gt_datalake;bulk_irs_xml;bulk_usaspending;doc_dc_council_oversight;doc_hud_coc_awards;input_fy15_annual_report;input_fy15_audit;input_fy16_audit;input_fy17_audit;web_calvary_fy13_annual_report;web_calvary_fy14_annual_report;web_calvary_post_2023_capital_one_poy
+fact_policy_events,event_id,str,Row id (primary key),,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,event_date,date,Date of the event/document,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,event_type,str,Type,budget_proposed|budget_enacted|budget_revised|policy_change|program_launch|program_end|federal_award|federal_rule|other,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,jurisdiction,str,Jurisdiction,DC|federal|regional,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,agency,str,Agency,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,program_code,str,Budget program/activity code,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,funding_stream,str,Funding stream,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,description,str,What changed,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,amount,int,Amount,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,prior_amount,int,Prior amount,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,amount_change,int,amount - prior_amount,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,fiscal_year,int,Fiscal year affected,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,program_area_tags,str,';'-joined program areas,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,source_page,str,Page,,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,confidence,str,Confidence in the value,high|medium|low,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,basis,str,documented = stated by source; derived = computed from documented values; inferred = judgment,documented|derived|inferred,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_policy_events,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,doc_dc_bsa;doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+fact_roles,role_id,str,Row id (primary key),,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,person_id,str,dim_person.person_id,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,ein,str,Organization EIN,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,org_name,str,Organization name,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,tax_year,int,IRS tax year: the calendar year in which the fiscal year begins,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,fiscal_year,int,Year in which the organization's fiscal year ends,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,title,str,Title as filed,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,role_type,str,Role. listed_in_report = a person printed in a Calvary annual report: board members AND leadership staff (subtype in notes list_role_type); these rows have blank tax_year (report year in fiscal_year),board|officer|key_employee|highest_compensated|foundation_trustee|foundation_officer|listed_in_report,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,is_officer,int,Officer flag,0|1,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,is_director_trustee,int,Director/trustee flag,0|1,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,is_key_employee,int,Key employee flag,0|1,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,is_highest_comp,int,Highest compensated flag,0|1,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,is_former,int,Former officer/director flag,0|1,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,avg_hours_per_week,float,Average hours per week as filed,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,reportable_comp_org,int,Reportable compensation from the organization as filed,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,object_id,str,IRS e-file OBJECT_ID,,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,source_id,str,Source of the row; key into sources/source_registry.csv (';'-joined if several),,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,retrieved_date,date,Date the underlying source was retrieved (ISO 8601),,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+fact_roles,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,bulk_gt_datalake;bulk_irs_xml;input_fy17_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report
+ref_ntee_codes,ntee3,str,NTEE 3-character code,,bulk_irs_eo_bmf;ref_nccs_ntee
+ref_ntee_codes,ntee_label,str,IRS label,,bulk_irs_eo_bmf;ref_nccs_ntee
+ref_ntee_codes,major_group,str,NTEE major group letter,,bulk_irs_eo_bmf;ref_nccs_ntee
+ref_ntee_codes,source_id,str,Source,,bulk_irs_eo_bmf;ref_nccs_ntee
+supp_calvary_individual_donor_bands,source_id,str,Source,,input_fy15_annual_report
+supp_calvary_individual_donor_bands,document,str,File,,input_fy15_annual_report
+supp_calvary_individual_donor_bands,report_year,int,Report year,,input_fy15_annual_report
+supp_calvary_individual_donor_bands,gift_band_raw,str,Gift band as printed,,input_fy15_annual_report
+supp_calvary_individual_donor_bands,band_min,int,Band minimum,,input_fy15_annual_report
+supp_calvary_individual_donor_bands,band_max,int,Band maximum,,input_fy15_annual_report
+supp_calvary_individual_donor_bands,individual_count,int,Individual/household listings (names not stored),,input_fy15_annual_report
+supp_calvary_individual_donor_bands,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,input_fy15_annual_report
+supp_calvary_individual_donor_bands,retrieved_date,date,Build date,,input_fy15_annual_report
+supp_calvary_program_metrics,source_id,str,Source document,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,document,str,File name,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,report_year,int,Report year as labeled,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,metric,str,Metric,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,value,str,Value as printed,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,unit,str,Unit,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_program_metrics,retrieved_date,date,Build date,,input_fy15_annual_report;input_fy17_annual_report;input_fy18_annual_report;input_fy20_annual_report;input_fy21_annual_report;input_fy23_annual_report;input_fy23_ar_flyer;input_fy24_ar_glance
+supp_calvary_strategic_targets,source_id,str,Source document,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,document,str,File name,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,plan_period,str,Strategic plan period,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,goal_area,str,Goal area,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,target_text,str,Target as written,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,target_value,str,Numeric target,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,target_unit,str,Unit,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,target_year,str,Target year,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,reported_result_text,str,Reported result,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,reported_value,str,Numeric result,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,notes,str,"Source-specific extras as key=value pairs separated by '; ' (e.g. stage_file, match details, document notes)",,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_calvary_strategic_targets,retrieved_date,date,Build date,,input_strategic_plan_2016_2019;input_strategic_plan_2016_2019_report;input_strategic_plan_2021_2024
+supp_crm_cash_verification,funder_name_raw,str,Funder as named in Calvary's CRM export,,
+supp_crm_cash_verification,funder_ein,str,Resolved EIN,,
+supp_crm_cash_verification,org_class,str,dim_org.org_class of the funder,,
+supp_crm_cash_verification,crm_total,float,CRM GIFT_TOTAL (assumed window 2023-10..2026-10; assumption A1),,
+supp_crm_cash_verification,filing_grants_ty2022plus,float,"Grants to Calvary in the funder's 990-PF/Schedule I, TY2022+",,
+supp_crm_cash_verification,filing_grant_years,str,Tax years with grants to Calvary in filings,,
+supp_crm_cash_verification,ratio_filing_to_crm,float,filing_grants_ty2022plus / crm_total,,
+supp_crm_cash_verification,cash_verified,str,"confirmed_in_window = funder's filings list grants to Calvary in TY2023+; confirmed_earlier_only = TY2020-2022 only; attachment_only_list = funder's recent returns itemize grants only as 'see attached'; no_filing_rows = itemized returns with no Calvary grant; not_exempt_filer = corporation, government or unmatched (no public filing to check)",confirmed_in_window|confirmed_earlier_only|attachment_only_list|no_filing_rows|not_exempt_filer,
+supp_crm_cash_verification,web_inkind_classification,str,Web evidence classification (interim/web_inkind_evidence.csv),cash|in_kind|unclear,
+supp_dc_budget_lines,fiscal_year,int,DC fiscal year (Oct-Sep),,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,budget_stage,str,Stage,approved|proposed|revised|actual,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,agency_code,str,DC agency code,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,agency,str,Agency,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,program_code,str,Program code,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,activity_code,str,Activity code,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,line_item,str,Line item label,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,fund_type,str,Fund,local|federal|special|total|...,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,amount,int,Amount (USD),,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,document,str,Budget document,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,page,str,Page,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,source_id,str,Source,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,retrieved_date,date,Retrieved,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,confidence,str,Confidence,high|medium|low,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,basis,str,Basis,documented|derived|inferred,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_level,str,Supplementary field 'level' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_fund_detail,str,Supplementary field 'fund_detail' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_table,str,Supplementary field 'table' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_book_fy,str,Supplementary field 'book_fy' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_code_fy2025,str,Supplementary field 'code_fy2025' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_division_code,str,Supplementary field 'division_code' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_units_printed,str,Supplementary field 'units_printed' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_in_scope,str,Supplementary field 'in_scope' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_tieout,str,Supplementary field 'tieout' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_dc_budget_lines,x_preferred,str,Supplementary field 'preferred' from the staging script (see its docstring); not part of the core spec,,doc_dc_budget_fy2024;doc_dc_budget_fy2025;doc_dc_budget_fy2026;doc_dc_budget_fy2027;doc_dc_council_budget_reports
+supp_hic_projects,year,int,HIC year,,doc_hud_hic_dc500
+supp_hic_projects,coc_code,str,CoC code,,doc_hud_hic_dc500
+supp_hic_projects,organization_name,str,Project organization as listed,,doc_hud_hic_dc500
+supp_hic_projects,recipient_ein,str,Matched EIN (blank if unmatched),,doc_hud_hic_dc500
+supp_hic_projects,project_name,str,Project,,doc_hud_hic_dc500
+supp_hic_projects,project_type,str,HUD project type (ES/TH/PSH/RRH/OPH/SH),,doc_hud_hic_dc500
+supp_hic_projects,total_beds,int,Total beds,,doc_hud_hic_dc500
+supp_hic_projects,units,int,Units,,doc_hud_hic_dc500
+supp_hic_projects,target_population,str,Target population,,doc_hud_hic_dc500
+supp_hic_projects,source_id,str,Source,,doc_hud_hic_dc500
+supp_hic_projects,retrieved_date,date,Retrieved,,doc_hud_hic_dc500
+supp_hic_projects,confidence,str,Confidence,high|medium|low,doc_hud_hic_dc500
+supp_hic_projects,basis,str,Basis,documented|derived|inferred,doc_hud_hic_dc500
+supp_hic_projects,x_page,str,Supplementary field 'page' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_row_seq,str,Supplementary field 'row_seq' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_year_round_beds,str,Supplementary field 'year_round_beds' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_beds_hh_children,str,Supplementary field 'beds_hh_children' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_beds_hh_no_children,str,Supplementary field 'beds_hh_no_children' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_beds_hh_only_children,str,Supplementary field 'beds_hh_only_children' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_seasonal_beds,str,Supplementary field 'seasonal_beds' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_overflow_voucher_beds,str,Supplementary field 'overflow_voucher_beds' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_chronic_beds,str,Supplementary field 'chronic_beds' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_veteran_beds,str,Supplementary field 'veteran_beds' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_youth_beds,str,Supplementary field 'youth_beds' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_household_type,str,Supplementary field 'household_type' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_target_population_basis,str,Supplementary field 'target_population_basis' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_org_name_clean,str,Supplementary field 'org_name_clean' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_match_method,str,Supplementary field 'match_method' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_match_score,str,Supplementary field 'match_score' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_org_kind,str,Supplementary field 'org_kind' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_women_focused_org,str,Supplementary field 'women_focused_org' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_dv_focused_org,str,Supplementary field 'dv_focused_org' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_names_truncated_in_source,str,Supplementary field 'names_truncated_in_source' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_hic_projects,x_document,str,Supplementary field 'document' from the staging script (see its docstring); not part of the core spec,,doc_hud_hic_dc500
+supp_homeless_counts,coc_code,str,"HUD Continuum of Care code (DC-500, MD-600, ...)",,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,jurisdiction,str,Jurisdiction name,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,year,int,Count year (PIT: January count),,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,measure,str,"Measure (e.g. PIT total/sheltered/unsheltered, HIC beds by type)",,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,population,str,Population or household type the measure covers,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,value,float,Count,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,source_id,str,Source,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,retrieved_date,date,Retrieved,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,confidence,str,Confidence,high|medium|low,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,basis,str,Basis,documented|derived|inferred,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_document,str,Supplementary field 'document' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_sheet,str,Supplementary field 'sheet' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_page,str,Supplementary field 'page' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_column_raw,str,Supplementary field 'column_raw' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_count_type,str,Supplementary field 'count_type' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_report_year,str,Supplementary field 'report_year' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit
+supp_homeless_counts,x_note,str,Supplementary field 'note' from the staging script (see its docstring); not part of the core spec,,bulk_hud_ahar_pit_hic;doc_hud_hic_dc500;doc_mwcog_pit

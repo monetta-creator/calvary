@@ -1,0 +1,24 @@
+state_fips,county_fips,county_name,state_abbr,in_msa,metro_division,metro_division_code,county_geoid,central_outlying,in_scope,scope_note,cbsa_code,cbsa_title,delineation,source_id
+11,001,District of Columbia,DC,true,"Washington, DC-MD",47764,11001,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+24,017,Charles County,MD,true,"Washington, DC-MD",47764,24017,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+24,021,Frederick County,MD,true,"Frederick-Gaithersburg-Bethesda, MD",23224,24021,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+24,031,Montgomery County,MD,true,"Frederick-Gaithersburg-Bethesda, MD",23224,24031,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+24,033,Prince George's County,MD,true,"Washington, DC-MD",47764,24033,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,013,Arlington County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51013,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,043,Clarke County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51043,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,047,Culpeper County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51047,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,059,Fairfax County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51059,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,061,Fauquier County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51061,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,107,Loudoun County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51107,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,153,Prince William County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51153,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,157,Rappahannock County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51157,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,177,Spotsylvania County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51177,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,179,Stafford County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51179,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,187,Warren County,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51187,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,510,Alexandria city,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51510,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,600,Fairfax city,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51600,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,610,Falls Church city,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51610,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,630,Fredericksburg city,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51630,Outlying,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,683,Manassas city,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51683,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+51,685,Manassas Park city,VA,true,"Arlington-Alexandria-Reston, VA-WV",11694,51685,Central,true,,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023
+54,037,Jefferson County,WV,true,"Arlington-Alexandria-Reston, VA-WV",11694,54037,Outlying,false,in MSA but outside DC/MD/VA scope,47900,"Washington-Arlington-Alexandria, DC-VA-MD-WV",OMB Bulletin 23-01 (July 2023),bulk_omb_cbsa_2023

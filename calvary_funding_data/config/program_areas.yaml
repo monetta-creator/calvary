@@ -1,0 +1,67 @@
+# Program-area vocabulary. lib/tagging.py tags free text (grant purposes, program names, opportunity titles)
+# by keyword, and organizations by NTEE code. Multiple tags allowed; output is ';'-joined in this order.
+housing:
+  label: Housing and homelessness
+  keywords: [homeless, homelessness, shelter, housing, supportive housing, transitional housing, rapid re-housing, rapid rehousing, rent, rental, eviction, permanent supportive, psh, continuum of care, coc]
+  ntee3: [L01, L02, L03, L05, L11, L12, L19, L20, L21, L24, L25, L30, L40, L41, L80, L81, L82, L99, P85, P75]
+  assistance_listings: ["14.267", "14.231", "14.241", "14.218", "14.239", "14.235", "14.251", "97.024", "64.033"]
+dv:
+  label: Domestic violence and victim services
+  keywords: [domestic violence, intimate partner, dating violence, sexual assault, sexual violence, victim, victims, survivor, survivors, abuse, trafficking, vawa, voca, safe house, family violence]
+  ntee3: [P43, I70, I71, I72, I73, P62, F42]
+  assistance_listings: ["16.575", "16.588", "16.736", "93.671", "16.590"]
+behavioral_health:
+  label: Behavioral health and recovery
+  keywords: [mental health, behavioral health, substance use, substance abuse, addiction, recovery, sobriety, opioid, therapy, counseling, psychiatric, trauma-informed]
+  ntee3: [F20, F21, F22, F30, F32, F33, F40, F60, F70, F99]
+  assistance_listings: ["93.959", "93.958", "93.243", "93.788"]
+workforce:
+  label: Workforce and employment
+  keywords: [workforce, employment, job training, job readiness, career, vocational, jobs, wioa, snap e&t, employment and training]
+  ntee3: [J20, J21, J22, J30, J32, J33]
+  assistance_listings: ["17.258", "17.259", "17.278", "10.561"]
+health:
+  label: Physical health
+  keywords: [health care, healthcare, medical, clinic, nursing, wellness, nutrition, food, meals, hunger]
+  ntee3: [E20, E21, E30, E32, K30, K31, K35]
+  assistance_listings: []
+education:
+  label: Education and life skills
+  keywords: [education, literacy, ged, classes, financial literacy, digital literacy, computer, tutoring]
+  ntee3: [B20, B60, B90]
+  assistance_listings: []
+aging:
+  label: Aging and older adults
+  keywords: [senior, seniors, older adult, older adults, aging, elderly]
+  ntee3: [P81, P75, L22]
+  assistance_listings: ["93.044", "93.045"]
+veterans:
+  label: Veterans
+  keywords: [veteran, veterans, military]
+  ntee3: [W30]
+  assistance_listings: ["64.033", "17.805"]
+reentry:
+  label: Reentry and justice-involved
+  keywords: [reentry, re-entry, returning citizens, incarceration, incarcerated, formerly incarcerated, justice-involved, second chance]
+  ntee3: [I31, I40, I43, I44]
+  assistance_listings: ["16.812"]
+maternal_health:
+  label: Maternal and family health
+  keywords: [maternal, pregnant, pregnancy, prenatal, postpartum, mothers, infant]
+  ntee3: [P47, E70]
+  assistance_listings: ["93.926"]
+women:
+  label: Women and girls (population focus)
+  keywords: [women, woman, womens, girls, female, ladies, sisters]
+  ntee3: [R24]
+  assistance_listings: []
+general_operating:
+  label: General operating support
+  keywords: [general operating, general support, operating support, unrestricted, general purposes, general purpose, charitable purposes, charitable purpose, exempt purpose]
+  ntee3: []
+  assistance_listings: []
+other:
+  label: Other or unclassified
+  keywords: []
+  ntee3: []
+  assistance_listings: []

@@ -1,0 +1,13 @@
+# Mission-expansion scan (M8): adjacent program areas, Calvary's current footprint, and distance from current operations.
+# distance: near = already delivered in some form; medium = same clients, new capability or credential; far = new population or licensing.
+areas:
+  - {tag: housing, label: "Housing and homelessness (core)", distance: core, calvary_now: "Transitional housing (94 TH beds 2025), PSH (Sister Circle 16), RRH (14)", peer_examples: "N Street Village; House of Ruth DC; DWC (159 PSH units, Rosa's Place 97 units)"}
+  - {tag: dv, label: "Domestic violence and victim services", distance: near, calvary_now: "New Foundations site is DV-designated; OVSJG-funded Reach Up", peer_examples: "DASH; My Sister's Place; DC SAFE; House of Ruth"}
+  - {tag: behavioral_health, label: "Behavioral health and recovery", distance: near, calvary_now: "On-site therapy (500+ sessions/yr), recovery support", peer_examples: "Samaritan Inns (recovery housing); N Street Village (recovery, wellness)"}
+  - {tag: workforce, label: "Workforce and employment", distance: near, calvary_now: "Step Up DC job program; SNAP E&T contract", peer_examples: "SheWorks (CBWC Institute, LA): stipends, childcare, career pathways; DWC MADE social enterprise"}
+  - {tag: education, label: "Education and life skills", distance: near, calvary_now: "LEAP education program", peer_examples: "N Street Village; Thrive DC"}
+  - {tag: health, label: "Physical health", distance: medium, calvary_now: "Meals, health partnerships; no clinic", peer_examples: "Community of Hope (FQHC); Christ House (medical respite); DWC (Skid Row women's health clinic with JWCH)"}
+  - {tag: maternal_health, label: "Maternal and family health", distance: far, calvary_now: "Single women only; no family programs", peer_examples: "Community of Hope; House of Ruth (families)"}
+  - {tag: aging, label: "Aging and older adults", distance: medium, calvary_now: "Older women are a growing share of PSH residents (not measured here)", peer_examples: "DWC (older women on Skid Row); The Washington Home funds aging-in-place"}
+  - {tag: veterans, label: "Women veterans", distance: medium, calvary_now: "None documented", peer_examples: "Access Housing DC (alternate peer); VA GPD grantees"}
+  - {tag: reentry, label: "Reentry and justice-involved women", distance: medium, calvary_now: "Women with justice involvement are served but not a named program", peer_examples: "SheWorks (system-impacted women); OVSJG reentry grants"}

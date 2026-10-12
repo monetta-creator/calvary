@@ -1,0 +1,19 @@
+ein,org,shared_funders,shared_institutional_funders,peer_funders,peer_institutional_funders,jaccard_all,jaccard_institutional,share_of_calvary_funders_also_funding_peer,peer_institutional_funders_not_calvary,source_tables,source_ids
+521331552,Miriam's Kitchen,25,17,75,65,0.25,0.18888888888888888,0.5,48,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+711019574,DASH,19,14,28,23,0.3220338983050847,0.27450980392156865,0.38,9,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521054102,House of Ruth DC,22,14,93,83,0.18181818181818182,0.12612612612612611,0.44,69,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521547845,New Endeavors by Women,17,12,25,20,0.29310344827586204,0.24,0.34,8,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521263256,My Sister's Place,17,12,29,23,0.27419354838709675,0.22641509433962265,0.34,11,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521184749,Community of Hope,15,10,50,43,0.17647058823529413,0.13333333333333333,0.3,33,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521007373,N Street Village,17,9,64,54,0.17525773195876287,0.10344827586206896,0.34,45,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+133537709,Covenant House DC,15,9,29,23,0.234375,0.16071428571428573,0.3,14,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521362103,Christ House,12,7,28,22,0.18181818181818182,0.12280701754385964,0.24,15,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+541087829,Doorways (VA),15,7,45,36,0.1875,0.09859154929577464,0.3,29,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521100236,House of Ruth MD,13,5,95,86,0.09848484848484848,0.04065040650406504,0.26,81,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521474935,Samaritan Inns,9,5,18,14,0.15254237288135594,0.09803921568627451,0.18,9,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+520853501,Everyone Home DC,9,4,15,10,0.16071428571428573,0.08333333333333333,0.18,6,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521245499,Coalition for the Homeless,7,2,9,4,0.1346153846153846,0.045454545454545456,0.14,2,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+412226446,DC SAFE,4,2,9,7,0.07272727272727272,0.0425531914893617,0.08,5,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521485474,Thrive DC,8,2,14,8,0.14285714285714285,0.041666666666666664,0.16,6,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+522040518,Open Arms Housing,2,2,2,2,0.04,0.047619047619047616,0.04,0,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521186250,Heartly House (MD),3,0,21,18,0.04411764705882353,0.0,0.06,18,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

@@ -1,0 +1,4 @@
+geo_key,geo_level,state_fips,county_fips,tract,name_hint,ein,reason
+county_06037,county,06,037,,"Los Angeles County, California",311597223;882046704,Named comparators (rule NC1) Downtown Women's Center and California Black Women's Collective Empowerment Institute: county of their filing addresses; outside the DMV
+tract_06037206202,tract,06,037,206202,"Census Tract 2062.02, Los Angeles County, California",311597223,"Named comparator (rule NC1) Downtown Women's Center: tract of its filing address (scripts/40_geocode_orgs.py, Census geocoder exact match); outside the DMV"
+tract_06037543400,tract,06,037,543400,"Census Tract 5434, Los Angeles County, California",882046704,"Named comparator (rule NC1) California Black Women's Collective Empowerment Institute (SheWorks): tract of its office address on the TY2024 990 (config/org_address_overrides.csv, scripts/47); outside the DMV"

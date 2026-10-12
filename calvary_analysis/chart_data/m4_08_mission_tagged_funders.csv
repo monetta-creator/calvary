@@ -1,0 +1,556 @@
+funder_id,funder_name,funder_type,amount,recipients,dc_amount,gives_to_calvary,peers_funded,dc_share,source_tables,source_ids
+526037034,THE HARRY & JEANETTE WEINBERG FOUNDATION INC,private_foundation,57654600.0,121,3593000.0,False,2,0.06231939862560836,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+411367441,WELLS FARGO FOUNDATION,corporate_foundation,10207800.0,19,850000.0,False,0,0.08326965653715786,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237009135,THE COMMUNITY FOUNDATION INC,community_foundation,9870100.0,70,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521512330,CLARK CHARITABLE FOUNDATION INC,private_foundation,9535000.0,14,9325000.0,False,5,0.9779758783429471,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522101165,CITY FIRST ENTERPRISES INC,public_charity_grantmaker,7555131.0,71,2530439.0,False,0,0.33492986422075277,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237049738,JPMORGAN CHASE FOUNDATION,corporate_foundation,7070000.0,3,3170000.0,False,7,0.44837340876944837,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+621429437,VIRGINIA NONPROIT HOUSING COALITION,private_foundation,7041260.0,29,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521435573,WILLIAM S ABELL FOUNDATION INC,private_foundation,6852158.0,75,4965680.0,True,8,0.724688484999908,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521951681,ANNIE E CASEY FOUNDATION,private_foundation,5312334.0,26,3304934.0,False,2,0.6221246630953551,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521488711,COMMUNITY FOUNDATION OF FREDERICK COUNTY MARYLAND INCORPORATED,community_foundation,5105202.0,32,19660.0,False,1,0.0038509739673376294,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+203672969,DIANA DAVIS SPENCER FOUNDATION,private_foundation,4915000.0,3,315000.0,False,0,0.06408952187182096,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541685158,THE PAULEY FAMILY FOUNDATION,public_charity_grantmaker,4734000.0,22,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+581574705,THE COCA-COLA FOUNDATION INC,corporate_foundation,4445000.0,11,3870000.0,False,0,0.8706411698537683,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+262882583,AGENA FOUNDATION,private_foundation,4344000.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541530891,MARY MORTON PARSONS FOUNDATION,private_foundation,3065000.0,7,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521798711,KAHLERT FOUNDATION INC,private_foundation,2900000.0,12,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+530204688,JOHN DICKSON HOME,private_foundation,2250700.0,0,2250700.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+472746460,DOMINION ENERGY CHARITABLE FOUNDATION,corporate_foundation,2180175.0,96,5000.0,False,1,0.002293393878931737,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521750323,COALITION FOR NONPROFIT HOUSING AND ECONOMIC DEVELOPMENT,public_charity_grantmaker,2108210.0,8,2108210.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522106057,MARY CATHERINE BUNTING FUNDATION,private_foundation,1874500.0,8,0.0,False,2,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+465681481,LANGLEY FOR FAMILIES - THE FOUNDATION OF LFCU,public_charity_grantmaker,1812203.0,56,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521186071,MARTHAS TABLE,public_charity_grantmaker,1718041.0,6,1718041.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541506312,CHARLOTTESVILLE AREA COMMUNITY FOUNDATION,community_foundation,1711574.0,23,17500.0,False,0,0.010224506799004893,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521340920,POTOMAC HEALTH FOUNDATION,private_foundation,1663062.0,8,146762.0,False,0,0.08824806291046275,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300219424,FAUQUIER HEALTH FOUNDATION,private_foundation,1585507.0,7,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546039157,ROBERT G III AND MAUDE MORGAN CABELL FOUNDATION,private_foundation,1530000.0,6,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546315085,E STUART JAMES GRANT CHARITABLE TR,private_foundation,1419050.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+346516969,W ONEIL FOUNDATION,private_foundation,1392000.0,11,655000.0,False,1,0.47054597701149425,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+800424607,WALLACE GLOBAL FUND II,private_foundation,1295000.0,9,1150000.0,False,0,0.888030888030888,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300765622,THE SECULAR SOCIETY INC,private_foundation,1272105.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521756853,WASHINGTON REGIONAL ASSOCIATION OF GRANTMAKERS,public_charity_grantmaker,1261200.0,10,1261200.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521459149,HACKERMAN FOUNDATION INC,private_foundation,1168700.0,13,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541822359,WILLIAMSBURG COMMUNITY HEALTH FOUNDATION INC,private_foundation,1085000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+261587229,JOHN VOS FAMILY FOUNDATION INC,private_foundation,1082060.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510232459,THE COMMUNITY FOUNDATION FOR NORTHERN VIRGINIA INC,community_foundation,1023217.0,34,66000.0,False,1,0.06450244669508032,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+263922404,QUANTITATIVE FOUNDATION,private_foundation,1000000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+530241716,EUGENE & AGNES E MEYER FOUNDATION,private_foundation,935000.0,11,806000.0,False,1,0.8620320855614974,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521800778,ROBERT I SCHATTNER FOUNDATION INC,private_foundation,925000.0,2,500000.0,False,4,0.5405405405405406,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521593963,GIFTS FOR THE HOMELESS,public_charity_grantmaker,863852.0,42,571036.0,False,8,0.6610345290628488,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+465476649,HOUSING HELP PLUS,public_charity_grantmaker,827730.0,1,629883.0,False,0,0.7609764053495706,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541973018,THE@ARHANT SOCIAL FOUNDATION INC,private_foundation,813443.0,3,20000.0,False,0,0.024586848740477205,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541887187,JACQUEMIN FAMILY FOUNDATION INC,private_foundation,790000.0,16,258000.0,True,2,0.3265822784810127,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522284009,VIRAGH FAMILY FOUNDATION INC,private_foundation,785000.0,2,360000.0,False,1,0.4585987261146497,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521633658,THE CECIL AND IRENE HYLTON FOUNDATION INC,private_foundation,776500.0,3,135000.0,False,0,0.17385705086928527,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520600233,EGENTON ROBERTS FOUNDATION,private_foundation,768000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+812118591,CONGRESSIONAL SPORTS FOR CHARITY,public_charity_grantmaker,759500.0,6,667500.0,True,1,0.8788676761026991,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540645217,GREENSVILLE MEMORIAL FOUNDATION,private_foundation,750000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541393561,ANNE & GENE WORRELL FOUNDATION,private_foundation,724070.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522166327,DONORS TRUST INC,public_charity_grantmaker,717500.0,4,100000.0,False,0,0.13937282229965156,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823941326,LUMINATE FOUNDATION INC,private_foundation,680000.0,2,680000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521628951,THE JOSEPH E & MARJORIE B JONES FOUNDATION,private_foundation,670000.0,5,655000.0,False,1,0.9776119402985075,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541950727,COMMUNITY FOUNDATION FOR LOUDOUN AND NORTHERN FAUQUIER COUNTIES,community_foundation,659253.0,15,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510438443,TAMIAS FOUNDATION,private_foundation,653679.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522028612,WASHINGTON AREA WOMENS FOUNDATION INC,public_charity_grantmaker,615300.0,2,545300.0,False,2,0.8862343572241184,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+476309118,CHARLES T BAUER CHARITABLE FOUNDATION,private_foundation,600000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526054193,BENDER FOUNDATION INC,private_foundation,600000.0,1,300000.0,False,0,0.5,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+061697213,STEWARDS OF AFFORDABLE HOUSING FOR THE FUTURE,public_charity_grantmaker,592695.0,6,285445.0,False,0,0.48160521009962964,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541602838,ARLINGTON COMMUNITY FOUNDATION,community_foundation,556419.0,6,0.0,False,2,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+113276603,CAPITAL ONE FOUNDATION INC,corporate_foundation,550000.0,1,300000.0,False,0,0.5454545454545454,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542001451,REINHART FOUNDATION,private_foundation,546363.0,5,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+461662450,FRANK E & MIRIAM LOVEMAN FOUNDATION INC,private_foundation,543500.0,7,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546112680,GREATER LYNCHBURG COMMUNITY FOUNDATION,community_foundation,541467.0,10,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260795189,ELMO FOUNDATION,private_foundation,515000.0,2,10000.0,False,1,0.019417475728155338,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542035996,HAMPTON ROADS COMMUNITY FOUNDATION,community_foundation,512988.0,12,20000.0,False,0,0.038987266758676614,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+463039129,INSTITUTE FOR PUBLIC HEALTH INNOVATION,public_charity_grantmaker,506400.0,2,506400.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311810011,OAK HILL FUND,private_foundation,491185.0,8,275000.0,False,0,0.5598705172185633,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+465564443,CHANGING OUR TOMORROWS,private_foundation,476745.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+262048480,IMPACTASSETS INC,federated_giving,460000.0,7,236000.0,False,2,0.5130434782608696,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522151843,SHARED EARTH FOUNDATION,private_foundation,445000.0,3,270000.0,False,0,0.6067415730337079,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526038382,JACOB AND HILDA BLAUSTEIN FOUNDATION INC,private_foundation,445000.0,3,70000.0,False,1,0.15730337078651685,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510211020,RICHMOND MEMORIAL HEALTH FOUNDATION,private_foundation,431512.0,8,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+814825821,THE MARIAN LOCKWOOD DEVINE FOUNDATION INC,private_foundation,389055.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541894989,CONSTANCE DUNDAS FOUNDATION,private_foundation,385000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+201237467,AFFORDABLE HOUSING OPPORTUNITIES INC,public_charity_grantmaker,364686.0,1,364686.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237324576,HEALTHCARE INITIATIVE FOUNDATION,private_foundation,364000.0,7,25000.0,False,0,0.06868131868131869,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542048512,GUPTA FOUNDATION,private_foundation,357000.0,5,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+276251236,HELEN C COBBS FOUNDATION,private_foundation,348846.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260008332,COMMUNITY FOUNDATION OF THE NORTHERN SHENANDOAH VALLEY,community_foundation,345512.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+134055747,ENFRANCHISEMENT FOUNDATION,private_foundation,340000.0,2,340000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541848791,STEPHEN CASE FOUNDATION,private_foundation,333334.0,1,333334.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+272238037,LUCAS KAEMPFER FOUNDATION INC,private_foundation,320000.0,3,320000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+316653312,SANDERS FOUNDATION,private_foundation,312141.0,7,66320.0,False,1,0.21246808333413425,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521283255,VENABLE BAETJER AND HOWARD FOUNDATION,public_charity_grantmaker,302500.0,5,110000.0,False,10,0.36363636363636365,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521756979,CYRUS KATZEN FOUNDATION INC,private_foundation,301860.0,4,75000.0,False,1,0.24845955078513218,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541843987,COMMUNITY FOUNDATION OF THE RAPPAHANNOCK RIVER REGION INC,community_foundation,301286.0,12,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260856008,KEITH V KIERNAN FOUNDATION,private_foundation,300000.0,3,75000.0,False,0,0.25,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521864429,NASDAQ PHILANTHROPIC FOUNDATION INC,private_foundation,299990.0,0,150000.0,False,0,0.5000166672222407,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+276204423,HILLTOP FOUNDATION,private_foundation,290000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474494775,JOURNEY FOR GOOD FOUNDATION INC,public_charity_grantmaker,275000.0,5,50000.0,False,0,0.18181818181818182,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521646923,PETTIT FAMILY CHARITABLE FOUNDATION,private_foundation,274000.0,15,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+275370859,MATAN FAMILY FOUNDATION INC,private_foundation,267366.0,7,3400.0,False,0,0.01271665058384387,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522352678,STEPHEN AND RENEE BISCIOTTI FOUNDATION INC,private_foundation,250000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522177437,THE@WILLIAM J SHAW FAMILY FOUNDATION INC,private_foundation,245000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510486987,MANY HANDS INC,public_charity_grantmaker,242500.0,3,170000.0,True,1,0.7010309278350515,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+452402050,HERMAN & WALTER SAMUELSON FOUNDATION INC,private_foundation,230000.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+200883662,SIMPLY DISTRIBUTE CHARITABLE FOUNDATION,public_charity_grantmaker,229251.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526041536,ROLLINS LUETHKEMEYER FOUNDATION INC,private_foundation,225000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+831658260,MAJOR FAMILY FOUNDATION,private_foundation,223500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+827017803,JAMES S BEALMEAR IRRV TR,private_foundation,219311.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541959458,COMMUNITY FOUNDATION SERVING WESTERN VIRGINIA,community_foundation,218874.0,9,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+202062883,HUSSMAN FOUNDATION INC,private_foundation,218700.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+263882735,MORDECHAI AND RUTH SNIDER CHARITABLE FOUNDATION INC,private_foundation,211048.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+831645192,RABBITT WHALEN FAMILY FOUNDATION INC,private_foundation,209200.0,2,203200.0,False,0,0.97131931166348,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+812266520,HARVEY S LOWE JR AND SUSAN HITCHCOCK-LOWE,private_foundation,202500.0,3,17500.0,False,1,0.08641975308641975,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+133054425,UNITED STATES JAPAN FOUNDATION,private_foundation,198500.0,2,135900.0,False,0,0.6846347607052897,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521477599,NATIONAL HOUSING TRUST,public_charity_grantmaker,195283.0,1,195283.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526035549,MILLER & CHEVALIER CHARITABLE FOUNDATION,private_foundation,194300.0,12,177600.0,True,5,0.9140504374678332,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+352197504,ST JOHNS CHURCH CHARITABLE TR,public_charity_grantmaker,190492.0,8,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+205860939,THE AL STROOBANTS FOUNDATION,private_foundation,190000.0,5,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474376653,THE CRIMSONBRIDGE FOUNDATION INC,private_foundation,187000.0,10,129500.0,False,1,0.6925133689839572,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521786778,BUTLER FAMILY FUND,private_foundation,187000.0,3,187000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+131624103,YWCA USA INC,public_charity_grantmaker,186500.0,4,107000.0,False,0,0.5737265415549598,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+273596818,DARIN BUTZ FOUNDATION,private_foundation,186000.0,1,186000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520846147,WALTER A BLOEDORN FOUNDATION,private_foundation,184000.0,12,132000.0,True,1,0.717391304347826,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520613676,CHASE HOME INC,private_foundation,183652.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540506318,UNITED WAY OF ROCKBRIDGE INC,federated_giving,182500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522048715,ALICE AND RUSSELL TRUE FOUNDATION,private_foundation,180000.0,1,180000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521755504,CRANE FAMILY FOUNDATION INC,private_foundation,180000.0,2,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+261097880,SMITHERS PATRIOT FOUNDATION INC,private_foundation,180000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541823141,THE COMMUNITY FOUNDATION OF THE DAN RIVER REGION,community_foundation,175269.0,7,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510227549,C E RICHARDSON BENEVOLENT FOUNDATION,private_foundation,175120.0,8,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+527165889,THE AUSHERMAN FAMILY TRUST,public_charity_grantmaker,175000.0,5,22500.0,False,1,0.12857142857142856,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546223108,ALEXANDER BERKELEY CARRINGTON JR RUTH S CARRINGTON CHARITABLE TRUST,private_foundation,174892.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+020703907,RUTH AND HAL LAUNDERS CHARITABLE TR,private_foundation,170000.0,3,50000.0,False,0,0.29411764705882354,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+461353961,HELEN J SERINI FOUNDATION INC,private_foundation,164638.0,8,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520794020,A T & MARY H BLADES FOUNDATION INC,private_foundation,160000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521489400,DAVID AND BARBARA B HIRSCHHORN FOUNDATION INC,private_foundation,155000.0,3,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+202787879,THE HILLSIDE FOUNDATION,private_foundation,155000.0,1,125000.0,False,1,0.8064516129032258,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546462110,THE GEARY-OHARA TRUST,private_foundation,153500.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+612144281,THISTLE FOUNDATION,private_foundation,150000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521607300,THE MORTON K AND JANE BLAUSTEIN FOUNDATION INC,private_foundation,150000.0,1,150000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522278038,DELAPLAINE FOUNDATION INC,private_foundation,150000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+136081860,RICHARD LOUNSBERY FOUNDATION INC,private_foundation,149250.0,3,134250.0,False,0,0.8994974874371859,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+030575765,THE BEA AND DAVID ZACK MEMORIAL FOUNDATION INC,private_foundation,148000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546051620,J EDWIN TREAKLE FOUNDATION INC,private_foundation,146400.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521515600,DISTRICT OF COLUMBIA COALITION AGAINST DOMESTIC VIOLENCE,public_charity_grantmaker,145654.0,1,145654.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+821503941,BUILDERS INITIATIVE,private_foundation,145000.0,3,20000.0,False,0,0.13793103448275862,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+843623009,EMERGING GREATER FUTURE INC,private_foundation,142000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+810737670,ASIA GROUP FOUNDATION,corporate_foundation,140000.0,2,140000.0,False,2,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237002944,WASHINGTON FORREST FOUNDATION,private_foundation,137778.0,5,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526034785,JOHN J LEIDY FOUNDATION INC,private_foundation,132500.0,7,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521693184,LOCKHART VAUGHAN FOUNDATION INC,private_foundation,130000.0,2,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+475513015,NIELSEN FOUNDATION INC,corporate_foundation,130000.0,3,130000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+136161746,HEARST FOUNDATION INC,private_foundation,125000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541963011,SHENANDOAH COMMUNITY FOUNDATION INC,public_charity_grantmaker,115830.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+530078064,IF FOUNDATION,private_foundation,115000.0,4,90000.0,False,1,0.782608695652174,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540742940,J L CAMP FOUNDATION INC,private_foundation,115000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+800666398,THOMAS E QUADE FOUNDATION INC,private_foundation,115000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+753177240,THE ALBERT AND LINDA ROSECAN CHARITABLE FOUNDATION,private_foundation,113000.0,1,40000.0,False,0,0.35398230088495575,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541390453,THE UNITED COMPANY FOUNDATION,corporate_foundation,112000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522271621,ALICE & EUGENE FORD FOUNDATION INC,private_foundation,110000.0,1,110000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541920746,THE COMMUNITY FOUNDATION OF HARRISONBURG AND ROCKINGHAM COUNTY,community_foundation,107809.0,5,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546450695,JAMES B FRAY FAM TR,private_foundation,107500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+274761591,ROBERT M MINKOFF FOUNDATION LTD,private_foundation,105000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+131951698,SHERMAN FAIRCHILD FOUNDATION INC,private_foundation,105000.0,4,80000.0,False,2,0.7619047619047619,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+814747714,4K FOUNDATION INC,private_foundation,102650.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+263533035,JAMES W AND FRANCES GIBSON MCGLOTHLIN FOUNDATION,private_foundation,100000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+132751798,ARCA FOUNDATION,private_foundation,100000.0,1,100000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+821517696,ASSETS UNDER MOVEMENT,public_charity_grantmaker,100000.0,1,100000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521788685,SINAI ASSISTED HOUSING FOUNDATION INC,public_charity_grantmaker,100000.0,1,100000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540648772,WILLIAM H JOHN G EMMA SCOTT FOUNDATION,private_foundation,100000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521815486,CRESCENT CITIES CHARITIES INC,private_foundation,98300.0,7,17500.0,False,1,0.1780264496439471,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521285106,THE EMMERT HOBBS FOUNDATION INC,private_foundation,98000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+256290322,WARDLE FAMILY FOUNDATION,private_foundation,95000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521885132,HOMEFREE USA INC,public_charity_grantmaker,94999.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+471128458,HARNEY PEAK FOUNDATION,private_foundation,94500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520794431,ANTHONY & ANNA L CAROZZA FOUNDATION,private_foundation,92000.0,7,62000.0,False,1,0.6739130434782609,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510248560,CARUTHERS FOUNDATION INC,private_foundation,90000.0,2,25000.0,False,0,0.2777777777777778,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+010626611,WALTER PAYNE FOUNDATION,private_foundation,90000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+261598319,CARMEN & VICTORIA DEYESU FAMILY FOUNDATION INC,private_foundation,90000.0,2,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+306057239,THE MAPLE TREE FUND,private_foundation,90000.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+943006979,MORRISON & FOERSTER FOUNDATION,public_charity_grantmaker,90000.0,3,90000.0,False,2,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+134238878,ERKILETIAN FAMILY FOUNDATION,private_foundation,86875.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540550100,BEAZLEY FOUNDATION INC,private_foundation,85000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474164006,TOWERCARES FOUNDATION INC,federated_giving,84937.0,6,20000.0,False,0,0.23546864146367308,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546471433,THOMAS L LEIVESLEY JR FOUNDATION,private_foundation,82974.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+131687573,MAX & VICTORIA DREYFUS FOUNDATION,private_foundation,82000.0,7,50000.0,True,3,0.6097560975609756,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+272828497,MONIQUE C AND GEORGE L BRAUDE MEMORIAL FOUNDATION INC,private_foundation,80000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542036566,ROBERTSON FAMILY FOUNDATION INC,private_foundation,80000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+464730969,CLOUDBREAK FOUNDATION INC,private_foundation,80000.0,3,20000.0,False,0,0.25,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+113659697,AGUA FUND INC,private_foundation,80000.0,2,35000.0,False,1,0.4375,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541394736,THE O SHAUGHNESSY HURST MEMORIAL FOUNDATION INC,private_foundation,80000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+815121448,JOHN AND INGRID HARBAUGH FAMILY FOUNDATION INC,private_foundation,80000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311708123,DOROTHY KOCH FAMILY FOUNDATION,private_foundation,76575.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+472179540,WALTER W REGIRER AND MARIA TERESA REGIRER FOUNDATION,private_foundation,75000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540597601,PUBLIC WELFARE FOUNDATION INC,private_foundation,75000.0,2,25000.0,False,0,0.3333333333333333,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+383926408,DEMOCRACY FUND INC,private_foundation,75000.0,1,75000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+457027710,DANIEL AND BARBARA@CHAPMAN TRUST,private_foundation,70343.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546037003,RICHARD S REYNOLDS FOUNDATION,private_foundation,70000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541842036,T NASH AND GLORIA M BROADDUS FOUNDATION,private_foundation,70000.0,2,60000.0,False,0,0.8571428571428571,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+611579580,RIMORA FOUNDATION,private_foundation,70000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300135491,WILLIAM H GEIGER FAMILY FOUNDATION INC,private_foundation,70000.0,1,70000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526038384,HENRY AND RUTH BLAUSTEIN ROSENBERG FOUNDATION,private_foundation,70000.0,2,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300022798,NATIONAL CENTER FOR VICTIMS OF CRIME INC,public_charity_grantmaker,68427.0,1,68427.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+264685808,STONE SOUP FOUNDATION INC,private_foundation,68000.0,2,28000.0,False,0,0.4117647058823529,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+201360297,HARRY AND ZOE POOLE FOUNDATION,private_foundation,67500.0,4,7500.0,True,1,0.1111111111111111,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541759773,AMERICAN WOODMARK FOUNDATION INC,private_foundation,67250.0,12,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541901227,WARDEN FAMILY FOUNDATION,private_foundation,66500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521611434,THE PHASE FOUNDATION,private_foundation,66000.0,9,24000.0,True,0,0.36363636363636365,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+881226333,MISSIONSQUARE FOUNDATION,private_foundation,65000.0,1,65000.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522076649,SHEAN FAMILY FOUNDATION INC,private_foundation,65000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521528436,ANNETTE M AND THEODORE N LERNER FAMILY FOUNDATION INC,private_foundation,65000.0,3,55000.0,False,0,0.8461538461538461,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+371797396,BLUE SANDS FOUNDATION,private_foundation,64806.0,0,64806.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522081895,SAMI AND ANNIE TOTAH FAMILY FOUNDATION,private_foundation,62593.0,14,59293.0,False,1,0.9472784496668957,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541463392,PORTSMOUTH GENERAL HOSPITAL FOUNDATION,private_foundation,62500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+825368680,GOOD WORDS FOUNDATION,private_foundation,60000.0,2,10000.0,False,1,0.16666666666666666,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237187899,L FRANKLIN AND GERTRUDE H PURNELL FOUNDATION INC,private_foundation,60000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+362169124,ASSOCIATION OF AMERICAN MEDICAL COLLEGES,public_charity_grantmaker,60000.0,3,60000.0,True,6,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260874399,NEATROUR FAMILY FOUNDATION INC,private_foundation,59000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+923040506,FAEDER FAMILY FOUNDATION,private_foundation,57677.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+206208889,MATHIAS WASHINGTON COUNTY TR,private_foundation,56000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+461371508,NADERKHANI FAMILY FOUNDATION,private_foundation,56000.0,1,56000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237811366,BRIMSTONE FUND,private_foundation,55000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521646030,MEAD FAMILY FOUNDATION,private_foundation,55000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541966936,THE HOWARD FAMILY FOUNDATION,private_foundation,53250.0,1,53250.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+833328623,IMPACT USA,private_foundation,53000.0,4,1000.0,False,0,0.018867924528301886,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546039609,RECO FOUNDATION,private_foundation,51000.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521377945,THE WILLIAM & JEAN SCHULTE FOUNDATION INC,private_foundation,50500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541991343,AKERSON FAMILY FOUNDATION,private_foundation,50000.0,1,50000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521953832,RICHARD E AND NANCY P MARRIOTT FOUNDATION INC,private_foundation,50000.0,1,50000.0,False,2,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+581742620,THE CONBOY-DUKE FOUNDATION,private_foundation,50000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+275135012,CAMPBELL FAMILY FOUNDATION,private_foundation,50000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+872963232,CHARLES AND DEBORAH BURMAN FOUNDATION INC,private_foundation,50000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+833791902,SHELDON SHAPIRO CHARITABLE FOUNDATION INC,private_foundation,50000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526057035,LOIS & IRVING BLUM FOUNDATION INC,private_foundation,50000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521123370,ALEXANDER HOUSE INC,private_foundation,48000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521907361,THE COLE FOUNDATION INC,private_foundation,48000.0,5,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+816624677,EDUCATIONAL TRAINING FOUNDATION,private_foundation,47840.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546051332,TITMUS FOUNDATION INCORPORATED,private_foundation,47100.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+203319727,DANVILLE REGIONAL FOUNDATION,private_foundation,47000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521998317,RAPIDAN FOUNDATION,private_foundation,47000.0,2,47000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521081449,LUTHERAN HOME AND HOSPITAL FOUNDATION INC,private_foundation,45500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546681065,DOMINICK FAM FOUNDATION,private_foundation,45000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+881435711,M4L COMMUNITY SERVICES,private_foundation,44641.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+616383656,JOURNEY FUND TR 10212009,private_foundation,44500.0,1,44500.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+200702156,THE@ANNE LINDSEY OTENASEK CHARITABLE FOUNDATION INC,private_foundation,43172.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522214925,THE DORNEY-KOPPEL FOUNDATION INC,private_foundation,43000.0,3,20000.0,False,2,0.46511627906976744,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+476789331,MRAZ CHARITABLE TR,private_foundation,42000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541349360,DENTON FAMILY CHARITABLE FOUNDATION LTD,private_foundation,41557.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546046229,DALIS FOUNDATION,private_foundation,40000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521866940,ALBERT L TUCKER AND ELIZABETH T TUCKER FOUNDATION,private_foundation,39500.0,3,39500.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+043676427,DUCKWORTH CHARITABLE FOUNDATION INC,private_foundation,38500.0,1,38500.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+562402165,REINSCH PIERCE FAMILY FOUNDATION INC,private_foundation,37805.0,4,500.0,False,1,0.013225763787858748,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+161643931,BLUE WATERS FOUNDATION INC,private_foundation,36500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522089152,PASCAL FOUNDATION INC,private_foundation,36000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+540535602,UNITED WAY OF THE VIRGINIA PENINSULA,federated_giving,35900.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541896244,JACK KENT COOKE FOUNDATION,private_foundation,35500.0,1,500.0,False,0,0.014084507042253521,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541829618,THE JOHN G & JEAN R GOSNELL FOUNDATION INC,private_foundation,35000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+530237223,HATTIE M STRONG FOUNDATION,private_foundation,35000.0,1,5000.0,False,0,0.14285714285714285,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522003744,THE NANCY PEERY MARRIOTT FOUNDATION INC,private_foundation,35000.0,1,35000.0,True,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520792934,MR & MRS LEO W FRIEDENWALD MEMORIAL FUND INC,private_foundation,35000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522182509,MOREY BERNSTEIN MEMORIAL FOUNDATION,private_foundation,34000.0,1,32000.0,False,0,0.9411764705882353,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+460468844,TOM & RUTH FENZI REEDER FOUNDATION INC,private_foundation,34000.0,1,22000.0,False,0,0.6470588235294118,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+471076333,CATHYS FOUNDATION,private_foundation,34000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541829869,VITREUS FOUNDATION,private_foundation,34000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+200017143,THE GOOD SHEPHERD FUND,private_foundation,34000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+136091872,GROSSMAN FAMILY CHARITABLE FUNDS INC,private_foundation,33643.0,7,7970.0,True,2,0.2368992063727967,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+206681371,JOHN BYRD NELSON TR,private_foundation,33000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526040809,KIWANIS FOUNDATION OF BETHESDA MD INC,private_foundation,32000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+046041597,HAROLD RUBENSTEIN FAMILY CHARITABLE FOUNDATION,private_foundation,31500.0,2,29000.0,False,0,0.9206349206349206,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+131635294,UNITED WAY WORLDWIDE,federated_giving,30000.0,1,30000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+010583568,NURMI FAMILY FOUNDATION,private_foundation,30000.0,1,20000.0,False,0,0.6666666666666666,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474179386,SCHEWEL CHARITABLE FOUNDATION,private_foundation,30000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+454239221,PAULINE F AND W DAVID ROBBINS CHARITABLE FOUNDATION,private_foundation,30000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+852356224,KOKFAM FOUNDATION,private_foundation,29500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+270854479,DELFEST FOUNDATION INC,private_foundation,28670.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+262864524,DR DICK HARDING CHARITY FUND FOR NEPAL,private_foundation,27600.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+863402974,SMITH FAMILY CHARITABLE FOUNDATION,private_foundation,27500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526029540,DOWNTOWN JAYCEES FOUNDATION,private_foundation,27500.0,5,21000.0,False,1,0.7636363636363637,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+452787474,CHARLES HARDY GRIM AND EMILY GROVE GRIM CHARITABLE TRUST,private_foundation,27426.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+020602788,VARTKESS AND RITA BALIAN FAMILY FOUNDATION INC,private_foundation,27000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823595337,HIRSCH FAMILY FOUNDATION INC,private_foundation,26500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+770304957,LAOGAI RESEARCH FOUNDATION,private_foundation,26000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+204937263,AUSHERMAN FAMILY FOUNDATION INC,private_foundation,25455.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+475446854,DOUGLAS M BIBBY NMHC RESEARCH FOUNDATION,public_charity_grantmaker,25225.0,1,25225.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521477305,THE A A WINDESHEIM CHARITABLE FOUNDATION INC,private_foundation,25000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546052404,MINNIE & BERNARD LANE FOUNDATION,private_foundation,25000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+862820089,ACCENDRA HEALTH FOUNDATION,private_foundation,25000.0,3,15000.0,False,0,0.6,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+208973776,NORMAN J FISHER AND DORIS FISHER FOUNDATION,private_foundation,25000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521166432,HUMANITIES COUNCIL OF WASHINGTON DC INC,community_foundation,25000.0,1,25000.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541560773,NACCASH FOUNDATION INC,private_foundation,25000.0,1,25000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541776363,BEVERLY W AND HAMPTON O POWELL CHARITABLE FOUNDATION,private_foundation,25000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+863254477,ALVIN AND BETTY SELLMAN CHARITABLE FOUNDATION INCORPORATED,private_foundation,25000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311571705,MULLEN ANDERSEN CHILDRENS FOUNDATION AND TRUST,private_foundation,24500.0,2,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+383835125,NEW LIFE FOUNDATION,private_foundation,24500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+208370192,RABBI ABRAHAM AND SHIRLEY KELMANFOUNDATION INC,private_foundation,24000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+412124892,LORETTA A SNELL CHARITABLE TR INC,private_foundation,24000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522278600,WEGLICKI FAMILY FOUNDATION,private_foundation,23500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+472932785,BANNEKER FOUNDATION,private_foundation,22924.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541524318,NCMA EDUCATION RESEARCH FOUNDATION,private_foundation,22898.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+874263775,SHEPHERDS WAY FOUNDATION INC,private_foundation,22500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521439097,SAMUEL J GORLITZ FOUNDATION,private_foundation,22150.0,13,19150.0,False,2,0.8645598194130926,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522128803,KOLL FAMILY FOUNDATION,private_foundation,21000.0,2,21000.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521812998,THOMAS I AND PEGGY A BALDWIN FOUNDATION,private_foundation,20642.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542000681,BRANT FOUNDATION INC,private_foundation,20500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+453564622,DAVID AND JUNE TRONE FAMILY FOUNDATION,private_foundation,20000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311713864,LOUIS MESSER AND HELEN MESSER CHARITABLE FOUNDATION,private_foundation,20000.0,3,13000.0,False,0,0.65,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+113759358,WESTLEY FAMILY FOUNDATION INC,private_foundation,20000.0,1,20000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237165961,PEARLSTEIN FOUNDATION INC,private_foundation,20000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+562315079,BRUHN-MORRIS FAMILY FOUNDATION INC,private_foundation,20000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+831229916,PROFFITT BROTHERS FOUNDATION INC,private_foundation,20000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+731628382,BIPARTISAN POLICY CENTER INC,public_charity_grantmaker,20000.0,1,20000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311597223,DOWNTOWN WOMENS CENTER,public_charity_grantmaker,20000.0,1,20000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311602562,HERBERT BEARMAN FOUNDATION INC,private_foundation,20000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+251926063,CORDES FOUNDATION,private_foundation,20000.0,1,20000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+452590105,MARRIOTT DAUGHTERS FOUNDATION,private_foundation,20000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+813826743,TOSE FOUNDATION INC,private_foundation,20000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+336355754,JAMES C AND LINDA F SMITH CHARITABLE TR,private_foundation,20000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521755871,THE SHEILA C JOHNSON FOUNDATION INC,private_foundation,19040.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+431977267,RALPH AND MARY FISCHER BELL FOUNDATION,private_foundation,18800.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521089824,NATIONAL LOW INCOME HOUSING COALITION AND LOW INCOME HOUSING,public_charity_grantmaker,18000.0,2,18000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542016695,NEWBERN FOUNDATION,private_foundation,18000.0,4,4000.0,False,0,0.2222222222222222,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+814736517,VIRGINIA OUTDOOR ADVENTURE INC,private_foundation,18000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521743817,SUMMIT CHARITABLE FOUNDATION INC,private_foundation,17500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521746960,SEVENTH COUNCILMANIC DISTRICT CONSTITUENT FUND COMMITTEE INC,private_foundation,17129.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474140093,OUR TOWNS OUR HEROES FOUNDATION,private_foundation,17090.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541861951,WILLIAMS FAMILY FOUNDATION,private_foundation,17000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+811878942,METROPOLITAN WASHINGTON DC CHAPTER OF NCBW100,private_foundation,17000.0,0,17000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541821978,WILLIAM M CAMP FOUNDATION,private_foundation,16750.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+136207879,GERARD & RUTH DANIEL FOUNDATION INC,private_foundation,16500.0,1,16500.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542014975,GRACE CURTIS & PRISCILLA OHARA FOUNDATION INC,private_foundation,16000.0,2,14500.0,False,0,0.90625,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510652020,THE MIRZA FAMILY FOUNDATION,private_foundation,16000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+593414979,LALIT K & ANUBHA GUPTA FAMILY FOUNDATION INC,private_foundation,15600.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+510217379,ALAN & ESTHER FLEDER FOUNDATION,private_foundation,15465.0,0,965.0,False,0,0.06239896540575493,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546074720,EASLEY CHAR IRR TUA 5019004715,private_foundation,15280.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474784436,MCN BUILD FOUNDATION INC,private_foundation,15250.0,1,7450.0,False,0,0.4885245901639344,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+911937345,HITTMAN FAMILY FOUNDATION INC,private_foundation,15000.0,0,15000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+530213317,THE JUNIOR LEAGUE OF THE CITY OF WASHINGTON INC,public_charity_grantmaker,15000.0,1,15000.0,True,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+933836284,BLUE GARNET FOUNDATION,private_foundation,15000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541562993,COMMONWEALTH TRANSFUSION FOUNDATION,private_foundation,15000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+815154953,ZAZULAK BURIAN FOUNDATION INC,private_foundation,15000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300125932,ELIZABETH STREB PEROUTKA FOUNDATION INC,private_foundation,15000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+141838642,ZERHOUNI FAMILY CHARITABLE FOUNDATION INC,private_foundation,15000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823393745,BLACKTHORN FOUNDATION,private_foundation,15000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+202214025,BECK FOUNDATION INC,private_foundation,15000.0,1,0.0,False,2,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+472603523,CPMG FOUNDATION,private_foundation,15000.0,1,15000.0,True,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521856051,KENT FAMILY FOUNDATION INC,private_foundation,15000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300208793,LASZLO N TAUBER FAMILY FOUNDATION INC,private_foundation,14500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+841721572,THE MATTHEW KORN AND CYNTHIA MILLER FAMILY FOUNDATION INC,private_foundation,14500.0,2,14000.0,False,0,0.9655172413793104,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+596808046,SEVERINE G JR & GRACE H LEOFFLER TRUST,private_foundation,14250.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526070323,KENTLAND FOUNDATION INC,private_foundation,14000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541771747,RUGABER FAMILY FUND,private_foundation,13800.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+112978693,MAY FOUNDATION TRUST,private_foundation,12948.0,4,12948.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521238713,FOUNDATION FOR SPIRITUALITY & MEDICINE INC,private_foundation,12500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+205580617,NEIL SCHLUSSEL FAMILY FOUNDATION,private_foundation,12500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522056205,THE BRASSICA FOUNDATION FOR CHEMOPR OTECTION RESEARCH INC,private_foundation,12500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522207846,JACK BURBAGE FOUNDATION INC,private_foundation,12304.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260771142,J T - MINNIE MAUDE CHARITABLE TRUST,private_foundation,12087.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546692024,DEPUY FAM FOUNDATION TR,private_foundation,12000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+050544540,HARLAN FOUNDATION,private_foundation,12000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+203409415,LISA HIGGINS-HUSSMAN FOUNDATION INC,private_foundation,12000.0,0,10000.0,False,0,0.8333333333333334,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+731700495,THE MATZ FAMILY FOUNDATION,private_foundation,12000.0,4,11000.0,False,1,0.9166666666666666,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+922356506,VAN ARMAN FOUNDATION FOR REFUGEES INC,private_foundation,11712.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311563794,MUSE FOUNDATION INC,private_foundation,11600.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+611583300,RFS GIVES BACK FOUNDATION INC,private_foundation,11507.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+271024255,STULTZ FOUNDATION,private_foundation,11000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+800367258,JOHN C GOLDSMITH AND NANCY L GOLDSMITH FAMILY FOUNDATION,private_foundation,11000.0,1,11000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+863570714,BANK OF CLARKE COUNTY FOUNDATION,corporate_foundation,10550.0,5,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546052446,CARRIE S CAMP FOUNDATION INC,private_foundation,10500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541948947,WOLTZ-WINCHESTER FOUNDATION,private_foundation,10500.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+464022663,R G PURCELL FAMILY CHARITABLE FOUNDATION,private_foundation,10500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526037949,AARON AND CECILE GOLDMAN FOUNDATION,private_foundation,10500.0,2,5500.0,False,2,0.5238095238095238,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+932404658,BALTIMORE FIREFIGHTERS BURN FOUNDATION,private_foundation,10008.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+760556358,GRIZZLE FAMILY FOUNDATION,private_foundation,10000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+814397172,CAPCENTER FOUNDATION,private_foundation,10000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+994378938,TEAM C CHARITABLE FOUNDATION,private_foundation,10000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521486741,MILTON A & GLORIA G BARLOW FAMILY FOUNDATION INC,private_foundation,10000.0,1,10000.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521477004,THE NATIONAL ORGANIZATION FOR WOMEN FOUNDATION INC,public_charity_grantmaker,10000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+461588731,THE BAND FOUNDATION,private_foundation,10000.0,1,10000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260003950,LIVING CITIES INC THE NATIONAL COMMUNITY DEVELOPMENT INITIATIVE,public_charity_grantmaker,10000.0,1,10000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+366141697,LUTHER I REPLOGLE FOUNDATION,private_foundation,10000.0,2,5000.0,False,1,0.5,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+262862771,PRESTON AND CATHARINE WHITE FOUNDATION,private_foundation,10000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526072215,JACOB S SHAPIRO FOUNDATION,private_foundation,10000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+208856399,DOCK STREET FOUNDATION,private_foundation,10000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+387203161,MAIDEN LAKE CHARITABLE TR,private_foundation,10000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+364188235,AMB FOUNDATION,private_foundation,10000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522256895,JUDY AND MARK LERNER FAMILY FOUNDATION INC,private_foundation,10000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+270073510,TREHAN FOUNDATION INC,private_foundation,10000.0,0,10000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541607743,AWA FAMILY FOUNDATION,private_foundation,9500.0,2,1000.0,False,0,0.10526315789473684,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521166266,WADDELL FOUNDATION INC,private_foundation,9250.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+845079067,UNITED SUBMITTERS INC,private_foundation,9089.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+920614681,REBECCA J DAMERON FOUNDATION,private_foundation,9000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+311704650,ADELE M THOMAS CHARITABLE FOUNDATION INC,private_foundation,8100.0,2,8100.0,False,3,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+742971030,LOUCKS FAMILY FOUNDATION,private_foundation,8000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521652375,RENEWAL FOUNDATION INC,private_foundation,8000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541167246,LUCY AND RAMON BREEDEN FOUNDATION,private_foundation,8000.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526002679,WIESSNER FOUNDATION FOR CHILDREN INC,private_foundation,7850.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546434546,THE@RUTH HARRIS JOYCE FOUNDATION,private_foundation,7716.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541743148,NELSON J AND KATHERINE FRIANT POST FOUNDATION INC,private_foundation,7500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+331109715,ST MARYS COUNCIL NO 1470 KNIGHTS OF COLUMBUS CHARITIES INC,private_foundation,7475.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522136842,THE KEITH CAMPBELL FOUNDATION FOR THE ENVIRONMENT INC,private_foundation,7278.0,3,0.0,False,2,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+471689662,HOLLAND-IRIBE FAMILY FOUNDATION INC,private_foundation,7000.0,2,0.0,False,2,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546461406,MCCARTHY FAM CHARITABLE FOUNDATION,private_foundation,7000.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+301012979,ADDUCI FOUNDATION,private_foundation,6935.0,1,500.0,False,0,0.07209805335255948,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+471544830,HILLWYCK FOUNDTION,private_foundation,6475.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+454389590,CHRISTIANS GIVING BACK INCORPORATED,private_foundation,6163.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823650679,WATT FOSTER FAMILY FOUNDATION,private_foundation,6100.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+814809574,GASTON BREEZE EDUCATIONAL FOUNDATION,private_foundation,6007.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541930052,INTERNATIONAL THEOS FOUNDATION INC,private_foundation,6000.0,3,2000.0,False,0,0.3333333333333333,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823855060,WOODARD FAMILY FOUNDATION INC,private_foundation,6000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+811627737,POWHATAN LIONS CLUB FOUNDATION,private_foundation,5875.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521400732,THE JERUSALEM CONNECTION,private_foundation,5800.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+832263569,FULCRUM FOUNDATION INC,private_foundation,5500.0,1,5500.0,False,2,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+271015756,DARCY S CORS FOUNDATION,private_foundation,5500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+842026968,VALUE TECHNOLOGY FOUNDATION,private_foundation,5250.0,1,5250.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526054610,LLOYD A RICHARDSON FOUNDATION INC,private_foundation,5250.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521907008,THE DALTON FAMILY FOUNDATION INC,private_foundation,5100.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+550905628,VIRGINIA HOT SPRINGS PRESERVATION TRUST INC,private_foundation,5000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+831031274,DAVOUD FOUNDATION,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+520794388,LEE AND JULIET FOLGER FUND,private_foundation,5000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546498083,DOROTHY M OVERCASH CHARITABLE TR U A,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+886339773,OVISSI FOUNDATION TR,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+270499615,MARTIN FILLMORE CLARK SR FAMILY FOUNDATION INC,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+472396669,FUND II FOUNDATION,private_foundation,5000.0,1,0.0,False,2,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526855154,SALLY S & DECATUR H MILLER PRIVATE FOUNDATION,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300126805,THE@MERVIN R AND NINA M TROYER FOUNDATION,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+650303365,SAMUEL BURTOFF FOUNDATION INC,private_foundation,5000.0,1,5000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+326094347,THE SIGAL FAMILY FOUNDATION,private_foundation,5000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+832666950,SCOTT A AND PHYLLIS P CRABTREE FAMILY FOUNDATION INC,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521858609,GAEA FOUNDATION INC,private_foundation,5000.0,1,5000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522306377,ROBERS FAMILY FOUNDATION 2AY-74C08,private_foundation,5000.0,1,5000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+743008091,NORMAN WINER CHARITABLE TR,private_foundation,5000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+824778090,PHILBIN FAMILY FOUNDATION INC,private_foundation,5000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522070429,THE@HERBERT N GUNDERSHEIMER FOUNDATION INC,private_foundation,5000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526321486,ALBERT E & NAOMI B SINNISEN FOUNDATION,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+800016494,THE MURTHYNAYAK FOUNDATION INC,private_foundation,5000.0,0,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546062436,ELIS OLSSON MEMORIAL FOUNDATION,private_foundation,5000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+133096937,SMIDINGER TR,private_foundation,4800.0,1,3200.0,False,0,0.6666666666666666,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542018505,WEST END FOUNDATION,private_foundation,4650.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521387044,CARL & NANCY GEWIRZ FUND INC,private_foundation,4527.0,2,1300.0,False,1,0.28716589352772254,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237047132,THEODORE A AND DORIS B SCHWARTZ FOUNDATION INC,private_foundation,4500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+263875584,PAUL AND EMILY SINGER FAMILY FOUNDATION,private_foundation,4500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522204935,THE RCM&D FOUNDATION,private_foundation,4500.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+753072793,STAFFORD FOUNDATION,private_foundation,4400.0,0,2000.0,False,0,0.45454545454545453,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+475454305,ARNOLIE FAMILY FOUNDATION,private_foundation,4310.0,1,2050.0,False,0,0.4756380510440835,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237213934,CLAUDE A & BLANCHE MCCUBBIN ABBOTT CHARITABLE TRUST,private_foundation,4300.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+300215925,CURTIS FAMILY FOUNDATION,private_foundation,4200.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+811208902,17 CENTS A DAY,private_foundation,4095.0,0,500.0,False,0,0.1221001221001221,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+132608346,TILLIE AND WILLIAM BLUMSTEIN FAMILY FOUNDATION INC,private_foundation,4000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+464042953,TONY ROSE FOUNDATION INC,private_foundation,4000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522232281,CHARLES AND EDNA LEVINE FAMILY FOUNDATION INC,private_foundation,4000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+237358951,STARK FAMILY FOUNDATION INC,private_foundation,4000.0,2,3500.0,False,1,0.875,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+465419712,BRIDGE THE GAP INC,private_foundation,4000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+861304534,MAKING A WAY FOUNDATION,private_foundation,3880.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+651014883,RAYMOND & Z VALEERE SASS FAMILY FOUNDATION INC,private_foundation,3800.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+467080380,IRREVOCABLE DECLARATION OF CHARITABLE TRUST OF COHEN FAMILY,private_foundation,3750.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522121733,HARTLEY HALL FOUNDATION INC,private_foundation,3565.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521381689,THE BERNARD AND SARAH GEWIRZ FOUNDATION INC,private_foundation,3500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522209994,BLOCK & POPICK FAMILY FOUNDATION INC,private_foundation,3500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+465356433,VAN METRE COMPANIES FOUNDATION INC,private_foundation,3500.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521276724,LOUIS AND HELEN FANAROFF CHARITABLE FOUNDATION LTD,private_foundation,3500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+550810068,RBWR FAMILY CHARITABLE FOUNDATION INC,private_foundation,3400.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+207194792,KATHERINE B CLAGETT CHARITABLE TR,private_foundation,3380.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+844008596,ISIAQ FAMILY FOUNDATION,private_foundation,3215.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+743204748,GEORGETOWN TR,private_foundation,3200.0,2,3200.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+832796585,KEN & NANCY MCKEE FOUNDATION INC,private_foundation,3174.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+874176226,FIRST UNITED COMMUNITY DREAMS FOUNDATION INC,private_foundation,3000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+371955784,ROBERT AND MIMI SCHWARTZ FOUNDATION INC,private_foundation,3000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+873511202,BOYARSKY MAISEL FAMILY FOUNDATION INC,private_foundation,3000.0,2,1000.0,False,0,0.3333333333333333,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+461483027,SEEDS OF HEALING FOUNDATION INC,private_foundation,3000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+204651590,ONWARD FOUNDATION,private_foundation,3000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+273460021,MICHAEL AND NOREEN BECCI FOUNDATION,private_foundation,3000.0,1,3000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+546231578,DES PLAINES PUBLISHING CHARITABLE TRUST,other,3000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+272314646,UKROPS HOMESTYLE FOODS EDUCATIONAL FOUNDATION,private_foundation,3000.0,3,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+853944160,MST FAMILY FOUNDATION,private_foundation,2884.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542017412,ROBERT AND DOROTHY DOUMAR FOUNDATION,private_foundation,2800.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+271244578,H N JAY HOFFMAN III FOUNDATION,private_foundation,2800.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521953383,THE MONOCACY FOUNDATION INC,private_foundation,2703.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+383666988,KOEHR FAMILY FOUNDATION,private_foundation,2700.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+822240970,2MARYS FOUNDATION INC,private_foundation,2700.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+852126477,YAQUB-ARDRON FOUNDATION INC,private_foundation,2521.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522255935,DUBER FAMILY FOUNDATION INC,private_foundation,2500.0,0,2500.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+352342960,VIRGINIA PROFESSIONAL FIRE FIGHTERS CHARITABLE FOUNDATION,private_foundation,2500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+207341819,VICTORY HOPE FOUNDATION,private_foundation,2500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+470489746,MILLER FOUNDATION INC,private_foundation,2500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+261552316,KYRA MACY FOUNDATION INC,private_foundation,2500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+471837787,DYC FOUNDATION INCORPORATED,private_foundation,2400.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+810758881,KELSO BISHOP FAMILY FOUNDATION INC,private_foundation,2250.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+843928861,PAULETTE FAMILY FOUNDATION,private_foundation,2000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541154689,WOODWARD FOUNDATION INC,private_foundation,2000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541850520,CATHERINE J MCGINNIS FAMILY FOUNDATION,private_foundation,2000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+872081892,TEACHING TO FISH RECOVERY FUND,private_foundation,2000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+873329375,ALBARAKAH FOUNDATION,private_foundation,2000.0,0,2000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521856421,THE SINSKY-KRESSER-RACUSIN MEMORIAL FOUNDATION INC,private_foundation,2000.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522021210,ESTELLE FRIEDMAN GERVIS CHARITABLE FOUNDATION INC,private_foundation,1825.0,0,1825.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+010751046,SPECTEMUR AGENDO INC,private_foundation,1750.0,2,1000.0,False,0,0.5714285714285714,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+474359594,RUFFIN FAMILY FOUNDATION,private_foundation,1700.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823188600,J KENT MCNEW FAMILY FOUNDATION,private_foundation,1600.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526044300,THE DOPKIN SINGER DANNENBERG FOUNDATION INC,private_foundation,1560.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823747619,FRANKLIN FAMILY FOUNDATION,private_foundation,1500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+020586978,HULEBAK-RODRICKS FOUNDATION,private_foundation,1500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+527030006,MARION AND HUGH OAKLEY FAMILY FOUNDATION INC,private_foundation,1500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541810111,WILLIAMS MCCLAIN CHARITABLE FNDTN,private_foundation,1500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521440350,GLICKFIELD FAMILY FOUNDATION INC,private_foundation,1500.0,1,1500.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+271525479,THE DAVID R LEWIS FAMILY FOUNDATION INC,private_foundation,1500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+863245607,DORAZIO FOUNDATION INC,private_foundation,1380.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+934264666,CUMMINS FAMILY FOUNDATION INC,private_foundation,1300.0,4,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+824413424,WATSON STONE FAMILY FOUNDATION INC,private_foundation,1200.0,2,900.0,False,0,0.75,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+823134094,HEART TO HELP INC,private_foundation,1100.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+817114261,CENTER FOR WELL-BEING AND RESILIENCE,private_foundation,1100.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+271077475,MCCS FUND INC,private_foundation,1100.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+813834006,ST JAMES MISSION INC,private_foundation,1067.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541950966,KFL FOUNDATION,private_foundation,1050.0,1,1050.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526051013,NATIONAL HOME LIBRARY FOUNDATION,private_foundation,1010.0,1,1010.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+542060115,DWOSKIN FAMILY FOUNDATION,private_foundation,1000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522196830,MAYMERE CHARITABLE FOUNDATION,private_foundation,1000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522190131,ROWNY FOUNDATION,private_foundation,1000.0,1,1000.0,False,1,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+814713447,ISAN & KUSUM PAUL FOUNDATION INC,private_foundation,1000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541849835,THE@AMY ELIZABETH LAUTH FOUNDATION INC,private_foundation,1000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521661599,TALBOTT AND ANN BOND FAMILY FOUNDATION,private_foundation,1000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+821130166,ACT FOR NIH FOUNDATION INC,private_foundation,1000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+201646666,BENNO AND ELAYNE HURWITZ FAMILY FOUNDATION INC,private_foundation,1000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+813240530,HELPING YOU LIVE YOUR LIFE MORE FULLY WITH CANCER INC,private_foundation,1000.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526033555,LLOYD E MITCHELL FOUNDATION,private_foundation,1000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+861578095,M&M FAMILY FOUNDATION,private_foundation,1000.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+851996231,WCP FOUNDATION,private_foundation,1000.0,1,1000.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+824385082,REHABILITATION REFORM AND REENTRY RESOURCES INC,private_foundation,900.0,0,900.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+201384700,SELFRIDGE FAMILY FOUNDATION INC,private_foundation,750.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+200790810,COMMONWEALTH CONSULTANTS FOUNDATION INCORPORATED,private_foundation,750.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+621561982,JOSEPH K MALOY AND MARIANNA S MALOY FOUNDATION,private_foundation,750.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+264518618,WOBNIAR FOUNDATION INC,private_foundation,700.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+464177070,NEILOM FOUNDATION INC,private_foundation,600.0,1,0.0,False,1,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+831624070,ROBIN & CHRISTOPHER STEIS FOUNDATION,private_foundation,568.0,2,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+521368396,ATLANTIC ESTUARINE RESEARCH SOCIETY INC,private_foundation,554.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541081592,JOSEPH FUND,private_foundation,550.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+203932082,JIM AND CAROL TRAWICK FOUNATION INC,private_foundation,500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541876919,GRACE HOPE & FAITH FOUNDATION,private_foundation,500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+274131811,POWELL FOUNDATION INC,private_foundation,500.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+464302138,DENNIS A AND JULIA M WATKINS FOUNDATION INC,private_foundation,500.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541829850,FITZGERALD FOUNDATION INC,private_foundation,409.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+465188572,COLVIN FAMILY FOUNDATION INC,private_foundation,400.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+825508736,NECESSITIES NOW,private_foundation,350.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+833786093,DE QUATTRO FAMILY FOUNDATION,private_foundation,350.0,2,100.0,False,0,0.2857142857142857,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+884011751,RICHERS HOPE CHARITIES,private_foundation,300.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+872483383,JF ENVIRONMENTAL TRUST FOUNDATION,private_foundation,300.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+843567631,CHICKAHOMINY RIVER WOMEN SOCIETY,private_foundation,300.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+010551686,JOE AND MISSY WALSH FOUNDATION,private_foundation,250.0,1,250.0,False,2,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541923512,OCEAN VIEW LIONS CHARITIES FOUNDATION,private_foundation,250.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541407386,BARRY S AND EVELYN M STRAUCH FOUNDATION INC,private_foundation,250.0,1,250.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+526810223,THE JOHN O MITCHELL FAMILY CHARITABLE TRUST,private_foundation,250.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+874036952,GARRETT WALKER JOSHUA 1-9 FOUNDATION,private_foundation,250.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+472624595,JES AVANTI FOUNDATION INC,private_foundation,200.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+856280891,BARBARA LEHMANN SIEGEL CHARITABLE FOUNDATION,private_foundation,180.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+326176792,BILL AND JEAN ROSENBLUTH FAM FOUNDATION 06192011,private_foundation,152.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541921623,SMITH-MARTIN FOUNDATION INC,private_foundation,150.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+831590770,GOLDTHWAIT FAMILY FOUNDATION INC,private_foundation,135.0,1,135.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+832259081,LANCASTER COUNTY LIONS FOUNDATION INC,private_foundation,125.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+522106840,JAMES F & SANDRA J FITZPATRICK CHARITABLE FOUNDATION INC,private_foundation,100.0,0,100.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+810928085,DONALD AND BETTY BURKE FOUNDATION,private_foundation,100.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+541842020,RIXEY STREET FOUNDATION INC,private_foundation,92.0,1,92.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+874839650,MASLOW ONE-FIVE FOUNDATION,private_foundation,50.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+260001995,FRONTLINE COMMUNITY SERVICES INC,private_foundation,46.0,0,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+921912363,LANCASTER ROBINSON FAMILY FOUNDATION,private_foundation,35.0,0,35.0,False,0,1.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+934096607,CAROL J PEACE FUND,private_foundation,30.0,1,0.0,False,0,0.0,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml
+843046310,CANDA FOUNDATION,private_foundation,0.0,2,0.0,False,0,,fact_grants;dim_funder;dim_program_area,bulk_gt_datalake;bulk_irs_xml

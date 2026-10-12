@@ -1,0 +1,174 @@
+fiscal_year,ein,gov_share,org,source_tables,source_ids
+2017,133537709,0.3518,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,133537709,0.4492,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,133537709,0.4808,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,133537709,0.3285,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,133537709,0.2953,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,133537709,0.5364,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,133537709,0.5085,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,133537709,0.5303,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,133537709,0.5627,Covenant House DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,311597223,0.328,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,311597223,0.3051,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,311597223,0.3226,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,311597223,0.3967,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,311597223,0.4435,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,311597223,0.5664,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,311597223,0.579,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,311597223,0.5704,DWC (Los Angeles),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,412226446,0.9708,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,412226446,0.9164,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,412226446,0.9912,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,412226446,1.0033,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,412226446,0.9749,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,412226446,0.8844,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,412226446,0.8412,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,412226446,0.9351,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,412226446,0.935,DC SAFE,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,520853501,0.826,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,520853501,0.8409,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,520853501,0.7983,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,520853501,0.854,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,520853501,0.8497,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,520853501,0.5754,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,520853501,0.8514,Everyone Home DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521007373,0.3322,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521007373,0.4185,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521007373,0.3734,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521007373,0.3635,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521007373,0.4263,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521007373,0.3548,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521007373,0.4299,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521007373,0.4842,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521007373,0.3856,N Street Village,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521054102,0.4268,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521054102,0.4082,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521054102,0.4803,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521054102,0.4717,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521054102,0.3962,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521054102,0.5028,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521054102,0.5104,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521054102,0.5643,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521054102,0.4518,House of Ruth DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521100236,0.3904,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521100236,0.4192,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521100236,0.4753,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521100236,0.476,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521100236,0.5407,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521100236,0.6022,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521100236,0.5809,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521100236,0.6088,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521100236,0.6276,House of Ruth MD,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521184749,0.4911,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521184749,0.3578,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521184749,0.337,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521184749,0.4572,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521184749,0.4798,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521184749,0.4324,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521184749,0.4035,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521184749,0.3759,Community of Hope,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521186250,0.599,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521186250,0.6884,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521186250,0.7212,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521186250,0.7016,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521186250,0.5305,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521186250,0.7314,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521186250,0.6927,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521186250,0.7825,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521186250,0.7878,Heartly House (MD),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521245499,0.9467,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521245499,0.9461,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521245499,0.9437,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521245499,0.8909,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521245499,0.918,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521245499,0.9093,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521245499,0.0207,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521245499,0.9236,Coalition for the Homeless,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521263256,0.8216,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521263256,0.7487,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521263256,0.7578,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521263256,0.7835,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521263256,0.7462,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521263256,0.8682,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521263256,0.7965,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521263256,0.8337,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521263256,0.8325,My Sister's Place,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521307706,0.39695525173852003,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521307706,0.416317316583235,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521307706,0.4860197479789837,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521307706,0.5541596014772684,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521307706,0.5042917313313314,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521307706,0.6137111314308068,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521307706,0.5118716128166702,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521307706,0.4506,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521307706,0.5822,Calvary,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521331552,0.0201,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521331552,0.009,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521331552,0.0203,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521331552,0.0086,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521331552,0.1002,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521331552,0.0049,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521331552,0.096,Miriam's Kitchen,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521362103,0.2321,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521362103,0.2082,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521362103,0.2189,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521362103,0.0042,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521362103,0.0584,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521362103,0.2338,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521362103,0.226,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521362103,0.3549,Christ House,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521474935,0.3123,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521474935,0.5108,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521474935,0.5704,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521474935,0.5397,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521474935,0.5322,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521474935,0.7219,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521474935,0.5587,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521474935,0.0289,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521474935,0.1129,Samaritan Inns,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521485474,0.1725,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521485474,0.1365,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521485474,0.1204,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521485474,0.1182,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521485474,0.0736,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521485474,0.1638,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521485474,0.214,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521485474,0.0091,Thrive DC,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,521547845,0.7923,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,521547845,0.774,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,521547845,0.7645,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,521547845,0.8374,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,521547845,0.8531,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,521547845,0.4477,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,521547845,0.8014,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,521547845,0.3816,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,521547845,0.8229,New Endeavors by Women,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,522040518,0.6684,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,522040518,0.769,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,522040518,0.7741,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,522040518,0.8554,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,522040518,0.8495,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,522040518,0.8272,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,522040518,0.8376,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,522040518,0.7743,Open Arms Housing,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,541087829,0.4846,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,541087829,0.5075,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,541087829,0.5421,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,541087829,0.5867,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,541087829,0.5308,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,541087829,0.3422,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,541087829,0.5628,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,541087829,0.4251,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,541087829,0.473,Doorways (VA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2017,711019574,0.8169,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2018,711019574,0.7929,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2019,711019574,0.5064,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2020,711019574,0.7231,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2021,711019574,0.7619,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2022,711019574,0.7566,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,711019574,0.5034,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,711019574,0.8434,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,711019574,0.8973,DASH,fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2023,882046704,0.8769,CBWC Inst. / SheWorks (LA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2024,882046704,0.8456,CBWC Inst. / SheWorks (LA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile
+2025,882046704,0.6958,CBWC Inst. / SheWorks (LA),fact_org_financials,api_propublica;bulk_gt_datalake;bulk_irs_xml;bulk_nccs_efile

@@ -1,0 +1,13 @@
+png,chart_data_ids,note
+m1_06_event_income,m1_06_events,
+m1_07_funder_concentration,m1_07_calvary_funder_concentration,
+m3_01_gov_share_ranked,m3_00_benchmark_table,
+m3_02_size_vs_gov_share,m3_00_benchmark_table,
+m3_03_real_growth,m3_00_benchmark_table,
+m3_04_months_of_cash,m3_00_benchmark_table,
+m3_06_institutional_base,m3_00_benchmark_table,
+m4_03_top_institutional_funders,m4_00_funder_landscape_table,
+m6_03_network,m6_03_network_nodes;m6_01_central_funders,
+m7_02_pipeline_scores,m7_00_funder_pipeline,
+m7_03_tier1_score_breakdown,m7_00_funder_pipeline,
+m9_05_ward_map,m9_05_ward_map,

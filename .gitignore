@@ -1,0 +1,15 @@
+calvary_funding_data/raw/
+calvary_funding_data/interim/
+calvary_funding_data/.venv/
+calvary_analysis/decks/node_modules/
+pdf-data/
+.DS_Store
+__pycache__/
+*.pyc
+*.lock
+*.pkl
+calvary_funding_data/clean/fact_grants.csv
+calvary_funding_data/clean/fact_org_relationships.csv
+# Calvary-internal documents: kept out of the repository (the engagement lead holds them)
+calvary_funding_data/inputs/Foundation & Corporate Funders_2023-2026.xlsx
+calvary_funding_data/inputs/2021-2024 Strategic Plan Final Report_internal (1).pdf

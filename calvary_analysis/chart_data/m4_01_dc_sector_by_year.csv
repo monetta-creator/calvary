@@ -1,0 +1,6 @@
+tax_year,institutional_and_other,daf_sponsors,funders,recipients,source_tables,source_ids
+2020.0,49893328.0,67301087.0,361,209,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+2021.0,51110799.0,81924312.0,345,218,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+2022.0,52468996.0,53717138.0,327,221,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+2023.0,51093189.0,94582122.0,342,245,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+2024.0,71768363.0,86628191.0,338,251,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml

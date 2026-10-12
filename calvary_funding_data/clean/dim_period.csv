@@ -1,0 +1,29 @@
+year,cpi_u_us,cpi_u_dc_metro,deflator_to_2024_us,federal_fy_label,dc_fy_label,calvary_fiscal_year_label,notes,source_id,retrieved_date,confidence,basis,x_deflator_to_2024_dc_metro,x_fy_jan_sep_fiscal_year,x_fy_oct_dec_fiscal_year,x_federal_fy_oct_dec_label,x_dc_fy_oct_dec_label,x_calvary_fy_oct_dec_label,x_calvary_tax_year_jan_sep,x_calvary_tax_year_oct_dec,x_cpi_us_series,x_cpi_dc_series
+2000,172.2,,1.821655,FY2000,FY2000,FY00,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2000,2001,FY2001,FY2001,FY01,1999,2000,CUUR0000SA0,
+2001,177.1,,1.771254,FY2001,FY2001,FY01,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2001,2002,FY2002,FY2002,FY02,2000,2001,CUUR0000SA0,
+2002,179.9,,1.743685,FY2002,FY2002,FY02,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2002,2003,FY2003,FY2003,FY03,2001,2002,CUUR0000SA0,
+2003,184.0,,1.704832,FY2003,FY2003,FY03,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2003,2004,FY2004,FY2004,FY04,2002,2003,CUUR0000SA0,
+2004,188.9,,1.660609,FY2004,FY2004,FY04,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2004,2005,FY2005,FY2005,FY05,2003,2004,CUUR0000SA0,
+2005,195.3,,1.60619,FY2005,FY2005,FY05,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2005,2006,FY2006,FY2006,FY06,2004,2005,CUUR0000SA0,
+2006,201.6,,1.555997,FY2006,FY2006,FY06,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2006,2007,FY2007,FY2007,FY07,2005,2006,CUUR0000SA0,
+2007,207.342,,1.512906,FY2007,FY2007,FY07,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2007,2008,FY2008,FY2008,FY08,2006,2007,CUUR0000SA0,
+2008,215.303,,1.456965,FY2008,FY2008,FY08,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2008,2009,FY2009,FY2009,FY09,2007,2008,CUUR0000SA0,
+2009,214.537,,1.462167,FY2009,FY2009,FY09,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2009,2010,FY2010,FY2010,FY10,2008,2009,CUUR0000SA0,
+2010,218.056,,1.438571,FY2010,FY2010,FY10,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2010,2011,FY2011,FY2011,FY11,2009,2010,CUUR0000SA0,
+2011,224.939,,1.394551,FY2011,FY2011,FY11,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2011,2012,FY2012,FY2012,FY12,2010,2011,CUUR0000SA0,
+2012,229.594,,1.366277,FY2012,FY2012,FY12,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2012,2013,FY2013,FY2013,FY13,2011,2012,CUUR0000SA0,
+2013,232.957,,1.346553,FY2013,FY2013,FY13,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2013,2014,FY2014,FY2014,FY14,2012,2013,CUUR0000SA0,
+2014,236.736,,1.325058,FY2014,FY2014,FY14,No published DC-metro (CUURS35ASA0) annual average before 2015; use the US series,api_bls_cpi,2026-10-10,high,derived,,2014,2015,FY2015,FY2015,FY15,2013,2014,CUUR0000SA0,
+2015,237.017,250.664,1.323487,FY2015,FY2015,FY15,,api_bls_cpi,2026-10-10,high,derived,1.257404,2015,2016,FY2016,FY2016,FY16,2014,2015,CUUR0000SA0,CUURS35ASA0
+2016,240.007,253.422,1.306999,FY2016,FY2016,FY16,,api_bls_cpi,2026-10-10,high,derived,1.24372,2016,2017,FY2017,FY2017,FY17,2015,2016,CUUR0000SA0,CUURS35ASA0
+2017,245.12,256.221,1.279736,FY2017,FY2017,FY17,,api_bls_cpi,2026-10-10,high,derived,1.230133,2017,2018,FY2018,FY2018,FY18,2016,2017,CUUR0000SA0,CUURS35ASA0
+2018,251.107,261.445,1.249224,FY2018,FY2018,FY18,,api_bls_cpi,2026-10-10,high,derived,1.205554,2018,2019,FY2019,FY2019,FY19,2017,2018,CUUR0000SA0,CUURS35ASA0
+2019,255.657,264.777,1.226992,FY2019,FY2019,FY19,,api_bls_cpi,2026-10-10,high,derived,1.190383,2019,2020,FY2020,FY2020,FY20,2018,2019,CUUR0000SA0,CUURS35ASA0
+2020,258.811,267.157,1.212039,FY2020,FY2020,FY20,,api_bls_cpi,2026-10-10,high,derived,1.179778,2020,2021,FY2021,FY2021,FY21,2019,2020,CUUR0000SA0,CUURS35ASA0
+2021,270.97,277.728,1.157652,FY2021,FY2021,FY21,,api_bls_cpi,2026-10-10,high,derived,1.134873,2021,2022,FY2022,FY2022,FY22,2020,2021,CUUR0000SA0,CUURS35ASA0
+2022,292.655,296.117,1.071873,FY2022,FY2022,FY22,,api_bls_cpi,2026-10-10,high,derived,1.064397,2022,2023,FY2023,FY2023,FY23,2021,2022,CUUR0000SA0,CUURS35ASA0
+2023,304.702,305.317,1.029494,FY2023,FY2023,FY23,,api_bls_cpi,2026-10-10,high,derived,1.032324,2023,2024,FY2024,FY2024,FY24,2022,2023,CUUR0000SA0,CUURS35ASA0
+2024,313.689,315.186,1.0,FY2024,FY2024,FY24,,api_bls_cpi,2026-10-10,high,derived,1.0,2024,2025,FY2025,FY2025,FY25,2023,2024,CUUR0000SA0,CUURS35ASA0
+2025,321.943,321.993,0.974362,FY2025,FY2025,FY25,Oct 2025 not collected (2025 lapse in appropriations); BLS annual average still published,api_bls_cpi,2026-10-10,high,derived,0.97886,2025,2026,FY2026,FY2026,FY26,2024,2025,CUUR0000SA0,CUURS35ASA0
+2026,,,,FY2026,FY2026,FY26,CPI-U annual average not published as of 2026-10-10; deflator blank,api_bls_cpi,2026-10-10,high,derived,,2026,2027,FY2027,FY2027,FY27,2025,2026,,
+2027,,,,FY2027,FY2027,FY27,CPI-U annual average not published as of 2026-10-10; deflator blank,api_bls_cpi,2026-10-10,high,derived,,2027,2028,FY2028,FY2028,FY28,2026,2027,,

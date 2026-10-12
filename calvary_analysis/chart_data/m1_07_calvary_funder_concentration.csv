@@ -1,0 +1,51 @@
+funder_id,funder_name,funder_type,amount,years,n_grants,share,cum_share,rank,source_tables,source_ids
+237343119,GREATER WASHINGTON COMMUNITY FOUNDATION,community_foundation,1206500.0,5,6,0.27212286736530705,0.27212286736530705,1,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+810739440,AMERICAN ONLINE GIVING FOUNDATION INC,daf_sponsor,511616.0,5,5,0.11539362860337252,0.38751649596867954,2,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526036989,MORRIS AND GWENDOLYN CAFRITZ FOUNDATION,private_foundation,450000.0,5,5,0.10149630361739592,0.48901279958607546,3,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+352599437,LEAFGLEN FOUNDATION,private_foundation,330000.0,5,5,0.07443062265275702,0.5634434222388325,4,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+110303001,FIDELITY INVESTMENTS CHARITABLE GIFT FUND,daf_sponsor,314317.0,5,5,0.07089336369802007,0.6343367859368525,5,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521435573,WILLIAM S ABELL FOUNDATION INC,private_foundation,295000.0,2,2,0.06653646570473733,0.7008732516415899,6,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+311640316,DONOR ADVISED CHARITABLE GIVING,daf_sponsor,128155.0,5,5,0.0289050195335275,0.7297782711751174,7,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+421559999,WORLD BANK COMMUNITY CONNECTIONS FUND,public_charity_grantmaker,100000.0,1,1,0.022554734137199096,0.7523330053123165,8,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+362169124,ASSOCIATION OF AMERICAN MEDICAL COLLEGES,public_charity_grantmaker,91500.0,5,5,0.02063758173553717,0.7729705870478537,9,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+530234290,UNITED WAY OF THE NATIONAL CAPITAL AREA,federated_giving,89549.0,5,5,0.020197538872520418,0.7931681259203741,10,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+562305290,CAROL AND GENE LUDWIG FAMILY FOUNDATION,private_foundation,82500.0,5,5,0.018607655663189254,0.8117757815835633,11,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+516019469,JOHN EDWARD FOWLER MEMORIAL FOUNDATION,private_foundation,80000.0,2,2,0.018043787309759276,0.8298195688933226,12,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+200721133,BANK OF AMERICA CHARITABLE FOUNDATION INC,corporate_foundation,60000.0,4,4,0.013532840482319456,0.8433524093756422,13,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+510486987,MANY HANDS INC,public_charity_grantmaker,55500.0,1,1,0.012517877446145497,0.8558702868217877,14,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+133369901,RAPOPORT FAMILY FOUNDATION,private_foundation,50000.0,3,3,0.011277367068599548,0.8671476538903872,15,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+237825575,NATIONAL PHILANTHROPIC TR,daf_sponsor,45750.0,4,4,0.010318790867768586,0.8774664447581557,16,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526055743,CORINA HIGGINSON TRUST,private_foundation,45000.0,5,5,0.010149630361739593,0.8876160751198953,17,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+450931286,PAYPAL CHARITABLE GIVING FUND,daf_sponsor,41636.0,1,1,0.009390889105364215,0.8970069642252595,18,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+232888152,VANGUARD CHARITABLE ENDOWMENT PROGRAM,daf_sponsor,31000.0,4,4,0.006991967582531719,0.9039989318077912,19,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+010640027,MGM RESORTS FOUNDATION,public_charity_grantmaker,30000.0,3,3,0.006766420241159728,0.9107653520489509,20,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+137483764,ALICE SHAVER FOUNDATION,private_foundation,30000.0,3,3,0.006766420241159728,0.9175317722901106,21,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526054331,ROBERT M FISHER MEMORIAL FOUNDATION INC,private_foundation,25000.0,1,1,0.005638683534299774,0.9231704558244104,22,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+520846147,WALTER A BLOEDORN FOUNDATION,private_foundation,25000.0,4,4,0.005638683534299774,0.9288091393587101,23,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521181776,OWEN FAMILY FOUNDATION,private_foundation,25000.0,5,5,0.005638683534299774,0.9344478228930099,24,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+273818431,JANE BANCROFT ROBINSON FOUNDATION INC,public_charity_grantmaker,25000.0,1,1,0.005638683534299774,0.9400865064273096,25,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526038149,DIMICK FOUNDATION,private_foundation,23000.0,4,4,0.005187588851555792,0.9452740952788654,26,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+812118591,CONGRESSIONAL SPORTS FOR CHARITY,public_charity_grantmaker,22500.0,3,3,0.0050748151808697965,0.9503489104597352,27,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526035898,ADA HARRIS MALEY MEMORIAL FUND,private_foundation,20000.0,5,5,0.004510946827439819,0.954859857287175,28,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+522284964,LAVIN FAMILY FOUNDATION INC,private_foundation,20000.0,4,4,0.004510946827439819,0.9593708041146148,29,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+200065799,QLARANT FOUNDATION INC,public_charity_grantmaker,20000.0,1,1,0.004510946827439819,0.9638817509420546,30,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+994162618,LESLIE JOANNE FOUNDATION,private_foundation,20000.0,1,1,0.004510946827439819,0.9683926977694944,31,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526035549,MILLER & CHEVALIER CHARITABLE FOUNDATION,private_foundation,17200.0,5,5,0.003879414271598244,0.9722721120410927,32,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+530213317,THE JUNIOR LEAGUE OF THE CITY OF WASHINGTON INC,public_charity_grantmaker,15000.0,1,1,0.003383210120579864,0.9756553221616725,33,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+431634280,CHARITIES AID FOUNDATION AMERICA,daf_sponsor,13936.0,1,1,0.003143227749360066,0.9787985499110325,34,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+522215790,MONUMENTAL SPORTS & ENTERTAINMENT FOUNDATION,public_charity_grantmaker,11546.0,1,1,0.0026041696034810073,0.9814027195145135,35,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+832828347,LEVATUS CHARITABLE TRUST,private_foundation,10000.0,1,1,0.0022554734137199095,0.9836581929282334,36,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+131687573,MAX & VICTORIA DREYFUS FOUNDATION,private_foundation,10000.0,2,2,0.0022554734137199095,0.9859136663419533,37,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+522006746,BAXT FAMILY FOUNDATION INC,private_foundation,10000.0,4,4,0.0022554734137199095,0.9881691397556732,38,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+522003744,THE NANCY PEERY MARRIOTT FOUNDATION INC,private_foundation,10000.0,1,1,0.0022554734137199095,0.9904246131693931,39,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521611434,THE PHASE FOUNDATION,private_foundation,9000.0,1,1,0.0020299260723479185,0.992454539241741,40,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+460942102,THE BLACKBAUD GIVING FUND,daf_sponsor,7232.0,1,1,0.0016311583728022385,0.9940856976145432,41,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+205494704,SPUR LOCAL INC,public_charity_grantmaker,5000.0,1,1,0.0011277367068599547,0.9952134343214032,42,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+201360297,HARRY AND ZOE POOLE FOUNDATION,private_foundation,5000.0,2,2,0.0011277367068599547,0.9963411710282631,43,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+541887187,JACQUEMIN FAMILY FOUNDATION INC,private_foundation,5000.0,1,1,0.0011277367068599547,0.9974689077351231,44,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+201173866,OMIDYAR NETWORK FUND INC,corporate_foundation,3000.0,1,1,0.0006766420241159729,0.9981455497592391,45,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+472603523,CPMG FOUNDATION,private_foundation,2500.0,1,1,0.0005638683534299774,0.9987094181126691,46,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+824466856,RCLCO FOUNDATION INC,private_foundation,2072.0,3,3,0.00046733409132276524,0.9991767522039918,47,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526832168,SIDGMORE FAMILY FOUNDATION,private_foundation,2000.0,1,1,0.0004510946827439819,0.9996278468867358,48,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+136091872,GROSSMAN FAMILY CHARITABLE FUNDS INC,private_foundation,1250.0,1,1,0.0002819341767149887,0.9999097810634507,49,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+136962126,WHISPERING BELLS FOUNDATION CHARITABLE TR UA 122690,private_foundation,400.0,1,1,9.021893654879638e-05,0.9999999999999996,50,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

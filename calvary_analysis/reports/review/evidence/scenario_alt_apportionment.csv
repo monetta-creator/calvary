@@ -1,0 +1,25 @@
+apportionment,scenario,revenue_loss,pct_revenue,months_cash_after_12m_net
+A team: ceiling share,S1 OVSJG -10%,67311,1%,3.1
+A team: ceiling share,S2 OVSJG -25%,168277,3%,3.0
+A team: ceiling share,S3 CoC -15%,178144,4%,3.0
+A team: ceiling share,S4 NF2 lost,365762,7%,2.8
+A team: ceiling share,S5 DHS lost,959935,19%,2.3
+A team: ceiling share,S6 combined,1306356,26%,2.0
+"B: OVSJG full, CoC at SEFA draw rate, DHS residual",S1 OVSJG -10%,99828,2%,3.1
+"B: OVSJG full, CoC at SEFA draw rate, DHS residual",S2 OVSJG -25%,249570,5%,2.9
+"B: OVSJG full, CoC at SEFA draw rate, DHS residual",S3 CoC -15%,99360,2%,3.1
+"B: OVSJG full, CoC at SEFA draw rate, DHS residual",S4 NF2 lost,204004,4%,3.0
+"B: OVSJG full, CoC at SEFA draw rate, DHS residual",S5 DHS lost,1125246,23%,2.1
+"B: OVSJG full, CoC at SEFA draw rate, DHS residual",S6 combined,1474176,30%,1.8
+"C: Sisters Rise gone, ceiling share",S1 OVSJG -10%,78114,2%,3.1
+"C: Sisters Rise gone, ceiling share",S2 OVSJG -25%,195284,4%,3.0
+"C: Sisters Rise gone, ceiling share",S3 CoC -15%,206734,4%,3.0
+"C: Sisters Rise gone, ceiling share",S4 NF2 lost,424463,9%,2.8
+"C: Sisters Rise gone, ceiling share",S5 DHS lost,649762,13%,2.6
+"C: Sisters Rise gone, ceiling share",S6 combined,1051781,21%,2.2
+"D: OVSJG and CoC fully drawn, DHS residual",S1 OVSJG -10%,99828,2%,3.1
+"D: OVSJG and CoC fully drawn, DHS residual",S2 OVSJG -25%,249570,5%,2.9
+"D: OVSJG and CoC fully drawn, DHS residual",S3 CoC -15%,264203,5%,2.9
+"D: OVSJG and CoC fully drawn, DHS residual",S4 NF2 lost,542456,11%,2.7
+"D: OVSJG and CoC fully drawn, DHS residual",S5 DHS lost,26295,1%,3.1
+"D: OVSJG and CoC fully drawn, DHS residual",S6 combined,540067,11%,2.7

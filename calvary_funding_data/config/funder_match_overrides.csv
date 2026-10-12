@@ -1,0 +1,29 @@
+name_norm,ein,accept,note
+community partnership,521681401,yes,The Community Partnership for the Prevention of Homelessness (DC); fuzzy match picked an unrelated MD org
+walmart foundation,205639919,yes,BMF legal name WAL-MART FOUNDATION
+bill melinda gates foundation,562618866,yes,
+omidyar network,201173866,inferred,Omidyar Network is an LLC + foundation; 501(c)(3) arm is Omidyar Network Fund Inc
+key,237036607,inferred,Corporate list entry 'Key' read as KeyBank; KeyBank Foundation
+pillsbury,261571606,inferred,Pillsbury Winthrop Shaw Pittman (law firm) foundation in DC
+miller chevalier foundation,526035549,yes,Same entity as Miller & Chevalier Charitable Foundation
+paypal giving fund,450931286,yes,BMF legal name PAYPAL CHARITABLE GIVING FUND
+renaissance charitable,352129262,yes,
+schwab charitable fund,311640316,yes,BMF legal name DONOR ADVISED CHARITABLE GIVING
+vanguard charitable,232888152,yes,
+dc coalition against domestic violence dccadv,521515600,yes,
+junior league washington,530213317,yes,BMF legal name THE JUNIOR LEAGUE OF THE CITY OF WASHINGTON INC
+s p,none,no,fuzzy/unique match to S A P INC (AR) is wrong
+village church,none,no,national unique-name hit (VA) not verifiable as the DC congregation; churches generally do not file 990
+united bank,none,no,corporate-foundation inference pointed to an unrelated Alabama bank foundation
+apple,none,no,APPLE FOUNDATION (OH) is unrelated to Apple Inc.
+carefirst,none,no,CareFirst BlueCross BlueShield giving is corporate (CareFirst Commitment); BMF hit unrelated
+steckman family foundation,none,no,fuzzy match to STICHMAN FAMILY FOUNDATION is wrong
+harman family foundation,none,no,fuzzy match to KLARMAN FAMILY FOUNDATION is wrong; true entity not verifiable
+dc modern quilt guild,none,no,fuzzy match to national Modern Quilt Guild is a different entity
+american turkish association dc,none,no,fuzzy match to MD association not verifiable
+td bank community relations charitable foundation,141864317,inferred,TD Bank's charitable foundation is TD Charitable Foundation (ME)
+principal foundation,421312301,yes,Principal Foundation = Principal Financial Group Foundation Inc (IA)
+health equity fund,237343119,inferred,"Health Equity Fund is a fund held at the Greater Washington Community Foundation (DC Government-CareFirst agreement; web evidence in interim/web_inkind_evidence.csv); grants appear on GWCF's Schedule I"
+marpat foundation,none,no,"BMF/index hit is a Fort Worth TX foundation ruled 2022 (871169259); the DC-area MARPAT Foundation that funded Calvary (FY15 report, Sept 2023 support page) is no longer in the BMF (likely sunset)"
+greater washington community foundation health equity fund,237343119,yes,Health Equity Fund held at GWCF (web source names it this way)
+venable foundation,521283255,yes,Venable Baetjer and Howard Foundation (Venable LLP's foundation; public charity filing Schedule I)

@@ -1,0 +1,30 @@
+# Stress-test parameters for M2 (scripts/02_m2_exposure.py). Edit and rerun.
+baseline_fiscal_year: 2025          # Calvary FY (Oct 2024 - Sep 2025), latest 990
+cost_avoidance_share: 0.5           # share of a lost stream's revenue that disappears as avoidable program cost (net view)
+dhs_assumed_flat_from_fy2024: true  # DHS/TCP contract values are public for DC FY2024 only; carry them forward unchanged
+coc_award_lag_years: 1              # HUD CoC competition year t funds Calvary's operating year t+1
+scenarios:
+  - id: S1
+    name: OVSJG grants cut 10%
+    cuts: {ovsjg: 0.10}
+    rationale: Mayor's FY2026 proposal cut Victim Services grants 10.4% ($5.8M of $55.9M) before the Council restored it
+  - id: S2
+    name: OVSJG grants cut 25%
+    cuts: {ovsjg: 0.25}
+    rationale: a deeper local cut in a revenue downturn, comparable to the FY2024 under-spend against approved (9%) plus a proposed cut
+  - id: S3
+    name: HUD CoC renewals cut 15%
+    cuts: {coc: 0.15}
+    rationale: federal CoC renewal pressure; TCP reallocation reduced Calvary's Reach Up award 65% in 2022
+  - id: S4
+    name: One CoC project lost (New Foundations 2)
+    cuts: {coc_project_new_foundations_2: 1.0}
+    rationale: a single project not renewed in the annual competition
+  - id: S5
+    name: DHS/TCP contract not renewed
+    cuts: {dhs: 1.0}
+    rationale: DHS contracts via TCP are annual; provider amounts are public for one year only
+  - id: S6
+    name: Combined (OVSJG -25%, CoC -15%, DHS lost)
+    cuts: {ovsjg: 0.25, coc: 0.15, dhs: 1.0}
+    rationale: worst plausible case across all three channels in one year

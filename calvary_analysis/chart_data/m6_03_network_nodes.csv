@@ -1,0 +1,78 @@
+node,kind,label,degree,x,y,source_tables,source_ids
+010640027,funder,MGM RESORTS FOUNDATION,3,3.9457384323941023,-0.28749226177672027,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+020762730,funder,RALPH S AND FRANCES R DWECK FAMILY FOUNDATION INC,3,-1.862461136816516,1.6971104392302943,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+110303001,funder,FIDELITY INVESTMENTS CHARITABLE GIFT FUND,18,0.3012162868929322,0.6954287237286109,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+131687573,funder,MAX & VICTORIA DREYFUS FOUNDATION,4,1.7715083804232967,0.8799835948740697,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+133369901,funder,RAPOPORT FAMILY FOUNDATION,3,-3.013363866872624,0.5971670235197355,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+133537709,recipient,Covenant House DC,29,4.458298778682291,-0.6824999999999996,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+136091872,funder,GROSSMAN FAMILY CHARITABLE FUNDS INC,3,-1.4966008523191894,1.0098287670511834,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+136962126,funder,WHISPERING BELLS FOUNDATION CHARITABLE TR UA 122690,3,-3.3569835907274523,0.18922330725578052,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+137483764,funder,ALICE SHAVER FOUNDATION,3,-0.6563019101370902,-0.9822033814130393,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+141782466,funder,THE AYCO CHARITABLE FOUNDATION,3,-1.1687019493365545,-1.668975349998871,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+200065799,funder,QLARANT FOUNDATION INC,3,-3.149553827183244,-0.36151488122404846,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+200721133,funder,BANK OF AMERICA CHARITABLE FOUNDATION INC,10,-1.4164671756895684,0.5907121567104366,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+201135004,funder,NAOMI AND NEHEMIAH COHEN FOUNDATION VIRGINIA CORPORATION,3,-4.929930204237526,1.1896809300097932,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+201173866,funder,OMIDYAR NETWORK FUND INC,4,-4.0209567808085165,-0.20130057275922278,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+201933917,funder,JEROME A AND DEENA L KAPLAN FAMILY FOUNDATION,3,-3.608657467852735,-1.4861061737918428,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+232888152,funder,VANGUARD CHARITABLE ENDOWMENT PROGRAM,13,1.2585926171889112,0.6153311875775911,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+237049738,funder,JPMORGAN CHASE FOUNDATION,7,-6.318660536929865,-0.27300732131887256,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+237343119,funder,GREATER WASHINGTON COMMUNITY FOUNDATION,18,0.5240036249401883,-0.6860725746780028,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+237825575,funder,NATIONAL PHILANTHROPIC TR,13,-2.522364094215394,-0.20662762281437924,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+272764310,funder,ALISANN AND TERRY COLLINS FOUNDATION,3,4.5774610986462845,-1.08426850968088,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+311640316,funder,DONOR ADVISED CHARITABLE GIVING,16,-2.5865266361380974,0.14017464012156805,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+311704650,funder,ADELE M THOMAS CHARITABLE FOUNDATION INC,3,-3.738028712752994,1.3780928369023646,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+311709466,funder,T ROWE PRICE PROGRAM FOR CHARITABLE GIVING INC,8,-6.525705802863723,0.36071520214016195,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+341747398,funder,AMERICAN ENDOWMENT FOUNDATION,6,-6.134163912460484,0.05753060503111892,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+362169124,funder,ASSOCIATION OF AMERICAN MEDICAL COLLEGES,7,-3.70980031990942,0.45786420038607156,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+412226446,recipient,DC SAFE,9,-4.458298778682289,-0.6825000000000001,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+416019581,funder,MELAMED FOUNDATION,3,-2.688240112136538,1.463108105209688,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+421559999,funder,WORLD BANK COMMUNITY CONNECTIONS FUND,4,-3.0254735542728692,-0.5928466375278907,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+431634280,funder,CHARITIES AID FOUNDATION AMERICA,7,1.0926353773881547,1.0456054902229843,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+450931286,funder,PAYPAL CHARITABLE GIVING FUND,8,0.19873811600131855,0.9084729835697349,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+460942102,funder,THE BLACKBAUD GIVING FUND,11,-2.0788852336048205,0.4314591361671717,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+516019469,funder,JOHN EDWARD FOWLER MEMORIAL FOUNDATION,8,-2.7284998404465495,-0.8085926907887107,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+520853501,recipient,Everyone Home DC,15,1.760719697840544,-1.2826804273727648,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521007373,recipient,N Street Village,64,1.760719697840543,1.2826804273727648,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521054102,recipient,House of Ruth DC,93,3.152240861005287e-16,1.365,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521100236,recipient,House of Ruth MD,95,-3.3090706146663043,1.0456506648574049,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521167581,funder,CAPITAL AREA FOOD BANK,7,5.051885092343185,1.153150402444335,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521184749,recipient,Community of Hope,50,-1.7607196978405413,1.282680427372765,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521186250,recipient,Heartly House (MD),21,5.069790312506846,-0.23702976251535998,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521245499,recipient,Coalition for the Homeless,9,3.309070614666304,-1.045650664857405,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521263256,recipient,My Sister's Place,29,-5.069790312506847,-0.23702976251535948,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521283255,funder,VENABLE BAETJER AND HOWARD FOUNDATION,10,1.5377694316888433,-0.5689872997287793,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521307706,recipient,Calvary,50,0.0,0.0,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521331552,recipient,Miriam's Kitchen,75,3.3090706146663043,1.0456506648574049,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521362103,recipient,Christ House,28,-4.458298778682289,0.6825000000000004,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521435573,funder,WILLIAM S ABELL FOUNDATION INC,9,-0.6855762614136959,-0.6759848042294445,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521474935,recipient,Samaritan Inns,18,-9.45672258301586e-16,-1.365,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521485474,recipient,Thrive DC,14,4.45829877868229,0.6824999999999999,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521512330,funder,CLARK CHARITABLE FOUNDATION INC,5,-5.901518662248126,0.6579648955041085,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521547845,recipient,New Endeavors by Women,25,-1.7607196978405415,-1.282680427372765,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521593963,funder,GIFTS FOR THE HOMELESS,8,2.8341148300978234,1.5221035863553396,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521724988,funder,BUNTING FAMILY FOUNDATION INC,4,1.04892418375613,-1.7454808453586026,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521800778,funder,ROBERT I SCHATTNER FOUNDATION INC,4,0.5025790550784862,1.622035181356293,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521802117,funder,J V SCHIRO-ZAVELA FOUNDATION,3,3.674102374080923,1.3037264544399603,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+522040518,recipient,Open Arms Housing,2,-3.309070614666305,-1.0456506648574049,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526035549,funder,MILLER & CHEVALIER CHARITABLE FOUNDATION,6,2.1817029446383365,0.7024661978999495,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526035898,funder,ADA HARRIS MALEY MEMORIAL FUND,4,-1.823221292068991,0.7709705204100358,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526036989,funder,MORRIS AND GWENDOLYN CAFRITZ FOUNDATION,14,2.4468746229612166,-0.2628084363440445,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526038149,funder,DIMICK FOUNDATION,7,1.0435954884175926,-0.8669089133283946,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526047356,funder,DIANE & NORMAN BERNSTEIN FOUNDATION,3,-5.173524964569004,0.8757904148452058,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526055743,funder,CORINA HIGGINSON TRUST,4,2.0464754221233243,-0.7305182819112945,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+526832168,funder,SIDGMORE FAMILY FOUNDATION,4,2.8357515386904915,-0.6554745608069017,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+530196647,funder,THE WASHINGTON HOME INC,3,-5.991105019432158,-0.774960209274848,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+530234290,funder,UNITED WAY OF THE NATIONAL CAPITAL AREA,13,-1.9314258087877214,-0.4772133845266634,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+541087829,recipient,Doorways (VA),45,5.069790312506846,0.2370297625153599,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+541517707,funder,AMERICAS CHARITIES,7,1.8627396726618561,1.6970889469914778,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+541783308,funder,HEART SING,3,-4.924795206118201,-0.9713899555253491,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+541887187,funder,JACQUEMIN FAMILY FOUNDATION INC,3,-3.7609321997304668,0.023764719910908495,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+562305290,funder,CAROL AND GENE LUDWIG FAMILY FOUNDATION,3,-0.47910194306395093,0.9893778140069114,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+562307147,funder,PEW CHARITABLE TRUSTS,3,-2.223111540579694,-1.5170008291912502,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+711019574,recipient,DASH,28,-5.069790312506846,0.23702976251535982,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+810693451,funder,GIVE LIVELY FOUNDATION INC,5,-0.6393495755889551,1.689013822014841,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+810739440,funder,AMERICAN ONLINE GIVING FOUNDATION INC,18,-0.5915562275454612,0.6822004402484334,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+824466856,funder,RCLCO FOUNDATION INC,4,-1.5944543642927753,-0.8058311510617233,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+831164698,funder,JACK R ANDERSON FOUNDATION INC,3,6.346853455293841,-0.22232527121287407,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+832828347,funder,LEVATUS CHARITABLE TRUST,4,0.2918114060232254,-1.082237602162514,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+862824870,funder,BRENDAN & HELEN BECHTEL FOUNDATION,4,-4.32725137133746,-1.2510122616718713,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

@@ -1,0 +1,624 @@
+ntee3,ntee_label,major_group,source_id
+A01,Alliance/Advocacy Organizations,A,bulk_irs_eo_bmf
+A02,Management & Technical Assistance,A,bulk_irs_eo_bmf
+A03,"Professional Societies, Associations",A,bulk_irs_eo_bmf
+A05,Research Institutes and/or Public Policy Analysis,A,bulk_irs_eo_bmf
+A11,Single Organization Support,A,bulk_irs_eo_bmf
+A12,Fund Raising and/or Fund Distribution,A,bulk_irs_eo_bmf
+A19,Nonmonetary Support N.E.C.*,A,bulk_irs_eo_bmf
+A20,"Arts, Cultural Organizations - Multipurpose",A,bulk_irs_eo_bmf
+A23,"Cultural, Ethnic Awareness",A,bulk_irs_eo_bmf
+A24,Folk Arts,A,bulk_irs_eo_bmf
+A25,Arts Education,A,bulk_irs_eo_bmf
+A26,Arts Council/Agency,A,bulk_irs_eo_bmf
+A27,Community Celebrations,A,bulk_irs_eo_bmf
+A30,"Media, Communications Organizations",A,bulk_irs_eo_bmf
+A31,"Film, Video",A,bulk_irs_eo_bmf
+A32,Television,A,bulk_irs_eo_bmf
+A33,"Printing, Publishing",A,bulk_irs_eo_bmf
+A34,Radio,A,bulk_irs_eo_bmf
+A40,Visual Arts Organizations,A,bulk_irs_eo_bmf
+A50,"Museum, Museum Activities",A,bulk_irs_eo_bmf
+A51,Art Museums,A,bulk_irs_eo_bmf
+A52,Children's Museums,A,bulk_irs_eo_bmf
+A53,Folk Arts Museums,A,bulk_irs_eo_bmf
+A54,History Museums,A,bulk_irs_eo_bmf
+A56,"Natural History, Natural Science Museums",A,bulk_irs_eo_bmf
+A57,Science and Technology Museums,A,bulk_irs_eo_bmf
+A60,Performing Arts Organizations,A,bulk_irs_eo_bmf
+A61,Performing Arts Centers,A,bulk_irs_eo_bmf
+A62,Dance,A,bulk_irs_eo_bmf
+A63,Ballet,A,bulk_irs_eo_bmf
+A65,Theater,A,bulk_irs_eo_bmf
+A68,Music,A,bulk_irs_eo_bmf
+A69,Symphony Orchestras,A,bulk_irs_eo_bmf
+A70,Humanities Organizations,A,bulk_irs_eo_bmf
+A80,"Historical Societies, Related Historical Activities",A,bulk_irs_eo_bmf
+A82,Historical Societies & Historic Preservation,A,bulk_irs_eo_bmf
+A84,Commemorative Events,A,bulk_irs_eo_bmf
+A90,Arts Service Organizations and Activities,A,bulk_irs_eo_bmf
+A99,"Arts, Culture, and Humanities N.E.C.",A,bulk_irs_eo_bmf
+B01,Alliance/Advocacy Organizations,B,bulk_irs_eo_bmf
+B02,Management & Technical Assistance,B,bulk_irs_eo_bmf
+B03,"Professional Societies, Associations",B,bulk_irs_eo_bmf
+B05,Research Institutes and/or Public Policy Analysis,B,bulk_irs_eo_bmf
+B11,Single Organization Support,B,bulk_irs_eo_bmf
+B12,Fund Raising and/or Fund Distribution,B,bulk_irs_eo_bmf
+B19,Nonmonetary Support N.E.C.,B,bulk_irs_eo_bmf
+B20,"Elementary, Secondary Education, K - 12",B,bulk_irs_eo_bmf
+B21,"Kindergarten, Preschool, Nursery School, Early Admissions",B,bulk_irs_eo_bmf
+B24,"Primary, Elementary Schools",B,bulk_irs_eo_bmf
+B25,"Secondary, High School",B,bulk_irs_eo_bmf
+B28,Specialized Education Institutions,B,bulk_irs_eo_bmf
+B30,"Vocational, Technical Schools",B,bulk_irs_eo_bmf
+B40,Higher Education Institutions,B,bulk_irs_eo_bmf
+B41,Community or Junior Colleges,B,bulk_irs_eo_bmf
+B42,Undergraduate College (4-year),B,bulk_irs_eo_bmf
+B43,University or Technological Institute,B,bulk_irs_eo_bmf
+B50,"Graduate, Professional Schools (Separate Entities)",B,bulk_irs_eo_bmf
+B60,"Adult, Continuing Education",B,bulk_irs_eo_bmf
+B70,Libraries,B,bulk_irs_eo_bmf
+B80,"Student Services, Organizations of Students",B,bulk_irs_eo_bmf
+B82,"Scholarships, Student Financial Aid Services, Awards",B,bulk_irs_eo_bmf
+B83,"Student Sororities, Fraternities",B,bulk_irs_eo_bmf
+B84,Alumni Associations,B,bulk_irs_eo_bmf
+B90,Educational Services and Schools - Other,B,bulk_irs_eo_bmf
+B92,"Remedial Reading, Reading Encouragement",B,bulk_irs_eo_bmf
+B94,Parent/Teacher Group,B,bulk_irs_eo_bmf
+B99,Education N.E.C.,B,bulk_irs_eo_bmf
+C01,Alliance/Advocacy Organizations,C,bulk_irs_eo_bmf
+C02,Management & Technical Assistance,C,bulk_irs_eo_bmf
+C03,"Professional Societies, Associations",C,bulk_irs_eo_bmf
+C05,Research Institutes and/or Public Policy Analysis,C,bulk_irs_eo_bmf
+C11,Single Organization Support,C,bulk_irs_eo_bmf
+C12,Fund Raising and/or Fund Distribution,C,bulk_irs_eo_bmf
+C19,Nonmonetary Support N.E.C.,C,bulk_irs_eo_bmf
+C20,Pollution Abatement and Control Services,C,bulk_irs_eo_bmf
+C27,Recycling Programs,C,bulk_irs_eo_bmf
+C30,Natural Resources Conservation and Protection,C,bulk_irs_eo_bmf
+C32,"Water Resource, Wetlands Conservation and Management",C,bulk_irs_eo_bmf
+C34,Land Resources Conservation,C,bulk_irs_eo_bmf
+C35,Energy Resources Conservation and Development,C,bulk_irs_eo_bmf
+C36,Forest Conservation,C,bulk_irs_eo_bmf
+C40,"Botanical, Horticultural, and Landscape Services",C,bulk_irs_eo_bmf
+C41,"Botanical Gardens, Arboreta and Botanical Organizations",C,bulk_irs_eo_bmf
+C42,"Garden Club, Horticultural Program",C,bulk_irs_eo_bmf
+C50,Environmental Beautification and Aesthetics,C,bulk_irs_eo_bmf
+C60,Environmental Education and Outdoor Survival Programs,C,bulk_irs_eo_bmf
+C99,"Environmental Quality, Protection, and Beautification N.E.C.",C,bulk_irs_eo_bmf
+D01,Alliance/Advocacy Organizations,D,bulk_irs_eo_bmf
+D02,Management & Technical Assistance,D,bulk_irs_eo_bmf
+D03,"Professional Societies, Associations",D,bulk_irs_eo_bmf
+D05,Research Institutes and/or Public Policy Analysis,D,bulk_irs_eo_bmf
+D11,Single Organization Support,D,bulk_irs_eo_bmf
+D12,Fund Raising and/or Fund Distribution,D,bulk_irs_eo_bmf
+D19,Nonmonetary Support N.E.C.,D,bulk_irs_eo_bmf
+D20,Animal Protection and Welfare,D,bulk_irs_eo_bmf
+D30,"Wildlife Preservation, Protection",D,bulk_irs_eo_bmf
+D31,Protection of Endangered Species,D,bulk_irs_eo_bmf
+D32,"Bird Sanctuary, Preserve",D,bulk_irs_eo_bmf
+D33,Fisheries Resources,D,bulk_irs_eo_bmf
+D34,"Wildlife Sanctuary, Refuge",D,bulk_irs_eo_bmf
+D40,Veterinary Services,D,bulk_irs_eo_bmf
+D50,"Zoo, Zoological Society",D,bulk_irs_eo_bmf
+D60,Other Services - Specialty Animals,D,bulk_irs_eo_bmf
+D61,"Animal Training, Behavior",D,bulk_irs_eo_bmf
+D99,Animal-Related N.E.C.,D,bulk_irs_eo_bmf
+E01,Alliance/Advocacy Organizations,E,bulk_irs_eo_bmf
+E02,Management & Technical Assistance,E,bulk_irs_eo_bmf
+E03,"Professional Societies, Associations",E,bulk_irs_eo_bmf
+E05,Research Institutes and/or Public Policy Analysis,E,bulk_irs_eo_bmf
+E11,Single Organization Support,E,bulk_irs_eo_bmf
+E12,Fund Raising and/or Fund Distribution,E,bulk_irs_eo_bmf
+E19,Nonmonetary Support N.E.C.,E,bulk_irs_eo_bmf
+E20,Hospitals and Related Primary Medical Care Facilities,E,bulk_irs_eo_bmf
+E21,Community Health Systems,E,bulk_irs_eo_bmf
+E22,"Hospital, General",E,bulk_irs_eo_bmf
+E24,"Hospital, Specialty",E,bulk_irs_eo_bmf
+E30,"Health Treatment Facilities, Primarily Outpatient",E,bulk_irs_eo_bmf
+E31,Group Health Practice (Health Maintenance Organizations),E,bulk_irs_eo_bmf
+E32,"Ambulatory Health Center, Community Clinic",E,bulk_irs_eo_bmf
+E40,Reproductive Health Care Facilities and Allied Services,E,bulk_irs_eo_bmf
+E42,Family Planning Centers,E,bulk_irs_eo_bmf
+E50,Rehabilitative Medical Services,E,bulk_irs_eo_bmf
+E60,Health Support Services,E,bulk_irs_eo_bmf
+E61,Blood Supply Related,E,bulk_irs_eo_bmf
+E62,"Ambulance, Emergency Medical Transport Services",E,bulk_irs_eo_bmf
+E65,Organ and Tissue Banks,E,bulk_irs_eo_bmf
+E70,Public Health Program (Includes General Health and Wellness Promotion Services),E,bulk_irs_eo_bmf
+E80,"Health, General and Financing",E,bulk_irs_eo_bmf
+E86,"Patient Services - Entertainment, Recreation",E,bulk_irs_eo_bmf
+E90,Nursing Services (General),E,bulk_irs_eo_bmf
+E91,"Nursing, Convalescent Facilities",E,bulk_irs_eo_bmf
+E92,Home Health Care,E,bulk_irs_eo_bmf
+E99,Health - General and Rehabilitative N.E.C.,E,bulk_irs_eo_bmf
+F01,Alliance/Advocacy Organizations,F,bulk_irs_eo_bmf
+F02,Management & Technical Assistance,F,bulk_irs_eo_bmf
+F03,"Professional Societies, Associations",F,bulk_irs_eo_bmf
+F05,Research Institutes and/or Public Policy Analysis,F,bulk_irs_eo_bmf
+F11,Single Organization Support,F,bulk_irs_eo_bmf
+F12,Fund Raising and/or Fund Distribution,F,bulk_irs_eo_bmf
+F19,Nonmonetary Support N.E.C.,F,bulk_irs_eo_bmf
+F20,"Alcohol, Drug and Substance Abuse, Dependency Prevention and Treatment",F,bulk_irs_eo_bmf
+F21,"Alcohol, Drug Abuse, Prevention Only",F,bulk_irs_eo_bmf
+F22,"Alcohol, Drug Abuse, Treatment Only",F,bulk_irs_eo_bmf
+F30,Mental Health Treatment,F,bulk_irs_eo_bmf
+F32,Community Mental Health Center,F,bulk_irs_eo_bmf
+F33,Residential Mental Health Treatment,F,bulk_irs_eo_bmf
+F40,"Hot Line, Crisis Intervention Services",F,bulk_irs_eo_bmf
+F42,Rape Victim Services,F,bulk_irs_eo_bmf
+F50,Addictive Disorders N.E.C.,F,bulk_irs_eo_bmf
+F52,Smoking Addiction,F,bulk_irs_eo_bmf
+F53,"Eating Disorder, Addiction",F,bulk_irs_eo_bmf
+F54,Gambling Addiction,F,bulk_irs_eo_bmf
+F60,"Counseling, Support Groups",F,bulk_irs_eo_bmf
+F70,Mental Health Disorders,F,bulk_irs_eo_bmf
+F80,Mental Health Association,F,bulk_irs_eo_bmf
+F99,"Mental Health, Crisis Intervention N.E.C.",F,bulk_irs_eo_bmf
+G01,Alliance/Advocacy Organizations,G,bulk_irs_eo_bmf
+G02,Management & Technical Assistance,G,bulk_irs_eo_bmf
+G03,"Professional Societies, Associations",G,bulk_irs_eo_bmf
+G05,Research Institutes and/or Public Policy Analysis,G,bulk_irs_eo_bmf
+G11,Single Organization Support,G,bulk_irs_eo_bmf
+G12,Fund Raising and/or Fund Distribution,G,bulk_irs_eo_bmf
+G19,Support N.E.C.,G,bulk_irs_eo_bmf
+G20,Birth Defects and Genetic Diseases,G,bulk_irs_eo_bmf
+G25,Down Syndrome,G,bulk_irs_eo_bmf
+G30,Cancer,G,bulk_irs_eo_bmf
+G32,Breast Cancer,G,bulk_irs_eo_bmf
+G40,Diseases of Specific Organs,G,bulk_irs_eo_bmf
+G41,"Eye Diseases, Blindness and Vision Impairments",G,bulk_irs_eo_bmf
+G42,Ear and Throat Diseases,G,bulk_irs_eo_bmf
+G43,"Heart and Circulatory System Diseases, Disorders",G,bulk_irs_eo_bmf
+G44,Kidney Disease,G,bulk_irs_eo_bmf
+G45,Lung Disease,G,bulk_irs_eo_bmf
+G48,Brain Disorders,G,bulk_irs_eo_bmf
+G50,"Nerve, Muscle and Bone Diseases",G,bulk_irs_eo_bmf
+G51,Arthritis,G,bulk_irs_eo_bmf
+G54,Epilepsy,G,bulk_irs_eo_bmf
+G60,Allergy Related Diseases,G,bulk_irs_eo_bmf
+G61,Asthma,G,bulk_irs_eo_bmf
+G70,"Digestive Diseases, Disorders",G,bulk_irs_eo_bmf
+G80,Specifically Named Diseases,G,bulk_irs_eo_bmf
+G81,AIDS,G,bulk_irs_eo_bmf
+G83,Alzheimer's Disease,G,bulk_irs_eo_bmf
+G84,Autism,G,bulk_irs_eo_bmf
+G90,Medical Disciplines,G,bulk_irs_eo_bmf
+G92,"Biomedicine, Bioengineering",G,bulk_irs_eo_bmf
+G94,Geriatrics,G,bulk_irs_eo_bmf
+G96,"Neurology, Neuroscience",G,bulk_irs_eo_bmf
+G98,Pediatrics,G,bulk_irs_eo_bmf
+G99,Voluntary Health Associations & Medical Disciplines N.E.C.,G,bulk_irs_eo_bmf
+H01,Alliance/Advocacy Organizations,H,bulk_irs_eo_bmf
+H02,Management & Technical Assistance,H,bulk_irs_eo_bmf
+H03,"Professional Societies, Associations",H,bulk_irs_eo_bmf
+H05,Research Institutes and/or Public Policy Analysis,H,bulk_irs_eo_bmf
+H11,Single Organization Support,H,bulk_irs_eo_bmf
+H12,Fund Raising and/or Fund Distribution,H,bulk_irs_eo_bmf
+H19,Support N.E.C.,H,bulk_irs_eo_bmf
+H20,"Birth Defects, Genetic Diseases Research",H,bulk_irs_eo_bmf
+H25,Down Syndrome Research,H,bulk_irs_eo_bmf
+H30,Cancer Research,H,bulk_irs_eo_bmf
+H32,Breast Cancer Research,H,bulk_irs_eo_bmf
+H40,Diseases of Specific Organ Research,H,bulk_irs_eo_bmf
+H41,"Eye Diseases, Blindness & Vision Impairments Research",H,bulk_irs_eo_bmf
+H42,Ear and Throat Research,H,bulk_irs_eo_bmf
+H43,"Heart, Circulatory Research",H,bulk_irs_eo_bmf
+H44,Kidney Diseases Research,H,bulk_irs_eo_bmf
+H45,Lung Diseases Research,H,bulk_irs_eo_bmf
+H48,Brain Disorders Research,H,bulk_irs_eo_bmf
+H50,"Nerve, Muscle, Bone Diseases Research",H,bulk_irs_eo_bmf
+H51,Arthritis Research,H,bulk_irs_eo_bmf
+H54,Epilepsy Research,H,bulk_irs_eo_bmf
+H60,Allergy Related Disease Research,H,bulk_irs_eo_bmf
+H61,Asthma Research,H,bulk_irs_eo_bmf
+H70,"Digestive Disease, Disorder Research",H,bulk_irs_eo_bmf
+H80,Specifically Named Diseases Research,H,bulk_irs_eo_bmf
+H81,AIDS Research,H,bulk_irs_eo_bmf
+H83,Alzheimer's Disease Research,H,bulk_irs_eo_bmf
+H84,Autism Research,H,bulk_irs_eo_bmf
+H90,Medical Disciplines Research,H,bulk_irs_eo_bmf
+H92,"Biomedicine, Bioengineering Research",H,bulk_irs_eo_bmf
+H94,Geriatrics Research,H,bulk_irs_eo_bmf
+H96,"Neurology, Neuroscience Research",H,bulk_irs_eo_bmf
+H98,Pediatrics Research,H,bulk_irs_eo_bmf
+H99,Medical Research N.E.C.,H,bulk_irs_eo_bmf
+I01,Alliance/Advocacy,I,bulk_irs_eo_bmf
+I02,Management & Technical Assistance,I,bulk_irs_eo_bmf
+I03,"Professional Societies, Associations",I,bulk_irs_eo_bmf
+I05,Research Institutes and Public Policy Analysis,I,bulk_irs_eo_bmf
+I11,Single Organization Support,I,bulk_irs_eo_bmf
+I12,Fund Raising and Fund Distribution,I,bulk_irs_eo_bmf
+I19,Support N.E.C.,I,bulk_irs_eo_bmf
+I20,Crime Prevention,I,bulk_irs_eo_bmf
+I21,Delinquency Prevention,I,bulk_irs_eo_bmf
+I23,Drunk Driving Related,I,bulk_irs_eo_bmf
+I30,Correctional Facilities N.E.C.,I,bulk_irs_eo_bmf
+I31,"Half-Way House for Offenders, Ex-Offenders",I,bulk_irs_eo_bmf
+I40,Rehabilitation Services for Offenders,I,bulk_irs_eo_bmf
+I43,Inmate Support,I,bulk_irs_eo_bmf
+I44,Prison Alternatives,I,bulk_irs_eo_bmf
+I50,"Administration of Justice, Courts",I,bulk_irs_eo_bmf
+I51,"Dispute Resolution, Mediation Services",I,bulk_irs_eo_bmf
+I60,Law Enforcement,I,bulk_irs_eo_bmf
+I70,Protection Against Abuse,I,bulk_irs_eo_bmf
+I71,"Spouse Abuse, Prevention",I,bulk_irs_eo_bmf
+I72,"Child Abuse, Prevention",I,bulk_irs_eo_bmf
+I73,"Sexual Abuse, Prevention",I,bulk_irs_eo_bmf
+I80,Legal Services,I,bulk_irs_eo_bmf
+I83,Public Interest Law,I,bulk_irs_eo_bmf
+I99,"Crime, Legal Related N.E.C.",I,bulk_irs_eo_bmf
+J01,Alliance/Advocacy Organizations,J,bulk_irs_eo_bmf
+J02,Management & Technical Assistance,J,bulk_irs_eo_bmf
+J03,"Professional Societies, Associations",J,bulk_irs_eo_bmf
+J05,Research Institutes and/or Public Policy Analysis,J,bulk_irs_eo_bmf
+J11,Single Organization Support,J,bulk_irs_eo_bmf
+J12,Fund Raising and Fund Distribution,J,bulk_irs_eo_bmf
+J19,Support N.E.C.,J,bulk_irs_eo_bmf
+J20,Employment Procurement Assistance,J,bulk_irs_eo_bmf
+J21,Vocational Counseling,J,bulk_irs_eo_bmf
+J22,Job Training,J,bulk_irs_eo_bmf
+J30,Vocational Rehabilitation,J,bulk_irs_eo_bmf
+J32,Goodwill Industries,J,bulk_irs_eo_bmf
+J33,Sheltered Employment,J,bulk_irs_eo_bmf
+J40,Labor Unions,J,bulk_irs_eo_bmf
+J99,Employment N.E.C.,J,bulk_irs_eo_bmf
+K01,Alliance/Advocacy,K,bulk_irs_eo_bmf
+K02,Management & Technical Assistance,K,bulk_irs_eo_bmf
+K03,Professional Societies & Associations,K,bulk_irs_eo_bmf
+K05,Research Institutes and Public Policy Analysis,K,bulk_irs_eo_bmf
+K11,Single Organization Support,K,bulk_irs_eo_bmf
+K12,Fund Raising and Fund Distribution,K,bulk_irs_eo_bmf
+K19,Support N.E.C.,K,bulk_irs_eo_bmf
+K20,Agricultural Programs,K,bulk_irs_eo_bmf
+K25,Farmland Preservation,K,bulk_irs_eo_bmf
+K26,Animal Husbandry,K,bulk_irs_eo_bmf
+K28,"Farm Bureau, Grange",K,bulk_irs_eo_bmf
+K30,Food Programs,K,bulk_irs_eo_bmf
+K31,"Food Banks, Pantries",K,bulk_irs_eo_bmf
+K34,Congregate Meals,K,bulk_irs_eo_bmf
+K35,Soup Kitchens,K,bulk_irs_eo_bmf
+K36,Meals on Wheels,K,bulk_irs_eo_bmf
+K40,Nutrition,K,bulk_irs_eo_bmf
+K50,Home Economics,K,bulk_irs_eo_bmf
+K90,Limited-Service Restaurants,K,bulk_irs_eo_bmf
+K91,Supermarkets and Other Grocery (except Convenience) Stores,K,bulk_irs_eo_bmf
+K92,Convenience Stores,K,bulk_irs_eo_bmf
+K93,Fruit and Vegetable Markets,K,bulk_irs_eo_bmf
+K94,All Other Specialty Food Stores,K,bulk_irs_eo_bmf
+K95,Food (Health) Supplement Stores,K,bulk_irs_eo_bmf
+K96,Warehouse Clubs and Supercenters,K,bulk_irs_eo_bmf
+K97,Food Service Contractors,K,bulk_irs_eo_bmf
+K98,Full-Service Restaurants,K,bulk_irs_eo_bmf
+K99,"Food, Agriculture, and Nutrition N.E.C.",K,bulk_irs_eo_bmf
+L01,Alliance/Advocacy Organizations,L,bulk_irs_eo_bmf
+L02,Management & Technical Assistance,L,bulk_irs_eo_bmf
+L03,"Professional Societies, Associations",L,bulk_irs_eo_bmf
+L05,Research Institutes and Public Policy Analysis,L,bulk_irs_eo_bmf
+L11,Single Organization Support,L,bulk_irs_eo_bmf
+L12,Fund Raising and Fund Distribution,L,bulk_irs_eo_bmf
+L19,Support N.E.C.,L,bulk_irs_eo_bmf
+L20,"Housing Development, Construction, Management",L,bulk_irs_eo_bmf
+L21,Low-Income & Subsidized Rental Housing,L,bulk_irs_eo_bmf
+L22,Senior Citizens' Housing/Retirement Communities,L,bulk_irs_eo_bmf
+L24,Independent Housing for People with Disabilities,L,bulk_irs_eo_bmf
+L25,Housing Rehabilitation,L,bulk_irs_eo_bmf
+L30,Housing Search Assistance,L,bulk_irs_eo_bmf
+L40,Temporary Housing,L,bulk_irs_eo_bmf
+L41,Homeless Shelters,L,bulk_irs_eo_bmf
+L50,Homeowners & Tenants Associations,L,bulk_irs_eo_bmf
+L80,Housing Support,L,bulk_irs_eo_bmf
+L81,Home Improvement and Repairs,L,bulk_irs_eo_bmf
+L82,Housing Expense Reduction Support,L,bulk_irs_eo_bmf
+L99,"Housing, Shelter N.E.C.",L,bulk_irs_eo_bmf
+M01,Alliance/Advocacy,M,bulk_irs_eo_bmf
+M02,Management & Technical Assistance,M,bulk_irs_eo_bmf
+M03,"Professional Societies, Associations",M,bulk_irs_eo_bmf
+M05,Research Institutes and Public Policy Analysis,M,bulk_irs_eo_bmf
+M11,Single Organization Support,M,bulk_irs_eo_bmf
+M12,Fund Raising and Fund Distribution,M,bulk_irs_eo_bmf
+M19,Support N.E.C.,M,bulk_irs_eo_bmf
+M20,Disaster Preparedness and Relief Services,M,bulk_irs_eo_bmf
+M23,Search and Rescue Squads,M,bulk_irs_eo_bmf
+M24,Fire Prevention,M,bulk_irs_eo_bmf
+M40,Safety Education,M,bulk_irs_eo_bmf
+M41,First Aid,M,bulk_irs_eo_bmf
+M42,Automotive Safety,M,bulk_irs_eo_bmf
+M60,Public Safety Benevolent Associations,M,bulk_irs_eo_bmf
+N01,Alliance/Advocacy,N,bulk_irs_eo_bmf
+N02,Management & Technical Assistance,N,bulk_irs_eo_bmf
+N03,"Professional Societies, Associations",N,bulk_irs_eo_bmf
+N05,Research Institutes and/or Public Policy Analysis,N,bulk_irs_eo_bmf
+N11,Single Organization Support,N,bulk_irs_eo_bmf
+N12,Fund Raising and Fund Distribution,N,bulk_irs_eo_bmf
+N19,Support N.E.C.,N,bulk_irs_eo_bmf
+N20,Camps,N,bulk_irs_eo_bmf
+N30,Physical Fitness and Community Recreational Facilities,N,bulk_irs_eo_bmf
+N31,Community Recreational Centers,N,bulk_irs_eo_bmf
+N32,Parks and Playgrounds,N,bulk_irs_eo_bmf
+N40,Sports Associations &Training Facilities,N,bulk_irs_eo_bmf
+N50,Recreational l Clubs,N,bulk_irs_eo_bmf
+N52,Fairs,N,bulk_irs_eo_bmf
+N60,Amateur Sports,N,bulk_irs_eo_bmf
+N61,"Fishing, Hunting",N,bulk_irs_eo_bmf
+N62,Basketball,N,bulk_irs_eo_bmf
+N63,"Baseball, Softball",N,bulk_irs_eo_bmf
+N64,Soccer,N,bulk_irs_eo_bmf
+N65,Football,N,bulk_irs_eo_bmf
+N66,Racquet Sports,N,bulk_irs_eo_bmf
+N67,Swimming & Other Water Recreation,N,bulk_irs_eo_bmf
+N68,Winter Sports,N,bulk_irs_eo_bmf
+N69,Equestrian,N,bulk_irs_eo_bmf
+N70,Amateur Sports Competitions,N,bulk_irs_eo_bmf
+N71,Olympics,N,bulk_irs_eo_bmf
+N72,Special Olympics,N,bulk_irs_eo_bmf
+N80,Professional Athletic Leagues,N,bulk_irs_eo_bmf
+N99,Recreation& Sports N.E.C.,N,bulk_irs_eo_bmf
+O01,Alliance/Advocacy,O,bulk_irs_eo_bmf
+O02,Management & Technical Assistance,O,bulk_irs_eo_bmf
+O03,"Professional Societies, Associations",O,bulk_irs_eo_bmf
+O05,Research Institutes and Public Policy Analysis,O,bulk_irs_eo_bmf
+O11,Single Organization Support,O,bulk_irs_eo_bmf
+O12,Fund Raising and Fund Distribution,O,bulk_irs_eo_bmf
+O19,Support N.E.C.,O,bulk_irs_eo_bmf
+O20,"Youth Centers, Clubs",O,bulk_irs_eo_bmf
+O21,Boys Clubs,O,bulk_irs_eo_bmf
+O22,Girls Clubs,O,bulk_irs_eo_bmf
+O23,Boys and Girls Clubs,O,bulk_irs_eo_bmf
+O30,"Adult, Child Matching Programs",O,bulk_irs_eo_bmf
+O31,"Big Brothers, Big Sisters",O,bulk_irs_eo_bmf
+O40,Scouting,O,bulk_irs_eo_bmf
+O41,Boy Scouts of America,O,bulk_irs_eo_bmf
+O42,Girl Scouts of the U.S.A.,O,bulk_irs_eo_bmf
+O43,Camp Fire,O,bulk_irs_eo_bmf
+O50,Youth Development Programs,O,bulk_irs_eo_bmf
+P01,Alliance/Advocacy,P,bulk_irs_eo_bmf
+P02,Management & Technical Assistance,P,bulk_irs_eo_bmf
+P03,"Professional Societies, Associations",P,bulk_irs_eo_bmf
+P05,Research Institutes and Public Policy Analysis,P,bulk_irs_eo_bmf
+P11,Single Organization Support,P,bulk_irs_eo_bmf
+P12,Fund Raising and Fund Distribution,P,bulk_irs_eo_bmf
+P19,Support N.E.C.,P,bulk_irs_eo_bmf
+P20,Human Service Organizations,P,bulk_irs_eo_bmf
+P21,American Red Cross,P,bulk_irs_eo_bmf
+P22,Urban League,P,bulk_irs_eo_bmf
+P24,Salvation Army,P,bulk_irs_eo_bmf
+P26,Volunteers of America,P,bulk_irs_eo_bmf
+P27,Young Men's or Women's Associations,P,bulk_irs_eo_bmf
+P28,Neighborhood Centers,P,bulk_irs_eo_bmf
+P29,Thrift Shops,P,bulk_irs_eo_bmf
+P30,"Children's, Youth Services",P,bulk_irs_eo_bmf
+P31,Adoption,P,bulk_irs_eo_bmf
+P32,Foster Care,P,bulk_irs_eo_bmf
+P33,Child Day Care,P,bulk_irs_eo_bmf
+P40,Family Services,P,bulk_irs_eo_bmf
+P42,Single Parent Agencies,P,bulk_irs_eo_bmf
+P43,Family Violence Shelters,P,bulk_irs_eo_bmf
+P44,In-Home Assistance,P,bulk_irs_eo_bmf
+P45,Family Services for Adolescent Parents,P,bulk_irs_eo_bmf
+P46,Family Counseling,P,bulk_irs_eo_bmf
+P47,Pregnancy Centers,P,bulk_irs_eo_bmf
+P50,Personal Social Services,P,bulk_irs_eo_bmf
+P51,Financial Counseling,P,bulk_irs_eo_bmf
+P52,Transportation Assistance,P,bulk_irs_eo_bmf
+P58,Gift Distribution,P,bulk_irs_eo_bmf
+P60,Emergency Assistance,P,bulk_irs_eo_bmf
+P61,Travelers' Aid,P,bulk_irs_eo_bmf
+P62,Victims' Services,P,bulk_irs_eo_bmf
+P70,Residential Care & Adult Day Programs,P,bulk_irs_eo_bmf
+P71,Adult Day Care,P,bulk_irs_eo_bmf
+P73,Group Homes,P,bulk_irs_eo_bmf
+P74,Hospices,P,bulk_irs_eo_bmf
+P75,Supportive Housing for Older Adults,P,bulk_irs_eo_bmf
+P80,Centers to Support the Independence of Specific Populations,P,bulk_irs_eo_bmf
+P81,Senior Centers,P,bulk_irs_eo_bmf
+P82,Developmentally Disabled Centers,P,bulk_irs_eo_bmf
+P83,Women's Centers,P,ref_nccs_ntee
+P84,"Ethnic, Immigrant Centers",P,bulk_irs_eo_bmf
+P85,Homeless Centers,P,bulk_irs_eo_bmf
+P86,Blind/Visually Impaired Centers,P,bulk_irs_eo_bmf
+P87,Deaf/Hearing Impaired Centers,P,bulk_irs_eo_bmf
+P88,LGBT Centers,P,bulk_irs_eo_bmf
+P99,Human Services N.E.C.,P,bulk_irs_eo_bmf
+Q01,Alliance/Advocacy Organizations,Q,bulk_irs_eo_bmf
+Q02,Management & Technical Assistance,Q,bulk_irs_eo_bmf
+Q03,"Professional Societies, Associations",Q,bulk_irs_eo_bmf
+Q05,Research Institutes and Public Policy Analysis,Q,bulk_irs_eo_bmf
+Q11,Single Organization Support,Q,bulk_irs_eo_bmf
+Q12,Fund Raising and Fund Distribution,Q,bulk_irs_eo_bmf
+Q19,Support N.E.C.,Q,bulk_irs_eo_bmf
+Q20,Promotion of International Understanding,Q,bulk_irs_eo_bmf
+Q21,International Cultural Exchange,Q,bulk_irs_eo_bmf
+Q22,International Academic Exchange,Q,bulk_irs_eo_bmf
+Q23,"International Exchange, N.E.C.",Q,bulk_irs_eo_bmf
+Q30,International Development,Q,bulk_irs_eo_bmf
+Q31,International Agricultural Development,Q,bulk_irs_eo_bmf
+Q32,International Economic Development,Q,bulk_irs_eo_bmf
+Q33,International Relief,Q,bulk_irs_eo_bmf
+Q34,International Educational Development,Q,bulk_irs_eo_bmf
+Q35,International Democracy & Civil Society Development,Q,bulk_irs_eo_bmf
+Q36,International Science & Technology Development,Q,bulk_irs_eo_bmf
+Q38,"International Environment, Population & Sustainability",Q,bulk_irs_eo_bmf
+Q39,International Health Development,Q,bulk_irs_eo_bmf
+Q40,International Peace and Security,Q,bulk_irs_eo_bmf
+Q41,"Arms Control, Peace",Q,bulk_irs_eo_bmf
+Q42,United Nations Association,Q,bulk_irs_eo_bmf
+Q43,National Security,Q,bulk_irs_eo_bmf
+Q50,"International Affairs, Foreign Policy, & Globalization",Q,bulk_irs_eo_bmf
+Q51,International Economic & Trade Policy,Q,bulk_irs_eo_bmf
+Q70,International Human Rights,Q,bulk_irs_eo_bmf
+Q71,"International Migration, Refugee Issues",Q,bulk_irs_eo_bmf
+Q99,"International, Foreign Affairs, and National Security N.E.C.",Q,bulk_irs_eo_bmf
+R01,Alliance/Advocacy,R,bulk_irs_eo_bmf
+R02,Management & Technical Assistance,R,bulk_irs_eo_bmf
+R03,"Professional Societies, Associations",R,bulk_irs_eo_bmf
+R05,Research Institutes and Public Policy Analysis,R,bulk_irs_eo_bmf
+R11,Single Organization Support,R,bulk_irs_eo_bmf
+R12,Fund Raising and Fund Distribution,R,bulk_irs_eo_bmf
+R19,Support N.E.C.,R,bulk_irs_eo_bmf
+R20,Civil Rights,R,bulk_irs_eo_bmf
+R21,Immigrant’s Rights,R,bulk_irs_eo_bmf
+R22,Minority Rights,R,bulk_irs_eo_bmf
+R23,Disabled Persons' Rights,R,bulk_irs_eo_bmf
+R24,Women's Rights,R,bulk_irs_eo_bmf
+R25,Seniors' Rights,R,bulk_irs_eo_bmf
+R26,"Lesbian, Gay Rights",R,bulk_irs_eo_bmf
+R27,Patient’s Rights,R,bulk_irs_eo_bmf
+R28,Children’s Rights,R,bulk_irs_eo_bmf
+R29,Employee & Workers Rights,R,bulk_irs_eo_bmf
+R30,"Intergroup, Race Relations",R,bulk_irs_eo_bmf
+R40,"Voter Education, Registration",R,bulk_irs_eo_bmf
+R60,Civil Liberties,R,bulk_irs_eo_bmf
+R61,Reproductive Rights,R,bulk_irs_eo_bmf
+R62,Right to Life,R,bulk_irs_eo_bmf
+R63,"Censorship, Freedom of Speech and Press",R,bulk_irs_eo_bmf
+R65,Freedom of Religion Issues,R,bulk_irs_eo_bmf
+R67,"Right to Die, Euthanasia",R,bulk_irs_eo_bmf
+R99,"Civil Rights, Social Action, Advocacy N.E.C.",R,bulk_irs_eo_bmf
+S01,Alliance/Advocacy,S,bulk_irs_eo_bmf
+S02,Management & Technical Assistance,S,bulk_irs_eo_bmf
+S03,"Professional Societies, Associations",S,bulk_irs_eo_bmf
+S05,Research Institutes and Public Policy Analysis,S,bulk_irs_eo_bmf
+S11,Single Organization Support,S,bulk_irs_eo_bmf
+S12,Fund Raising and Fund Distribution,S,bulk_irs_eo_bmf
+S19,Support N.E.C.,S,bulk_irs_eo_bmf
+S20,"Community, Neighborhood Development",S,bulk_irs_eo_bmf
+S21,Community Coalitions,S,bulk_irs_eo_bmf
+S22,"Neighborhood, Block Associations",S,bulk_irs_eo_bmf
+S30,Economic Development,S,bulk_irs_eo_bmf
+S31,"Urban, Community Economic Development",S,bulk_irs_eo_bmf
+S32,Rural Economic Development,S,bulk_irs_eo_bmf
+S40,Business and Industry,S,bulk_irs_eo_bmf
+S41,Chambers of Commerce & Business Leagues,S,bulk_irs_eo_bmf
+S43,Small Business Development,S,bulk_irs_eo_bmf
+S46,Boards of Trade,S,bulk_irs_eo_bmf
+S47,Real Estate Associations,S,bulk_irs_eo_bmf
+S50,Nonprofit Management,S,bulk_irs_eo_bmf
+S80,Community Service Clubs,S,bulk_irs_eo_bmf
+S81,Women's Service Clubs,S,bulk_irs_eo_bmf
+S82,Men's Service Clubs,S,bulk_irs_eo_bmf
+S99,"Community Improvement, Capacity Building N.E.C.",S,bulk_irs_eo_bmf
+T01,Alliance/Advocacy,T,bulk_irs_eo_bmf
+T02,Management & Technical Assistance,T,bulk_irs_eo_bmf
+T03,"Professional Societies, Associations",T,bulk_irs_eo_bmf
+T05,Research Institutes and Public Policy Analysis,T,bulk_irs_eo_bmf
+T11,Single Organization Support,T,bulk_irs_eo_bmf
+T12,Fund Raising and Fund Distribution,T,bulk_irs_eo_bmf
+T19,Support N.E.C.,T,bulk_irs_eo_bmf
+T20,Private Grantmaking Foundations,T,bulk_irs_eo_bmf
+T21,Corporate Foundations,T,bulk_irs_eo_bmf
+T22,Private Independent Foundations,T,bulk_irs_eo_bmf
+T23,Private Operating Foundations,T,bulk_irs_eo_bmf
+T30,Public Foundations,T,bulk_irs_eo_bmf
+T31,Community Foundations,T,bulk_irs_eo_bmf
+T40,Voluntarism Promotion,T,bulk_irs_eo_bmf
+T50,"Philanthropy, Charity, Voluntarism Promotion",T,bulk_irs_eo_bmf
+T70,Federated Giving Programs,T,bulk_irs_eo_bmf
+T90,Named Trusts N.E.C.,T,bulk_irs_eo_bmf
+T99,"Philanthropy, Voluntarism, and Grantmaking Foundations N.E.C.",T,bulk_irs_eo_bmf
+U01,Alliance/Advocacy,U,bulk_irs_eo_bmf
+U02,Management & Technical Assistance,U,bulk_irs_eo_bmf
+U03,"Professional Societies, Associations",U,bulk_irs_eo_bmf
+U05,Research Institutes and Public Policy Analysis,U,bulk_irs_eo_bmf
+U11,Single Organization Support,U,bulk_irs_eo_bmf
+U12,Fund Raising and Fund Distribution,U,bulk_irs_eo_bmf
+U19,Support N.E.C.,U,bulk_irs_eo_bmf
+U20,General Science,U,bulk_irs_eo_bmf
+U21,Marine Science and Oceanography,U,bulk_irs_eo_bmf
+U30,"Physical & Earth Sciences,",U,bulk_irs_eo_bmf
+U31,Astronomy,U,bulk_irs_eo_bmf
+U33,"Chemistry, Chemical Engineering",U,bulk_irs_eo_bmf
+U34,Mathematics,U,bulk_irs_eo_bmf
+U36,Geology,U,bulk_irs_eo_bmf
+U40,Engineering and Technology,U,bulk_irs_eo_bmf
+U41,Computer Science,U,bulk_irs_eo_bmf
+U42,Engineering,U,bulk_irs_eo_bmf
+U50,Biological & Life Sciences,U,bulk_irs_eo_bmf
+U99,Science and Technology N.E.C.,U,bulk_irs_eo_bmf
+V01,Alliance/Advocacy,V,bulk_irs_eo_bmf
+V02,Management & Technical Assistance,V,bulk_irs_eo_bmf
+V03,"Professional Societies, Associations",V,bulk_irs_eo_bmf
+V05,Research Institutes and Public Policy Analysis,V,bulk_irs_eo_bmf
+V11,Single Organization Support,V,bulk_irs_eo_bmf
+V12,Fund Raising and Fund Distribution,V,bulk_irs_eo_bmf
+V19,Support N.E.C.,V,bulk_irs_eo_bmf
+V20,Social Science,V,bulk_irs_eo_bmf
+V21,"Anthropology, Sociology",V,bulk_irs_eo_bmf
+V22,Economics,V,bulk_irs_eo_bmf
+V23,Behavioral Science,V,bulk_irs_eo_bmf
+V24,Political Science,V,bulk_irs_eo_bmf
+V25,Population Studies,V,bulk_irs_eo_bmf
+V26,"Law, Jurisprudence",V,bulk_irs_eo_bmf
+V30,Interdisciplinary Research,V,bulk_irs_eo_bmf
+V31,Black Studies,V,bulk_irs_eo_bmf
+V32,Women's Studies,V,bulk_irs_eo_bmf
+V33,Ethnic Studies,V,bulk_irs_eo_bmf
+V34,Urban Studies,V,bulk_irs_eo_bmf
+V35,International Studies,V,bulk_irs_eo_bmf
+V36,Gerontology,V,bulk_irs_eo_bmf
+V37,Labor Studies,V,bulk_irs_eo_bmf
+V99,Social Science N.E.C.,V,bulk_irs_eo_bmf
+W01,Alliance/Advocacy,W,bulk_irs_eo_bmf
+W02,Management & Technical Assistance,W,bulk_irs_eo_bmf
+W03,"Professional Societies, Associations",W,bulk_irs_eo_bmf
+W05,Research Institutes and Public Policy Analysis,W,bulk_irs_eo_bmf
+W11,Single Organization Support,W,bulk_irs_eo_bmf
+W12,Fund Raising and Fund Distribution,W,bulk_irs_eo_bmf
+W19,Support N.E.C.,W,bulk_irs_eo_bmf
+W20,Government and Public Administration,W,bulk_irs_eo_bmf
+W22,"Public Finance, Taxation, Monetary Policy",W,bulk_irs_eo_bmf
+W24,Citizen Participation,W,bulk_irs_eo_bmf
+W30,"Military, Veterans' Organizations",W,bulk_irs_eo_bmf
+W40,Public Transportation Systems,W,bulk_irs_eo_bmf
+W50,Telecommunications,W,bulk_irs_eo_bmf
+W60,Financial Institutions,W,bulk_irs_eo_bmf
+W61,Credit Unions,W,bulk_irs_eo_bmf
+W70,Leadership Development,W,bulk_irs_eo_bmf
+W80,Public Utilities,W,bulk_irs_eo_bmf
+W90,Consumer Protection,W,bulk_irs_eo_bmf
+W99,"Public, Society Benefit N.E.C.",W,bulk_irs_eo_bmf
+X01,Alliance/Advocacy,X,bulk_irs_eo_bmf
+X02,Management & Technical Assistance,X,bulk_irs_eo_bmf
+X03,Professional Societies & Associations,X,bulk_irs_eo_bmf
+X05,Research Institutes and Public Policy Analysis,X,bulk_irs_eo_bmf
+X11,Single Organization Support,X,bulk_irs_eo_bmf
+X12,Fund Raising and Fund Distribution,X,bulk_irs_eo_bmf
+X19,Support N.E.C.,X,bulk_irs_eo_bmf
+X20,Christianity,X,bulk_irs_eo_bmf
+X21,Protestant,X,bulk_irs_eo_bmf
+X22,Roman Catholic,X,bulk_irs_eo_bmf
+X30,Judaism,X,bulk_irs_eo_bmf
+X40,Islam,X,bulk_irs_eo_bmf
+X50,Buddhism,X,bulk_irs_eo_bmf
+X70,Hinduism,X,bulk_irs_eo_bmf
+X80,"Religious Media, Communications",X,bulk_irs_eo_bmf
+X81,"Religious Film, Video",X,bulk_irs_eo_bmf
+X82,Religious Television,X,bulk_irs_eo_bmf
+X83,"Religious Printing, Publishing",X,bulk_irs_eo_bmf
+X84,Religious Radio,X,bulk_irs_eo_bmf
+X90,Interfaith Coalitions,X,bulk_irs_eo_bmf
+X99,Religion Related N.E.C.,X,bulk_irs_eo_bmf
+Y01,Alliance/Advocacy,Y,bulk_irs_eo_bmf
+Y02,Management & Technical Assistance,Y,bulk_irs_eo_bmf
+Y03,"Professional Societies, Associations",Y,bulk_irs_eo_bmf
+Y05,Research Institutes and Public Policy Analysis,Y,bulk_irs_eo_bmf
+Y11,Single Organization Support,Y,bulk_irs_eo_bmf
+Y12,Fund Raising and Fund Distribution,Y,bulk_irs_eo_bmf
+Y19,Support N.E.C.,Y,bulk_irs_eo_bmf
+Y20,Insurance Providers,Y,bulk_irs_eo_bmf
+Y22,Local Benevolent Life Insurance Associations,Y,bulk_irs_eo_bmf
+Y23,Mutual Insurance Company & Associations,Y,bulk_irs_eo_bmf
+Y24,Supplemental Unemployment Compensation,Y,bulk_irs_eo_bmf
+Y25,State-Sponsored Worker's Compensation Reinsurance Organizations,Y,bulk_irs_eo_bmf
+Y30,Pension and Retirement Funds,Y,bulk_irs_eo_bmf
+Y33,Teachers Retirement Fund Association,Y,bulk_irs_eo_bmf
+Y34,Employee Funded Pension Trusts,Y,bulk_irs_eo_bmf
+Y35,Multi-Employer Pension Plans,Y,bulk_irs_eo_bmf
+Y40,Fraternal Societies,Y,bulk_irs_eo_bmf
+Y41,Fraternal Beneficiary Societies,Y,bulk_irs_eo_bmf
+Y42,Domestic Fraternal Societies,Y,bulk_irs_eo_bmf
+Y43,Voluntary Employees Beneficiary Associations (Non-Government),Y,bulk_irs_eo_bmf
+Y44,Voluntary Employees Beneficiary Associations (Government),Y,bulk_irs_eo_bmf
+Y50,Cemeteries,Y,bulk_irs_eo_bmf
+Y99,Mutual/Membership Benefit N.E.C.,Y,bulk_irs_eo_bmf
+Z99,Unknown,Z,bulk_irs_eo_bmf

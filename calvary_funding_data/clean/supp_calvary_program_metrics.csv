@@ -1,0 +1,179 @@
+source_id,document,report_year,metric,value,unit,notes,retrieved_date
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,women_served,130,women,more than; text: 'More than 130 women lived at Calvary in 2015',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_moved_to_permanent_housing,70,percent,text: '70% of women moved to permanent housing',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_sister_circle_kept_housing,100,percent,text: '100% of women in our Sister Circle program maintained',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_maintained_recovery,85,percent,text: '85% of women maintained their recovery',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,therapy_sessions,500,sessions,more than; text: 'More than 500 psychotherapy sessions',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_engaged_education,75,percent,LEAP classes; text: '75% of women engaged in Life Skills',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_jobprogram_secured_employment,60,percent,Step Up DC; text: '60% of women who participated in Step Up DC secured',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_retained_job_3_months,90,percent,text: '90% of women who secured employment had retained',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,pct_secured_income,70,percent,text: '70% of women secured income',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,volunteers,450,volunteers,text: 'family of 450 volunteers',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,volunteer_hours,6000,hours,"over; text: 'volunteers contributed over 6,000 hours'",2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,volunteer_fte_equivalent,3,FTE,stated in words; text: 'additional three full-time staff',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,transitional_housing_units,45,units,"text: 'Transitional housing, providing 45 units'",2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,permanent_housing_units,11,units,"text: 'Permanent housing, providing 11 units'",2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,women_served,150,women,text: 'for a total of 150 women',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,pct_income_employment_or_benefits,88,percent,text: '88% of women received income',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,pct_maintained_recovery,72,percent,text: '72% of women maintained their recovery',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,pct_engaged_education,68,percent,text: '68% of women engaged in Life Skills',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,nights_safe_housing,20000,nights,"over; text: 'Over 20,000 nights of safe housing'",2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,meals_served,30000,meals,"over; text: 'Over 30,000 nutritious meals'",2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,therapy_sessions,500,sessions,over; text: 'Over 500 therapy sessions',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,education_class_hours,700,hours,over; text: 'Over 700 hours of Life Skills',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,pct_completers_ended_homelessness,70,percent,"text: 'completed our programs, 70% successfully ended'",2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,jobprogram_participants,32,women,text: '32 women participated in Step Up DC',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,pct_jobprogram_secured_employment,50,percent,more than; text: 'more than 50% of women secured part',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,volunteers,350,volunteers,text: 'family of 350 volunteers',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,volunteer_fte_equivalent,4,FTE,stated in words; text: 'equal to four full',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,pct_donations_direct_to_women,80,percent,stated in words; text: 'Eighty percent of donations go directly',2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_total_stated,2433568,USD,"audit FY17 total revenue is $2,432,385; text: 'Revenue: $2,433,568'",2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,expenses_total_stated,2249635,USD,"text: 'Expenses: $2,249,635'",2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,women_served,150,women,over; text: 'Calvary served over 150 women',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,pct_completers_moved_home,70,percent,more than; text: 'More than 70% of women who completed our programs moved',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,nights_safe_housing,20000,nights,"over; text: 'over 20,000 nights of safe housing'",2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,meals_served,30000,meals,"more than; text: 'more than 30,000 nutritious meals'",2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,pct_relapse_group_kept_sobriety,80,percent,more than; text: 'More than 80% of women who attended',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,therapy_sessions,500,sessions,over; text: 'over 500 sessions with a therapist',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,education_class_hours,700,hours,over; text: 'over 700 hours of education',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,pct_engaged_education,75,percent,over; text: 'Over 75% of women participated in our education',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,volunteers,325,volunteers,over; text: 'Over 325 volunteers contributed',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,volunteer_fte_equivalent,4,FTE,text: 'equal to 4 full-time',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,volunteer_and_inkind_value,290000,USD,"nearly; text: 'donated goods was nearly $290,000'",2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,pct_interviewees_secured_job,60,percent,more than; text: 'More than 60% of women who participated in job interviews',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,job_search_hours,800,hours,more than; text: 'more than 800 hours of supervised job search',2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,revenue_total_stated,2352225,USD,"text: '2018 Revenue $2,352,225'",2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,expenses_total_stated,2350586,USD,"text: '2018 Expenses $2,350,586'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,total_housing_units,101,units,text: '101 ● total units of housing',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,transitional_housing_units,76,units,"text: 'Transitional housing, providing 76 units'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,permanent_housing_units,25,units,"text: 'Permanent housing, providing 25 units'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,women_served,138,women,text: 'for a total of 138 women',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,pct_income_employment_or_benefits,75,percent,text: '75% of women received income',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,pct_maintained_recovery,61,percent,text: '61% of women maintained their recovery',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,pct_engaged_education,53,percent,text: '53% of women engaged in Life Skills',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,pct_jobprogram_secured_employment,40,percent,text: '40% of women who participated in our Step Up DC',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,pct_completers_ended_homelessness,70,percent,"text: 'completed our programs, 70% successfully'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,nights_safe_housing,25000,nights,"over; text: 'Over 25,000 nights of safe housing'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,meals_served,60000,meals,"over; text: 'Over 60,000 nutritious meals'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,therapy_sessions,600,sessions,over; text: 'Over 600 therapy sessions',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,education_class_hours,300,hours,over; text: 'Over 300 hours of Life Skills',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,volunteers,328,volunteers,text: 'family of 328 volunteers',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,new_volunteers,60,volunteers,text: 'including 60 new volunteers',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,volunteer_hours,3600,hours,"over; text: 'over 3,600 hours of service'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,pct_funding_philanthropy,50,percent,'half'; text: 'With half of our funding coming from philanthropy',2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,revenue_total_stated,3908836,USD,"text: '2020 Revenue $3,908,836'",2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,expenses_total_stated,3228518,USD,"text: '2020 Expenses $3,228,518'",2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,beds_good_hope_transitional,45,beds,text: 'Good Hope Transitional Housing — 45 beds',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,beds_reach_up_transitional,31,beds,text: 'Reach Up Transitional Housing — 31 beds',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,units_reach_up_rental_assistance,9,units,text: 'Reach Up Rental Assistance Program — 9 units',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,beds_sister_circle_psh,16,beds,text: 'Sister Circle — 16 beds',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,units_sisters_rise_psh,25,units,text: 'Sisters Rise — 25 units',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,nights_safe_housing,30000,nights,"more than; text: 'more than 30,000 nights of safe housing'",2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,women_short_term_housing,117,women,text: '117 women lived in our shortterm',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,women_permanent_housing,24,women,text: 'and 24 in our permanent housing',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,therapy_sessions,630,sessions,more than; text: 'more than 630 therapy sessions',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,nurse_one_on_one_sessions,120,sessions,over; text: 'over 120 one-on-one sessions with women',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,education_class_hours,300,hours,nearly; text: 'nearly 300 hours of volunteer-led',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,jobprogram_avg_starting_wage,16,USD per hour,over; text: 'average starting wage of over $16',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,jobprogram_avg_weekly_earnings,571,USD per week,text: 'average of $571 each week',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,jobprogram_virtual_workshops,8,workshops,stated in words; text: 'hosted eight virtual career workshops',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,volunteers,133,volunteers,text: 'family of 133 volunteers',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,volunteer_hours,1800,hours,"over; text: 'provided over 1,800 hours of service'",2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,volunteer_value,135000,USD,"over; text: 'volunteer services was over $135,000'",2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,virtual_5k_raised,25000,USD,"more than; text: 'raising more than $25,000'",2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,new_dv_housing_capacity,25,women,text: 'new housing program for 25 women',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,pct_funding_philanthropy,50,percent,'half'; text: 'With half of our funding coming from philanthropy',2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,revenue_total_stated,3928601,USD,"text: '2021 Revenue $3,928,601'",2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,expenses_total_stated,3411994,USD,"audit FY21 total expenses $3,411,954; text: '2021 Expenses $3,411,994'",2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,volunteers,168,volunteers,text: 'grew to 168 individuals in 2023',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_volunteer_growth_yoy,50,percent,text: 'a 50% increase from the year prior',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_exec_team_black,40,percent,text: '40% of our executive team identifies as Black.',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_exec_team_lgbtq,40,percent,text: '40% of our executive team identifies as LGBTQ',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_staff_black_or_poc,78,percent,text: '78% of our staff team identifies',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,women_served,163,women,across six housing sites; text: 'Calvary served 163',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_capacity_growth_since_2021,250,percent,text: 'expanded our capacity by 250%',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,volunteer_hours,1500,hours,"text: 'Volunteers logged 1,500 hours'",2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,nights_safe_housing,46400,nights,"46,400+; text: '46,400+ nights of safe housing'",2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,beds_added_dv,18,beds,text: '18 eebeds added',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_completers_stably_housed,64,percent,text: '64% of women who completed our housing programs',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_engaged_mental_health,35,percent,text: '35% of women living at Calvary engaged in mental health',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,therapy_sessions,750,sessions,nearly; text: 'Nearly 750 therapy sessions',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,meals_served,50800,meals,"50,800+; text: '50,800+ nutritious meals'",2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_engaged_education,44,percent,text: '44% of women participated in educational',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_jobprogram_secured_employment,54,percent,text: '54% of women who completed Calvary’s employment',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_jobprogram_attendance_growth,80,percent,Step Up DC; text: 'saw an 80% increase in attendees',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_therapy_sessions_growth_yoy,50,percent,nearly; text: 'nearly 50% yearover-year growth',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_funding_private,50,percent,'about half'; text: 'With about half of our funding coming from private donors',2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,revenue_total_stated,5423322,USD,"equals audit without-donor-restriction column incl. releases; audit total revenue $4,807,645; text: '2023 Revenue $5,423,322'",2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,expenses_total_stated,5481795,USD,"text: '2023 Expenses $5,481,795'",2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_board_women,90,percent,p4: value drawn as vector graphic (no text layer); transcribed visually,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,pct_board_black_or_poc,50,percent,p4: value drawn as vector graphic (no text layer); transcribed visually,2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,pct_engaged_education,44,percent,same value in FY23 annual report (duplicate source); text: '44% of residents participated in educational',2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,nights_safe_housing,46400,nights,"same value in FY23 annual report (duplicate source); 46,400+; text: '46,400+ nights of safe housing'",2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,therapy_sessions,750,sessions,same value in FY23 annual report (duplicate source); nearly; text: 'Nearly 750',2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,pct_engaged_mental_health,35,percent,same value in FY23 annual report (duplicate source); text: '35% of women living at Calvary engaged in mental',2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,meals_served,50800,meals,"same value in FY23 annual report (duplicate source); 50,800+; text: '50,800+ nutritious meals'",2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,beds_added_dv,18,beds,same value in FY23 annual report (duplicate source); text: '18 beds added',2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,volunteer_hours,1500,hours,"same value in FY23 annual report (duplicate source); text: 'Volunteers logged 1,500 hours'",2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,pct_jobprogram_secured_employment,54,percent,same value in FY23 annual report (duplicate source); text: '54% of women who completed Calvary’s employment',2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,pct_completers_stably_housed,64,percent,same value in FY23 annual report (duplicate source); text: '64% of women who completed our programs secured',2026-10-10
+input_fy23_ar_flyer,Calvary-FY23-Annual-Report-Flyer.pdf,2023,women_served,163,women,same value in FY23 annual report (duplicate source); text: 'Calvary served 163 women',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,nights_safe_housing,48100,nights,"48,100+; text: '48,100+ nights of safe housing'",2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,volunteer_hours,1944,hours,"text: 'Volunteers logged 1,944'",2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,pct_engaged_mental_health,57,percent,text: '57% of women living at Calvary engaged in mental',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,pct_maintained_sobriety,69,percent,text: '69% of women maintained their sobriety',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,meals_served,80000,meals,"text: '80,000 nutritious meals'",2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,pct_transitional_in_education,90,percent,text: '90% of women in transitional housing participate',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,women_served,253,women,text: 'Calvary served 253',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,therapy_sessions,1210,sessions,text: '1210 therapy sessions provided on- site',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,pct_income_at_exit,65,percent,text: '65% of women have income when they leave',2026-10-10
+input_fy24_ar_glance,Calvary-FY24-Annual-Report-at-Glance-Final.pdf,2024,pct_completers_stably_housed,60,percent,over; text: 'Over 60% of women who completed our programs secured',2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,revenue_share_public_funds,43,percent,chart category 'Public Funds' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,revenue_share_foundations_corporations,32,percent,chart category 'Foundations & Corporations' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,revenue_share_individuals_families,19,percent,chart category 'Individuals & Families' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,revenue_share_in_kind_donations,5,percent,chart category 'In-Kind Donations' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,revenue_share_other,1,percent,chart category 'Other' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,expenses_share_programs,80,percent,chart category 'Programs' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,expenses_share_fundraising,18,percent,chart category 'Fundraising' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy15_annual_report,Calvary-Women_s-Services-FY2015-Annual-Report.pdf,2015,expenses_share_management_general,2,percent,chart category 'Management & General' (p5); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_share_public,38,percent,chart category 'Public' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_share_corporations,18,percent,chart category 'Corporations' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_share_foundations,17,percent,chart category 'Foundations' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_share_individuals_major_donors,19,percent,chart category 'Individuals and Major Donors' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_share_pro_bono_in_kind,7,percent,chart category 'Pro Bono/In-Kind' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,revenue_share_other,1,percent,chart category 'Other' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,expenses_share_programs,80,percent,chart category 'Programs' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,expenses_share_fundraising,17,percent,chart category 'Fundraising' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy17_annual_report,Calvary-Women_s-Services-FY2017-Annual-Report.pdf,2017,expenses_share_administrative,3,percent,chart category 'Administrative' (p4); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,revenue_share_public_funds,42,percent,chart category 'Public Funds' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,revenue_share_foundations_corporations,28,percent,chart category 'Foundations & Corporations' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,revenue_share_individuals_families,21,percent,chart category 'Individuals & Families' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,revenue_share_donated_goods_services,8,percent,chart category 'Donated Goods & Services' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,revenue_share_other,1,percent,chart category 'Other' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,expenses_share_programs_services,80,percent,chart category 'Programs and Services' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,expenses_share_fundraising,16,percent,chart category 'Fundraising' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy18_annual_report,Calvary-Womens-Services_FY18-Annual-Report.pdf,2018,expenses_share_management_general,4,percent,chart category 'Management and General' (p3); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,revenue_share_public_funds,47,percent,chart category 'Public Funds' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,revenue_share_foundations_corporations,22,percent,chart category 'Foundations & Corporations' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,revenue_share_individuals_families,19,percent,chart category 'Individuals & Families' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,revenue_share_other,9,percent,chart category 'Other' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,revenue_share_donated_goods_services,3,percent,chart category 'Donated Goods & Services' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,expenses_share_programs_services,83,percent,chart category 'Programs and Services' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,expenses_share_fundraising,12,percent,chart category 'Fundraising' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy20_annual_report,Calvary-Womens-Services-2020-Annual-Report.pdf,2020,expenses_share_management_general,5,percent,chart category 'Management and General' (p6); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,revenue_share_other,1,percent,chart category 'Other' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,revenue_share_donated_goods_services,4,percent,chart category 'Donated Goods & Services' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,revenue_share_individuals_families,20,percent,chart category 'Individuals & Families' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,revenue_share_foundations_corporations,20,percent,chart category 'Foundations & Corporations' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,revenue_share_public_funds,55,percent,chart category 'Public Funds' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,expenses_share_management_general,7,percent,chart category 'Management and General' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,expenses_share_fundraising_events,14,percent,chart category 'Fundraising & Events' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy21_annual_report,Calvary-2021-AR-Working-C.pdf,2021,expenses_share_programs_services,79,percent,chart category 'Programs and Services' (p12); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,revenue_share_other,1,percent,chart category 'Other' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,revenue_share_donated_goods_services,4,percent,chart category 'Donated Goods & Services' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,revenue_share_individuals_families,16,percent,chart category 'Individuals & Families' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,revenue_share_foundations_corporations,34,percent,chart category 'Foundations & Corporations' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,revenue_share_public_funds,45,percent,chart category 'Public Funds' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,expenses_share_management_general,8,percent,chart category 'Management & General' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,expenses_share_fundraising,17,percent,chart category 'Fundraising' (p7); label-to-value by nearest position; matches visual check,2026-10-10
+input_fy23_annual_report,Calvary-FY23-Annual-Report-.pdf,2023,expenses_share_programs,75,percent,chart category 'Programs' (p7); label-to-value by nearest position; matches visual check,2026-10-10

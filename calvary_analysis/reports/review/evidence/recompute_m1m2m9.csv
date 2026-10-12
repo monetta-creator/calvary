@@ -1,0 +1,224 @@
+item,label,as_shown,recomputed,unit,match,notes
+A01,Nominal revenue FY11,1445107,1445107.0,,exact,preferred 990 row
+A02,Nominal revenue FY19 ($M),2.49,2.4867,,rounding,"preferred 990 row = 2,486,678"
+A03,Nominal revenue FY25 ($M),4.97,4.968,,rounding,"preferred 990 row = 4,967,995"
+A04,Real revenue growth FY19->FY25 (%),59,58.65,,rounding,"FY19 2,486,678 x 1.226992 = 3,051,134; FY25 4,967,995 x 0.974362 = 4,840,626; deflator by fiscal-year-end year"
+A05,"Slide 3 / one-pager label '$2.49M -> $4.97M, 2024 dollars'",2.49 -> 4.97 (2024 $),3.05 -> 4.84 (2024 $); 2.49 -> 4.97 are nominal,,MISMATCH,"The two dollar figures printed next to '+59%' are nominal, but the slide and one-pager label them 2024 dollars. The growth rate itself is right."
+A06,FY22 revenue ($M),8.87,8.8672,,rounding,"8,867,250; deck says 'FY22 spike' without a revenue figure"
+A07,"SLFRF award 3,680,675 present in fact_gov_awards",3680675,3680675,,exact,"rows: dc_ovsjg/OVSJG-L35-1059/2022; dc_pass/PO660852-V2/2022; treasury_slfrf/12126/2022. Appears as dc_ovsjg OVSJG-L35-1059 (New Foundations building purchase, DC FY2022), as dc_pass obligation PO660852-V2 and as treasury_slfrf subaward 12126; same dollars in three sources"
+A08.2023,FY23 surplus/deficit ($K),-674,-674.15,,rounding,"4,456,814 - 5,130,964 = -674,150"
+A08.2024,FY24 surplus/deficit ($K),507,506.54,,rounding,"5,817,167 - 5,310,627 = 506,540"
+A08.2025,FY25 surplus/deficit ($K),-607,-607.326,,rounding,"4,967,995 - 5,575,321 = -607,326"
+A09.2020,Months of cash FY20,6.3,6.333,,rounding,"1,697,108 / (3,215,728/12)"
+A09.2021,Months of cash FY21,7.5,7.4729,,rounding,"2,076,828 / (3,334,967/12)"
+A09.2022,Months of cash FY22,6.3,6.3259,,rounding,"2,398,667 / (4,550,205/12)"
+A09.2023,Months of cash FY23,5.0,5.0273,,rounding,"2,149,562 / (5,130,964/12)"
+A09.2024,Months of cash FY24,5.2,5.233,,rounding,"2,315,867 / (5,310,627/12)"
+A09.2025,Months of cash FY25,4.4,4.442,,rounding,"2,063,796 / (5,575,321/12)"
+A10.2023,Event contributions line 1c FY23 ($K),458,457.758,,rounding,
+A10.2024,Event contributions line 1c FY24 ($K),538,538.07,,rounding,
+A10.2025,Event contributions line 1c FY25 ($K),55,54.73,,rounding,
+A11,Net special events line 8c FY25 ($K),219,218.588,,rounding,
+A12,Event-income drop FY24->FY25 ($K),483,483.34,,rounding,line 1c difference
+A13a,Contributions total FY24 ($M),5.55,5.5521,,rounding,
+A13b,Contributions total FY25 ($M),4.75,4.7471,,rounding,
+A14,Net assets FY25 ($M),8.1,8.0988,,rounding,
+A15.2015,Government share FY15 (%),41,40.86,,rounding,"audit: gov 888,295 / audit revenue 2,173,996; same gov / 990 revenue 2,008,601 = 44.2%; 990 1e / 990 revenue = 44.2%"
+A15.2016,Government share FY16 (%),44,43.7837,,rounding,"audit: gov 932,814 / audit revenue 2,130,506; same gov / 990 revenue 1,990,443 = 46.9%; 990 1e / 990 revenue = 46.9%"
+A15.2017,Government share FY17 (%),40,39.6955,,rounding,"audit: gov 965,548 / audit revenue 2,432,385; same gov / 990 revenue 2,259,177 = 42.7%; 990 1e / 990 revenue = 42.7%"
+A15.2018,Government share FY18 (%),42,41.6317,,rounding,"audit: gov 979,272 / audit revenue 2,352,225; same gov / 990 revenue 2,153,899 = 45.5%; 990 1e / 990 revenue = 45.5%"
+A15.2019,Government share FY19 (%),49,48.602,,rounding,"audit: gov 1,256,102 / audit revenue 2,584,467; same gov / 990 revenue 2,486,678 = 50.5%; 990 1e / 990 revenue = 50.5%"
+A15.2020,Government share FY20 (%),55,55.416,,rounding,"audit: gov 2,166,119 / audit revenue 3,908,836; same gov / 990 revenue 3,896,046 = 55.6%; 990 1e / 990 revenue = 55.6%"
+A15.2021,Government share FY21 (%),50,50.4292,,rounding,"audit: gov 1,981,161 / audit revenue 3,928,601; same gov / 990 revenue 3,851,984 = 51.4%; 990 1e / 990 revenue = 13.1%"
+A15.2022,Government share FY22 (%),61,61.3711,,rounding,"audit: gov 5,685,504 / audit revenue 9,264,137; same gov / 990 revenue 8,867,250 = 64.1%; 990 1e / 990 revenue = 64.1%"
+A15.2023,Government share FY23 (%),51,51.1872,,rounding,"audit: gov 2,460,897 / audit revenue 4,807,645; same gov / 990 revenue 4,456,814 = 55.2%; 990 1e / 990 revenue = 55.2%"
+A15.2024,Government share FY24 (%),45,45.0598,,rounding,"990 line 1e: gov 2,621,203 / 990 line 1e revenue 5,817,167; same gov / 990 revenue 5,817,167 = 45.1%; 990 1e / 990 revenue = 45.1%"
+A15.2025,Government share FY25 (%),58,58.2247,,rounding,"990 line 1e: gov 2,892,598 / 990 line 1e revenue 4,967,995; same gov / 990 revenue 4,967,995 = 58.2%; 990 1e / 990 revenue = 58.2%"
+A16,Mean government share FY22-24 (%),53,52.5394,,rounding,audit basis mean 52.54; with 990 revenue denominators 54.80
+A17,'Every year since FY15 between 40% and 61%',40-61,39.7-61.4 (audit basis); 42.7-64.1 with 990 revenue denominator,,rounding,FY17 is 39.7% on the audit basis (rounds to 40); FY22 is 61.4%. On the 990-revenue denominator FY22 would be 64.1%
+A18.2015,Slide 4 chart FY15: government,888295,888295.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2016,Slide 4 chart FY16: government,932814,932814.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2017,Slide 4 chart FY17: government,965548,965548.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2018,Slide 4 chart FY18: government,979272,979272.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2019,Slide 4 chart FY19: government,1256102,1256102.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2020,Slide 4 chart FY20: government,2166119,2166119.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2021,Slide 4 chart FY21: government,1981161,1981161.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2022,Slide 4 chart FY22: government,5685504,5685504.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2023,Slide 4 chart FY23: government,2460897,2460897.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2024,Slide 4 chart FY24: government,2621203,2621203.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A18.2025,Slide 4 chart FY25: government,2892598,2892598.0,,exact,"audit gov FY15-23, 990 1e FY24-25"
+A19.2015,Slide 4 chart FY15: event contributions,287580,287580.0,,exact,990 line 1c
+A19.2016,Slide 4 chart FY16: event contributions,301790,301790.0,,exact,990 line 1c
+A19.2017,Slide 4 chart FY17: event contributions,301899,301899.0,,exact,990 line 1c
+A19.2018,Slide 4 chart FY18: event contributions,279265,279265.0,,exact,990 line 1c
+A19.2019,Slide 4 chart FY19: event contributions,331837,331837.0,,exact,990 line 1c
+A19.2020,Slide 4 chart FY20: event contributions,165497,165497.0,,exact,990 line 1c
+A19.2021,Slide 4 chart FY21: event contributions,287145,287145.0,,exact,990 line 1c
+A19.2022,Slide 4 chart FY22: event contributions,383731,383731.0,,exact,990 line 1c
+A19.2023,Slide 4 chart FY23: event contributions,457758,457758.0,,exact,990 line 1c
+A19.2024,Slide 4 chart FY24: event contributions,538070,538070.0,,exact,990 line 1c
+A19.2025,Slide 4 chart FY25: event contributions,54730,54730.0,,exact,990 line 1c
+A20.2015,Slide 4 chart FY15: private contributions ex events,907544,907544.0,,exact,"990 contributions_total 2,083,419 - gov - line 1c"
+A20.2016,Slide 4 chart FY16: private contributions ex events,836710,836710.0,,exact,"990 contributions_total 2,071,314 - gov - line 1c"
+A20.2017,Slide 4 chart FY17: private contributions ex events,1071475,1071475.0,,exact,"990 contributions_total 2,338,922 - gov - line 1c"
+A20.2018,Slide 4 chart FY18: private contributions ex events,992376,992376.0,,exact,"990 contributions_total 2,250,913 - gov - line 1c"
+A20.2019,Slide 4 chart FY19: private contributions ex events,973806,973806.0,,exact,"990 contributions_total 2,561,745 - gov - line 1c"
+A20.2020,Slide 4 chart FY20: private contributions ex events,1582461,1582461.0,,exact,"990 contributions_total 3,914,077 - gov - line 1c"
+A20.2021,Slide 4 chart FY21: private contributions ex events,1601560,1601560.0,,exact,"990 contributions_total 3,869,866 - gov - line 1c"
+A20.2022,Slide 4 chart FY22: private contributions ex events,2885189,2885189.0,,exact,"990 contributions_total 8,954,424 - gov - line 1c"
+A20.2023,Slide 4 chart FY23: private contributions ex events,1684754,1684754.0,,exact,"990 contributions_total 4,603,409 - gov - line 1c"
+A20.2024,Slide 4 chart FY24: private contributions ex events,2392856,2392856.0,,exact,"990 contributions_total 5,552,129 - gov - line 1c"
+A20.2025,Slide 4 chart FY25: private contributions ex events,1799806,1799806.0,,exact,"990 contributions_total 4,747,134 - gov - line 1c"
+A21.2015,Slide 4 chart FY15: other revenue,0,0,,exact,"total_revenue - contributions_total = -74,818; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2016,Slide 4 chart FY16: other revenue,0,0,,exact,"total_revenue - contributions_total = -80,871; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2017,Slide 4 chart FY17: other revenue,0,0,,exact,"total_revenue - contributions_total = -79,745; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2018,Slide 4 chart FY18: other revenue,0,0,,exact,"total_revenue - contributions_total = -97,014; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2019,Slide 4 chart FY19: other revenue,0,0,,exact,"total_revenue - contributions_total = -75,067; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2020,Slide 4 chart FY20: other revenue,0,0,,exact,"total_revenue - contributions_total = -18,031; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2021,Slide 4 chart FY21: other revenue,0,0,,exact,"total_revenue - contributions_total = -17,882; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2022,Slide 4 chart FY22: other revenue,0,0,,exact,"total_revenue - contributions_total = -87,174; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2023,Slide 4 chart FY23: other revenue,0,0,,exact,"total_revenue - contributions_total = -146,595; negative (net event loss) shown as 0, so the chart's four categories sum to more than total revenue"
+A21.2024,Slide 4 chart FY24: other revenue,265038,265038.0,,exact,"total_revenue - contributions_total = 265,038"
+A21.2025,Slide 4 chart FY25: other revenue,220861,220861.0,,exact,"total_revenue - contributions_total = 220,861"
+B01,Filed grants TY2020-24 total ($M),4.43,4.4337,,rounding,"4,433,659; 138 rows; pf_grants_paid + schedule_i, cumulative_flag 0"
+B02,Funder count,50,50,,exact,
+B03,Institutional ($M),3.34,3.34,,rounding,"3,340,017; 42 funders"
+B04,DAF sponsors ($M),1.09,1.0936,,rounding,"1,093,642; 8 sponsors"
+B05,Calvary DAF share of filed grants (%),25,24.6668,,rounding,
+B06,"By-year range, all funders ('$0.64-1.17M a year from 26-29 funders')",0.64-1.17M / 26-29,0.64-1.17M / 26-29,,exact,by year: TY2020 0.64M n=27; TY2021 0.81M n=26; TY2022 1.16M n=29; TY2023 0.66M n=29; TY2024 1.17M n=26
+B07,"By-year range, institutional only",not shown,0.45-0.95M / 21-24,,not_shown,by year: TY2020 0.45M n=22; TY2021 0.60M n=21; TY2022 0.95M n=23; TY2023 0.45M n=24; TY2024 0.89M n=21. The slide's 'steady near $1M' claim uses the all-funders version (which includes DAF sponsors).
+B08,GWCF five-year total,1206500,1206500.0,,exact,funder_id 237343119; two non-cumulative rows in TY2021 (distinct grants in one filing)
+B09,GWCF share (%),27,27.2123,,rounding,
+B10,Top-five share (%),63,63.4337,,rounding,"top five = 2,812,433"
+B11,HHI,1168,1167.526,,rounding,"sum of squared funder shares x 10,000 over 50 funders"
+B12.110303001,"Slide 6 bar, funder_id 110303001",314317,314317.0,,exact,in recomputed top 10
+B12.237343119,"Slide 6 bar, funder_id 237343119",1206500,1206500.0,,exact,in recomputed top 10
+B12.311640316,"Slide 6 bar, funder_id 311640316",128155,128155.0,,exact,in recomputed top 10
+B12.352599437,"Slide 6 bar, funder_id 352599437",330000,330000.0,,exact,in recomputed top 10
+B12.362169124,"Slide 6 bar, funder_id 362169124",91500,91500.0,,exact,in recomputed top 10
+B12.421559999,"Slide 6 bar, funder_id 421559999",100000,100000.0,,exact,in recomputed top 10
+B12.521435573,"Slide 6 bar, funder_id 521435573",295000,295000.0,,exact,in recomputed top 10
+B12.526036989,"Slide 6 bar, funder_id 526036989",450000,450000.0,,exact,in recomputed top 10
+B12.530234290,"Slide 6 bar, funder_id 530234290",89549,89549.0,,exact,in recomputed top 10
+B12.810739440,"Slide 6 bar, funder_id 810739440",511616,511616.0,,exact,in recomputed top 10
+B13,Benevity / AOGF ($K),512,511.616,,rounding,
+B14,Fidelity ($K),314,314.317,,rounding,
+B15,Schwab ($K),128,128.155,,rounding,
+B16,"'Donor-advised sponsors (Benevity, Fidelity, Schwab) add $1.1M' ($M)",1.1,0.9541,,MISMATCH,"the three named sum to 954,088 = $0.95M; all eight DAF sponsors sum to 1,093,642 = $1.09M. The $1.1M is the all-DAF total; read literally (three named sponsors) it is 15% high. Labeling, not arithmetic."
+B17,Slide 14: institutional grants / 990 revenue FY2020-24 (%),12,12.4214,,rounding,"3,340,017 / 26,889,261; slide 14 chart value 0.1242"
+B18,Slide 14: Calvary institutional funder count,42,42,,exact,
+C01.2019,Stream map 2019: OVSJG,660935,660935,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2020,Stream map 2020: OVSJG,368935,368935,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2021,Stream map 2021: OVSJG,368935,368935,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2022,Stream map 2022: OVSJG,468435,468435,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2023,Stream map 2023: OVSJG,841040,841040,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2024,Stream map 2024: OVSJG,913401,913401,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2025,Stream map 2025: OVSJG,998278,998278,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C01.2026,Stream map 2026: OVSJG,1050651,1050651,,exact,"dc_ovsjg, DC FY, excl. OVSJG-L35-1059 (SLFRF building purchase)"
+C02.2019,Stream map 2019: HUD CoC via TCP,239659,239659,,exact,hud_coc by competition year
+C02.2020,Stream map 2020: HUD CoC via TCP,248131,248131,,exact,hud_coc by competition year
+C02.2021,Stream map 2021: HUD CoC via TCP,1472398,1472398,,exact,hud_coc by competition year
+C02.2022,Stream map 2022: HUD CoC via TCP,672065,672065,,exact,hud_coc by competition year
+C02.2023,Stream map 2023: HUD CoC via TCP,1151540,1151540,,exact,hud_coc by competition year
+C02.2024,Stream map 2024: HUD CoC via TCP,1761352,1761352,,exact,hud_coc by competition year
+C02.2025,Stream map 2025: HUD CoC via TCP,1766814,1766814,,exact,hud_coc by competition year
+C02.2026,Stream map 2026: HUD CoC via TCP,0,0,,exact,hud_coc by competition year
+C03.2019,Stream map 2019: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C03.2020,Stream map 2020: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C03.2021,Stream map 2021: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C03.2022,Stream map 2022: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C03.2023,Stream map 2023: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C03.2024,Stream map 2024: DHS via TCP,1423664,1423664,,exact,"dc_oversight, DC FY2024 only"
+C03.2025,Stream map 2025: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C03.2026,Stream map 2026: DHS via TCP,0,0,,exact,"dc_oversight, DC FY2024 only"
+C04.2019,Stream map 2019: other federal pass-through,0,0,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2020,Stream map 2020: other federal pass-through,0,0,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2021,Stream map 2021: other federal pass-through,0,0,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2022,Stream map 2022: other federal pass-through,68003,68003,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2023,Stream map 2023: other federal pass-through,106673,106673,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2024,Stream map 2024: other federal pass-through,0,0,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2025,Stream map 2025: other federal pass-through,0,0,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C04.2026,Stream map 2026: other federal pass-through,0,0,,exact,audit_sefa EFSP 97.024 + SNAP E&T 10.561
+C05,"OVSJG 2019 = sum of two Reach Up rows (660,935)?",660935,660935,,MISMATCH,"Two rows with different grant numbers: OVSJG-L35-690 292,000 ('Create 15 beds of transitional housing a...'); OVSJG-L35-556 368,935 ('Provide 15 beds of transitional housing ...'). Grant-number ranges per DC FY in the OVSJG layer: 2016: L35-321..389 (n=69); 2017: L35-390..467 (n=78); 2018: L35-468..544 (n=77); 2019: L35-545..783 (n=239); 2020: L35-784..912 (n=129); 2021: L35-913..1046 (n=134); 2022: L35-1047..1214 (n=168); 2023: L35-1215..1346 (n=132); 2024: L35-1347..1467 (n=121); 2025: L35-1468..1587 (n=120). L35-556 sits below every other FY2019 number and the FY2020 Reach Up grant is 368,935 with the same text, so L35-556 looks like the FY2018 cycle filed under 2019. DC spending data (dc_pass) shows OVSJG obligations of 208,372 in FY2019 and 368,395 in FY2020. Summing to 660,935 is very likely a double count; the 2019 OVSJG bar is overstated by roughly 290-370K. Judgment call, flagged as MISMATCH-in-method rather than arithmetic."
+C06,"'$4.1M award base' (2024 column of the stream map, $M)",4.1,4.0984,,rounding,"OVSJG FY2024 913,401 + CoC 2024 1,761,352 + DHS FY2024 1,423,664 + other 0 = 4,098,417"
+C07,TCP share of the base (%),74 (of $4.1M),74.2434,,MISMATCH,"(CoC + DHS) / 2024 stream-map base 4,098,417 = 77.7%; (CoC + DHS) / FY25-aligned ceiling base 4,289,967 = 74.2%. 74% comes from the FY25 ceiling base, which includes 106,673 of carried-forward other federal and FY25 OVSJG; the $4.1M quoted beside it is the 2024 base, where TCP is 78%. Slide 5 and the one-pager pair the 74% with the $4.1M."
+C08,"CoC 'three projects' (distinct project names, 2023-25)",3,3,,exact,"Sister Circle (PSH), Reach Up (Joint TH-RRH), New Foundations 2 (Joint TH-RRH)"
+C09a,CoC 2019 ($M),0.24,0.2397,,rounding,
+C09b,CoC 2025 ($M),1.77,1.7668,,rounding,
+C10a,OVSJG FY20 ($M),0.37,0.3689,,rounding,
+C10b,OVSJG FY26 ($M),1.05,1.0507,,rounding,
+C11a,DHS FY2024 transitional housing ($K),830,830.384,,rounding,
+C11b,DHS FY2024 Sisters Rise ($K),593,593.28,,rounding,
+C11c,DHS FY2024 total ($M),1.42,1.4237,,rounding,
+D01,FY24 ceiling,3595278,3595278,,exact,"OVSJG FY2024 913,401 + CoC competition 2023 1,151,540 + DHS FY2024 1,423,664 + other federal 106,673 (= FY23 audit SEFA EFSP 67,684 + SNAP E&T 38,989, carried forward)"
+D02,FY25 ceiling,4289967,4289967,,exact,"OVSJG FY2025 998,278 + CoC competition 2024 1,761,352 + DHS FY2024 carried 1,423,664 + other federal 106,673 carried from FY23 SEFA"
+D03,FY24 recognized / ceiling (%),73,72.9068,,rounding,"2,621,203 / 3,595,278"
+D04,FY25 recognized / ceiling (%),67,67.427,,rounding,"2,892,598 / 4,289,967"
+D05,FY25 ratio with DHS excluded (%),not shown,100.9174,,not_shown,"2,892,598 / 2,866,303: recognized revenue exceeds the non-DHS ceilings, so the FY25 990 figure implies DHS money is in line 1e"
+D06,"FY25 ratio with Sisters Rise (593,280) excluded (%)",not shown,78.2484,,not_shown,"2,892,598 / 3,696,687"
+D07,FY24 ratio with Sisters Rise excluded (%),not shown,87.3153,,not_shown,"2,621,203 / 3,001,998"
+D08,FY24 ratio with DHS excluded (%),not shown,120.703,,not_shown,
+D09,Other federal in FY24/FY25 ceilings vs stream map,"ceiling uses 106,673; slide 5 shows 0 for 2024-25",same rows,,MISMATCH,"The ceiling (slide 11) carries the FY23 SEFA small pass-throughs into FY24 and FY25; the stream map (slide 5) shows 0 for 2024 and 2025 and its 2024 base excludes them. Internally inconsistent carry-forward rule between the two slides (effect: 106,673, about 2.5% of the ceiling)."
+E01,Baseline FY25 revenue,4967995,4967995.0,,exact,
+E02,Baseline FY25 expenses ($M),5.58,5.5753,,rounding,"5,575,321"
+E03,Baseline FY25 cash,2063796,2063796.0,,exact,
+E04,Baseline deficit ($K),-607,-607.326,,rounding,
+E05,"Baseline monthly burn ('about $50K a month', $K)",50,50.6105,,rounding,deficit / 12 = 50.6K; deck says 'about $50K'
+E06.coc,FY25 government revenue apportioned to coc,not shown,1187628,,not_shown,"share of FY25 ceiling 0.4106 x 2,892,598"
+E06.dhs,FY25 government revenue apportioned to dhs,not shown,959935,,not_shown,"share of FY25 ceiling 0.3319 x 2,892,598"
+E06.other,FY25 government revenue apportioned to other,not shown,71926,,not_shown,"share of FY25 ceiling 0.0249 x 2,892,598"
+E06.ovsjg,FY25 government revenue apportioned to ovsjg,not shown,673109,,not_shown,"share of FY25 ceiling 0.2327 x 2,892,598"
+E07,Baseline months of cash after 12 months,3.1,3.1348,,rounding,"(cash 2,063,796 + deficit -607,326) / (expenses/12 = 464,610)"
+E08,Baseline months to zero cash,41,40.778,,rounding,cash / monthly deficit
+E09.S1a,S1 revenue loss ($K),67,67.3109,,rounding,OVSJG grants cut 10%
+E09.S1b,S1 % of revenue,1,1.3549,,rounding,
+E09.S1c,S1 gross deficit ($K),-675,-674.6369,,rounding,baseline deficit - loss
+E09.S1d,S1 net deficit at 50% cost avoidance ($K),not shown,-641,,not_shown,baseline deficit - loss x (1 - 0.5)
+E09.S1e,S1 months of cash after 12 months (net),3.1,3.0624,,rounding,(cash + net deficit) / (FY25 expenses / 12) = 3.06; gross version = 2.99; alternative dividing by expenses net of avoided cost = 3.08
+E09.S2a,S2 revenue loss ($K),168,168.2773,,rounding,OVSJG grants cut 25%
+E09.S2b,S2 % of revenue,3,3.3872,,rounding,
+E09.S2c,S2 gross deficit ($K),-776,-775.6033,,rounding,baseline deficit - loss
+E09.S2d,S2 net deficit at 50% cost avoidance ($K),not shown,-691,,not_shown,baseline deficit - loss x (1 - 0.5)
+E09.S2e,S2 months of cash after 12 months (net),3.0,2.9537,,rounding,(cash + net deficit) / (FY25 expenses / 12) = 2.95; gross version = 2.77; alternative dividing by expenses net of avoided cost = 3.00
+E09.S3a,S3 revenue loss ($K),178,178.1441,,rounding,HUD CoC renewals cut 15%
+E09.S3b,S3 % of revenue,4,3.5858,,rounding,
+E09.S3c,S3 gross deficit ($K),-785,-785.4701,,rounding,baseline deficit - loss
+E09.S3d,S3 net deficit at 50% cost avoidance ($K),not shown,-696,,not_shown,baseline deficit - loss x (1 - 0.5)
+E09.S3e,S3 months of cash after 12 months (net),2.9,2.9431,,rounding,(cash + net deficit) / (FY25 expenses / 12) = 2.94; gross version = 2.75; alternative dividing by expenses net of avoided cost = 2.99
+E09.S4a,S4 revenue loss ($K),366,365.7621,,rounding,One CoC project lost (New Foundations 2)
+E09.S4b,S4 % of revenue,7,7.3624,,rounding,
+E09.S4c,S4 gross deficit ($K),-973,-973.0881,,rounding,baseline deficit - loss
+E09.S4d,S4 net deficit at 50% cost avoidance ($K),not shown,-790,,not_shown,baseline deficit - loss x (1 - 0.5)
+E09.S4e,S4 months of cash after 12 months (net),2.7,2.7412,,rounding,(cash + net deficit) / (FY25 expenses / 12) = 2.74; gross version = 2.35; alternative dividing by expenses net of avoided cost = 2.83
+E09.S5a,S5 revenue loss ($K),960,959.9346,,rounding,DHS/TCP contract not renewed
+E09.S5b,S5 % of revenue,19,19.3224,,rounding,
+E09.S5c,S5 gross deficit ($K),-1567,-1567.2606,,rounding,baseline deficit - loss
+E09.S5d,S5 net deficit at 50% cost avoidance ($K),not shown,-1087,,not_shown,baseline deficit - loss x (1 - 0.5)
+E09.S5e,S5 months of cash after 12 months (net),2.1,2.1018,,rounding,(cash + net deficit) / (FY25 expenses / 12) = 2.10; gross version = 1.07; alternative dividing by expenses net of avoided cost = 2.30
+E09.S6a,S6 revenue loss ($K),1306,1306.3561,,rounding,"Combined (OVSJG -25%, CoC -15%, DHS lost)"
+E09.S6b,S6 % of revenue,26,26.2954,,rounding,
+E09.S6c,S6 gross deficit ($K),-1914,-1913.6821,,rounding,baseline deficit - loss
+E09.S6d,S6 net deficit at 50% cost avoidance ($K),not shown,-1261,,not_shown,baseline deficit - loss x (1 - 0.5)
+E09.S6e,S6 months of cash after 12 months (net),1.7,1.729,,rounding,(cash + net deficit) / (FY25 expenses / 12) = 1.73; gross version = 0.32; alternative dividing by expenses net of avoided cost = 1.96
+F01,Ward 8 poverty (%),31,30.6103,,rounding,ACS 2020-24
+F02,Ward 7 poverty (%),23,22.8832,,rounding,
+F03,DC poverty (%),15,15.4394,,rounding,
+F04,Ward 8 female poverty (%),32,31.6905,,rounding,adult female poverty 28.5%
+F05,"Renters paying 50%+ of income, Wards 7 and 8 ('about a third')",~33,"W7 33.3, W8 32.5",,rounding,DC 23.6%
+F06,Calvary beds 2022,68,68,,exact,all project types (TH 45 + PSH + RRH); TH only = 45
+F07,Calvary beds 2025,124,124,,exact,all project types (TH 94 + PSH 16 + RRH 14); TH only = 94
+F08,Share of DC TH beds 2022 (%),2.5,2.5238,,rounding,TH-only 45 / DC TH 1783 (HIC summary 1783); all-types 68 / DC TH = 3.8%
+F09,Share of DC TH beds 2025 (%),6.8,6.787,,rounding,TH-only 94 / DC TH 1385 (HIC summary 1385); all-types 124 / DC TH = 9.0%
+F10,Beds vs share basis consistency,124 beds ... 6.8% of DC TH beds,124 = all types; 6.8% = TH-only (94) / DC TH,,MISMATCH,"The headline bed count is all project types (TH+PSH+RRH) but the share is computed on TH beds only. Read together ('124 beds, 6.8% of DC's transitional-housing beds') the sentence implies 124 TH beds. Either state 94 TH beds (6.8%) or 124 beds of all types (no single-type share)."
+F11,DC PIT 2016,8350,8350.0,,exact,
+F12,DC PIT 2025,5138,5138.0,,exact,
+G01,Six months of FY25 expenses ($M),2.8,2.7877,,rounding,"2,787,660"
+G02,Private (non-government) revenue FY25 ($M),2.1,2.0754,,rounding,"total revenue - 990 line 1e = 2,075,397"
+G03,Public share if private rises to $3.0M at flat government (%),about half,49.0887,,rounding,"2,892,598 / (2,892,598 + 3,000,000)"
+H01,Reviewer check 1: FY25 preferred total_revenue,4967995,4967995.0,,exact,
+H02,Reviewer check 2: Cafritz TY2024 grant,170000,170000.0,,exact,1 row(s)
+H03,Reviewer check 3: audit_sefa FY2023 sum,937999,937999,,exact,"4 rows; largest 440,677"
+H04a,Reviewer check 4: OVSJG FY2026 New Foundations,543056,543056,,exact,
+H04b,Reviewer check 4: OVSJG FY2026 Reach Up,507595,507595,,exact,
+H05,Reviewer check 5: Ward 8 poverty_rate,0.306,0.3061,,rounding,
+H06,Reviewer check 6: DWC FY2024 total_revenue,34403997,34403997.0,,exact,1 preferred row(s)

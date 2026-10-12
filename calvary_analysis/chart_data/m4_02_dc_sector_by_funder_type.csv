@@ -1,0 +1,9 @@
+funder_type,amount,funders,grants,median_grant,share,source_tables,source_ids
+daf_sponsor,384152850.0,13,2052,25000.0,0.5816201449073546,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+private_foundation,150243611.0,450,3288,10000.0,0.22747380580730878,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+community_foundation,45222245.0,11,399,40000.0,0.06846797749889372,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+corporate_foundation,41482032.0,16,601,570.0,0.06280517107420008,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+public_charity_grantmaker,29356162.0,63,596,15587.5,0.044446202068691605,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+federated_giving,9842825.0,10,194,17720.5,0.014902363220259156,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+civic_association,150000.0,1,6,25000.0,0.00022710497068055904,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml
+other,37800.0,4,12,3000.0,5.7230452611500876e-05,fact_grants;dim_funder;dim_universe_membership,bulk_gt_datalake;bulk_irs_xml

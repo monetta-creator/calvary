@@ -1,0 +1,7 @@
+funder_type,count,25%,50%,75%,90%,mean,source_tables,source_ids
+corporate_foundation,601.0,142.0,570.0,25000.0,250000.0,69021.68386023295,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+private_foundation,3288.0,2500.0,10000.0,30000.0,78880.00000000029,45694.528892944036,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+public_charity_grantmaker,596.0,10000.0,15587.5,39024.0,100000.0,49255.30536912752,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+federated_giving,194.0,10000.0,17720.5,30230.75,108083.90000000007,50736.21134020619,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+daf_sponsor,2052.0,10250.0,25000.0,76887.5,258848.80000000005,187208.99122807017,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+community_foundation,399.0,15000.0,40000.0,81190.5,200000.0,113338.95989974937,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

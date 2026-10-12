@@ -1,0 +1,1189 @@
+# Web queries and curated page lists for scripts 43-45 (Phase 4 web funder data).
+# Tavily searches are cached by (id, query, params) in interim/web_fetch_manifest.csv; reruns reuse the
+# saved raw response unless the script is run with --refresh.
+
+calvary:
+  searches:
+    - id: cal_audit_fy24
+      query: "Calvary Women's Services audited financial statements September 30 2024"
+    - id: cal_audit_fy25
+      query: "Calvary Women's Services financial statements September 30 2025 independent auditor's report"
+    - id: cal_audit_fy22
+      query: "Calvary Women's Services financial statements September 30 2022 single audit"
+    - id: cal_ar_2024
+      query: "Calvary Women's Services 2024 annual report"
+    - id: cal_ar_2025
+      query: "Calvary Women's Services 2025 annual report donors foundations"
+    - id: cal_site_pdf
+      query: "calvaryservices.org annual report audit pdf"
+      params: {include_domains: [calvaryservices.org], max_results: 20}
+    # Candid hosts Uniform Guidance (A-133) audit PDFs by EIN; the FY22 single audit was found this way
+    - id: cal_candid_a133
+      query: "Calvary Women's Services single audit financial statements"
+      params: {include_domains: [docs.candid.org], max_results: 20}
+    - id: cal_candid_a133_2024
+      query: "CALVARY WOMEN'S SERVICES, INC. FINANCIAL STATEMENTS SEPTEMBER 30, 2024 AND 2023 schedule of expenditures of federal awards"
+    - id: cal_candid_a133_2025
+      query: "CALVARY WOMEN'S SERVICES, INC. FINANCIAL STATEMENTS SEPTEMBER 30, 2025 AND 2024"
+    - id: cal_news_grants_2025
+      query: "Calvary Women's Services awarded grant 2025"
+      params: {max_results: 10, start_date: "2025-01-01"}
+    - id: cal_news_grants_2026
+      query: "Calvary Women's Services grant funding 2026 Washington DC"
+      params: {max_results: 10, start_date: "2026-01-01"}
+  # Calvary blog/press posts (2022-2026) that name funders; found via the WP posts API (search: grant, donation,
+  # partner, foundation, award, support; after 2022-06-01). Fetched by 43; parsed with the mentions/named_lists below.
+  posts:
+    - id: post_2023_aura_cacia_grant
+      url: "https://www.calvaryservices.org/2023/03/calvary-womens-services-receives-grant-from-aura-cacias-positive-change-project/"
+      year: 2023
+      mentions:
+        - {name: "Aura Cacia Positive Change Project", year: 2023, pattern: "selected the organization as one of five Positive Change Project grant recipients", purpose: "2023 Positive Change Project grant for Step Up DC (employment)", amount_kind: cash, kind: "grant announcement", note: "amount not stated; Aura Cacia is a Frontier Co-op brand"}
+    - id: post_2023_capital_one_poy
+      url: "https://www.calvaryservices.org/2023/04/partner-of-the-year/"
+      year: 2023
+      mentions:
+        - {name: "Capital One", year: 2022, pattern: "In 2022 alone, Capital One made significant financial investments in Calvary, led a 10-week pro bono project", purpose: "grants (financial literacy and housing programs) via the Capital One Impact Initiative, plus pro bono project and gift matching", amount_kind: mixed, kind: "partner of the year", note: "2023 Partner of the Year; amounts not stated"}
+    - {id: post_2023_gala_550k, url: "https://www.calvaryservices.org/2023/05/calvary-womens-services-2023-hope-gala-raises-over-550k/", year: 2023}
+    - id: post_2023_frontier_coop
+      url: "https://www.calvaryservices.org/2023/05/frontier-co-op-empowers-women-at-calvary/"
+      year: 2023
+      mentions:
+        - {name: "Frontier Co-op", year: 2023, pattern: "Frontier Co-Op generously donated over 370 items", purpose: "in-kind donation of over 370 self-care and pantry items to transitional housing sites", amount_kind: noncash, in_kind: true, kind: "in-kind donation", note: "goods donation; no value stated"}
+    - id: post_2023_hogan_lovells_thanksgiving
+      url: "https://www.calvaryservices.org/2023/11/gratitude-in-every-box-hogan-lovells-15-year-tradition-brightens-thanksgiving-at-calvary-womens-services/"
+      year: 2023
+      mentions:
+        - {name: "Hogan Lovells", year: 2023, pattern: "Hogan Lovells. 15-Year Tradition", purpose: "annual Thanksgiving boxes for Calvary residents (15-year tradition)", amount_kind: noncash, in_kind: true, cumulative: true, kind: "in-kind donation", note: "in-kind tradition; also an annual Hope Gala sponsor"}
+    - id: post_2023_share_fund
+      url: "https://www.calvaryservices.org/2023/12/supporter-story/"
+      year: 2023
+      mentions:
+        - {name: "Share Fund", year: 2023, pattern: "Share Fund invited Calvary Women.s Services to apply for a grant in 2012 and we.ve been proud to support them ever since", purpose: "grants since 2012 (donor-advised fund at the Greater Washington Community Foundation)", amount_kind: cash, cumulative: true, kind: "supporter story", note: "multi-year support since 2012; amounts not stated"}
+    - {id: post_2023_year_review, url: "https://www.calvaryservices.org/2023/12/a-year-in-review-2023-calvary-womens-services-recap/", year: 2023}
+    - id: post_2024_aura_cacia_poy
+      url: "https://www.calvaryservices.org/2024/01/aura-cacia-partner-of-the-year/"
+      year: 2024
+      mentions:
+        - {name: "Aura Cacia Positive Change Project", year: 2024, band_min: 100000, pattern: "Since 2020, Aura Cacia has gifted over \\$100,000 in grants and in-kind donations to Calvary", purpose: "grants and in-kind donations since 2020 (Step Up DC and LEAP)", amount_kind: mixed, cumulative: true, kind: "partner of the year", note: "cumulative 2020-2023 'over $100,000' stated by the recipient; 2024 Partner of the Year"}
+    - {id: post_2024_gala_recap, url: "https://www.calvaryservices.org/2024/04/2024-hope-gala-recap/", year: 2024}
+    - {id: post_2025_aura_cacia_thanks, url: "https://www.calvaryservices.org/2025/02/thank-you-to-aura-cacia-2024-partner-of-the-year/", year: 2025}
+    - {id: post_2025_gala_thanks, url: "https://www.calvaryservices.org/2025/04/thank-you-to-everyone-who-supported-the-2025-hope-gala-on-april-23rd/", year: 2025}
+    - {id: post_2025_year_review, url: "https://www.calvaryservices.org/2025/12/how-you-changed-lives-at-calvary-womens-services-in-2025/", year: 2025}
+    - id: post_2026_gala_620k
+      url: "https://www.calvaryservices.org/2026/05/over-620000-raised-at-calvary-womens-services-2026-hope-gala/"
+      year: 2026
+      mentions:
+        - {name: "Biotechnology Innovation Organization (BIO)", year: 2026, pattern: "Our 2026 Partner of the Year, the Biotechnology Innovation Organization \\(BIO\\)", purpose: "2026 Partner of the Year: 'a key partner in the expansion of Calvary's programs'", kind: "partner of the year", note: "no amount stated; CRM lists BIO with 21 gifts"}
+    - {id: post_2022_us_gov_funding, url: "https://www.calvaryservices.org/2022/03/calvary-womens-services-receives-significant-new-us-government-funding-to-expand-housing-services-for-vulnerable-dc-women", year: 2022}
+  # per-document extraction hints for PDFs found by 43 (filled after inspecting each PDF).
+  # audit.statements: [pdf_page, SFP|SOA, [[fiscal_year, W|R|T|NA, is_prior_comparative], ...]] in printed
+  # column order, parsed with the Phase 1 statement parser (scripts/02_extract_inputs.parse_statement).
+  documents:
+    - filename: 521307706_2022_25813620221_A133.pdf
+      source_id: web_calvary_fy22_audit
+      fiscal_year: 2022
+      note: "FY22 audit + Uniform Guidance single audit (Sept 30, 2022 and 2021), hosted by Candid (docs.candid.org/A133); not posted on calvaryservices.org."
+      audit:
+        statements:
+          - [6, SFP, [[2022, NA, false], [2021, NA, true]]]
+          - [7, SOA, [[2022, W, false], [2022, R, false], [2022, T, false]]]
+          - [8, SOA, [[2021, W, true], [2021, R, true], [2021, T, true]]]
+        sefa_pages: [29]
+        note_pages: [12, 22]
+    - filename: CWS-Audited-Financial-Statements-2014.pdf
+      source_id: web_calvary_fy14_audit
+      fiscal_year: 2014
+      note: "FY14 audit (Sept 30, 2014, with 2013 summarized); uploaded to the WP media library, not linked from the financials page."
+      audit:
+        statements:
+          - [5, SFP, [[2014, NA, false], [2013, NA, true]]]
+          - [6, SOA, [[2014, W, false], [2014, R, false], [2014, T, false], [2013, T, true]]]
+        note_pages: [10, 15]
+    - filename: audited-statements-2013.pdf
+      source_id: web_calvary_fy13_audit
+      fiscal_year: 2013
+      note: "FY13 audit; scanned image PDF with no text layer (not OCR'd, not parsed)."
+    - filename: CWS-Form-990-2014.pdf
+      source_id: web_calvary_990_file_2014
+      note: "Form 990 PDF named '2014'; scanned image, no text layer (not parsed)."
+    - filename: CWS-form-990-2013.pdf
+      source_id: web_calvary_990_file_2013
+      note: "Form 990 PDF named '2013'; scanned image, no text layer (not parsed)."
+    - filename: Calvary-Womens-Services-2014-Annual-Report.pdf
+      source_id: web_calvary_fy14_annual_report
+      fiscal_year: 2014
+      report_year: 2014
+      note: "FY14 annual report with donor list by gift band (organizations named; individuals counted only)."
+      donor_list:
+        section_heading: "Corporate partners, associations, faith groups and other organizations"
+        columns:  # page 6 spread, reading order; individuals continue through the right-hand columns
+          - [6, [50, 140, 212, 660]]
+          - [6, [212, 140, 372, 660]]
+          - [6, [372, 40, 630, 720]]
+          - [6, [630, 40, 790, 720]]
+          - [6, [790, 40, 960, 720]]
+          - [6, [960, 40, 1152, 720]]
+        org_section_re: "^Corporate partners|^groups and other organizations"
+        ind_section_re: "^Individuals and families"
+        skip_fonts: "Georgia|Wendy"
+        wrap_gap: 9.5
+      mentions:
+        - name: Taproot Foundation
+          pattern: "pro bono grant from the Taproot Foundation"
+          in_kind: true
+          note: "pro bono grant (in-kind) supporting volunteer-program expansion; narrative, no amount"
+    - filename: FY2013-Annual-Report-simple-version-FINAL.pdf
+      source_id: web_calvary_fy13_annual_report
+      fiscal_year: 2013
+      report_year: 2013
+      note: "FY13 annual report (simple version); no donor list, funders named in narrative only."
+      mentions:
+        - name: Walmart Foundation
+          pattern: "generous support of the Walmart Foundation"
+          note: "supported the launch of the Nutrition Education Program in 2013; no amount"
+        - name: United Methodist Women
+          pattern: "support from United Methodist Women"
+          note: "expanded the Nutrition Education Program (financial literacy component); no amount"
+    - filename: Step-Up-DC-2016-Year-End-Report.pdf
+      source_id: web_calvary_step_up_dc_2016
+      report_year: 2016
+      note: "Step Up DC (employment program) 2016 year-end report."
+      named_lists:
+        - heading: "Step Up DC supporters ('supported the program this year')"
+          start: "^Supporters"
+          end: "Founded in 1983|Calvary Women.s Services (empowers|offers)"
+          skip: "grateful for the generous|following partners supported"
+          org_list: true
+          note: "program funders for Step Up DC in 2016; no amounts"
+    - filename: 2025-Hope-Gala-Sponsorship_CWS-2.pdf
+      source_id: web_calvary_hope_gala_2025_sponsorship
+      report_year: 2025
+      note: "2025 Hope Gala sponsorship brochure; 'Past Event Sponsors' page (cumulative, years not stated)."
+      named_lists:
+        - heading: "Hope Gala: Past Event Sponsors (cumulative)"
+          start: "^Past Event Sponsors"
+          end: "Hope Gala Commitment Form"
+          skip: "Women.s Services|Ending homelessness|^\\s*\\d+\\s*$|^\\s*Calvary\\s*$"
+          org_list: true
+          note: "event sponsors over past years (cumulative); no amounts or years"
+    - filename: 2017-Hope-Awards-Sponsorship-Opportunities.pdf
+      source_id: web_calvary_hope_awards_2017_sponsorship
+      report_year: 2017
+      note: "2017 Hope Awards Dinner sponsorship brochure; 'Corporate Support' page lists past sponsors."
+      named_lists:
+        - heading: "Hope Awards Dinner: companies that have sponsored (cumulative)"
+          start: "CORPORATE SUPPORT"
+          end: "HOPE AWARDS DINNER PRESS"
+          skip: "Join other elite companies|have sponsored the Hope Awards|^\\s*\\d+\\s*$"
+          join: {"U.S. Trust, Bank of America Private": "Wealth Management"}
+          drop: ["New Partners"]
+          org_list: true
+          note: "event sponsors over past years (cumulative, as of early 2017); no amounts or years"
+
+# ------------------------------------------------------------------ Task 2: core peers (config/core_peers.csv)
+# Two template searches per peer: an open web search and a site-restricted search on the peer's domain.
+peer_query_templates:
+  - query: "{name} annual report 2025 donors supporters"
+    params: {max_results: 8}
+  - query: "annual report supporters funders foundation partners"
+    params: {include_domains: ["{domain}"], max_results: 10}
+
+peers:
+  - id: nsv
+    ein: "521007373"
+    name: "N Street Village"
+    domain: nstreetvillage.org
+    pages:
+      - {id: nsv_ar_fy24, url: "https://www.nstreetvillage.org/wp-content/uploads/2024/12/NSV-Annual-Report-FY23-24.pdf", kind: annual_report, year: 2024}
+      - {id: nsv_funding_reports, url: "https://www.nstreetvillage.org/funding-and-reports", kind: support_page, year: 2026}
+      - {id: nsv_ar_fy25, url: "https://www.nstreetvillage.org/wp-content/uploads/2025/12/2025-NSV-Annual-Report.pdf", kind: annual_report, year: 2025, pdf: true}
+  - id: hor_dc
+    ein: "521054102"
+    name: "House of Ruth DC"
+    domain: houseofruth.org
+    pages:
+      - {id: hordc_ar_2025, url: "https://houseofruth.org/wp-content/uploads/HOR-AnnualReport2025-FINAL.pdf", kind: annual_report, year: 2025}
+  - id: openarms
+    ein: "522040518"
+    name: "Open Arms Housing"
+    domain: openarmshousing.org
+    searches:
+      - {id: peer_openarms_x1, query: "Open Arms Housing Washington DC annual report donors supporters foundations", params: {max_results: 10}}
+    pages:
+      - {id: openarms_about, url: "https://www.openarmshousing.org/about", kind: support_page, year: 2026}
+  - id: nebw
+    ein: "521547845"
+    name: "New Endeavors by Women"
+    domain: nebw.org
+    searches:
+      - {id: peer_nebw_x1, query: "annual report funders supporters thank you", params: {include_domains: ['nebw.org'], max_results: 10}}
+    pages:
+      - {id: nebw_reports, url: "https://www.nebw.org/new-s-financials", kind: support_page, year: 2026}
+      - {id: nebw_ar_2025, url: "https://www.nebw.org/_files/ugd/c2dfe8_4d34e6ea7f8242e4900e4440bf89e487.pdf", kind: annual_report, year: 2025, pdf: true}
+  - id: dash
+    ein: "711019574"
+    name: "District Alliance for Safe Housing DASH"
+    domain: dashdc.org
+    searches:
+      - {id: peer_dash_x1, query: "thank you supporters funders foundations", params: {include_domains: ['dashdc.org'], max_results: 10}}
+    pages:
+      - {id: dash_ar_2023, url: "https://dashdc.org/wp-content/uploads/2025/08/DASH-Annual-Report-2023.pdf", kind: annual_report, year: 2023}
+  - id: msp
+    ein: "521263256"
+    name: "My Sister's Place DC"
+    domain: mysistersplacedc.org
+    searches:
+      - {id: peer_msp_x1, query: "annual report supporters funders thank you", params: {include_domains: ['mysistersplacedc.org'], max_results: 10}}
+    pages:
+      - {id: msp_impact_fy23, url: "https://www.mysistersplacedc.org/wp-content/uploads/2025/10/FY23-Impact-Report-FINAL.pdf", kind: annual_report, year: 2023}
+      - {id: msp_ar_fy22, url: "https://www.mysistersplacedc.org/wp-content/uploads/2025/10/10-2022MSP_AnnualReport.pdf", kind: annual_report, year: 2022}
+  - id: dcsafe
+    ein: "412226446"
+    name: "DC SAFE"
+    domain: dcsafe.org
+    pages:
+      - {id: dcsafe_ar_fy25, url: "https://www.dcsafe.org/s/FY25-Annual-Report-2.pdf", kind: annual_report, year: 2025}
+  - id: samaritan
+    ein: "521474935"
+    name: "Samaritan Inns"
+    domain: samaritaninns.org
+    searches:
+      - {id: peer_samaritan_x1, query: "Nuvaya formerly Samaritan Inns Washington DC annual report supporters", params: {max_results: 10}}
+    pages:
+      - {id: nuvaya_fin_reports, url: "https://www.nuvaya.org/about-us/financial-reports", kind: support_page, year: 2026}
+  - id: christhouse
+    ein: "521362103"
+    name: "Christ House"
+    domain: christhouse.org
+    pages:
+      - {id: christhouse_ar_2025, url: "https://christhouse.org/2025-annual-report", kind: annual_report, year: 2025}
+      - {id: christhouse_ar_2025_pdf, url: "https://christhouse.org/wp-content/uploads/Digital-2025-Annual-Report.pdf", kind: annual_report, year: 2025, pdf: true}
+  - id: everyonehome
+    ein: "520853501"
+    name: "Everyone Home DC"
+    domain: everyonehomedc.org
+    pages:
+      - {id: ehdc_ar_2024, url: "https://everyonehomedc.org/your-2024-annual-report", kind: annual_report, year: 2024}
+      - {id: ehdc_bezos, url: "https://everyonehomedc.org/everyone-home-dc-receives-2-5-million-bezos-day-1-families-fund-grant-to-support-dc-families-with-finding-safe-shelter-housing-and-stability", kind: web}
+      - {id: ehdc_chcf, url: "https://everyonehomedc.org/everyone-home-dc-receives-continued-support-from-capitol-hill-community-foundation", kind: web}
+      - {id: ehdc_ar_2024_pdf, url: "https://everyonehomedc.org/wp-content/uploads/2025/04/2024-Everyone-Home-DC-Annual-Report_Digital.pdf", kind: annual_report, year: 2024, pdf: true}
+  - id: cfh
+    ein: "521245499"
+    name: "Coalition for the Homeless DC"
+    domain: dccfh.org
+    searches:
+      - {id: peer_cfh_x1, query: "annual report 2023 2024 supporters donors", params: {include_domains: ['dccfh.org'], max_results: 10}}
+    pages:
+      - {id: cfh_ar_list, url: "https://dccfh.org/our-impact/annual-reports", kind: support_page, year: 2026}
+      - {id: cfh_ar_2025, url: "https://dccfh.org/wp-content/uploads/2026/05/CFTH-2025-Annual-Report_v5_pages_web.pdf", kind: annual_report, year: 2025, pdf: true}
+  - id: thrive
+    ein: "521485474"
+    name: "Thrive DC"
+    domain: thrivedc.org
+    searches:
+      - {id: peer_thrive_x1, query: "annual report 2024 2025 supporters funders", params: {include_domains: ['thrivedc.org'], max_results: 10}}
+    pages:
+      - {id: thrive_impact_2024, url: "https://www.thrivedc.org/wp-content/uploads/2025/03/2024-Impact-Report-2.pdf", kind: annual_report, year: 2024}
+  - id: miriams
+    ein: "521331552"
+    name: "Miriam's Kitchen"
+    domain: miriamskitchen.org
+    searches:
+      - {id: peer_miriams_x1, query: "our supporters foundation partners annual report 2024 2025", params: {include_domains: ['miriamskitchen.org'], max_results: 10}}
+    pages:
+      - {id: miriams_financials, url: "https://www.miriamskitchen.org/about/financials", kind: support_page, year: 2026}
+      - {id: miriams_ar_fy25, url: "https://mkannualreport.org/", kind: annual_report, year: 2025}
+  - id: coh
+    ein: "521184749"
+    name: "Community of Hope"
+    domain: communityofhopedc.org
+    pages:
+      - {id: coh_funders, url: "https://www.communityofhopedc.org/funders-and-financials", kind: support_page, year: 2026}
+      - {id: coh_5_5m, url: "https://www.communityofhopedc.org/community-of-hope-receives-5-5-million-from-dc-area-foundations-to-support-maternal-and-child-health-programs", kind: web}
+      - {id: coh_ar_2025, url: "https://www.communityofhopedc.org/wp-content/uploads/2026/08/NEW-COH-AR-08-26-UPDATE.pdf", kind: annual_report, year: 2025, pdf: true}
+      - {id: coh_impact_2024, url: "https://www.communityofhopedc.org/wp-content/uploads/2024/12/COH-2024-Impact-Report-Medium.pdf", kind: annual_report, year: 2024, pdf: true}
+  - id: chdc
+    ein: "133537709"
+    name: "Covenant House Washington DC"
+    domain: covenanthousegw.org
+    searches:
+      - {id: peer_chdc_x1, query: "annual report donors supporters partners", params: {include_domains: ['covenanthousegw.org'], max_results: 10}}
+    pages:
+      - {id: chgw_home, url: "https://www.covenanthousegw.org", kind: support_page, year: 2026}
+      - {id: chgw_impact_fy24, url: "https://www.covenanthousegw.org/_files/ugd/0981a7_511fb281db22436bb8d9388bb2d1e913.pdf", kind: annual_report, year: 2024, pdf: true}
+  - id: doorways
+    ein: "541087829"
+    name: "Doorways for Women and Families"
+    domain: doorwaysva.org
+    pages:
+      - {id: doorways_ar_2023, url: "https://www.doorwaysva.org/doorways-2023-annual-report", kind: annual_report, year: 2023}
+      - {id: doorways_ar_2023_issuu, url: "https://issuu.com/doorwaysva/docs/doorways2023annualreport", kind: annual_report, year: 2023}
+  - id: hor_md
+    ein: "521100236"
+    name: "House of Ruth Maryland"
+    domain: hruth.org
+    pages:
+      - {id: hormd_honor_roll, url: "https://hruth.org/corporations-foundations-and-community-groups-honor-roll", kind: support_page, year: 2026}
+      - {id: hormd_honor_roll_tav, url: "https://hruth.org/corporations-foundations-and-community-groups-honor-roll", kind: support_page, method: tavily, depth: advanced}
+      - {id: hormd_ar_2024, url: "https://hruth.org/wp-content/uploads/2025/03/FINAL-Annual-Report-2024-8.5-x-11-in.pdf", kind: annual_report, year: 2024}
+      - {id: hormd_ar_page, url: "https://hruth.org/about-us/annual-report/", kind: annual_report, year: 2025}
+  - id: heartly
+    ein: "521186250"
+    name: "Heartly House"
+    domain: heartlyhouse.org
+    pages:
+      - {id: heartly_ar_fy25, url: "https://www.heartlyhouse.org/wp-content/uploads/2025/11/HH-Annual-Report-6-25_Web-Version.pdf", kind: annual_report, year: 2025}
+
+# ------------------------------------------------------------------ Task 3: DMV funder grantee lists (2024-2026)
+funders:
+  - id: meyer
+    name: "Eugene and Agnes E. Meyer Foundation"
+    searches:
+      - {id: fdn_meyer_1, query: "Meyer Foundation grants awarded 2025 grantees list", params: {max_results: 10}}
+      - {id: fdn_meyer_2, query: "grantees 2024 2025 grant amount", params: {include_domains: [meyerfoundation.org], max_results: 15}}
+      - {id: fdn_meyer_3, query: "Meyer awards grants grantee partners 2025 2026", params: {include_domains: [meyerfoundation.org], max_results: 15}}
+      - {id: fdn_meyer_4, query: "grantee partners list organizations funded 2025 general operating", params: {include_domains: [meyerfoundation.org], max_results: 15}}
+      - {id: fdn_meyer_5, query: "\"Meyer Foundation\" grant 2025 \"N Street Village\" OR \"Calvary Women's Services\" OR \"Miriam's Kitchen\"", params: {max_results: 10}}
+    pages:
+      - {id: meyer_118m_28, url: "https://meyerfoundation.org/news/meyer-awards-1-18-million-in-general-operating-grants-to-28-grantee-partners", kind: grant_list}
+      - {id: meyer_635k_8, url: "https://meyerfoundation.org/news/meyer-awards-635000-to-eight-organizations-in-march", kind: grant_list}
+      - {id: meyer_rapid, url: "https://meyerfoundation.org/rapid-response", kind: grant_list}
+      - {id: meyer_news, url: "https://meyerfoundation.org/our-news", kind: index}
+      - {id: meyer_325m, url: "https://meyerfoundation.org/news/meyer-foundation-awards-3-25-million-in-new-grants", kind: grant_list}
+  - id: cafritz
+    name: "Morris and Gwendolyn Cafritz Foundation"
+    searches:
+      - {id: fdn_cafritz_1, query: "Cafritz Foundation grants awarded 2025 grantees", params: {max_results: 10}}
+      - {id: fdn_cafritz_2, query: "grants awarded 2024 2025 2026 list", params: {include_domains: [cafritzfoundation.org], max_results: 15}}
+    pages:
+      - {id: cafritz_recent, url: "https://cafritzfoundation.org/grants/recent-grants", kind: grant_list}
+  - id: graham
+    name: "Philip L. Graham Fund"
+    searches:
+      - {id: fdn_graham_1, query: "Philip L. Graham Fund grants 2025 grantees", params: {max_results: 10}}
+      - {id: fdn_graham_2, query: "grants awarded 2024 2025 human services", params: {include_domains: [plgrahamfund.org], max_results: 15}}
+    pages:
+      - {id: graham_recent, url: "https://plgrahamfund.org/what-we-support/recent-grants", kind: grant_list}
+  - id: abell
+    name: "William S. Abell Foundation"
+    searches:
+      - {id: fdn_abell_1, query: "William S. Abell Foundation grants 2025 grantees", params: {max_results: 10}}
+      - {id: fdn_abell_2, query: "\"William S. Abell Foundation\" grant 2024 homeless women Washington", params: {max_results: 10}}
+      - {id: fdn_abell_3, query: "grantees grants awarded", params: {include_domains: [williamsabellfoundation.org], max_results: 10}}
+    pages:
+      - {id: abell_grantmaking, url: "https://www.williamsabellfoundation.org/grant-making", kind: grant_list}
+  - id: clarkwinchcole
+    name: "Clark-Winchcole Foundation"
+    searches:
+      - {id: fdn_cw_1, query: "Clark-Winchcole Foundation grants 2025 grantees", params: {max_results: 10}}
+      - {id: fdn_cw_2, query: "\"Clark-Winchcole Foundation\" grant 2024 2025 Washington DC nonprofit", params: {max_results: 10}}
+  - id: wawf
+    name: "Washington Area Women's Foundation"
+    searches:
+      - {id: fdn_wawf_1, query: "Washington Area Women's Foundation grantees 2025 grant partners", params: {max_results: 10}}
+      - {id: fdn_wawf_2, query: "grantee partners 2024 2025 grants", params: {include_domains: [thewomensfoundation.org], max_results: 15}}
+      - {id: fdn_wawf_3, query: "Women's Foundation announces grants 2025 grantee partners list", params: {include_domains: [thewomensfoundation.org], max_results: 15}}
+    pages:
+      - {id: wawf_grantees, url: "https://thewomensfoundation.org/our-grantee-partners", kind: grant_list}
+      - {id: wawf_ece_2026, url: "https://thewomensfoundation.org/2026/meet-our-2026-ece-grantee-partners", kind: grant_list, year: 2026}
+      - {id: wawf_820k, url: "https://thewomensfoundation.org/press_releases/womens-foundation-awards-820000-in-grants-to-dc-area-nonprofits", kind: grant_list}
+  - id: gwcf
+    name: "Greater Washington Community Foundation"
+    searches:
+      - {id: fdn_gwcf_1, query: "Greater Washington Community Foundation grants awarded 2025 grantees list", params: {max_results: 10}}
+      - {id: fdn_gwcf_2, query: "grantees 2025 grants awarded homelessness housing", params: {include_domains: [thecommunityfoundation.org], max_results: 15}}
+      - {id: fdn_gwcf_3, query: "Partnership to End Homelessness grants awarded nonprofits", params: {include_domains: [thecommunityfoundation.org], max_results: 15}}
+    pages:
+      - {id: gwcf_pteh_350k, url: "https://thecommunityfoundation.org/news/partnership-to-end-homelessness-awards-350000-to-nonprofits-through-waldon-adams-housing-justice-fund", kind: grant_list}
+      - {id: gwcf_pteh_375k, url: "https://thecommunityfoundation.org/news/partnership-to-end-homelessness-awards-375000-in-grants-through-waldon-adams-housing-justice-fund", kind: grant_list}
+      - {id: gwcf_pteh_310k, url: "https://www.thecommunityfoundation.org/news/partnership-to-end-homelessness-awards-310000-to-nonprofits-advancing-housing-justice", kind: grant_list}
+      - {id: gwcf_pteh_honor, url: "https://thecommunityfoundation.org/news/partnership-to-end-homelessness-awards-grants-in-honor-of-waldon-adams", kind: grant_list}
+      - {id: gwcf_hef_partners, url: "https://www.thecommunityfoundation.org/news/meet-our-health-equity-nonprofit-partners", kind: grant_list}
+      - {id: gwcf_sharing_945k, url: "https://www.thecommunityfoundation.org/news/community-foundations-sharing-community-initiative-announce-945000-in-funding-for-region-nonprofits-", kind: grant_list}
+      - {id: gwcf_hef_2022_some, url: "https://some.org/some-awarded-inaugural-grant-from-health-equity-fund-among-32-dc-nonprofits", kind: grant_list, year: 2022}
+      - {id: gwcf_carefirst_maternal, url: "https://www.thecommunityfoundation.org/news/greater-washington-community-foundation-and-carefirst-bluecross-blueshield-award-22-million-in-grants-to-combat-maternal-health-crisis", kind: grant_list}
+  - id: uwnca
+    name: "United Way of the National Capital Area"
+    searches:
+      - {id: fdn_uwnca_1, query: "United Way of the National Capital Area grantees 2025 community partners grants", params: {max_results: 10}}
+      - {id: fdn_uwnca_2, query: "grant recipients 2024 2025 nonprofit partners", params: {include_domains: [unitedwaynca.org], max_results: 15}}
+      - {id: fdn_uwnca_3, query: "fund distribution report agencies designated donations", params: {include_domains: [unitedwaynca.org], max_results: 10}}
+      - {id: fdn_uwnca_4, query: "United Way of the National Capital Area announces grants 2025 nonprofit recipients", params: {max_results: 10, start_date: "2024-06-01"}}
+    pages:
+      - {id: uwnca_financials, url: "https://unitedwaynca.org/about-us/financials", kind: index}
+  - id: bainum
+    name: "Bainum Family Foundation"
+    searches:
+      - {id: fdn_bainum_1, query: "Bainum Family Foundation grants 2025 grantees list", params: {max_results: 10}}
+      - {id: fdn_bainum_2, query: "grants grantee partners 2024 2025", params: {include_domains: [bainumfdn.org], max_results: 15}}
+    pages:
+      - {id: bainum_grantmaking, url: "https://bainumfdn.org/topic/grantmaking", kind: index}
+  - id: diamond
+    name: "Diamond Family Foundation"
+    searches:
+      - {id: fdn_diamond_1, query: "\"Diamond Family Foundation\" Washington DC grants homeless", params: {max_results: 10}}
+  - id: manyhands
+    name: "Many Hands"
+    note: "DC women's giving circle; found by search fdn_meyer_5 (not on the required list)"
+    searches: []
+    pages:
+      - {id: manyhands_calvary, url: "https://manyhandsdc.org/grantee/calvary-womens-services", kind: grant_list}
+  - id: venable
+    name: "Venable Foundation"
+    searches:
+      - {id: fdn_venable_1, query: "Venable Foundation grants 2025 grantees nonprofit", params: {max_results: 10}}
+      - {id: fdn_venable_2, query: "\"Venable Foundation\" grant 2024 2025 Washington DC homeless", params: {max_results: 10}}
+    pages:
+      - {id: venable_2025_11, url: "https://www.venable.com/about/news/2025/11/venable-foundation-grants-more-than-1-million", kind: grant_list, year: 2025}
+      - {id: venable_2025_12, url: "https://www.venable.com/about/news/2025/12/venable-foundation-announces-4-m-in-charitable", kind: grant_list, year: 2025}
+      - {id: venable_2026_05, url: "https://www.venable.com/about/news/2026/05/venable-foundation-awards-770000-to-101-nonprofits", kind: grant_list, year: 2026}
+  - id: capitalone
+    name: "Capital One"
+    searches:
+      - {id: fdn_capone_1, query: "Capital One grants Washington DC nonprofits 2025 awarded", params: {max_results: 10}}
+      - {id: fdn_capone_2, query: "Capital One Impact Initiative grant DC homelessness 2024 2025", params: {max_results: 10}}
+    pages:
+      - {id: capone_3_5m, url: "https://www.capitalone.com/about/our-commitments/3.5-million-in-grant-funding", kind: grant_list}
+  - id: boa
+    name: "Bank of America (Neighborhood Builders)"
+    searches:
+      - {id: fdn_boa_1, query: "Bank of America Neighborhood Builders 2025 Washington DC nonprofits", params: {max_results: 10}}
+      - {id: fdn_boa_2, query: "Bank of America Neighborhood Builders 2024 Greater Washington awardees", params: {max_results: 10}}
+      - {id: fdn_boa_3, query: "Bank of America names Washington D.C. Neighborhood Builders 2025 nonprofits", params: {max_results: 10}}
+      - {id: fdn_boa_4, query: "Bank of America Neighborhood Builders Washington DC 2024 award nonprofit homeless", params: {max_results: 10}}
+      - {id: fdn_boa_5, query: "\"Neighborhood Builders\" 2025 \"Washington, D.C.\" Bank of America announces two nonprofits", params: {max_results: 10, start_date: "2025-01-01"}}
+    pages:
+      - {id: boa_nb_2024_20yrs, url: "https://newsroom.bankofamerica.com/content/newsroom/press-releases/2024/12/bofa-celebrates-20-years-of-neighborhood-builders.html", kind: grant_list, year: 2024}
+  - id: carefirst
+    name: "CareFirst"
+    searches:
+      - {id: fdn_carefirst_1, query: "CareFirst Commitment grants 2025 nonprofits awarded Washington DC", params: {max_results: 10}}
+      - {id: fdn_carefirst_2, query: "CareFirst BlueCross BlueShield grant 2024 2025 homeless women DC", params: {max_results: 10}}
+      - {id: fdn_carefirst_3, query: "CareFirst grants 2025 District of Columbia nonprofits list awarded community health", params: {max_results: 10}}
+      - {id: fdn_carefirst_4, query: "CareFirst Commitment grant 2025 Washington D.C. nonprofit homelessness women award", params: {max_results: 10, start_date: "2025-01-01"}}
+    pages:
+      - {id: carefirst_eventsdc, url: "https://eventsdc.com/news/carefirst-deepens-commitment-community-transformative-investment-east-river", kind: grant_list}
+  - id: wellsfargo
+    name: "Wells Fargo"
+    searches:
+      - {id: fdn_wf_1, query: "Wells Fargo Foundation grants Washington DC nonprofits 2025 housing", params: {max_results: 10}}
+      - {id: fdn_wf_2, query: "Wells Fargo grant 2024 2025 DC homelessness nonprofit awarded", params: {max_results: 10}}
+      - {id: fdn_wf_3, query: "Wells Fargo Foundation awards D.C. nonprofits housing grants 2024 2025", params: {max_results: 10}}
+    pages:
+      - {id: wf_500k_dc, url: "https://finance.yahoo.com/news/wells-fargo-foundation-awards-500-160000950.html", kind: grant_list}
+
+# ------------------------------------------------------------------ Task 4: in-kind evidence for the A2 assumption
+inkind:
+  - id: mgac
+    name: "MGAC"
+    searches:
+      - {id: ik_mgac_1, query: "MGAC Calvary Women's Services", params: {max_results: 10}}
+      - {id: ik_mgac_2, query: "MGAC pro bono project management nonprofit Washington DC community", params: {max_results: 10}}
+    pages:
+      - {id: ik_mgac_calvary_spotlight, url: "https://www.calvaryservices.org/2015/07/corporate-partner-spotlight-mgac", kind: evidence, year: 2015}
+      - {id: ik_mgac_year_of_giving, url: "https://www.mgac.com/blog/reflecting-on-a-year-of-giving-at-mgac", kind: evidence}
+  - id: hef
+    name: "Health Equity Fund"
+    searches:
+      - {id: ik_hef_1, query: "\"Health Equity Fund\" Calvary Women's Services", params: {max_results: 10}}
+      - {id: ik_hef_2, query: "\"Health Equity Fund\" Washington DC grants 2024 2025 nonprofits", params: {max_results: 10}}
+    pages:
+      - {id: ik_hef_home, url: "https://www.healthequityfund.org", kind: evidence}
+      - {id: ik_hef_disb, url: "https://disb.dc.gov/release/greater-washington-community-foundation-announces-92-million-health-equity-fund-grants", kind: evidence}
+      - {id: ik_hef_some, url: "https://some.org/some-awarded-inaugural-grant-from-health-equity-fund-among-32-dc-nonprofits", kind: evidence}
+  - id: capitalone
+    name: "Capital One"
+    searches:
+      - {id: ik_capone_1, query: "Capital One Calvary Women's Services", params: {max_results: 10}}
+    pages:
+      - {id: ik_capone_poy, url: "https://www.calvaryservices.org/2023/04/partner-of-the-year", kind: evidence, year: 2023}
+  - id: worldbank
+    name: "World Bank Community Connections Fund"
+    searches:
+      - {id: ik_wb_1, query: "World Bank Community Connections Fund employee giving campaign match", params: {max_results: 10}}
+      - {id: ik_wb_2, query: "\"Community Connections Fund\" World Bank Calvary", params: {max_results: 10}}
+    pages:
+      - {id: ik_wb_ccc, url: "https://www.worldbank.org/ext/en/work-with-us/community-connections", kind: evidence}
+      - {id: ik_wb_ccc_faq, url: "https://thedocs.worldbank.org/en/doc/d83306164007adb803316bfd17c1daa4-0220012021/related/Retiree-Portal-CCC-FAQs.pdf", kind: evidence}
+      - {id: ik_wb_ccc_fy22, url: "https://thedocs.worldbank.org/en/doc/3058b726fe9570a0d7531d8b0cfa3606-0240082021/original/FY2022-CCC-Booklet.pdf", kind: evidence, year: 2022}
+
+# ------------------------------------------------------------------ Task 5: staging (script 45)
+# Recipient alias regexes (case-insensitive). "House of Ruth" without "Maryland" is read as House of Ruth (DC).
+recipients:
+  calvary: "Calvary Women.?s Services|Calvary Women.?s\\b|Calvary Womens"
+  nsv: "N Street Village"
+  hor_dc: "^(The )?House of Ruth(?!,? (Maryland|MD))(, Inc\\.?)?$|House of Ruth \\(DC\\)|House of Ruth DC"
+  openarms: "Open Arms Housing"
+  nebw: "New Endeavors [Bb]y Women"
+  dash: "District Alliance for Safe Housing|^DASH$"
+  msp: "My Sisters?.?s? Place(?! of)"
+  dcsafe: "^DC SAFE|^D\\.C\\. SAFE|Survivors and Advocates for Empowerment"
+  samaritan: "Samaritan Inns|^Nuvaya"
+  christhouse: "^Christ House"
+  everyonehome: "Everyone Home DC|^Everyone Home$"
+  cfh: "^(DC |D\\.C\\. |The )?Coalition for the Homeless(, Inc\\.?)?$"
+  thrive: "^Thrive DC"
+  miriams: "Miriam.?s Kitchen"
+  coh: "^Community of Hope(, Inc\\.?)?$"
+  chdc: "Covenant House (Washington|Greater Washington|DC|D\\.C\\.)"
+  doorways: "Doorways for Women (and|&) Families|^Doorways$"
+  hor_md: "House of Ruth,? Maryland|House of Ruth \\(MD\\)"
+  heartly: "Heartly House"
+
+# Per-page parse specs, keyed by page id (pages are listed under peers/funders above).
+# year = the year the list describes (gift year or grant year); year_basis stays report_year unless a grant
+# date is parsed (then award_year).
+page_parse:
+  # ---------- peers (entries are funders; recipient = the peer)
+  nsv_ar_fy25:
+    year: 2025
+    parse:
+      - type: layout_columns
+        start: "Annual Donor List July 1, 2024"
+        end: "RECURRING DONORS|^\\s*Board of Directors\\s*$"
+        skip: "Annual Donor List|^\\d+$|N Street Village|Thank you|nstreetvillage"
+        section_re: "IN-KIND GIFTS"
+        section: "Annual Donor List July 1, 2024 - June 30, 2025"
+        note: "FY25 donor list (gifts July 2024-June 2025)"
+  nsv_ar_fy24:
+    year: 2024
+    parse:
+      - type: layout_columns
+        start: "Thank you for supporting our Village"
+        end: "Board\\s*of Directors|2024-2025 Board"
+        skip: "who donated|Thank you|generous donors|ListedListed|here are those|^\\d+$|N Street Village"
+        section: "FY24 donors of $500 or more"
+        note: "FY24 donor list (FY July 2023-June 2024)"
+  hordc_ar_2025:
+    year: 2024
+    parse:
+      - type: layout_columns
+        start: "^OUR FAMILY"
+        end: "Board of Directors\\s+Senior Leadership"
+        skip: "OF DONORS|gratefully recognizes|received January|cumulative giving|listed in this report|to all our donors|make our impact|Members of our monthly|Program are denoted|Board of Directors are|italics|every effort|accuracy of this|Emily Gjovik|houseofruth.org if|Annual Report 2025|^\\d+$|in memory of|honoring|In honor"
+        section_re: "^Special Thanks$"
+        section: "Our Family of Donors (cumulative gifts Jan 1-Dec 31, 2024, $1,000+)"
+        note: "2025 annual report donor list covers gifts Jan-Dec 2024"
+  msp_impact_fy23:
+    year: 2023
+    parse:
+      - type: layout_columns
+        start: "FY23 corporate support"
+        end: "FY2023 IMPACT REPORT"
+        skip: "FY23 Revenue|Amerigroup.s generous gift|our new administrative|acedc.org|^\\d+%?$|fy2\\d|In FY2022|second shelter"
+        section_re: "FY23 (corporate|FOUNDATION) support"
+        section: "FY23 corporate and foundation support"
+        note: "FY23 impact report (most recent posted); no amounts except where stated"
+      - type: explicit
+        rows:
+          - {name: "Amerigroup", amount: 55000, year: 2023, verify: "Amerigroup.s generous gift of \\$55,000 funded the completion of", purpose: "new administrative office and Fresh Start Fund", note: "amount stated by the recipient"}
+  coh_funders:
+    year: 2024
+    parse:
+      - type: lines
+        start: "^Other Partners$"
+        end: "^Community Support$"
+        band_re: "^(Hope Givers|Healers|Home Builders|Other Partners)$"
+        section_re: "^Corporate Partners, Churches, and other Significant Supporters$"
+        skip: "^Download|^Contact Us"
+        note: "'most recent published list of top supporters' (tiers Hope Givers/Healers/Home Builders, no $ ranges); same list as the FY2024 Impact Report"
+  cfh_ar_2025:
+    year: 2025
+    parse:
+      - type: layout_columns
+        start: "^\\s*Businesses\\s*$"
+        end: "An Unforgettable EVENING"
+        skip: "COALITION FOR THE HOMELESS$|Thank You FOR YOUR SUPPORT|ANNUAL REPORT|^\\d+$|Luxury Game Day Package|donation in honor|of Elizabeth"
+        section_re: "^(Charitable Fund/Foundations|Government Agencies|Stepping Out For The Homeless|Sponsors)$"
+        section: "Businesses"
+        note: "2025 annual report supporter list"
+  heartly_ar_fy25:
+    year: 2025
+    parse:
+      - type: layout_columns
+        start: "2024.2025"
+        end: "LEADERSHIP TEAM"
+        keep_bands: false
+        skip: "CONNECT&THRIVE|Thank you to all|Please consider|to support our vital|work in the community|ONLINE GIVING|HEALING HEARTS|Join a community|businesses, and organizations committed|pledged to donate|^\\d+$"
+        section: "2024-2025 donors (FY ending June 2025)"
+        note: "mixed individual/organization list; bands not kept (layout too irregular to assign reliably)"
+  dash_ar_2023:
+    year: 2023
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Amazon Housing Equity Fund", amount: 5000000, year: 2023, date: "6/1/2023", verify: "awarded\\s+a \\$5 million grant from the Amazon Housing Equity\\s+Fund in June 2023", purpose: "Journey Home campaign: Cornerstone building mortgage paydown and renovations", note: "amount stated by the recipient; one-time restricted grant; grant_date is the month stated (June 2023)"}
+  ehdc_bezos:
+    year: 2023
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Bezos Day 1 Families Fund", amount: 2500000, year: 2023, verify: "receive a \\$2\\.5 million grant from the Bezos Day 1 Families Fund", purpose: "one-time flexible grant for family homelessness services (sixth annual Day 1 Families Fund round)", note: "post dated November 21, 2023; amount stated by the recipient"}
+  ehdc_chcf:
+    year: 2025
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Capitol Hill Community Foundation", amount: 10000, year: 2025, verify: "Bill Phillips Grant for Social Services, a \\$10,000 award", purpose: "Bill Phillips Grant for Social Services (Fall 2025 cycle)", note: "post dated January 12, 2026"}
+          - {name: "Capitol Hill Community Foundation", amount: 18000, year: 2026, amount_kind: pledge, verify: "We now budget \\$18,000 annually from the Capitol Hill Community Foundation", purpose: "recurring Spring/Fall grants: Street Outreach, Drop-In Day Center, Day Center Maintenance Fund", note: "budgeted annual amount stated by the recipient, not a confirmed award"}
+  coh_5_5m:
+    year: 2025
+    parse:
+      - type: explicit
+        rows:
+          - {name: "A. James & Alice B. Clark Foundation", amount: 4000000, year: 2025, verify: "\\$4 million investment from the A\\. James & Alice B\\. Clark Foundation", purpose: "Maternal and Child Health programs", note: "release dated March 31, 2025; amount stated by the recipient", cumulative: true}
+          - {name: "The J. Willard and Alice S. Marriott Foundation", amount: 1000000, year: 2025, verify: "\\$1 million grant from The J\\. Willard and Alice S\\. Marriott Foundation", purpose: "Maternal and Child Health programs", note: "release dated March 31, 2025"}
+          - {name: "Bedford Falls Foundation", amount: 1000000, year: 2025, amount_kind: pledge, verify: "\\$1 million commitment from the Bedford Falls Foundation", purpose: "Maternal and Child Health programs", note: "commitment; release says $500,000 of it is (text truncated in quote)"}
+  hormd_honor_roll: {skip: "URL now serves the About Us page; no honor roll content"}
+  hormd_ar_2024: {skip: "PDF returns HTTP 404"}
+  hormd_ar_page: {skip: "annual report page has no donor list"}
+  hormd_honor_roll_tav: {skip: "Tavily advanced extract also returns no honor roll content"}
+  nsv_funding_reports: {skip: "index page (links to annual reports)"}
+  openarms_about: {skip: "no funder list on the site"}
+  nebw_reports: {skip: "index page (links to annual reports)"}
+  nebw_ar_2025: {skip: "2025 annual report text has no funder list"}
+  msp_ar_fy22: {skip: "no funder list"}
+  dcsafe_ar_fy25: {skip: "no funder list (revenue split only)"}
+  nuvaya_fin_reports: {skip: "HTTP 403 and Tavily extract empty"}
+  christhouse_ar_2025: {skip: "landing page; PDF has no text layer"}
+  christhouse_ar_2025_pdf: {skip: "image-only PDF (12 chars of text)"}
+  ehdc_ar_2024: {skip: "landing page"}
+  ehdc_ar_2024_pdf: {skip: "2024 annual report text has no funder list"}
+  cfh_ar_list: {skip: "index page"}
+  thrive_impact_2024: {skip: "lists corporate volunteer groups, not funders"}
+  miriams_financials: {skip: "index page"}
+  miriams_ar_fy25: {skip: "mkannualreport.org is JavaScript-rendered; no text retrieved"}
+  chgw_home: {skip: "home page"}
+  chgw_impact_fy24: {skip: "FY24 impact report text has no funder list"}
+  doorways_ar_2023: {skip: "landing page"}
+  doorways_ar_2023_issuu: {skip: "issuu viewer; no document text"}
+  coh_ar_2025: {skip: "2025 annual report summary has no funder list"}
+  coh_impact_2024: {skip: "same list as coh_funders (parsed there)"}
+
+  # ---------- funders (entries are recipients)
+  cafritz_recent:
+    parse:
+      - type: md_table
+        cols: {purpose: 0, period: 1, area: 2, amount: 3}
+        funder: "Morris and Gwendolyn Cafritz Foundation"
+        heading: "Recent Grants (Summer 2025 - Spring 2026 cycles)"
+        ambiguous: {msp: "listed as 'My Sisters Place (MSP)' linking to mspny.org; Cafritz funds the DC area only, read as My Sister's Place DC"}
+        note: "grant amount and cycle as published by the funder; 412 rows (> 300), so only Calvary and core peers kept"
+  graham_recent:
+    parse:
+      - type: records
+        anchor: "\\d{1,2}/\\d{1,2}/20\\d\\d"
+        fields: {name: -2, purpose: -1, date: 0, area: 1, location: 2, amount: 3}
+        funder: "Philip L. Graham Fund"
+        heading: "Recent Grants (past 36 months)"
+        min_year: 2024
+        whole_list: true
+        note: "grant date and amount as published by the funder; 233 grants dated 2024-2026 (< 300): DC homelessness/DV/women grantees kept as well"
+  gwcf_hef_partners:
+    year: 2024
+    parse:
+      - type: blocks
+        anchor: "^Which Communities/Neighborhoods do you serve"
+        context_lines: 4
+        funder: "Greater Washington Community Foundation (Health Equity Fund)"
+        heading: "Health Equity Fund October 2024 round ($10M multiyear to 40 projects)"
+        whole_list: true
+        cumulative: true
+        purpose: "Health Equity Fund multiyear grant (October 2024 round)"
+        note: "named partner; amount not stated per grantee"
+  gwcf_hef_2022_some:
+    year: 2022
+    parse:
+      - type: lines
+        start: "2022 Health Equity Fund Partners"
+        end: "^About the Health Equity Fund|^###|^About SOME"
+        funder: "Greater Washington Community Foundation (Health Equity Fund)"
+        heading: "Health Equity Fund inaugural round, September 2022 ($9.2M to 32 DC nonprofits)"
+        whole_list: true
+        purpose: "Health Equity Fund grant (inaugural September 2022 round)"
+        note: "list republished by SOME; amount not stated per grantee"
+  gwcf_pteh_375k:
+    year: 2024
+    parse:
+      - type: lines
+        start: "2024 waldon adams HOUSING JUSTICE GRANTEES"
+        end: "^Jan Bigas$"
+        funder: "Greater Washington Community Foundation (Partnership to End Homelessness)"
+        heading: "2024 Waldon Adams Housing Justice grantees ($375,000 total)"
+        whole_list: true
+        purpose: "Waldon Adams Housing Justice grant (housing justice advocacy)"
+  gwcf_pteh_350k:
+    year: 2025
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Miriam's Kitchen", recipient_key: miriams, funder: "Greater Washington Community Foundation (Partnership to End Homelessness)", verify: "Miriam.s Kitchen .With our Partnership grant", purpose: "Waldon Adams Housing Justice grant (2025 round, $350,000 to 10 grantees)", note: "release dated April 7, 2025; per-grantee amount not stated"}
+  gwcf_carefirst_maternal:
+    year: 2026
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Community of Hope", recipient_key: coh, funder: "Developing Families Maternal Health Fund (Greater Washington Community Foundation with CareFirst BlueCross BlueShield)", amount_band_max: 200000, verify: "Community of Hope . Comprehensive maternal and child healthcare services", purpose: "Developing Families Maternal Health Fund (GWCF with CareFirst), up to $200,000 over two years", note: "release dated January 23, 2026; each grantee receives up to $200,000 over two years", cumulative: true}
+  venable_2025_11:
+    year: 2025
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Miriam's Kitchen", recipient_key: miriams, verify: "largest donations were given to the Maryland Food Bank, Miriam.s Kitchen, and Bread for the City", purpose: "second 2025 round (food insecurity); among the three largest donations", note: "release dated November 1, 2025; amount not stated"}
+  meyer_325m: {skip: "June 2016 grant list; outside 2024-2026"}
+  manyhands_calvary:
+    parse:
+      - type: explicit
+        rows:
+          - {name: "Calvary Women's Services", recipient_key: calvary, funder: "Many Hands", amount: 55500, year: 2020, verify: "2020 Partner Grant \\(Job Readiness\\): \\$55,500", purpose: "2020 Partner Grant (Job Readiness)", note: "funder's grantee page"}
+          - {name: "Calvary Women's Services", recipient_key: calvary, funder: "Many Hands", amount: 24000, year: 2012, verify: "2012 Partner Grant \\(Housing\\): \\$24,000", purpose: "2012 Partner Grant (Housing)", note: "funder's grantee page"}
+  meyer_118m_28: {skip: "2020 list (outside 2024-2026); no Calvary or peers"}
+  meyer_635k_8: {skip: "2022 list (outside 2024-2026); no Calvary or peers"}
+  meyer_rapid: {skip: "program description only; no grantee list"}
+  meyer_news: {skip: "news index"}
+  abell_grantmaking: {skip: "guidelines only; no grantee list published"}
+  wawf_grantees: {skip: "current grantee partners (ECE, maternal health, Young Women's Initiative); no Calvary, peers or homelessness/DV grantees"}
+  wawf_ece_2026: {skip: "early care and education cohort; not in scope"}
+  wawf_820k: {skip: "undated older release (pre-2020); outside 2024-2026"}
+  gwcf_pteh_310k: {skip: "2021 release; outside 2024-2026"}
+  gwcf_pteh_honor: {skip: "2022 release; outside 2024-2026"}
+  gwcf_sharing_945k: {skip: "no Calvary or peers named"}
+  uwnca_financials: {skip: "financials index; no grantee list"}
+  bainum_grantmaking: {skip: "grantmaking topic index; early-childhood focus, no grantee list"}
+  venable_2025_12: {skip: "totals by city only"}
+  venable_2026_05: {skip: "totals by city only"}
+  capone_3_5m: {skip: "2021 Impact Initiative list; no DC homelessness grantees"}
+  boa_nb_2024_20yrs: {skip: "national release; no DC awardees named"}
+  carefirst_eventsdc: {skip: "Events DC partnership; no grantees named"}
+  wf_500k_dc: {skip: "June 2024: five DC homeownership-counseling grants; none are Calvary, peers or homelessness/DV providers"}
+
+# ------------------------------------------------------------------ Task 4 output: in-kind evidence rows (script 45)
+# quote_re is matched against the page text (whitespace-collapsed); the first 200 chars of the match are stored.
+# page_id refers to interim/web_pages.csv, or calvary_post_* (Calvary posts fetched by script 43).
+inkind_evidence:
+  - funder: MGAC
+    crm_gift_total: 712730
+    page_id: ik_mgac_calvary_spotlight
+    url: "https://www.calvaryservices.org/2015/07/corporate-partner-spotlight-mgac"
+    quote_re: "Since 2006, MGAC has shown invaluable dedication to Calvary Women.s Services by giving financial support, in-kind donations, hundreds of volunteer hours, professional expertise and more"
+    finding: "Calvary (2015) describes MGAC support as mixed: cash, in-kind donations, volunteer hours and professional expertise."
+    classification: unclear
+  - funder: MGAC
+    crm_gift_total: 712730
+    page_id: ik_mgac_calvary_spotlight
+    url: "https://www.calvaryservices.org/2015/07/corporate-partner-spotlight-mgac"
+    quote_re: "MGAC offered extensive project management services as Calvary purchased, renovated and moved to our facility on Good Hope Road in 2013"
+    finding: "MGAC (project and construction management firm) gave extensive pro bono project management for the 2013 Good Hope Road purchase and renovation; a large CRM total with small cash gifts fits valued pro bono services."
+    classification: in_kind
+  - funder: MGAC
+    crm_gift_total: 712730
+    page_id: ik_mgac_year_of_giving
+    url: "https://www.mgac.com/blog/reflecting-on-a-year-of-giving-at-mgac"
+    quote_re: "supporting their mission through volunteer initiatives, donations, and pro bono project management services.including recent work reviewing permits and easements for a project"
+    finding: "MGAC's own blog confirms ongoing pro bono project management for Calvary (recent permits/easements work) alongside donations."
+    classification: in_kind
+  - funder: MGAC
+    crm_gift_total: 712730
+    page_id: ik_mgac_year_of_giving
+    url: "https://www.mgac.com/blog/reflecting-on-a-year-of-giving-at-mgac"
+    quote_re: "MGAC was proud to be the presenting sponsor"
+    finding: "MGAC was presenting sponsor of the Hope Gala (the 2025 brochure prices the presenting sponsorship at $50,000): a cash component."
+    classification: cash
+  - funder: Health Equity Fund
+    crm_gift_total: 801000
+    page_id: ik_hef_disb
+    url: "https://disb.dc.gov/release/greater-washington-community-foundation-announces-92-million-health-equity-fund-grants"
+    quote_re: "The \\$95 million Health Equity Fund"
+    finding: "The Health Equity Fund is a $95M fund managed by the Greater Washington Community Foundation under an MOU between the DC Government and GHMSI (CareFirst's DC affiliate); it makes cash grants to DC nonprofits. Not a DC agency or health system."
+    classification: cash
+  - funder: Health Equity Fund
+    crm_gift_total: 801000
+    page_id: ik_hef_disb
+    url: "https://disb.dc.gov/release/greater-washington-community-foundation-announces-92-million-health-equity-fund-grants"
+    quote_re: "Memorandum of Understanding between the Government of the District of Columbia and GHMSI"
+    finding: "Origin of the fund: DC Government / GHMSI (CareFirst) memorandum; grants are administered by the Community Foundation with a Health Equity Committee."
+    classification: cash
+  - funder: Health Equity Fund
+    crm_gift_total: 801000
+    page_id: ik_hef_some
+    url: "https://some.org/some-awarded-inaugural-grant-from-health-equity-fund-among-32-dc-nonprofits"
+    quote_re: "2022 Health Equity Fund Partners .{0,120}Calvary Women.s Services"
+    finding: "Calvary is named among the 32 inaugural (September 2022) Health Equity Fund grantees ($9.2M round)."
+    classification: cash
+  - funder: Health Equity Fund
+    crm_gift_total: 801000
+    page_id: gwcf_hef_partners
+    url: "https://www.thecommunityfoundation.org/news/meet-our-health-equity-nonprofit-partners"
+    quote_re: "Calvary is excited to receive funding that will support our continued expansion, focused on economic empowerment for women"
+    finding: "Calvary is a returning partner in the October 2024 Health Equity Fund round ($10M multiyear to 40 projects): rental assistance expansion and a guaranteed-income pilot. Multi-year cash grant, which fits 3 CRM gifts totalling $801,000."
+    classification: cash
+  - funder: Capital One
+    crm_gift_total: 367340
+    page_id: calvary_post_2023_capital_one_poy
+    url: "https://www.calvaryservices.org/2023/04/partner-of-the-year/"
+    quote_re: "supported Calvary.s work for several years through grants for our financial literacy and housing programs, pro bono project support, and gift matching"
+    finding: "Calvary describes Capital One support as cash grants (Capital One Impact Initiative), pro bono project support and employee gift matching: mixed."
+    classification: unclear
+  - funder: Capital One
+    crm_gift_total: 367340
+    page_id: calvary_post_2023_capital_one_poy
+    url: "https://www.calvaryservices.org/2023/04/partner-of-the-year/"
+    quote_re: "In 2022 alone, Capital One made significant financial investments in Calvary, led a 10-week pro bono project to enhance organizational communications"
+    finding: "2022: significant cash investments plus a 10-week pro bono communications project and financial-management classes."
+    classification: unclear
+  - funder: Capital One
+    crm_gift_total: 367340
+    page_id: calvary_post_2023_capital_one_poy
+    url: "https://www.calvaryservices.org/2023/04/partner-of-the-year/"
+    quote_re: "Capital One.s support of Calvary Women.s Services comes through the Capital One Impact Initiative"
+    finding: "The grants come through the Capital One Impact Initiative (a corporate cash grant program); CRM gifts up to $50,000 (last 2026-04-22) fit cash grants plus matching."
+    classification: cash
+  - funder: World Bank Community Connections Fund
+    crm_gift_total: 261579.62
+    page_id: ik_wb_ccc
+    url: "https://www.worldbank.org/ext/en/work-with-us/community-connections"
+    quote_re: "workplace giving program, the Community Connections Campaign \\(CCC\\), which collects staff and retiree donations that are matched by the World Bank Group"
+    finding: "The fund passes through World Bank staff and retiree workplace-giving donations plus a World Bank Group match: cash. 326 CRM gifts averaging about $800 fit payroll and pledge pass-throughs."
+    classification: cash
+  - funder: World Bank Community Connections Fund
+    crm_gift_total: 261579.62
+    page_id: ik_wb_ccc_fy22
+    url: "https://thedocs.worldbank.org/en/doc/3058b726fe9570a0d7531d8b0cfa3606-0240082021/original/FY2022-CCC-Booklet.pdf"
+    quote_re: "Calvary Women.s Services"
+    finding: "Calvary is a listed CCC charity in the 2021-2022 campaign booklet (with N Street Village, House of Ruth, DASH, My Sister's Place, DC SAFE, Christ House, Community of Hope, Thrive DC, Miriam's Kitchen and others)."
+    classification: cash
+  - funder: World Bank Community Connections Fund
+    crm_gift_total: 261579.62
+    page_id: ik_wb_ccc_faq
+    url: "https://thedocs.worldbank.org/en/doc/d83306164007adb803316bfd17c1daa4-0220012021/related/Retiree-Portal-CCC-FAQs.pdf"
+    quote_re: "annual corporate match at \\$20,000 per donor"
+    finding: "The match is capped per donor, so the fund's transfers are donor gifts plus a corporate match (cash)."
+    classification: cash
+  - funder: Frontier Co-op / Aura Cacia (Frontier Co-op Giving Fund)
+    crm_gift_total: 250000
+    page_id: calvary_post_2023_frontier_coop
+    url: "https://www.calvaryservices.org/2023/05/frontier-co-op-empowers-women-at-calvary/"
+    quote_re: "Frontier Co-Op generously donated over 370 items that were distributed to all of Calvary.s transitional housing sites"
+    finding: "Frontier Co-op (Aura Cacia's parent) makes in-kind product donations as well as Positive Change Project grants."
+    classification: in_kind
+  - funder: Frontier Co-op / Aura Cacia (Frontier Co-op Giving Fund)
+    crm_gift_total: 250000
+    page_id: calvary_post_2025_aura_cacia_thanks
+    url: "https://www.calvaryservices.org/2025/02/thank-you-to-aura-cacia-2024-partner-of-the-year/"
+    quote_re: "offering more than \\$100,000 in grants and in-kind donations through their Positive Change Project"
+    finding: "Calvary reports >$100,000 since 2020 in grants and in-kind donations (mixed); the CRM's $250,000 total is larger than that, so it probably includes in-kind or later gifts."
+    classification: unclear
+  - funder: MGAC; Capital One; World Bank Community Connections Fund
+    page_id: calvary_support_page
+    source_id: web_calvary_corp_found_support
+    url: "https://www.calvaryservices.org/about/corporate/"
+    quote_re: "\\*includes in-kind contributions"
+    finding: "Calvary's support page marks in-kind givers with '*' (only Altria Group, Hogan Lovells, Williams & Connolly). MGAC, Capital One and the World Bank fund are listed in the Empower tier without the mark, so the page does not flag them as in-kind. Weak evidence: the list is cumulative and dated September 2023."
+    classification: unclear
+    notes: "evidence from parsed page structure (span.corporate-partner-in-kind), not a text quote"
+
+# ------------------------------------------------------------------ Named comparators (script 46)
+# Organizations named by Calvary leadership for every analysis (config/named_comparators.csv, rule NC1).
+# Their funders are mostly outside the DMV funder universe, so their supporter lists and grant announcements
+# naming them are pulled here. Budget for script 46: <= 30 Tavily searches and <= 15 Tavily extracts in total.
+# pages: method http (direct GET, PDFs) or tavily (extract); parse specs use the script-45 parser types.
+named_comparators:
+  - id: dwc
+    ein: "311597223"
+    name: "Downtown Women's Center"
+    city: "Los Angeles"
+    state: "CA"
+    domain: downtownwomenscenter.org
+    alias: "Downtown Women.?s Cent(er|re)|^DWC$"
+    searches:
+      - {id: nc_dwc_ar_2025, query: "Downtown Women's Center Los Angeles 2025 annual report", params: {max_results: 10}}
+      - {id: nc_dwc_ar_2024, query: "Downtown Women's Center Los Angeles 2024 annual report donors", params: {max_results: 10}}
+      - {id: nc_dwc_site_ar, query: "annual report impact report pdf", params: {include_domains: [downtownwomenscenter.org], max_results: 15}}
+      - {id: nc_dwc_site_partners, query: "our partners supporters foundations corporate sponsors thank you", params: {include_domains: [downtownwomenscenter.org], max_results: 15}}
+      - {id: nc_dwc_site_grants, query: "grant awarded foundation funding announcement", params: {include_domains: [downtownwomenscenter.org], max_results: 15}}
+      - {id: nc_dwc_grant_2023, query: "\"Downtown Women's Center\" grant awarded foundation 2023", params: {max_results: 10, start_date: "2023-01-01"}}
+      - {id: nc_dwc_grant_2024, query: "\"Downtown Women's Center\" foundation grant 2024 Skid Row", params: {max_results: 10, start_date: "2024-01-01"}}
+      - {id: nc_dwc_grant_2025, query: "\"Downtown Women's Center\" receives grant 2025", params: {max_results: 10, start_date: "2025-01-01"}}
+      - {id: nc_dwc_grant_2026, query: "\"Downtown Women's Center\" grant funding 2026", params: {max_results: 10, start_date: "2026-01-01"}}
+      - {id: nc_dwc_grantees, query: "foundation grantees list \"Downtown Women's Center\" Los Angeles", params: {max_results: 10}}
+      # targeted: funders named in DWC's 2023/2025 donor lists or posts that publish grant announcements (2023-2026)
+      - {id: nc_dwc_f_hilton, query: "Hilton Foundation board approves grants \"Downtown Women's Center\"", params: {max_results: 10, start_date: "2023-01-01"}}
+      - {id: nc_dwc_f_anthem, query: "Anthem Blue Cross Foundation \"Downtown Women's Center\" $300,000 grant mental health", params: {max_results: 10}}
+      - {id: nc_dwc_f_elevance, query: "Elevance Health Foundation grant \"Downtown Women's Center\"", params: {max_results: 10, start_date: "2023-01-01"}}
+      - {id: nc_dwc_f_weingart, query: "Weingart Foundation grant \"Downtown Women's Center\"", params: {max_results: 10, start_date: "2023-01-01"}}
+      - {id: nc_dwc_f_ccf, query: "California Community Foundation grant \"Downtown Women's Center\"", params: {max_results: 10, start_date: "2023-01-01"}}
+      - {id: nc_dwc_f_ahmanson, query: "Ahmanson Foundation grants \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_parsons, query: "Ralph M. Parsons Foundation grants \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_rosehills, query: "Rose Hills Foundation grant \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_annenberg, query: "Annenberg Foundation grant \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_unihealth, query: "UniHealth Foundation grant \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_blueshield, query: "Blue Shield of California Foundation grantee \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_calwellness, query: "California Wellness Foundation grant \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_redf, query: "REDF \"MADE by DWC\" Downtown Women's Center social enterprise investment", params: {max_results: 10}}
+      - {id: nc_dwc_f_fhlbsf, query: "Federal Home Loan Bank of San Francisco grant \"Downtown Women's Center\"", params: {max_results: 10}}
+      - {id: nc_dwc_f_cyrus, query: "Miley Cyrus Foundation \"Downtown Women's Center\" donation", params: {max_results: 10}}
+      - {id: nc_dwc_f_foxwynd, query: "Foxwynd Foundation \"Downtown Women's Center\" grant", params: {max_results: 10}}
+    pages:
+      # ---- DWC's own reports and event pages (entries are funders; recipient = DWC)
+      # Annual Report 2025 PDF (uploaded 2025-10) covers calendar 2024: revenue mix only, no donor list (not parsed).
+      - {id: nc_dwc_ar_2025, url: "https://downtownwomenscenter.org/wp-content/uploads/2025/10/DWC-Annual-Report-2025_Final_Ready-for-Print.pdf", kind: annual_report, method: http, pdf: true, year: 2024}
+      # 2024 annual report PDF ("Celebrating 45 years", revenue/expenses 2023): supporter list by band = 2023 gifts (assumption)
+      - id: nc_dwc_ar_2024
+        url: "https://downtownwomenscenter.org/wp-content/uploads/2024/11/DWC2024AnnualReport2023-Print-Pgs.pdf"
+        kind: annual_report
+        method: http
+        pdf: true
+        year: 2023
+        parse:
+          - {type: pdf_words, pages: [8, 9], band_font: "-Dm$", max_size: 12, col_min_words: 20, wrap_gap: 9.6, year: 2023,
+             section: "Thank you to our supporters (annual report covering 2023)", source_type: annual_report,
+             note: "2024 annual report PDF (revenue and expenses 2023); list read as 2023 gifts; bands as printed ($X+)"}
+      # web edition of the 2025 annual report (calendar 2025): "Thank you to our 2025 donors", one name per line by band
+      - id: nc_dwc_ar_web
+        url: "https://downtownwomenscenter.org/2025annualreport"
+        kind: annual_report
+        method: auto
+        year: 2025
+        parse:
+          - {type: lines, start: "^THANK YOU TO OUR 2025 DONORS$", end: "^About$", band_re: "^\\$\\s?\\d+M ?\\+$", year: 2025,
+             section: "Thank you to our 2025 donors", source_type: annual_report,
+             note: "2025 annual report (web edition); bands as printed ($X+)"}
+      # 2025 Every Woman Housed Gala page: sponsor tiers priced on the same page; sponsor list at the end
+      - id: nc_dwc_gala_2025
+        url: "https://downtownwomenscenter.org/everywomanhousedgala2025"
+        kind: support_page
+        method: auto
+        year: 2025
+        tier_bands: {Presenting: [50000, null], Champions: [25000, null], Leaders: [15000, null], Partners: [10000, null], Advocates: [5000, null], Friends: [2500, null]}
+        tier_note: "band = sponsorship tier price stated on the same page (Presenting $50,000, Champion $25,000, Leader $15,000, Partner $10,000, Advocate $5,000, Friend $2,500)"
+        parse:
+          - {type: lines, start: "^Sponsors$", end: "^(A Special Thank You|About$)", skip: "^Every Woman Housed Gala$",
+             band_re: "^(Presenting|Champions|Leaders|Partners|Advocates|Friends)$", year: 2025,
+             section: "2025 Every Woman Housed Gala sponsors", source_type: support_page, amount_kind_no_amount: mixed,
+             note: "event sponsorship (includes benefits such as seating)"}
+      # recap page repeats the same 2025 sponsor list: fetched for provenance, not parsed (would double count)
+      - {id: nc_dwc_gala_2025_recap, url: "https://downtownwomenscenter.org/every-woman-housed-gala-2025-recap", kind: support_page, method: auto, year: 2025}
+      # 2026 gala sponsors by tier; tier prices in the 2026 deck are garbled graphic text, so no bands
+      - id: nc_dwc_gala_2026
+        url: "https://downtownwomenscenter.org/2026ewhgala"
+        kind: support_page
+        method: auto
+        year: 2026
+        parse:
+          - {type: lines, start: "^Sponsors$", end: "^About$", band_re: "^(Presented by:|Championed By:|Thank You to Our .* Sponsors:)$",
+             year: 2026, section: "2026 Every Woman Housed Gala sponsors", source_type: support_page, amount_kind_no_amount: mixed,
+             note: "event sponsorship tier as listed; tier price not stated on the page"}
+      - {id: nc_dwc_gala_2026_deck, url: "https://downtownwomenscenter.org/wp-content/uploads/2026/04/2026-EWH-Gala-Sponsorship-Deck-4.16.26.pdf", kind: sponsorship_deck, method: http, pdf: true, year: 2026}
+      # 2016 post (article:published_time 2016-09-27): outside the 2023-2026 window, not parsed
+      - {id: nc_dwc_gift_500k, url: "https://downtownwomenscenter.org/downtown-womens-center-receives-historic-gift-of-500000", kind: announcement, method: auto}
+      # 2017 post (article:published_time 2017-06-27): outside the 2023-2026 window, not parsed
+      - {id: nc_dwc_bofa_grant, url: "https://downtownwomenscenter.org/bank-of-america-grant", kind: announcement, method: auto}
+      # Rosa's Place groundbreaking release, 2025-03-13: LA County First District grant quoted; capital-stack partners
+      # (Apple financing, HACLA vouchers, AHSC, LIHTC, ...) finance the project, not DWC operations: not staged
+      - id: nc_dwc_rosas_place_pr
+        url: "https://downtownwomenscenter.org/wp-content/uploads/2025/03/Rosas-Place-Press-Release-edited-1.pdf"
+        kind: announcement
+        method: http
+        pdf: true
+        year: 2025
+        parse:
+          - type: explicit
+            org_list: true
+            confidence: medium
+            cumulative: true
+            source_type: web
+            rows:
+              - {funder: "Los Angeles County Board of Supervisors, First District", name: "Los Angeles County First District",
+                 amount: "$3,000,000", year: 2025, date: "3/13/2025", amount_kind: cash,
+                 purpose: "grant funding to expand and enhance essential services, including a new workforce development and learning center at Rosa's Place",
+                 verify: "proud to have awarded \\$3 million in grant funding to the Downtown Women.s Center to expand and enhance essential services",
+                 note: "government grant quoted in DWC's 2025-03-13 release (grant_date = release date); award year and period not stated, so cumulative_flag = 1"}
+      # ---- funder-side grant announcements and grant lists naming DWC (2023-2026)
+      - id: nc_dwc_hilton_2026
+        url: "https://www.hiltonfoundation.org/news/conrad-n-hilton-foundation-board-approves-30-million-in-grants-in-the-first-quarter-of-2026"
+        kind: grant_list
+        method: auto
+        publisher: "Conrad N. Hilton Foundation"
+        year: 2026
+        year_basis: award_year
+        parse:
+          - type: explicit
+            confidence: high
+            cumulative: true
+            source_type: web
+            rows:
+              - {funder: "Conrad N. Hilton Foundation", name: "Conrad N. Hilton Foundation", amount: "$1,525,000", year: 2026, amount_kind: cash,
+                 purpose: "over two years, to connect women experiencing homelessness and domestic violence to permanent housing and services in Los Angeles County",
+                 verify: "Downtown Women.s Center was awarded \\$1,525,000 over two years to connect women experiencing homelessness and domestic violence to permanent housing and services in Los Angeles County",
+                 note: "board-approved in Q1 2026; two-year grant"}
+      - id: nc_dwc_ahmanson_grants
+        url: "https://theahmansonfoundation.org?fc_grant_search=true&post_type=fc_grants&perpage=1100"
+        kind: grant_list
+        method: auto
+        publisher: "The Ahmanson Foundation"
+        year_basis: award_year
+        parse:
+          - type: explicit
+            confidence: high
+            source_type: web
+            note: "year = Ahmanson 'Fiscal Year' as listed on its grants search; earlier DWC grants (FY2012-FY2021) outside the 2023-2026 window"
+            rows:
+              - {funder: "The Ahmanson Foundation", name: "The Ahmanson Foundation", amount: "$324,700", year: 2023, amount_kind: cash,
+                 purpose: "For upgrade of the elevator and machine room at the San Pedro Street Headquarters and Permanent Supportive Housing site",
+                 verify: "Downtown Womens Center Amount \\$324,700 Program Area Human Services Fiscal Year 2023 Location Los Angeles, CA For upgrade of the elevator"}
+              - {funder: "The Ahmanson Foundation", name: "The Ahmanson Foundation", amount: "$24,500", year: 2024, amount_kind: cash,
+                 purpose: "Toward temporary relocation of select supportive housing residents during repair of elevator",
+                 verify: "Downtown Womens Center Amount \\$24,500 Program Area Human Services Fiscal Year 2024 Location Los Angeles, CA Toward temporary relocation"}
+      - id: nc_dwc_bscf_grantee
+        url: "https://www.blueshieldcafoundation.org/grants/grantee/downtown-womens-center-2"
+        kind: grant_list
+        method: tavily
+        publisher: "Blue Shield of California Foundation"
+        year_basis: award_year
+        parse:
+          - type: explicit
+            confidence: high
+            source_type: web
+            rows:
+              - {funder: "Blue Shield of California Foundation", name: "Blue Shield of California Foundation", amount: "$450,000", year: 2024, date: "4/1/2024", amount_kind: cash,
+                 purpose: "Creating Housing Stability for Domestic Violence Survivors in Los Angeles: to advance policies and practices that expand access to a range of housing solutions for survivors of domestic violence",
+                 verify: "Creating Housing Stability for Domestic Violence Survivors in Los Angeles Grant amount \\$450,000 Quarter January through March Award date 4/1/2024",
+                 note: "grant term not stated"}
+      # UniHealth "A Pathway to Health and Home": DWC $500,000 over three years, award year not stated: not parsed
+      - {id: nc_dwc_unihealth, url: "https://unihealthfoundation.org/our-work/a-pathway-to-health-and-home", kind: grant_list, method: auto, publisher: "UniHealth Foundation"}
+      - id: nc_dwc_foxwynd
+        url: "https://foxwyndfoundation.org/meet-our-grantees"
+        kind: grant_list
+        method: auto
+        publisher: "Foxwynd Foundation"
+        year_basis: award_year
+        parse:
+          - type: explicit
+            confidence: high
+            source_type: web
+            rows:
+              - {funder: "Foxwynd Foundation", name: "Foxwynd Foundation", amount: "$50,000", year: 2025, amount_kind: cash,
+                 purpose: "Aid Women Experiencing Homelessness (Foxwynd pillar: Housing)",
+                 verify: "Downtown Women.s Center - Aid Women Experiencing Homelessness Foxwynd Pillar: Housing Year Awarded: 2025 \\| Grant Amount: \\$50,000"}
+      - id: nc_dwc_anthem_2023
+        url: "https://www.businesswire.com/news/home/20230920250058/en/Anthem-Blue-Cross-Foundation-Provides-%241.2M-in-Grants-to-Address-Mental-Health-and-Substance-Abuse-Disorders-in-California"
+        kind: grant_list
+        method: auto
+        publisher: "Anthem Blue Cross Foundation (Business Wire)"
+        year: 2023
+        parse:
+          - type: explicit
+            confidence: high
+            cumulative: true
+            source_type: web
+            rows:
+              - {funder: "Anthem Blue Cross Foundation", name: "Anthem Blue Cross Foundation", amount: "$200,000", year: 2023, date: "9/20/2023", amount_kind: cash,
+                 purpose: "Building Capacity to Address Substance Use Disorder for Women in Skid Row",
+                 verify: "Downtown Women.s Center \\(Los Angeles\\)\\]\\([^)]*\\):\\*\\* \\$200,000 for .Building Capacity to Address Substance Use Disorder for Women in Skid Row",
+                 note: "funder press release 2023-09-20 (grant_date = release date); the release calls the grants multi-year"}
+      # Business Wire 2026-07-28 release (Tavily extract returned no content; the search snippet names DWC as a grantee)
+      - {id: nc_dwc_anthem_2026, url: "https://www.businesswire.com/news/home/20260728327743/en/Anthem-Blue-Cross-Foundation-Awards-More-Than-%241-Million-to-Expand-Behavioral-Health-Services-Across-California", kind: grant_list, method: auto, publisher: "Anthem Blue Cross Foundation (Business Wire)"}
+      - id: nc_dwc_anthem_2026_dwc_pr
+        url: "https://downtownwomenscenter.org/wp-content/uploads/2026/10/Anthem-2026-BH-Grantee-Downtown-Womens-Center-Draft-Release_DWC-Edit-1.pdf"
+        kind: announcement
+        method: http
+        pdf: true
+        year: 2026
+        parse:
+          - type: explicit
+            confidence: medium
+            cumulative: true
+            source_type: web
+            rows:
+              - {funder: "Anthem Blue Cross Foundation", name: "Anthem Blue Cross Foundation", amount: "$300,000", year: 2026, amount_kind: cash,
+                 purpose: "three-year grant to enhance counseling, wellness programming, and integrated behavioral health services",
+                 verify: "awarded the organization a three-year grant of \\$300,000 to enhance counseling, wellness programming, and integrated behavioral health",
+                 note: "DWC release (PDF uploaded 2026-10, undated); year 2026 from the funder's 2026-07-28 Business Wire release listing DWC (search snippet)"}
+  - id: cbwcei
+    ein: "882046704"
+    name: "California Black Women's Collective Empowerment Institute"
+    city: "Carson"
+    state: "CA"
+    domain: cablackwomenscollective.org
+    alias: "California Black Women.?s Collective|CA Black Women.?s Collective|SheWorks|She Works"
+    # SheWorks is a program of this institute (not a separate entity); 4 searches left in the script-46 budget of 30
+    searches:
+      - {id: nc_cbw_sheworks_bsp, query: "\"SheWorks\" \"California Black Women's Collective\" Blue Shield Promise L.A. Care", params: {max_results: 10}}
+      - {id: nc_cbw_sheworks_labor, query: "\"California Black Women's Collective\" SheWorks Los Angeles County Federation of Labor", params: {max_results: 10}}
+      - {id: nc_cbw_grant, query: "\"California Black Women's Collective Empowerment Institute\" grant awarded", params: {max_results: 10}}
+      - {id: nc_cbw_press, query: "\"California Black Women's Collective\" press release funding partners", params: {max_results: 10, start_date: "2024-01-01"}}
+    pages:
+      # site has no /partners page (HTTP 404; Tavily extract empty)
+      - {id: nc_cbw_partners, url: "https://www.cablackwomenscollective.org/partners", kind: support_page, method: auto, year: 2026}
+      - id: nc_cbw_sheworks
+        url: "https://www.cablackwomenscollective.org/sheworks"
+        kind: program_page
+        method: auto
+        year: 2026
+        parse:
+          - type: explicit
+            org_list: true
+            confidence: medium
+            source_type: web
+            rows:
+              - {funder: "Los Angeles County Federation of Labor", name: "Los Angeles County Federation of Labor", year: 2026, amount_kind: unknown,
+                 purpose: "SheWorks (workforce development program for women in Los Angeles County; 2026 cohorts)",
+                 verify: "This program receives partial funding from the Los Angeles County Federation of Labor",
+                 note: "partial funding; amount and grant date not stated; program page as retrieved in 2026"}
+      # CBWCEI's own (paid) PR Newswire release, 2025-10-28, syndicated on Yahoo Finance
+      - id: nc_cbw_launch_pr
+        url: "https://finance.yahoo.com/news/california-black-womens-collective-launches-140000465.html"
+        kind: announcement
+        method: auto
+        year: 2025
+        parse:
+          - type: explicit
+            org_list: true
+            confidence: medium
+            source_type: web
+            rows:
+              - {funder: "Los Angeles County Federation of Labor (The LA Fed)", name: "Los Angeles County Federation of Labor", year: 2025, amount_kind: unknown,
+                 purpose: "SheWorks (first cohort January 24 - May 16, 2026)",
+                 verify: "Partial funding for this program was provided by The LA Fed",
+                 note: "recipient's release dated 2025-10-28 (PR Newswire, paid release); amount not stated"}
+      # L.A. Care news release 2026-02-26 (also on PR Newswire): joint support of SheWorks with Blue Shield Promise
+      - id: nc_cbw_lacare_pr
+        url: "https://lacare.org/news/news-releases/empowering-black-women-career-success"
+        kind: announcement
+        method: auto
+        publisher: "L.A. Care Health Plan"
+        year: 2026
+        parse:
+          - type: explicit
+            org_list: true
+            confidence: high
+            source_type: web
+            note: "funder release 2026-02-26 (grant_date = release date): SheWorks hosted at the L.A. Care / Blue Shield Promise Community Resource Centers (Long Beach; South Los Angeles and Inglewood planned); support is in-kind program space, no cash amount stated"
+            rows:
+              - {funder: "Blue Shield of California Promise Health Plan", name: "Blue Shield of California Promise Health Plan", year: 2026, date: "2/26/2026", amount_kind: noncash,
+                 purpose: "SheWorks: program space and support at the jointly operated Community Resource Centers",
+                 verify: "Blue Shield of California Promise Health Plan and L.A. Care Health Plan today announced their joint collaboration with the California Black Women.s Collective Empowerment Institute"}
+              - {funder: "L.A. Care Health Plan", name: "L.A. Care Health Plan", year: 2026, date: "2/26/2026", amount_kind: noncash,
+                 purpose: "SheWorks: program space and support at the jointly operated Community Resource Centers",
+                 verify: "By opening the doors of the L.A. Care and Blue Shield Promise Community Resource Center in Long Beach to SheWorks",
+                 note: "L.A. Care is a public entity (Local Initiative Health Authority for Los Angeles County)"}
+      - id: nc_cbw_econ_mobility
+        url: "https://www.cablackwomenscollective.org/economic-mobility"
+        kind: program_page
+        method: auto
+        year: 2026
+        parse:
+          - type: explicit
+            org_list: true
+            confidence: medium
+            source_type: web
+            rows:
+              - {funder: "First 5 LA", name: "First 5 LA", year: 2026, amount_kind: unknown,
+                 purpose: "Having Her Say (research and listening initiative on Black mothers with children ages 0-5; informs SheWorks)",
+                 verify: "Supported by First 5 LA",
+                 note: "First 5 LA is the Los Angeles County First 5 commission (public); amount not stated"}
+      # staff bio: "securing $5 million in state funding" for the Black Women's Think Tank; no year or award detail: not staged
+      - {id: nc_cbw_about, url: "https://www.cablackwomenscollective.org/about-us", kind: support_page, method: auto, year: 2026}
+      # news article 2025-11-12 repeating the LA Fed partial funding and Blue Shield Promise hosting: not staged (duplicate)
+      - {id: nc_cbw_sdvoice, url: "https://sdvoice.info/sheworks-california-tackles-job-inequity-with-bold-support-for-black-women", kind: announcement, method: auto, publisher: "San Diego Voice & Viewpoint"}
