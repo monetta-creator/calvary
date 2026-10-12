@@ -8,7 +8,7 @@ How deep is the need in Calvary's service area, how is DC's homeless population 
 ## Method
 - ACS 2020–24 five-year estimates by ward from `dim_geo` (DC wards are Census state-legislative-district geographies; 90% margins of error in the table).
 - HUD point-in-time counts for CoC DC-500 from `supp_homeless_counts` (2007–2025).
-- HUD Housing Inventory Count 2022–2025 from `supp_hic_projects`: Calvary's TH, PSH and RRH beds and share of all DC transitional-housing beds; women-focused providers flagged in the table.
+- HUD Housing Inventory Count 2022–2025 from `supp_hic_projects`: Calvary's TH, PSH and RRH beds, and its TH beds as a share of all DC transitional-housing beds; women-focused providers flagged in the table.
 - Ward map from DC Open Data ward boundaries (`raw/geo`), colored by ACS poverty rate, with Calvary's site.
 
 ## Findings
@@ -23,7 +23,7 @@ How deep is the need in Calvary's service area, how is DC's homeless population 
 
 1. **Need** (M9-01): Ward 8 has twice the city's poverty rate and the highest female poverty in DC; a third of renters in both wards pay more than half their income in rent; unemployment is double the city rate.
 2. **System trend** (M9-02): DC's homeless count fell from 8,350 (2016) to 5,138 (2025), with a post-pandemic rebound in 2023–24. The system is shrinking while per-person investment (PSH, vouchers) rises.
-3. **Calvary's capacity**: inventory grew from 68 beds (2022) to 124 (2025): 94 TH beds (6.8% of all DC transitional-housing beds, up from 2.5%), 16 PSH (Sister Circle), 14 RRH. Sisters Rise PSH (24 units) appears in 2024 only. Among women-focused providers in the HIC (N Street Village 457, House of Ruth 388, Open Arms 412, New Endeavors 135, Calvary 124 beds in 2025), Calvary is the fastest-growing.
+3. **Calvary's capacity**: 124 beds across transitional, permanent supportive and rapid-rehousing programs in 2025 (94 TH, 16 PSH at Sister Circle, 14 RRH), up from 68 in 2022 (45 TH, 16 PSH, 7 RRH). Its 94 transitional beds are 6.8% of the District's, up from 2.5% (45 beds) in 2022. Sisters Rise PSH (24 units) appears in 2024 only. Among women-focused providers in the HIC (N Street Village 457, House of Ruth 388, Open Arms 412, New Endeavors 135, Calvary 124 beds in 2025), Calvary is the fastest-growing.
 
 ## Charts
 `m9_01_ward_indicators`, `m9_02_dc_pit`, `m9_03_calvary_hic_share`, `m9_05_ward_map` (if boundaries loaded; see analysis log); tables `m9_04_women_focused_beds.csv`.

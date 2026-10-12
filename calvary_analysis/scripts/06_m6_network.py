@@ -165,11 +165,18 @@ il["subject_ein"] = np.where(il.org_a_ein.isin(subj_set), il.org_a_ein, il.org_b
 il["other_ein"] = np.where(il.org_a_ein.isin(subj_set), il.org_b_ein, il.org_a_ein)
 il["other_name"] = np.where(il.org_a_ein.isin(subj_set), il.org_b_name, il.org_a_name)
 il["subject"] = il.subject_ein.map(short).fillna(il.subject_ein)
-il["other_is_funder"] = il.other_ein.isin(dmv_funders | cand_ids)
+# A funder is an organization with at least one filed grant, not universe membership alone (review finding R05).
+filers = set(load("fact_grants", usecols=["funder_id", "source_type"]).query("source_type in ['pf_grants_paid', 'schedule_i']").funder_id)
+il["other_is_funder"] = il.other_ein.isin(filers)
 il["other_is_candidate"] = il.other_ein.isin(cand_ids)
+# "High" needs overlapping board tenures: a name match across terms that never overlap is not confirmed (review finding R05).
+yrs = il.evidence.fillna("").str.extract(r"years (\d{4})-(\d{4}) vs (\d{4})-(\d{4})").astype(float)
+overlap = np.maximum(yrs[0], yrs[2]) <= np.minimum(yrs[1], yrs[3])
+il["confidence_source"] = il.confidence
+il["confidence"] = np.where((il.confidence == "high") & ~overlap.fillna(False), "medium", il.confidence)
 il["use_in_leadership"] = il.confidence == "high"
 il["label"] = np.where(il.confidence == "high", "high confidence", "unconfirmed (medium confidence)")
-il = il.sort_values(["subject", "confidence", "other_name"])[["rel_id", "subject_ein", "subject", "other_ein", "other_name", "other_is_funder", "other_is_candidate", "confidence", "label", "use_in_leadership", "tax_year", "evidence", "person_id", "source_id"]]
+il = il.sort_values(["subject", "confidence", "other_name"])[["rel_id", "subject_ein", "subject", "other_ein", "other_name", "other_is_funder", "other_is_candidate", "confidence", "confidence_source", "label", "use_in_leadership", "tax_year", "evidence", "person_id", "source_id"]]
 save_chart_data(il, "m6_04_board_interlocks", "Shared-board links between Calvary / peers / named comparators and other organizations, with confidence", ["fact_org_relationships", "dim_person"], sorted(il.source_id.unique()), S,
                 "person_id only (no names); leadership materials use high-confidence rows only; medium rows are labeled unconfirmed")
 ci = load("candidate_interlocks")
@@ -210,7 +217,8 @@ register_insight("M6-01", "M6", f"The funder web around Calvary and its peers ha
 register_insight("M6-02", "M6", f"Calvary shares the most institutional funders with {ov.iloc[0].org} ({int(ov.iloc[0].shared_institutional_funders)}), {ov.iloc[1].org} ({int(ov.iloc[1].shared_institutional_funders)}) and {ov.iloc[2].org} ({int(ov.iloc[2].shared_institutional_funders)}); House of Ruth DC and House of Ruth MD have the longest lists of institutional funders Calvary lacks.",
                  "m6_02_cofunding_overlap", ["m6_02_cofunding_overlap"], ["fact_grants", "dim_funder"], "overlap", "high",
                  "Those peers' funder lists are the best-evidenced prospect lists: a funder that gives to three organizations with Calvary's profile is likely to consider a fourth.", "both")
-register_insight("M6-03", "M6", f"Board interlocks are a thin channel: Calvary has {len(cal_il)} shared-board links in filings, {int((cal_il.confidence=='high').sum())} at high confidence (none with a funder); {int((cal_il.confidence=='medium').sum())} medium-confidence links include Washington Area Women's Foundation, United Way NCA, United Way of Central Maryland and Miriam's Kitchen.",
+n_hi = int((cal_il.confidence == "high").sum())
+register_insight("M6-03", "M6", f"Board interlocks are a thin channel: Calvary has {len(cal_il)} shared-board links in filings, " + (f"{n_hi} at high confidence" if n_hi else "none at high confidence in public filings") + f"; {int((cal_il.confidence=='medium').sum())} medium-confidence links include Washington Area Women's Foundation, United Way NCA, United Way of Central Maryland and Miriam's Kitchen.",
                  "m6_04_board_interlocks; candidate_interlocks has no Calvary rows", ["m6_04_board_interlocks"], ["fact_org_relationships", "candidate_interlocks"], f"{len(cal_il)} links", "high",
                  "Relationship paths in the leadership materials rest on shared funders, not boards; the medium-confidence links go to the consulting team as leads to confirm.", "both")
 log(S, [f"graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges; funders {len(fun)}; Calvary interlocks {len(cal_il)}; paths scored for {len(paths)} candidates", "charts m6_02, m6_03 written; tables m6_01, m6_04, m6_05"])

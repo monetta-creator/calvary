@@ -12,7 +12,7 @@ from lib import style  # noqa: E402
 from lib.common import ANALYSIS, CALVARY, CLEAN, core_peers, load, log, money, register_insight, save_chart_data, universe  # noqa: E402
 
 S = "05_m5_gaps"
-GR = ["grant_id", "funder_id", "funder_ein", "funder_name_raw", "recipient_ein", "recipient_name_raw", "recipient_state", "tax_year",
+GR = ["grant_id", "purpose_text", "funder_id", "funder_ein", "funder_name_raw", "recipient_ein", "recipient_name_raw", "recipient_state", "tax_year",
       "amount", "cumulative_flag", "program_area_tags", "source_type", "source_id", "notes"]
 g_all = load("fact_grants", usecols=GR)
 excl = pd.read_csv(ANALYSIS / "config" / "landscape_exclusions.csv", dtype=str)
@@ -57,7 +57,7 @@ from matplotlib.patches import Patch  # noqa: E402
 ax.legend(handles=[Patch(color=style.SERIES["institutional"], label="Private / community foundation"), Patch(color=style.SERIES["other"], label="Public charity grantmaker, corporate or federated")], loc="lower right")
 ax.set_xlim(0, top.peers_funded.max() * 2.1); ax.set_xticks(range(0, int(top.peers_funded.max()) + 1, 2)); ax.set_xlabel("Core peers funded TY2020-24 (of 18)"); ax.grid(axis="y", visible=False); ax.grid(axis="x", visible=True); ax.tick_params(axis="y", labelsize=8.5)
 style.finish(f, ax, "m5_01_peer_funders_not_calvary",
-             f"{len(g1[g1.peers_funded >= 3])} institutional funders give to three or more of Calvary's peers and have no filed grant to Calvary; Clark Charitable alone gave peers $7.8M",
+             f"{len(g1[g1.peers_funded >= 3])} institutional funders give to three or more of Calvary's peers and have no filed grant to Calvary; the largest, Clark Charitable ($7.8M to peers), was a spend-down and closed at the end of 2025",
              "fact_grants (990-PF and Schedule I rows naming the 18 provisional core peers, TY2020-24) cross-checked against rows naming Calvary; dim_funder",
              note="Venable Foundation appears in Calvary's CRM ($75K, 2023-26) but not yet in filings; treated as filing lag. Core peers are provisional.")
 
@@ -66,11 +66,18 @@ ce = cal_ever.groupby("funder_id").agg(first_ty=("tax_year", "min"), last_ty=("t
 ce["funder_name"] = ce.index.map(df.funder_name); ce["funder_type"] = ce.index.map(ftype)
 ce["itemized_ty2023plus"] = ce.index.isin(recent_itemized); ce["placeholder_ty2023plus"] = ce.index.isin(placeholder_recent)
 ce["peers_funded_ty2020_24"] = ce.index.map(pf.peers_funded).fillna(0).astype(int)
-lapsed = ce[(ce.last_ty <= 2022) & ce.itemized_ty2023plus & (ce.funder_type != "daf_sponsor")].sort_values("total", ascending=False).reset_index()
+# A funder whose every grant to Calvary was a capital-campaign gift made a one-time grant by design; it has not lapsed
+# (review fix-cycle finding N01: World Bank Community Connections Fund).
+one_time = cal_ever.groupby("funder_id").purpose_text.agg(lambda t: t.fillna("").str.upper().str.contains("CAPITAL CAMPAIGN").all())
+ce["one_time_capital"] = ce.index.map(one_time).fillna(False).astype(bool)
+lapsed = ce[(ce.last_ty <= 2022) & ce.itemized_ty2023plus & (ce.funder_type != "daf_sponsor") & ~ce.one_time_capital].sort_values("total", ascending=False).reset_index()
 lapsed["status"] = "lapsed (funder itemized TY2023+ with no Calvary grant)"
+one_off = ce[(ce.last_ty <= 2022) & ce.one_time_capital & (ce.funder_type != "daf_sponsor")].sort_values("total", ascending=False).reset_index()
+one_off["status"] = "one-time capital-campaign grant (not lapsed)"
 unclear = ce[(ce.last_ty <= 2022) & ~ce.itemized_ty2023plus & (ce.funder_type != "daf_sponsor")].sort_values("total", ascending=False).reset_index()
 unclear["status"] = "unclear (funder has no itemized TY2023+ filing in the data)"
-lap = pd.concat([lapsed, unclear], ignore_index=True)
+unclear = unclear[~unclear.funder_id.isin(one_off.funder_id)]
+lap = pd.concat([lapsed, one_off, unclear], ignore_index=True)
 save_chart_data(lap, "m5_02_lapsed_funders", "Calvary funders in filings whose last grant was TY2022 or earlier", ["fact_grants", "dim_funder"], src, S)
 f, ax = style.fig(10, 5.6)
 d = lapsed.head(15).iloc[::-1]
@@ -173,13 +180,13 @@ print(maj.head(25)[["funder_name", "funder_type", "state", "dc_sector_amount", "
 print(web_gap.head(25).to_string()); print(crm_sum.to_string()); print(cand.gap_category.value_counts())
 
 register_insight("M5-01", "M5", f"{len(g1[g1.peers_funded >= 3])} institutional funders give to three or more of Calvary's 18 peers and have no filed grant to Calvary; {len(g1)} give to two or more.",
-                 "m5_01: Venable Foundation (10 peers), T. Rowe Price Program (8), Gifts for the Homeless (8), Capital Area Food Bank (7), America's Charities (7), Clark Charitable (5 peers, $7.8M), Schattner, Bunting, Bechtel, Cohen, Bernstein, Washington Home.",
+                 "m5_01 with open status from config/guideline_notes.csv: of the 23, six are channels (Gifts for the Homeless, T. Rowe Price Program, Capital Area Food Bank, America's Charities, JPMorgan Chase matching gifts, Give Lively), Clark has closed (spend-down ended 2025) and Venable is closed to new applicants, leaving 15 grantmakers; Schattner, Bunting and Bechtel fund four peers each, and the three-peer names depend on the provisional peer set.",
                  ["m5_01_peer_funders_not_calvary"], ["fact_grants", "dim_funder"], f"{len(g1)} funders", "high",
-                 "These are the warmest cold prospects: they fund Calvary's model already. Several (Venable, America's Charities) are in the CRM, so the filing gap is partly lag.", "both")
+                 "The 15 grantmakers are the warmest cold prospects because they fund Calvary's model already; the route is an introduction through the peers they fund, and Schattner is invitation-only.", "both")
 register_insight("M5-02", "M5", f"{len(lapsed)} former institutional funders filed itemized grant lists since TY2023 with nothing for Calvary; they once gave {money(lapsed.total.sum())} in total.",
                  "m5_02; " + ", ".join(lapsed.head(6).funder_name.str.title()), ["m5_02_lapsed_funders"], ["fact_grants", "dim_funder"], money(lapsed.total.sum()), "medium",
                  "Re-engagement is cheaper than acquisition; check the CRM for gifts routed through DAFs or corporate channels first.", "both")
-register_insight("M5-03", "M5", f"{int((head.headroom_to_max_peer_grant > 0).sum())} of Calvary's current institutional funders have written larger single grants to a core peer than to Calvary.",
+register_insight("M5-03", "M5", f"{int((head.headroom_to_max_peer_grant > 0).sum())} of Calvary's current institutional funders that also fund two or more peers have written larger single grants to a core peer than to Calvary.",
                  "m5_03: largest grant to Calvary vs largest grant to a peer, TY2020-24", ["m5_03_current_funder_headroom"], ["fact_grants", "dim_funder"], "upgrade headroom", "medium",
                  "An upgrade ask to known funders is the fastest institutional money; pair it with the multi-year framing.", "both")
 register_insight("M5-04", "M5", f"Only {cs.loc['confirmed_in_window','crm_total']/cs.crm_total.sum():.0%} of the CRM's ${cs.crm_total.sum()/1e6:,.1f}M in 2023-26 institutional giving is verifiable in funders' own filings; corporate givers with no public filing (MGAC, IMF, Latham, Frontier Co-op) are ${cs.loc['not_exempt_filer','crm_total']/1e6:,.1f}M and 'see attached' filers (Philip L. Graham, Clark-Winchcole, Kay, Herb Block) ${cs.loc['attachment_only_list','crm_total']/1e6:,.1f}M.",

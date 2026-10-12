@@ -19,7 +19,7 @@ FIN_COLS = ["ein", "tax_year", "fiscal_year", "return_type", "source_id", "prefe
             "contributions_total", "fundraising_event_contributions", "government_grants", "other_contributions",
             "program_service_revenue", "investment_income", "special_events_net", "other_revenue", "total_expenses",
             "fundraising_expenses", "program_expenses", "management_expenses", "total_assets_eoy",
-            "total_liabilities_eoy", "net_assets_eoy", "cash_savings_eoy", "months_of_cash"]
+            "total_liabilities_eoy", "net_assets_eoy", "cash_savings_eoy", "months_of_cash", "notes"]
 fin = load("fact_org_financials", usecols=FIN_COLS)
 cal = fin[fin.ein == CALVARY].copy()
 pref = cal[cal.preferred == 1].set_index("fiscal_year").sort_index()
@@ -99,7 +99,7 @@ ax.text(0.99, 0.97, "Labels: government share of revenue", transform=ax.transAxe
 style.finish(f, ax, "m1_02_revenue_mix",
              f"Government has supplied {mix.gov_share.min():.0%}-{mix.gov_share.max():.0%} of Calvary's revenue every year since FY15 and most of the growth",
              "fact_org_financials: Calvary audits FY15-FY23 (government revenue), 990 preferred rows",
-             note="FY24 and FY25 government figures are 990 line 1e, which understated government revenue in FY21 (see M2 reconstruction).")
+             note="FY24 and FY25 government figures are 990 line 1e, which understated government revenue in FY21 (see M2 reconstruction). Event contributions are line 1c; the FY25 gala was reported on line 8a and sits in other revenue, net of its direct costs, so FY25 events look smaller than they were (see m1_06).")
 
 # ------------------------------------------------------------------ m1_03 government share: audit vs line 1e
 gs = pd.DataFrame({"fiscal_year": pref.index,
@@ -163,22 +163,28 @@ style.finish(f, ax, "m1_05_months_of_cash",
              "fact_org_financials: cash_savings_eoy and total_expenses, Calvary 990 preferred rows")
 
 # ------------------------------------------------------------------ m1_06 event income
-ev = pd.DataFrame({"fiscal_year": pref.index, "event_contributions_line_1c": pref.fundraising_event_contributions.values,
-                   "special_events_net": pref.special_events_net.values})
+# Event receipts = line 1c (event contributions) + line 8a (gross fundraising-event income, kept in the notes field).
+# The FY25 return moved the gala from 1c to 8a, so 1c alone shows a collapse that did not happen (review finding R15).
+gross_8a = pref.notes.fillna("").str.extract(r"fundraising_gross_income=([-\d.]+)")[0].astype(float).fillna(0)
+ev = pd.DataFrame({"fiscal_year": pref.index, "event_contributions_line_1c": pref.fundraising_event_contributions.fillna(0).values,
+                   "fundraising_event_gross_line_8a": gross_8a.values, "special_events_net": pref.special_events_net.values})
+ev["event_receipts_total"] = ev.event_contributions_line_1c + ev.fundraising_event_gross_line_8a
 ev = ev[ev.fiscal_year >= 2015]
 ev["fy_label"] = "FY" + ev.fiscal_year.astype(int).astype(str).str[2:]
-save_chart_data(ev, "m1_06_events", "Calvary event contributions (line 1c) and net special-event income FY15-FY25",
+save_chart_data(ev, "m1_06_events", "Calvary event receipts (990 line 1c contributions + line 8a gross fundraising-event income) and net special-event income FY15-FY25",
                 ["fact_org_financials"], src_fin, S)
 f, ax = style.fig(10, 5)
 ax.bar(ev.fy_label, ev.event_contributions_line_1c, color=style.SERIES["individuals"], width=0.62, label="Event contributions (line 1c)")
+ax.bar(ev.fy_label, ev.fundraising_event_gross_line_8a, bottom=ev.event_contributions_line_1c, color=style.GOLD_LIGHT, width=0.62, label="Gross fundraising-event income (line 8a)")
 ax.plot(ev.fy_label, ev.special_events_net, color=style.TEXT_2, marker="o", ms=5, markeredgecolor="white",
         markeredgewidth=1.5, label="Net special-event income (line 8c)")
 ax.axhline(0, color=style.TEXT_2, lw=0.8)
 style.money_axis(ax, "K")
 ax.legend(loc="upper left")
 style.finish(f, ax, "m1_06_event_income",
-             "Event contributions collapsed from $538K in FY24 to $55K in FY25, the single largest private-revenue swing",
-             "fact_org_financials: Calvary 990 preferred rows, Part VIII lines 1c and 8c")
+             "Event receipts held near $0.5-0.6M in FY23-FY25; the FY25 return reported the gala as fundraising-event income (line 8a) instead of contributions (line 1c)",
+             "fact_org_financials: Calvary 990 preferred rows, Part VIII lines 1c, 8a and 8c",
+             note="Line 8a is gross receipts before the direct event costs netted on line 8c. The 2025 gala was held on 23 April 2025, inside FY25.")
 
 # ------------------------------------------------------------------ m1_07 institutional funder concentration (filed grants TY2020-24)
 GR_COLS = ["funder_id", "funder_ein", "funder_name_raw", "recipient_ein", "tax_year", "amount", "cumulative_flag",
@@ -265,14 +271,15 @@ register_insight("M1-01", "M1", f"Government supplied {mix.gov_share.min():.0%}-
                  f"Audit-basis share 37% FY14 -> 50% FY21 -> 61% FY22 -> 51% FY23; line 1e 45% FY24, 58% FY25. Revenue {money(summary['rev_fy19'])} FY19 -> {money(summary['rev_fy25'])} FY25.",
                  ["m1_02_revenue_mix", "m1_03_gov_share_two_measures"], ["fact_org_financials"], "about half of revenue", "high",
                  "Calvary is a government-anchored organization; private growth has not kept pace.", "both")
-register_insight("M1-02", "M1", "FY25 ran a $607K deficit with contributions down $0.8M and the cash cushion at 4.4 months, versus 7.5 months in FY21.",
+register_insight("M1-02", "M1", "FY25 ran a $607K deficit and the cash cushion fell to 4.4 months, versus 7.5 months in FY21; about $0.42M of the $0.8M fall in reported contributions is the gala moving from line 1c to line 8a.",
                  f"Revenue {money(summary['rev_fy25'])} vs expenses {money(fy25.total_expenses)}; contributions {money(summary['contrib_fy24'])} -> {money(summary['contrib_fy25'])}; months of cash {summary['months_cash_fy21']:.1f} -> {summary['months_cash_fy25']:.1f}.",
                  ["m1_04_surplus_deficit", "m1_05_months_of_cash"], ["fact_org_financials"], "$607K deficit; 4.4 months of cash", "high",
                  "Little room to absorb a government cut; a reserve floor and a private-revenue recovery plan are both needed.", "both")
-register_insight("M1-03", "M1", "Event contributions fell from $538K (FY24) to $55K (FY25), the largest single private-revenue swing.",
-                 "990 Part VIII line 1c: $457,758 FY23, $538,070 FY24, $54,730 FY25; net special-event income negative every year through FY24.",
-                 ["m1_06_event_income"], ["fact_org_financials"], "$483K drop", "high",
-                 "Either the gala was cancelled/moved or re-booked; confirm with Calvary. It explains most of the FY25 contribution drop.", "both")
+ev_i = ev.set_index("fiscal_year")
+register_insight("M1-03", "M1", f"Event receipts held near $0.5-0.6M: {money(ev_i.event_receipts_total[2024], 'K')} in FY24 and {money(ev_i.event_receipts_total[2025], 'K')} in FY25. The FY25 990 reported gala receipts as fundraising-event income (line 8a) instead of event contributions (line 1c); there was no collapse.",
+                 f"990 Part VIII lines 1c + 8a: FY23 {money(ev_i.event_receipts_total[2023], 'K')}, FY24 {money(ev_i.event_contributions_line_1c[2024], 'K')} + {money(ev_i.fundraising_event_gross_line_8a[2024], 'K')}, FY25 {money(ev_i.event_contributions_line_1c[2025], 'K')} + {money(ev_i.fundraising_event_gross_line_8a[2025], 'K')}; FY25 line 8c net {money(ev_i.special_events_net[2025], 'K')} after direct costs. Review finding R15; flag D3 resolved from the 990 itself.",
+                 ["m1_06_event_income"], ["fact_org_financials"], "receipts held steady", "high",
+                 "No event line to restore; confirm the FY26 gala date and grow individual giving alongside it.", "both")
 register_insight("M1-04", "M1", f"Filed institutional grants to Calvary have stayed near $1M a year from 26-29 funders, and one funder (GWCF incl. the Health Equity Fund) is {summary['gwcf_share']:.0%} of five-year filed grants; the top five are {summary['top5_share']:.0%}.",
                  f"TY2020-24 filed grants {money(total)} from {len(by_funder)} funders; institutional {money(inst_total)}, DAF {money(total-inst_total)}; HHI {hhi_all:.0f}.",
                  ["m1_07_funder_concentration", "m1_08_filed_grants_by_year"], ["fact_grants", "dim_funder"], "27% from one funder", "high",

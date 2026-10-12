@@ -24,17 +24,26 @@ def titles(pptx: Path) -> list[str]:
     return out
 
 
-def spine(md: Path) -> list[str]:
-    heads = []
+def spine(md: Path, section: str | None = None) -> list[str]:
+    """Numbered headlines from a spine file; with section="A" only the '## Appendix A' block of the appendix spine."""
+    heads, on = [], section is None
     for ln in md.read_text().splitlines():
+        if section is not None and ln.startswith("## "):
+            on = ln.startswith(f"## Appendix {section}")
+        if not on:
+            continue
         m = re.match(r"^(\d+)\. (.*)$", ln)
         if m:
             h = re.sub(r"\s*\*\((title|executive summary|closing)\)\*", "", m.group(2)).strip()
+            if section is not None:  # appendix spines end with a note on what the slide shows, e.g. "(m1_03 data table)"
+                h = re.sub(r"\s*\([^()]*\)\s*$", "", h).strip()
             heads.append(h)
     return heads
 
 
-def main(pptx: str, md: str | None, max_words: int = 20) -> int:
+def main(pptx: str, md: str | None, max_words: int = 20, appendix: str | None = None) -> int:
+    """appendix="A".."D": appendix mode (review finding M10). Reference headers and section dividers may run past the
+    word limit and need no verb; semicolons and the spine order are still checked, against that appendix's section."""
     tt = titles(Path(pptx))
     bad = 0
     print(f"{len(tt)} slides in {Path(pptx).name}")
@@ -44,7 +53,7 @@ def main(pptx: str, md: str | None, max_words: int = 20) -> int:
         if not t:
             flags.append("NO TITLE")
         else:
-            if words > max_words and not re.match(r"^\d+\. ", t):
+            if words > max_words and not re.match(r"^\d+\. ", t) and appendix is None:
                 flags.append(f"{words} words")
             if ";" in t:
                 flags.append("semicolon")
@@ -52,7 +61,7 @@ def main(pptx: str, md: str | None, max_words: int = 20) -> int:
             bad += 1
         print(f"{i:2d}. {t}  {'[' + ', '.join(flags) + ']' if flags else ''}")
     if md:
-        sp = spine(Path(md))
+        sp = spine(Path(md), appendix)
         content = [t for t in tt if t]
         # drop section dividers (titles that also appear as sectionTitle-like short phrases without a verb) by matching spine order
         j = 0; missing = []
@@ -67,13 +76,15 @@ def main(pptx: str, md: str | None, max_words: int = 20) -> int:
                     j = k + 1
         print(f"spine: {len(sp)} headlines; matched in order: {len(sp) - len(missing)}")
         for h in missing:
-            print("  SPINE MISMATCH:", h)
-        bad += len(missing)
+            print("  SPINE DRIFT (warning):" if appendix else "  SPINE MISMATCH:", h)
+        if appendix is None:  # appendix reference slides may be reworded or paginated; drift is reported, not failed
+            bad += len(missing)
     print("HEADLINES", "OK" if not bad else f"PROBLEMS ({bad})")
     return 0 if not bad else 1
 
 
 if __name__ == "__main__":
-    args = [a for a in sys.argv[1:] if not a.startswith("--max=")]
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
     mx = next((int(a.split("=")[1]) for a in sys.argv[1:] if a.startswith("--max=")), 20)
-    sys.exit(main(args[0], args[1] if len(args) > 1 else None, mx))
+    ap = next((a.split("=")[1] for a in sys.argv[1:] if a.startswith("--appendix=")), None)
+    sys.exit(main(args[0], args[1] if len(args) > 1 else None, mx, ap))

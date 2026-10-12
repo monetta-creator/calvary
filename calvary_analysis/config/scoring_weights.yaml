@@ -26,7 +26,39 @@ accessibility_scores:
 placeholder_penalty: 0.15             # subtract when the funder files 'see attached' lists (harder to verify, often closed)
 in_kind_penalty: 0.30                 # subtract for in-kind / workplace-giving channels (config list below)
 in_kind_channels: ["521593963", "521167581", "541517707", "810693451"]   # Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively
-daf_like_channels: ["311709466"]     # T. Rowe Price Program for Charitable Giving: a donor-advised program, scored like a DAF sponsor
+daf_like_channels: ["311709466"]     # T. Rowe Price Program for Charitable Giving: a donor-advised program, scored like a DAF sponsor and capped at Tier 2
+
+# Rules that live in scripts/07_m7_pipeline.py (documented here per review finding M03):
+#  - DAF sponsors (dim_funder.funder_type = daf_sponsor) are dropped from the candidate list; daf_like_channels and the
+#    channels below are scored but never placed above Tier 2.
+#  - Current funders that gave Calvary less than min_current_funder_total over TY2020-24 are dropped before scoring.
+#  - typical_grant is the funder's median grant to the 18 peers; with no peer grants it falls back to its median
+#    DC-sector grant, then to its largest grant to Calvary (31 zero-peer rows use a fallback; Coca-Cola's Tier 2 place does).
+min_current_funder_total: 10000
+
+# Funder status (review findings R16, R17): read from config/guideline_notes.csv `open_status`, set from the funder's own
+# page with the date checked. A funder is not named in leadership materials until its status is first-party checked.
+#   sunset          kept in the pipeline for the record; never tiered or named as a prospect (track 'excluded: closed funder')
+#   not_eligible    Tier 3 with the reason
+#   closed_to_new   at most Tier 2, labelled 'closed to new applicants'
+#   channel         at most Tier 2, labelled with the channel below rather than as a grant prospect
+#   invitation_only next step is an introduction that leads to an invitation, never an LOI
+#   rfp_only        grants only through periodic RFPs; next step is to watch for the next RFP and meet staff
+#   open / unverified  no rule; unverified funders are not named in leadership materials
+channels:   # funder_id -> track label (review findings R06, R13, M08)
+  "541517707": "channel: workplace giving"
+  "200721133": "channel: matching gifts (corporate relationship)"
+  "237049738": "channel: matching gifts (corporate relationship)"
+  "521593963": "channel: in-kind goods"
+  "521167581": "channel: in-kind food"
+  "810693451": "channel: online giving platform"
+  "421559999": "channel: employee giving (TY2022 grant was a one-time capital grant)"
+
+next_step_overrides:   # funder-specific 90-day steps where the generic template does not fit (review findings R06, R08, R17)
+  "521435573": "Steward and renew: Abell gave $270K (TY2021) and $25K (TY2023), with a further $25K in March 2025; it is invitation-only with no consecutive-year requests, so ask its staff when the next request is welcome and what it would fund"
+  "237343119": "Two conversations with GWCF: a successor to the Health Equity Fund support, and a core general-operating request"
+  "521800778": "Secure an invitation through a named peer or co-funder (Schattner does not consider unsolicited requests); no LOI"
+  "541517707": "Confirm Calvary's enrollment in the CFC and employer campaigns and its designation code"
 
 relationship_bonus:
   current_funder: 0.35
@@ -41,7 +73,7 @@ tiers:
 
 government_rows:               # retained / expansion rows added to the pipeline with analyst scores (basis = inferred)
   - {id: GOV-DC-1, name: "DC OVSJG Victim Services grants (Reach Up, New Foundations)", track: government_dc, score: 0.80, tier: 1, note: "retain and grow: annual continuation; Council restored proposed cuts FY26 and FY27"}
-  - {id: GOV-DC-2, name: "DHS homeless services via TCP (TH contract, Sisters Rise)", track: government_dc, score: 0.72, tier: 1, note: "largest single exposure; confirm FY25-26 contract values and draw-down against ceilings"}
+  - {id: GOV-DC-2, name: "DHS homeless services via TCP (TH contract, Sisters Rise)", track: government_dc, score: 0.72, tier: 1, note: "largest single stream; confirm FY25-26 contract values and draw-down against ceilings"}
   - {id: GOV-FED-1, name: "HUD Continuum of Care via TCP (Sister Circle, Reach Up, New Foundations 2)", track: government_federal, score: 0.78, tier: 1, note: "annual renewal; 5% of DC CoC; protect renewals, consider a PSH expansion project in the next competition"}
   - {id: GOV-DC-3, name: "DHS Permanent Supportive Housing (local PSH lines, $145-166M)", track: government_dc, score: 0.55, tier: 2, note: "expansion: Calvary holds 16 PSH beds; the local PSH budget is 25x the CoC pool"}
   - {id: GOV-FED-2, name: "HUD Community Project Funding (earmark) renewal", track: government_federal, score: 0.45, tier: 2, note: "$200K awarded 2023 for a capital project; member-request cycle each spring"}

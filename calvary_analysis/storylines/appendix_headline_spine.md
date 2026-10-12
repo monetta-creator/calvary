@@ -24,8 +24,8 @@ Four appendix decks, split by topic. Every slide follows the headline rules and 
 ## Appendix B: Peers and named comparators
 1. Appendix B: Peers and Comparators *(title)*
 2. The 18 provisional core peers were chosen for model similarity in four tiers and can be swapped by editing one file. (core_peers table with rationale)
-3. The benchmark table gives every metric for all 20 organizations. (m3_00, two slides)
-4. Government-share trajectories for all 20 organizations, FY2017–FY2025. (m3_05 table)
+3. The benchmark table gives every metric for all 21 organizations. (m3_00, two slides)
+4. Government-share trajectories for all 21 organizations, FY2017–FY2025. (m3_05 table)
 5. Sector distributions by universe and year, with Calvary's percentile. (m3_07 table)
 6. The four case studies' revenue mix by year. (m3_08 table)
 7. OVSJG and CoC awards to peers. (m3_09 table)

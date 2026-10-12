@@ -11,6 +11,16 @@ const TENS = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", 
 const word = (n) => n < 21 ? WORDS[n] : n < 100 ? TENS[Math.floor(n / 10)] + (n % 10 ? "-" + WORDS[n % 10].toLowerCase() : "") : String(n);
 const noEmail = (s) => String(s || "").replace(/;?\s*email [^\s]+@[^\s]+ before \w+/gi, "").replace(/[^\s()]+@[^\s()]+/g, "").replace(/\s+\)/g, ")");
 const nm = (s) => trunc(tc(s), 52);
+// Funder status from the pipeline track and config/guideline_notes.csv open_status (review findings R13, R16, R17, N01, N02).
+let PIPE = null, GN = null;
+const STAT = (id) => {
+  PIPE = PIPE || Object.fromEntries(D.readCsv("m7_00_funder_pipeline").map(r => [r.funder_id, r]));
+  GN = GN || Object.fromEntries(D.readCsv("m7_04_guideline_notes").map(r => [r.funder_id, r]));
+  const p = PIPE[id] || {}, tr = p.track || "", os = p.open_status || (GN[id] || {}).open_status || "";
+  if (/^excluded/.test(tr) || os === "sunset") return "closed";
+  if (/^(channel|daf channel)/.test(tr)) return "channel";
+  return ({ closed_to_new: "closed to new", not_eligible: "not eligible", invitation_only: "invitation only", rfp_only: "RFP only", open: "open" })[os] || "unverified";
+};
 
 (async () => {
   const X = C.makeDeck("Appendix C: Funders, gaps, network and pipeline", "Appendix C of the Calvary funding analysis");
@@ -86,21 +96,22 @@ const nm = (s) => trunc(tc(s), 52);
   X.section("Gaps");
   const g1 = D.readCsv("m5_01_peer_funders_not_calvary").sort((a, b) => num(b.peers_funded) - num(a.peers_funded) || num(b.peer_amount) - num(a.peer_amount) || a.funder_name.localeCompare(b.funder_name));
   const g1three = g1.filter(r => num(r.peers_funded) >= 3).length;
-  X.table(`All ${g1.length} institutional funders of two or more peers lack a filed grant to Calvary, and ${g1three} of them fund three or more.`,
-    ["Funder", "Type", "State", "Peers", "Peer $ TY2020–24", "Median peer grant", "Max peer grant", "Last peer TY", "Itemized TY2023+", "Peers funded"],
-    g1.map(r => [trunc(tc(r.funder_name), 42), ft(r.funder_type), r.state, r.peers_funded, money(r.peer_amount), usd(r.median_peer_grant), usd(r.max_peer_grant), ty(r.last_peer_ty), yn(r.itemized_ty2023plus), trunc(r.peers_list, 48)]),
-    [2.7, 1.45, 0.5, 0.5, 0.95, 0.85, 0.85, 0.7, 0.75, 2.88],
-    { source: SRCGR, method: "G1: funders of ≥2 of the 18 provisional peers with no Calvary row TY2020–24; DAF sponsors excluded; itemized TY2023+ = the absence is current", chart: "m5_01", note: "C1" },
+  X.table(`All ${g1.length} funders of two or more peers lack a filed grant to Calvary, ${g1three} of them fund three or more, and channels and closed funders are labeled.`,
+    ["Funder", "Type", "State", "Peers", "Peer $ TY2020–24", "Median peer grant", "Status", "Last peer TY", "Itemized TY2023+", "Peers funded"],
+    g1.map(r => [trunc(tc(r.funder_name), 42), ft(r.funder_type), r.state, r.peers_funded, money(r.peer_amount), usd(r.median_peer_grant), STAT(r.funder_id), ty(r.last_peer_ty), yn(r.itemized_ty2023plus), trunc(r.peers_list, 48)]),
+    [2.7, 1.45, 0.5, 0.5, 0.95, 0.85, 0.95, 0.65, 0.7, 2.83],
+    { source: `${SRCGR}; open status from funders' own pages, Oct 2026 (config/guideline_notes.csv)`, method: "G1: funders of ≥2 of the 18 provisional peers with no Calvary row TY2020–24; DAF sponsors excluded; itemized TY2023+ = the absence is current; status: channel, closed, closed to new, not eligible, invitation only, RFP only, open or unverified", chart: "m5_01, m7_04", note: "C1" },
     { rowsPerSlide: 13, fontSize: 8.5 });
 
   // 8. Lapsed
   const lp = D.readCsv("m5_02_lapsed_funders").sort((a, b) => a.status.localeCompare(b.status) || num(b.total) - num(a.total) || a.funder_name.localeCompare(b.funder_name));
-  const lapsed = lp.filter(r => r.status.startsWith("lapsed")), unclear = lp.length - lapsed.length;
-  X.table(`${word(lapsed.length)} lapsed former funders once gave Calvary ${money(lapsed.reduce((a, r) => a + num(r.total), 0))} and ${unclear === 1 ? "one more is" : `${unclear} more are`} unclear because no itemized TY2023+ filing is in the data.`,
+  const lapsed = lp.filter(r => r.status.startsWith("lapsed")), unclear = lp.filter(r => r.status.startsWith("unclear")).length;
+  const oneOff = lp.filter(r => r.status.startsWith("one-time")).length;
+  X.table(`${word(lapsed.length)} lapsed former funders once gave Calvary ${money(lapsed.reduce((a, r) => a + num(r.total), 0))}, ${unclear === 1 ? "one more is" : `${unclear} more are`} unclear${oneOff ? `, and ${word(oneOff).toLowerCase()} gave a one-time capital-campaign grant` : ""}.`,
     ["Funder", "Type", "First TY", "Last TY", "Total to Calvary", "Years", "Last grant", "Peers funded TY2020–24", "Status"],
-    lp.map(r => [nm(r.funder_name), ft(r.funder_type), ty(r.first_ty), ty(r.last_ty), usd(r.total), r.years, usd(r.last_amount), r.peers_funded_ty2020_24, r.status.startsWith("lapsed") ? "lapsed" : "unclear"]),
+    lp.map(r => [nm(r.funder_name), ft(r.funder_type), ty(r.first_ty), ty(r.last_ty), usd(r.total), r.years, usd(r.last_amount), r.peers_funded_ty2020_24, r.status.startsWith("lapsed") ? "lapsed" : r.status.startsWith("one-time") ? "one-time capital" : "unclear"]),
     [3.9, 1.9, 0.8, 0.8, 1.15, 0.6, 1.0, 1.0, 0.98],
-    { source: "Funders' 990-PF / Schedule I rows naming Calvary, all years (IRS e-file via GivingTuesday); fact_grants, dim_funder", method: "G2 lapsed: last Calvary grant ≤ TY2022 and the funder filed itemized lists in TY2023+ with no Calvary row; unclear: no itemized TY2023+ filing in the data", chart: "m5_02", note: "C1" },
+    { source: "Funders' 990-PF / Schedule I rows naming Calvary, all years (IRS e-file via GivingTuesday); fact_grants, dim_funder", method: "G2 lapsed: last Calvary grant ≤ TY2022 and the funder filed itemized lists in TY2023+ with no Calvary row; unclear: no itemized TY2023+ filing in the data; grants whose purpose is a capital campaign are one-time, not lapsed", chart: "m5_02", note: "C1" },
     { rowsPerSlide: 13, fontSize: 9.5 });
 
   // 9. Headroom
@@ -115,9 +126,10 @@ const nm = (s) => trunc(tc(s), 52);
 
   // 10. DC majors not Calvary
   const mj = D.readCsv("m5_04_dc_majors_not_calvary").sort((a, b) => num(b.dc_sector_amount) - num(a.dc_sector_amount) || a.funder_name.localeCompare(b.funder_name));
-  X.table(`${word(mj.length)} institutional funders gave $500K or more to DC-sector organizations in TY2020–24 with no filed grant to Calvary, led by ${tc(mj[0].funder_name).replace(/ Inc$/, "")} (${money(mj[0].dc_sector_amount, 1)}).`,
-    ["Funder", "Type", "State", "DC-sector $", "DC recipients", "Median grant", "Max grant", "Peers funded", "Mission share", "Itemized TY2023+", "See-attached years"],
-    mj.map(r => [nm(r.funder_name), ft(r.funder_type), r.state, money(r.dc_sector_amount, 1), r.dc_sector_recipients, usd(r.median_grant), money(r.max_grant), r.peers_funded, pct(num(r.mission_share)), yn(r.itemized_ty2023plus), r.placeholder_years]),
+  const mjName = tc(mj[0].funder_name).replace(/ Inc$/, ""), mjClosed = STAT(mj[0].funder_id) === "closed";
+  X.table(`${word(mj.length)} institutional funders gave $500K or more to DC-sector organizations in TY2020–24 with no filed grant to Calvary, led by ${mjName} (${money(mj[0].dc_sector_amount, 1)}${mjClosed ? ", a spend-down that has closed" : ""}).`,
+    ["Funder", "Type", "State", "DC-sector $", "DC recipients", "Median grant", "Status", "Peers funded", "Mission share", "Itemized TY2023+", "See-attached years"],
+    mj.map(r => [nm(r.funder_name), ft(r.funder_type), r.state, money(r.dc_sector_amount, 1), r.dc_sector_recipients, usd(r.median_grant), STAT(r.funder_id), r.peers_funded, pct(num(r.mission_share)), yn(r.itemized_ty2023plus), r.placeholder_years]),
     [3.1, 1.6, 0.5, 0.9, 0.8, 0.85, 0.85, 0.7, 0.75, 0.8, 1.28],
     { source: SRCLAND, method: "G4: institutional funders with ≥ $500K to dc_sector organizations TY2020–24 and no Calvary row; mission share = DC-sector $ tagged housing/DV/women", chart: "m5_04", note: "C1" },
     { rowsPerSlide: 14, fontSize: 9 });
@@ -166,11 +178,11 @@ const nm = (s) => trunc(tc(s), 52);
   // 14. Board interlocks
   const il = D.readCsv("m6_04_board_interlocks").sort((a, b) => (a.confidence === "high" ? 0 : 1) - (b.confidence === "high" ? 0 : 1) || (a.subject === "Calvary" ? 0 : 1) - (b.subject === "Calvary" ? 0 : 1) || a.subject.localeCompare(b.subject) || a.other_name.localeCompare(b.other_name) || a.rel_id.localeCompare(b.rel_id));
   const ilHigh = il.filter(r => r.confidence === "high").length;
-  X.table(`Of the ${il.length} board interlocks touching Calvary, peers and comparators, only ${ilHigh} are high confidence and the ${il.length - ilHigh} medium rows are labeled unconfirmed.`,
+  X.table(`Of the ${il.length} board interlocks touching Calvary, peers and comparators, ${ilHigh ? `only ${ilHigh} are` : "none is"} high confidence and the ${il.length - ilHigh} medium rows are labeled unconfirmed.`,
     ["Subject", "Linked organization", "Linked org is a funder", "Pipeline candidate", "Confidence", "Tax year", "Filing years, subject vs linked org"],
     il.map(r => [r.subject, trunc(tc(r.other_name), 46), yn(r.other_is_funder), yn(r.other_is_candidate), r.confidence === "high" ? "high" : "medium (unconfirmed)", yr(r.tax_year), trunc(String(r.evidence).replace(/^same person in filings; years /, ""), 44)]),
     [1.9, 3.4, 1.0, 0.9, 1.6, 0.7, 2.63],
-    { source: "IRS 990 Part VII officer and board lists (IRS e-file via GivingTuesday); fact_org_relationships (shared_board_member), dim_person (person_id only)", method: "same person in both filings: exact normalized name plus a corroborating signal; no names shown; leadership materials use high confidence only", chart: "m6_04", note: "C2" },
+    { source: "IRS 990 Part VII officer and board lists (IRS e-file via GivingTuesday); fact_org_relationships (shared_board_member), dim_person (person_id only)", method: "same person in both filings: exact normalized name plus a corroborating signal; high confidence also needs overlapping board terms; a funder has at least one filed grant; no names shown; leadership materials use high confidence only", chart: "m6_04", note: "C2" },
     { rowsPerSlide: 14, fontSize: 8.5 });
 
   // 15. Relationship paths
@@ -190,7 +202,7 @@ const nm = (s) => trunc(tc(s), 52);
   const one = (name) => { const m = yaml.match(new RegExp(`^${name}:\\s*([^#\\n]+?)\\s*(?:#\\s*(.*))?$`, "m")); return m ? { v: m[1], c: m[2] || "" } : { v: "—", c: "" }; };
   const weights = block("weights").map(kv).filter(Boolean);
   const H16 = "The scoring configuration weights seven dimensions and sets the tier cutoffs in one editable file, config/scoring_weights.yaml.";
-  const foot16 = { source: "calvary_analysis/config/scoring_weights.yaml; inputs chart_data/m5_00_candidate_funders.csv and m6_05_relationship_paths.csv", method: "weighted sum of seven 0–1 scores; in-kind channels −0.30, see-attached filers −0.15; rerun scripts/07_m7_pipeline.py after edits", chart: "m7_00", note: "C3" };
+  const foot16 = { source: "calvary_analysis/config/scoring_weights.yaml; inputs chart_data/m5_00_candidate_funders.csv and m6_05_relationship_paths.csv", method: "weighted sum of seven 0–1 scores; in-kind channels −0.30, see-attached filers −0.15; channels capped at Tier 2, closed funders excluded, not eligible Tier 3, closed to new at most Tier 2; rerun scripts 07, 12 and 13 after edits", chart: "m7_00", note: "C3" };
   const scale = (v) => { const m = String(v).match(/min_amount:\s*(\d+),\s*max_amount:\s*(\d+)/); return m ? `${usd(m[1])} → ${usd(m[2])} (log-linear)` : v; };
   s = X.head(H16);
   tbl(s, ["Dimension", "Weight", "What it scores (comment in the file)"], weights.map(w => [ft(w.k), w.v, trunc(w.c, 120)]),
@@ -206,7 +218,7 @@ const nm = (s) => trunc(tc(s), 52);
   tbl(s, ["Accessibility by funder type", "Score", "Note"], acc.map(a => [ft(a.k), a.v, trunc(a.c, 50)]), { x: M, y: BODY_Y, w: 5.9, colW: [2.3, 0.7, 2.9], fontSize: 9.5, align: ["left", "right", "left"] });
   const gov = yaml.split("\n").filter(l => /^\s*- \{id: GOV/.test(l)).map(l => ({ id: (l.match(/id: ([\w-]+)/) || [])[1], name: (l.match(/name: "([^"]+)"/) || [])[1], score: (l.match(/score: ([\d.]+)/) || [])[1], tier: (l.match(/tier: (\d)/) || [])[1] }));
   tbl(s, ["Analyst-scored government row", "Score", "Tier"], gov.map(r => [`${r.id}: ${trunc(r.name, 70)}`, r.score, r.tier]), { x: 6.83, y: BODY_Y, w: 5.9, colW: [4.6, 0.65, 0.65], fontSize: 9.5, align: ["left", "right", "right"] });
-  s.addText("Channels: in-kind or workplace channels (Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively) take the in-kind penalty; the T. Rowe Price Program is scored like a DAF sponsor. Corporate CRM relationships (≥ $50K, no public filing) are also analyst-scored.",
+  s.addText("Channels (capped at Tier 2): in-kind or workplace channels (Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively) take the in-kind penalty; JPMorgan Chase and Bank of America are matching-gift channels; World Bank CCF is employee giving; the T. Rowe Price Program is scored like a DAF sponsor. Corporate CRM relationships (≥ $50K, no public filing) are analyst-scored.",
     { x: 6.83, y: 4.3, w: 5.9, h: 1.6, fontSize: 10.5, color: HEX.text2, margin: 0, isTextBox: true, valign: "top" });
   D.footnote(s, foot16);
 
@@ -223,19 +235,19 @@ const nm = (s) => trunc(tc(s), 52);
   // 18. 90-day plan
   const ap = D.readCsv("m7_01_action_plan_90day").sort((a, b) => num(a.rank) - num(b.rank));
   X.table(`The 90-day action plan gives each of the ${ap.length} Tier 1 targets a next step, an owner role and a deadline.`,
-    ["#", "Target", "Track", "Next step", "Owner role", "By", "Application cycle"],
-    ap.map(r => [r.rank, trunc(tc(r.funder_name), 44), trunc(r.track, 30), trunc(r.next_step, 105), r.owner_role, r.deadline, trunc(r.next_deadline_or_cycle || "—", 40)]),
+    ["#", "Target", "Track", "Next step", "Owner role", "By", "Open status and cycle"],
+    ap.map(r => [r.rank, trunc(tc(r.funder_name), 44), trunc(r.track, 30), trunc(r.next_step, 105), r.owner_role, r.deadline, r.open_status ? trunc(`${ft(r.open_status)}${r.next_deadline_or_cycle ? ": " + r.next_deadline_or_cycle : ""}`, 44) : (r.track.startsWith("government") ? "existing award" : "existing partner")]),
     [0.4, 2.4, 1.6, 4.0, 1.3, 1.0, 1.43],
-    { source: "recommendations/action_plan_90day.csv; config/guideline_notes.csv (sources/web_tier1_guidelines.csv)", method: "deadlines relative to plan start; owner roles, not people; cycles from the analyst-reviewed web pull", chart: "m7_01", note: "C3" },
+    { source: "recommendations/action_plan_90day.csv; config/guideline_notes.csv (sources/web_tier1_guidelines.csv)", method: "deadlines relative to plan start, sequenced for a six-person development team; owner roles, not people; open status checked on funders' own pages, Oct 2026", chart: "m7_01", note: "C3" },
     { rowsPerSlide: 11, fontSize: 8.5 });
 
   // 19. Guideline notes
   const gn = D.readCsv("m7_04_guideline_notes");
   const bc = (b) => gn.filter(r => r.basis === b).length;
   X.table(`Application-process notes for ${gn.length} Tier 1–2 funders from the reviewed web pull: ${bc("web (first-party)")} first-party, ${bc("web (third-party)")} third-party and ${bc("no usable hit; analyst note")} analyst notes.`,
-    ["Funder", "Application process", "Next deadline or cycle", "Basis", "Analyst note"],
-    gn.map(r => [trunc(r.funder_name, 44), trunc(noEmail(r.application_process), 110), trunc(r.next_deadline_or_cycle || "—", 50), r.basis, trunc(r.note || "—", 60)]),
-    [2.3, 4.4, 1.9, 1.5, 2.03],
+    ["Funder", "Application process", "Next deadline or cycle", "Basis", "Open status (checked)"],
+    gn.map(r => [trunc(r.funder_name, 44), trunc(noEmail(r.application_process), 110), trunc(r.next_deadline_or_cycle || "—", 50), r.basis, trunc(`${ft(r.open_status || "unverified")}${r.open_status_note ? ": " + noEmail(r.open_status_note) : ""}`, 64)]),
+    [2.3, 4.2, 1.8, 1.4, 2.43],
     { source: "Funder web pages found by the approved Tier 1–2 search (sources/web_tier1_guidelines.csv, source_registry_extension.csv); config/guideline_notes.csv", method: "every hit hand-reviewed; third-party and misdirected hits not treated as first-party guidelines", chart: "m7_04", note: "C3" },
     { rowsPerSlide: 9, fontSize: 8.5 });
 

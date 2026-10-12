@@ -4,7 +4,9 @@ Same graph as scripts/06_m6_network.py (same filters, same landscape exclusions)
 core peer, per-year grant dollars on each link, and short display names. Writes two copies of one page:
   web/Calvary_Grantmaker_Web.html    self-contained: d3 and fonts embedded from web/vendor/, opens offline by double-click
   web/publish/funder_network.html    the same page without <html>/<head>/<body>, loading d3 and fonts from CDNs, for the claude.ai artifact
-Public filings only: no CRM data, no people, no board links (review finding R05), no pipeline tiers (R16/R17 pending).
+Public filings only: no CRM data, no people, no board links (review finding R05), no pipeline tiers. Funder status (closed,
+giving channel, closed to new applicants, invitation only, not eligible) comes from config/guideline_notes.csv and the
+channels list in config/scoring_weights.yaml, the same inputs as the pipeline (review findings R13, R16, R17, N01, N02).
 Run: calvary_funding_data/.venv/bin/python calvary_analysis/web/build_network_page.py
 """
 import base64
@@ -15,6 +17,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import yaml
 
 WEB = Path(__file__).resolve().parent
 sys.path.insert(0, str(WEB.parent / "scripts"))
@@ -30,9 +33,26 @@ TYPE_LABEL = {"private_foundation": "Private foundation", "community_foundation"
               "corporate_foundation": "Corporate foundation", "daf_sponsor": "Donor-advised fund sponsor",
               "federated_giving": "Federated giving (United Way and similar)", "public_charity_grantmaker": "Public charity grantmaker",
               "other": "Other grantmaker"}
-# Status notes that change how a funder should be read. Source: independent review, reports/review/review_findings.csv.
-NOTES = {"521512330": "Winding down: the A. James & Alice B. Clark Foundation's own FAQ says it is sunsetting, operational until 31 Dec 2025, "
-                      "and takes no unsolicited proposals (independent review finding R16, verified 2026-10-10)."}
+# Funder status: short label for tags and filters, plus the note shown in the side panel.
+STATUS_LABEL = {"sunset": "closed", "closed_to_new": "closed to new applicants", "not_eligible": "not eligible for Calvary",
+                "invitation_only": "invitation only", "rfp_only": "grants by RFP only"}
+# Not grantmakers that choose their own grantees: left out of the Prospects view, as in the leadership materials.
+NOT_PROSPECT = {"closed", "giving channel", "closed to new applicants", "not eligible for Calvary"}
+
+
+def funder_status() -> dict:
+    """funder_id -> (label, note), from the funder's own pages (guideline_notes.csv) and the pipeline's channel list."""
+    out = {}
+    gn = pd.read_csv(ANALYSIS / "config" / "guideline_notes.csv", dtype=str, keep_default_na=False)
+    for r in gn.itertuples():
+        if r.open_status in STATUS_LABEL:
+            out[r.funder_id] = (STATUS_LABEL[r.open_status], f"{r.open_status_note} (checked {r.open_status_checked[:10]}).")
+    cfg = yaml.safe_load(open(ANALYSIS / "config" / "scoring_weights.yaml"))
+    chan = {**{k: "donor-advised giving program" for k in cfg.get("daf_like_channels", [])},
+            **{k: v.split(":", 1)[1].strip() for k, v in cfg.get("channels", {}).items()}}
+    for fid, kind in chan.items():
+        out[fid] = ("giving channel", f"A giving channel ({kind}), not a grantmaker that chooses its own grantees.")
+    return out
 WORD_FIX = {"jpmorgan": "JPMorgan", "fdn": "Foundation", "tr": "Trust", "fd": "Fund", "chrtbl": "Charitable", "assn": "Association"}
 SMALL = {"of", "the", "and", "for", "in", "at", "by", "to", "on", "a", "an", "de"}
 UPPER = {"DC", "NCA", "USA", "US", "PNC", "AARP", "IBM", "CSX", "MGM", "UPS", "BB&T", "TD", "KPMG", "RCLCO", "AOL", "II", "III", "IV", "YMCA", "NW", "SE", "NE", "SW", "LLC", "LLP", "PC"}
@@ -66,6 +86,12 @@ def build_data() -> dict:
     by_year = gr.groupby(["funder_id", "recipient_ein", "tax_year"]).amount.sum()
     fun = links.groupby("funder_id").agg(orgs=("recipient_ein", "nunique"), amount=("amount", "sum"), grants=("grants", "sum")).reset_index()
     cal_funders = set(links[links.recipient_ein == CALVARY].funder_id)
+    status = funder_status()
+    # Lapsed = the M5 definition, so the page and the decks agree (review findings N01, M07): an institutional funder whose last
+    # grant to Calvary was TY2022 or earlier and which has filed itemized lists since TY2023. One-time capital gifts, DAF
+    # sponsors and funders with no itemized TY2023+ return are not counted.
+    lp = pd.read_csv(CHART_DATA / "m5_02_lapsed_funders.csv", dtype={"funder_id": str})
+    lapsed = set(lp[lp.status.str.startswith("lapsed")].funder_id)
 
     # Reconcile with the published network table before writing anything.
     m6 = pd.read_csv(CHART_DATA / "m6_01_central_funders.csv", dtype={"funder_id": str}).set_index("funder_id")
@@ -95,7 +121,9 @@ def build_data() -> dict:
         ftype = df.funder_type.get(r.funder_id, "other") if pd.notna(df.funder_type.get(r.funder_id)) else "other"
         funders.append({"id": r.funder_id, "name": FUNDER_SHORT[r.funder_id].replace(" Fdn", " Foundation") if r.funder_id in FUNDER_SHORT else display_name(legal), "legal": display_name(legal),
                         "type": ftype, "orgs": int(r.orgs), "amount": round(float(r.amount)), "grants": int(r.grants),
-                        "calvary": r.funder_id in cal_funders, "note": NOTES.get(r.funder_id, "")})
+                        "calvary": r.funder_id in cal_funders, "status": status.get(r.funder_id, ("", ""))[0],
+                        "note": status.get(r.funder_id, ("", ""))[1], "lapsed": r.funder_id in lapsed,
+                        "prospect": ftype != "daf_sponsor" and status.get(r.funder_id, ("", ""))[0] not in NOT_PROSPECT})
     out_links = [{"f": r.funder_id, "o": r.recipient_ein, "amount": round(float(r.amount)), "grants": int(r.grants),
                   "years": [round(float(by_year.get((r.funder_id, r.recipient_ein, y), 0.0))) for y in YEARS]}
                  for r in links.sort_values(["funder_id", "recipient_ein"]).itertuples()]

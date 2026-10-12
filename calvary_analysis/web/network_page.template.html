@@ -240,11 +240,11 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
             <dt>Not yet</dt><dd>The grantmaker gives to peers but no grant to Calvary appears in its returns. Calvary may still have received a gift that is not itemized there, such as a recent gift not yet filed.</dd>
             <dt>Bars 2020 → 2024</dt><dd>Dollars by tax year for one grantmaker–organization pair. Bars in the same list share one scale; hover a row for the exact figures.</dd>
             <dt>Faded peer</dt><dd>A peer that no grantmaker in the current view funds. Peers stay on the map as its frame; hover one to see how many grantmakers in view fund it.</dd>
-            <dt>Lapsed from Calvary</dt><dd>Gave to Calvary in tax years 2020–22, but no grant to Calvary appears in its 2023–24 returns. Some 2024 returns are still arriving, so a few may only be late.</dd>
+            <dt>Lapsed from Calvary</dt><dd>Last gave to Calvary in tax years 2020–22 and has filed itemized grant lists since 2023 with no grant to Calvary. Donor-advised fund sponsors, one-time capital-campaign gifts and grantmakers with no itemized 2023 return yet are not counted.</dd>
             <dt>Recent</dt><dd>Whether a grantmaker gave to any of the 19 in tax years 2023–24.</dd>
             <dt>Size</dt><dd>A grantmaker's total grants to the 19 organizations over tax years 2020–24.</dd>
-            <dt>Prospects</dt><dd>Quick view: grantmakers that fund 3 or more of Calvary's peers and have no grant to Calvary in the filings.</dd>
-            <dt>Winding down</dt><dd>A status note from the engagement's independent review. It currently applies only to the Clark Charitable Foundation.</dd>
+            <dt>Prospects</dt><dd>Quick view: grantmakers that fund 3 or more of Calvary's peers, have no grant to Calvary in the filings and choose their own grantees (giving channels, donor-advised fund sponsors and closed funders left out).</dd>
+            <dt>Status</dt><dd>How a grantmaker takes requests, from its own website where it has one, checked in October 2026: closed (Clark Charitable Foundation spent down and closed at the end of 2025), closed to new applicants, invitation only, grants by RFP only, not eligible for Calvary, or a giving channel (workplace, matching-gift, in-kind or online giving) rather than a grantmaker that chooses its grantees. No tag means open or not yet checked.</dd>
           </dl>
         </div>
       </details>
@@ -282,7 +282,7 @@ svg.sel .lbl.org:not(.hl) { opacity: .3; }
           <ul>
             <li>The peer set is provisional.</li>
             <li>A grant to a peer shows that a grantmaker funds this kind of work. It does not mean the grantmaker takes applications or would fund Calvary.</li>
-            <li>The "winding down" note on Clark Charitable Foundation comes from the engagement's independent review.</li>
+            <li>Status tags (closed, giving channel, invitation only and so on) come from funders' own websites, checked in October 2026, and can change.</li>
           </ul>
           <p>Pro bono analysis prepared for Calvary Women's Services from public records. Not a Calvary publication.</p>
         </div>
@@ -355,11 +355,11 @@ function buildTables(DATA) {
     id: "grantmakers", title: "Grantmakers", filename: `calvary_grantmakers_TY2020-24_asof_${DATA.asOf}.csv`,
     desc: "One row per grantmaker: type, reach across the 19 organizations, and grants to Calvary.",
     columns: ["Grantmaker", "Legal name", "EIN", "Type", "Organizations funded (of 19)", "Peers funded (of 18)", "Funds Calvary",
-      "Grants to Calvary, TY2020-24 ($)", "Grants to the 19, TY2020-24 ($)", "Grants filed", "Organizations funded", "Status note"],
+      "Grants to Calvary, TY2020-24 ($)", "Grants to the 19, TY2020-24 ($)", "Grants filed", "Organizations funded", "Status", "Status note"],
     rows: DATA.funders.map((f) => {
       const ls = byF.get(f.id) || [], c = ls.find((l) => l.o === cal);
       return [f.name, f.legal, ein(f.id), DATA.typeLabels[f.type] || f.type, f.orgs, ls.filter((l) => l.o !== cal).length, f.calvary ? "yes" : "no",
-        c ? c.amount : 0, f.amount, f.grants, ls.map((l) => org.get(l.o).name).sort().join("; "), f.note || ""];
+        c ? c.amount : 0, f.amount, f.grants, ls.map((l) => org.get(l.o).name).sort().join("; "), f.status || "", f.note || ""];
     }),
   };
   const linkRows = DATA.links.slice().sort((a, b) => (a.o === cal ? 0 : 1) - (b.o === cal ? 0 : 1) || org.get(a.o).name.localeCompare(org.get(b.o).name) || b.amount - a.amount);
@@ -557,13 +557,14 @@ function toDelimited(t, sep) {
   const i23 = DATA.years.indexOf(2023), recentLink = (l) => l.years.slice(i23).some((v) => v > 0);
   funders.forEach((f) => {
     f.active = f.links.some(recentLink);
-    const c = f.links.find((l) => l.cal); f.lapsed = !!c && !recentLink(c);
+    // f.lapsed comes from the build (the M5 definition used in the decks).
   });
-  const fresh = () => ({ cal: "all", min: 3, types: new Set(ALL_TYPES), peers: new Set(), size: 0, recent: "any" });
+  const fresh = () => ({ cal: "all", min: 3, types: new Set(ALL_TYPES), peers: new Set(), size: 0, recent: "any", prospect: false });
   const state = { ...fresh(), sel: null, hover: null, mode: "overview", sort: "orgs" };
   function passes(f, st = state) {
     if (f.orgs < st.min || !st.types.has(f.type) || f.amount < st.size) return false;
     if ((st.cal === "funds" && !f.calvary) || (st.cal === "lapsed" && !f.lapsed) || (st.cal === "not" && f.calvary)) return false;
+    if (st.prospect && !f.prospect) return false;
     if ((st.recent === "active" && !f.active) || (st.recent === "quiet" && f.active)) return false;
     return !st.peers.size || f.links.some((l) => st.peers.has(l.target.id));
   }
@@ -590,14 +591,14 @@ function toDelimited(t, sep) {
     daf_sponsor: "donor-advised fund sponsor", federated_giving: "federated fund", public_charity_grantmaker: "public charity grantmaker", other: "other grantmaker" };
   const typeMix = (xs) => d3.rollups(xs, (v) => v.length, (f) => f.type).sort((a, b) => b[1] - a[1])
     .map(([t, n]) => `${n} ${TYPE_PLURAL[t] || t}${n === 1 ? "" : "s"}`).join(", ");
-  const winding = (xs) => xs.filter((f) => f.note).map((f) => ` ${f.name} is winding down.`).join("");
+  const winding = (xs) => xs.filter((f) => f.status).map((f) => ` ${f.name}: ${f.status}.`).join("");
   const byPeers = (a, b) => b.peers - a.peers || b.amount - a.amount, byCal = (a, b) => b.calAmount - a.calAmount;
   const VIEWS = [
     { id: "overview", label: "Overview", tip: "Grantmakers that fund 3 or more of the 19", set: {} },
-    { id: "prospects", label: "Prospects", caption: (n) => `${n} grantmakers that fund 3 or more of Calvary's peers but not Calvary. Each line runs to a peer it funds; none reaches Calvary yet.`, title: "Prospects: peers' grantmakers that do not fund Calvary yet", sort: "orgs",
-      tip: "Fund 3 or more peers, with no grant to Calvary in the filings", set: { cal: "not" },
+    { id: "prospects", label: "Prospects", caption: (n) => `${n} grantmakers that fund 3 or more of Calvary's peers but not Calvary and choose their own grantees. Each line runs to a peer it funds; none reaches Calvary yet.`, title: "Prospects: peers' grantmakers that do not fund Calvary yet", sort: "orgs",
+      tip: "Fund 3 or more peers, with no grant to Calvary in the filings; giving channels and closed funders left out", set: { cal: "not", prospect: true },
       explain: (xs) => [
-        ["p", "Grantmakers that gave to three or more of Calvary's peers in tax years 2020–24 but have no grant to Calvary in their filings. They already fund work like Calvary's, which makes them a natural place to look for new support."],
+        ["p", "Grantmakers that gave to three or more of Calvary's peers in tax years 2020–24 but have no grant to Calvary in their filings. They already fund work like Calvary's, which makes them a natural place to look for new support. Giving channels (workplace, matching-gift, in-kind and online giving), donor-advised fund sponsors and funders that have closed or stopped taking new applicants are left out."],
         ["p", `These ${xs.length} gave ${money(sumBy(xs, (f) => f.amount))} to the peers over the five years, and ${xs.filter((f) => f.active).length} of them gave in 2023–24. They are ${typeMix(xs)}. Most connected: ${names(xs.slice().sort(byPeers), 3, (f) => `${f.name} (${f.peers} peers)`)}.`],
         ["sub", `A grant to a peer does not mean a grantmaker takes applications or would fund Calvary, so check each one's guidelines first.${winding(xs)}`],
       ] },
@@ -605,15 +606,15 @@ function toDelimited(t, sep) {
       tip: "Every grantmaker with a grant to Calvary in the filings", set: { cal: "funds", min: 1 },
       explain: (xs) => [
         ["p", `Every grantmaker that reported a grant to Calvary on its own IRS return, tax years 2020–24: ${xs.length} grantmakers and ${money(sumBy(xs, (f) => f.calAmount))} in total. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
-        ["p", `${xs.filter((f) => f.peers >= 3).length} of them also fund three or more of Calvary's peers. ${xs.filter((f) => f.lapsed).length} show no grant to Calvary in their 2023–24 returns; see Lapsed from Calvary.`],
+        ["p", `${xs.filter((f) => f.peers >= 3).length} of them also fund three or more of Calvary's peers. ${xs.filter((f) => f.lapsed).length} have filed grant lists since 2023 with nothing for Calvary; see Lapsed from Calvary.`],
         ["sub", "Individual donors, events, direct company gifts and government grants are not in these returns, so this is one part of Calvary's support."],
       ] },
-    { id: "lapsed", label: "Lapsed from Calvary", caption: (n) => `${n} grantmakers that gave to Calvary in 2020–22 but not in their 2023–24 filings. Faded peers get nothing from them.`, title: "Lapsed from Calvary", sort: "cal",
-      tip: "Gave to Calvary in 2020–22 but nothing to Calvary in 2023–24 filings; some 2024 returns are still arriving", set: { cal: "lapsed", min: 1 },
+    { id: "lapsed", label: "Lapsed from Calvary", caption: (n) => `${n} grantmakers that last gave to Calvary in 2020–22 and have filed grant lists since 2023 with nothing for Calvary. Faded peers get nothing from them.`, title: "Lapsed from Calvary", sort: "cal",
+      tip: "Last gave to Calvary in 2020–22 and have filed itemized grant lists since 2023 with nothing for Calvary", set: { cal: "lapsed", min: 1 },
       explain: (xs) => [
-        ["p", `Grantmakers that gave to Calvary in tax years 2020–22 but show no grant to Calvary in their 2023–24 returns: ${xs.length} grantmakers that gave Calvary ${money(sumBy(xs, (f) => f.calAmount))} in those earlier years. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
+        ["p", `Grantmakers whose last grant to Calvary was in tax years 2020–22 and that have filed itemized grant lists since 2023 with nothing for Calvary: ${xs.length} grantmakers that gave Calvary ${money(sumBy(xs, (f) => f.calAmount))} in those earlier years. Largest: ${names(xs.slice().sort(byCal), 3, (f) => `${f.name} (${money(f.calAmount)})`)}.`],
         ["p", `${xs.filter((f) => f.active).length} of them still gave to Calvary's peers in 2023–24, so they remain active in this field and the relationship may be worth renewing.`],
-        ["sub", "Some 2024 returns are still arriving, so a few may only be late. A gift can also move to a channel these returns do not show, such as a donor's own donor-advised fund."],
+        ["sub", "Donor-advised fund sponsors, one-time capital-campaign gifts and grantmakers with no itemized 2023 return yet are left out. A gift can also move to a channel these returns do not show, such as a donor's own donor-advised fund."],
       ] },
     { id: "hubs", label: "Major hubs", caption: (n) => `${n} grantmakers that fund 9 or more of the 19. Blue ones are donor-advised fund sponsors.`, title: "Major hubs", sort: "orgs",
       tip: "Fund 9 or more of the 19", set: { min: 9 },
@@ -684,7 +685,7 @@ function toDelimited(t, sep) {
   }
   const typeShort = (t) => DATA.typeLabels[t].replace(" (United Way and similar)", "");
   const CAL = { all: "All", funds: "Fund Calvary", lapsed: "Lapsed", not: "Not yet" };
-  dropdown("cal", "Calvary", (m) => radios(m, "cal", [["all", "All grantmakers"], ["funds", "Fund Calvary"], ["lapsed", "Lapsed: no Calvary grant in 2023–24 filings"], ["not", "Not yet: no Calvary grant in the filings"]]),
+  dropdown("cal", "Calvary", (m) => radios(m, "cal", [["all", "All grantmakers"], ["funds", "Fund Calvary"], ["lapsed", "Lapsed: filed since 2023, nothing for Calvary"], ["not", "Not yet: no Calvary grant in the filings"]]),
     () => CAL[state.cal], () => state.cal !== "all");
   dropdown("min", "Reach", (m) => radios(m, "min", [[1, "1 or more of the 19"], [2, "2 or more"], [3, "3 or more"], [5, "5 or more"], [9, "9 or more (major hubs)"]], "How many of the 19 organizations a grantmaker funds"),
     () => `${state.min}+ of 19`, () => state.min !== 3);
@@ -766,7 +767,7 @@ function toDelimited(t, sep) {
       tip.append(el("div", "s", DATA.typeLabels[d.type] || d.type));
       const p = el("div"); p.append(el("span", "v", money(d.amount)), document.createTextNode(` to ${plural(d.orgs, "organization", "organizations")} of 19`)); tip.append(p);
       tip.append(el("div", null, d.calvary ? `Funds Calvary: ${money(d.calAmount)}` : `No grant to Calvary in filings · funds ${plural(d.peers, "peer", "peers")}`));
-      if (d.note) tip.append(el("div", "s", "Status note: winding down"));
+      if (d.status) tip.append(el("div", "s", `Status: ${d.status}`));
     } else {
       tip.append(el("div", "s", `${d.place} · ${sizeTxt(d)}`), el("div", null, d.what));
       const p = el("div"); p.append(el("span", "v", plural(d.links.length, "grantmaker", "grantmakers")), document.createTextNode(` · ${money(d.amount)} from them`)); tip.append(p);
@@ -868,7 +869,7 @@ function toDelimited(t, sep) {
     ["Click any circle to see who it funds, by year.", "Click a peer to list its grantmakers that do not fund Calvary yet.", "Use a quick view such as Prospects, or the filters, to focus the map. List shows the grantmakers in view."].forEach((t) => how.append(el("li", null, t)));
     panel.append(orgDirectory());
     panel.append(
-      list(`Fund 3+ peers, not Calvary yet (${gaps.length})`, gaps, (f) => row(f, `${f.peers} peers`, `${money(f.amount)} · ${DATA.typeLabels[f.type]}${f.note ? " · winding down" : ""}`), 10),
+      list(`Fund 3+ peers, not Calvary yet (${gaps.length})`, gaps, (f) => row(f, `${f.peers} peers`, `${money(f.amount)} · ${DATA.typeLabels[f.type]}${f.status ? " · " + f.status : ""}`), 10),
       list("Calvary's largest grantmakers in the filings", calTop, (l) => row(l.source, money(l.amount), `${plural(l.source.orgs, "organization", "organizations")} funded`), 8),
     );
   }
@@ -896,17 +897,17 @@ function toDelimited(t, sep) {
       const gaps = funders.filter((f) => !f.calvary && f.orgs >= 3).sort((a, b) => b.orgs - a.orgs || b.amount - a.amount);
       panel.append(kpis([[String(all.length), "grantmakers in filings"], [money(o.amount), "from them, TY2020–24"], [String(all.filter((l) => l.source.orgs >= 3).length), "also fund 2+ peers"]]));
       panel.append(list("Calvary's grantmakers, by dollars", all, (l) => row(l.source, money(l.amount), `${plural(l.source.peers, "peer", "peers")} also funded`, { title: yearsTitle(l) }), 12));
-      panel.append(list("Fund 3+ peers, not Calvary yet", gaps, (f) => row(f, `${f.peers} peers`, `${money(f.amount)}${f.note ? " · winding down" : ""}`), 10));
+      panel.append(list("Fund 3+ peers, not Calvary yet", gaps, (f) => row(f, `${f.peers} peers`, `${money(f.amount)}${f.status ? " · " + f.status : ""}`), 10));
       return;
     }
     const shared = all.filter((l) => l.source.calvary), notCal = all.filter((l) => !l.source.calvary);
     const bd = el("div", "badges"); bd.append(el("span", "badge", "Peer organization (provisional set)")); panel.append(bd);
     panel.append(kpis([[String(all.length), "grantmakers in filings"], [money(o.amount), "from them, TY2020–24"], [String(shared.length), "shared with Calvary"]]));
-    panel.append(list(`Fund ${o.name}, not Calvary (${notCal.length})`, notCal, (l) => row(l.source, money(l.amount), `${plural(l.source.orgs, "organization", "organizations")} funded${l.source.note ? " · winding down" : ""}`, { title: yearsTitle(l) }), 12));
+    panel.append(list(`Fund ${o.name}, not Calvary (${notCal.length})`, notCal, (l) => row(l.source, money(l.amount), `${plural(l.source.orgs, "organization", "organizations")} funded${l.source.status ? " · " + l.source.status : ""}`, { title: yearsTitle(l) }), 12));
     panel.append(list(`Also fund Calvary (${shared.length})`, shared, (l) => row(l.source, money(l.amount), `to ${o.name}; ${money(l.source.calAmount)} to Calvary`, { title: yearsTitle(l) }), 8));
   }
   function describe() {
-    const parts = [{ all: "All grantmakers", funds: "Fund Calvary", lapsed: "Lapsed from Calvary (no Calvary grant in 2023–24 filings)", not: "No grant to Calvary in the filings" }[state.cal],
+    const parts = [{ all: "All grantmakers", funds: "Fund Calvary", lapsed: "Lapsed from Calvary (filed since 2023, nothing for Calvary)", not: "No grant to Calvary in the filings" }[state.cal],
       `fund ${state.min}+ of the 19`];
     if (state.types.size !== ALL_TYPES.length) parts.push([...state.types].map(typeShort).join(", "));
     if (state.peers.size) parts.push("fund " + [...state.peers].map((id) => byKey.get("o-" + id).name).join(" or "));
@@ -935,7 +936,7 @@ function toDelimited(t, sep) {
     const exp = el("button", "linkbtn", "Download this list (CSV)"); exp.type = "button"; exp.onclick = () => exportView(items);
     bar.append(el("span", "sub", "Sort by"), sel, exp); panel.append(bar);
     if (!items.length) { panel.append(el("p", "sub", "No grantmaker matches these filters. Reset, or loosen one of them.")); return; }
-    panel.append(list(null, items, (f) => row(f, val(f), `${typeShort(f.type)}${f.calvary ? (f.lapsed ? " · lapsed from Calvary" : " · funds Calvary") : ""}${f.note ? " · winding down" : ""}`), 40));
+    panel.append(list(null, items, (f) => row(f, val(f), `${typeShort(f.type)}${f.calvary ? (f.lapsed ? " · lapsed from Calvary" : " · funds Calvary") : ""}${f.status ? " · " + f.status : ""}`), 40));
   }
   function exportView(items) {  // the grantmakers file, cut to this view, in the list's order
     const t = tables[0], rowById = new Map(DATA.funders.map((f, i) => [f.id, t.rows[i]]));

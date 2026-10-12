@@ -75,9 +75,9 @@ ax.set_ylim(0, bottom.max() * 1.15)
 ax.legend(loc="upper left")
 ax.set_xlabel("Award year (DC FY for OVSJG and DHS; HUD CoC competition year; expenditure year for other federal)")
 style.finish(f, ax, "m2_01_stream_map",
-             "Calvary's recurring government awards grew from $0.9M (2019) to about $4.1M (2024) across three channels",
+             "Calvary's recurring government awards grew from $0.6M (2020) to about $4.1M (2024) across three channels",
              "fact_gov_awards: dc_ovsjg, hud_coc, dc_oversight, audit_sefa rows for Calvary (one source per stream)",
-             note="DHS/TCP contract values are public for DC FY2024 only; other years show no DHS bar because the figure is unknown, not zero. Excludes the one-time $3.68M SLFRF award (FY2022).")
+             note="DHS/TCP contract values are public for DC FY2024 only; other years show no DHS bar because the figure is unknown, not zero. Excludes the one-time $3.68M SLFRF award (FY2022). The 2019 OVSJG value adds two Reach Up records ($292,000 and $368,935) that may be a start-up grant plus a continuation or one award recorded twice (review finding M06).")
 
 # ------------------------------------------------------------------ award ceilings aligned to Calvary FY vs recognized government revenue
 lag = int(CFG["coc_award_lag_years"])
@@ -150,11 +150,11 @@ dur["change_first_to_latest"] = dur.latest_amount / dur.first_amount - 1
 meta = {
     "OVSJG: Reach Up TH": ("DC local funds (FY24-26 lists); SLFRF-funded in FY22-23", "Annual OVSJG grant; continuation funding", "Medium: annual, Mayor proposed cuts to Victim Services grants in FY26 and FY27, Council restored both"),
     "OVSJG: New Foundations TH": ("DC local funds", "Annual OVSJG grant; started FY23 after the FY22 building award", "Medium: as above; tied to a DV-designated site"),
-    "CoC: Sister Circle PSH": ("Federal HUD CoC 14.267 via TCP", "Annual renewal in the DC CoC competition", "Medium-low: PSH renewals are usually protected, but HUD's 2025 CoC NOFO shifted priorities"),
+    "CoC: Sister Circle PSH": ("Federal HUD CoC 14.267 via TCP", "Annual renewal in the DC CoC competition", "Medium-low: PSH renewals are usually protected; FY2025 renewals were paid in full after the NOFO was enjoined, and the FY2026 competition (awards about December 2026) is the live question"),
     "CoC: Reach Up": ("Federal HUD CoC 14.267 via TCP", "Annual renewal; expanded in 2024", "Medium: TCP reallocation cut it from $1.22M to $0.42M in 2022, then it grew to $0.92M"),
     "CoC: New Foundations 2": ("Federal HUD CoC 14.267 via TCP", "Annual renewal; new in 2023", "Medium: a young project is the first to go in a tight competition"),
     "DHS/TCP: Transitional Housing": ("DC local funds via TCP (DHS Homeless Services Continuum)", "Annual provider contract via TCP (45 beds)", "Medium-high: single public data point; TCP's DHS POs fell sharply in FY2025 after DC's financial-system change"),
-    "DHS/TCP: Sisters Rise EHV": ("DC local funds via TCP, paired with Emergency Housing Vouchers", "Annual provider contract (25 units); the project left the HIC in 2025", "High: EHV is a sunsetting federal voucher program; the 2025 HIC no longer lists Sisters Rise PSH"),
+    "DHS/TCP: Sisters Rise EHV": ("DC local funds via TCP, paired with Emergency Housing Vouchers", "Annual provider contract (25 units); the project left the HIC in 2025", "High: HUD's 29 September 2026 notice ends the EHV program (vouchers convert by 31 December 2026 and cannot be reissued); the 2025 HIC no longer lists Sisters Rise PSH"),
 }
 dur["funding_source"] = dur.detail.map(lambda d: meta[d][0])
 dur["renewal_mechanism"] = dur.detail.map(lambda d: meta[d][1])
@@ -298,6 +298,26 @@ for sc in CFG["scenarios"]:
             loss += alloc[k] * pct
     rows.append({"scenario_id": sc["id"], "scenario": sc["name"], "revenue_loss": loss, "rationale": sc["rationale"]})
 scn = pd.DataFrame(rows)
+# Ranges across defensible apportionments (review finding R01). Streams are not drawn at a common rate (CoC drew 28-62%
+# of its ceiling in the audited FY22-23 SEFA), so stream-level losses are reported as ranges, not point estimates.
+#   A  recognized revenue split by award-ceiling share (the point estimate in revenue_loss)
+#   B  OVSJG and other federal fully drawn, CoC at the audited FY22-23 SEFA draw rate, DHS the residual
+#   C  ceiling share without Sisters Rise, which left the HIC in 2025
+#   D  OVSJG and CoC fully drawn, DHS the residual: a floor case that nearly removes the DHS loss; reported, not a bound
+coc_by_comp = coc.groupby("fiscal_year").amount.sum()
+sefa_coc = sum(sefa[(sefa.fiscal_year == y) & sefa.program_name.str.contains("Supportive Housing", na=False)].amount.sum() for y in (2022, 2023))
+coc_draw_rate = sefa_coc / (coc_by_comp.get(2021, 0) + coc_by_comp.get(2022, 0))
+sisters_rise = dhs[dhs.program_name.str.contains("Sisters Rise")].amount.sum()
+split_b = {"ovsjg": ceil["ovsjg"], "other": ceil["other"], "coc": ceil["coc"] * coc_draw_rate}; split_b["dhs"] = gov_recog - sum(split_b.values())
+ceil_c = dict(ceil, dhs=ceil["dhs"] - sisters_rise)
+split_c = {k: v / sum(ceil_c.values()) * gov_recog for k, v in ceil_c.items()}
+split_d = {"ovsjg": ceil["ovsjg"], "other": ceil["other"], "coc": ceil["coc"]}; split_d["dhs"] = gov_recog - sum(split_d.values())
+def scenario_loss(sc, split):
+    return sum(split["coc"] * nf2_share_of_coc * pct if k == "coc_project_new_foundations_2" else split[k] * pct for k, pct in sc["cuts"].items())
+alt = {sc["id"]: [scenario_loss(sc, sp) for sp in (alloc, split_b, split_c)] for sc in CFG["scenarios"]}
+scn["revenue_loss_low"] = scn.scenario_id.map(lambda i: min(alt[i]) if i in alt else 0.0)
+scn["revenue_loss_high"] = scn.scenario_id.map(lambda i: max(alt[i]) if i in alt else 0.0)
+scn["revenue_loss_floor_case_d"] = scn.scenario_id.map(lambda i: scenario_loss(next(c for c in CFG["scenarios"] if c["id"] == i), split_d) if i in alt else 0.0)
 scn["loss_pct_of_total_revenue"] = scn.revenue_loss / total_rev
 scn["loss_pct_of_gov_revenue"] = scn.revenue_loss / gov_recog
 scn["deficit_gross"] = base_deficit - scn.revenue_loss
@@ -306,26 +326,28 @@ scn["months_of_cash_after_12m_gross"] = (cash + scn.deficit_gross).clip(lower=0)
 scn["months_of_cash_after_12m_net"] = (cash + scn.deficit_net_of_cost_avoidance).clip(lower=0) / (expenses / 12)
 scn["months_until_cash_zero_gross"] = np.where(scn.deficit_gross < 0, cash / (-scn.deficit_gross / 12), np.inf)
 scn["months_until_cash_zero_net"] = np.where(scn.deficit_net_of_cost_avoidance < 0, cash / (-scn.deficit_net_of_cost_avoidance / 12), np.inf)
+for end in ("low", "high"):  # months of cash after a year at each end of the range (net of cost avoidance)
+    scn[f"months_of_cash_after_12m_net_{end}"] = (cash + base_deficit - scn[f"revenue_loss_{'high' if end == 'low' else 'low'}"] * (1 - ca)).clip(lower=0) / (expenses / 12)
 params = pd.DataFrame([{"parameter": k, "value": v} for k, v in {
     "baseline_fy": fy, "total_revenue": total_rev, "total_expenses": expenses, "baseline_surplus_deficit": base_deficit,
     "cash_eoy": cash, "recognized_gov_revenue": gov_recog, "gov_share": gov_recog / total_rev,
     "alloc_ovsjg": alloc["ovsjg"], "alloc_coc": alloc["coc"], "alloc_dhs": alloc["dhs"], "alloc_other": alloc["other"],
-    "nf2_share_of_coc": nf2_share_of_coc, "cost_avoidance_share": ca}.items()])
+    "nf2_share_of_coc": nf2_share_of_coc, "cost_avoidance_share": ca, "coc_draw_rate_fy22_23_sefa": coc_draw_rate, "sisters_rise_dhs": sisters_rise}.items()])
 save_chart_data(scn, "m2_07_scenarios", "Stress-test scenarios on Calvary's FY25 government revenue (config/scenarios.yaml)",
-                ["fact_gov_awards", "fact_org_financials"], src_gov, S, "recognized government revenue apportioned to streams by FY-aligned award ceilings")
+                ["fact_gov_awards", "fact_org_financials"], src_gov, S, "losses as ranges across three apportionments of recognized government revenue (A ceiling share, B CoC at the FY22-23 SEFA draw rate with DHS residual, C ceiling share without Sisters Rise); D floor case reported separately")
 save_chart_data(params, "m2_07_scenario_parameters", "Scenario baseline parameters", ["fact_gov_awards", "fact_org_financials"], src_gov, S)
 f, ax = style.fig(10.5, 5.6)
 s2 = scn[scn.scenario_id != "S0"].iloc[::-1]
-bars = ax.barh(s2.scenario, s2.revenue_loss, color=style.NEGATIVE, height=0.6)
-for b_, v, p, m in zip(bars, s2.revenue_loss, s2.loss_pct_of_total_revenue, s2.months_of_cash_after_12m_net):
-    ax.annotate(f"−${v/1e3:,.0f}K  ({p:.0%} of revenue) → {m:.1f} months of cash after a year (net)", (v, b_.get_y() + b_.get_height() / 2),
-                xytext=(5, 0), textcoords="offset points", va="center", fontsize=8.5, color=style.TEXT_2)
+bars = ax.barh(s2.scenario, s2.revenue_loss_high - s2.revenue_loss_low, left=s2.revenue_loss_low, color=style.NEGATIVE, height=0.6)
+for b_, lo, hi, mlo, mhi in zip(bars, s2.revenue_loss_low, s2.revenue_loss_high, s2.months_of_cash_after_12m_net_low, s2.months_of_cash_after_12m_net_high):
+    ax.annotate(f"−${lo/1e3:,.0f}K to −${hi/1e3:,.0f}K ({lo/total_rev:.0%}–{hi/total_rev:.0%} of revenue) → {mlo:.1f}–{mhi:.1f} months of cash after a year (net)",
+                (hi, b_.get_y() + b_.get_height() / 2), xytext=(5, 0), textcoords="offset points", va="center", fontsize=8.5, color=style.TEXT_2)
 ax.grid(axis="y", visible=False); ax.grid(axis="x", visible=True)
 style.money_axis(ax, "K", axis="x"); ax.set_xlim(0, s2.revenue_loss.max() * 1.9)
 style.finish(f, ax, "m2_07_scenarios",
-             "Losing the DHS/TCP contract would add $0.5-1.0M to the FY25 deficit, and the combined case leaves under 2 months of cash after a year",
+             f"Losing the DHS/TCP contract would cost about {money(scn.set_index('scenario_id').loc['S5', 'revenue_loss_low'])}-{money(scn.set_index('scenario_id').loc['S5', 'revenue_loss_high'])} a year, and the combined case leaves {scn.set_index('scenario_id').loc['S6', 'months_of_cash_after_12m_net_low']:.1f}-{scn.set_index('scenario_id').loc['S6', 'months_of_cash_after_12m_net_high']:.1f} months of cash after a year",
              "fact_gov_awards and fact_org_financials; parameters in config/scenarios.yaml",
-             note=f"Baseline: FY{str(fy)[2:]} revenue {money(total_rev)}, expenses {money(expenses)}, cash {money(cash)}, government revenue {money(gov_recog)} ({gov_recog/total_rev:.0%}). Net view assumes {ca:.0%} of a lost stream's revenue is avoidable cost.")
+             note=f"Baseline: FY{str(fy)[2:]} revenue {money(total_rev)}, expenses {money(expenses)}, cash {money(cash)}, government revenue {money(gov_recog)} ({gov_recog/total_rev:.0%}). Net view assumes {ca:.0%} of a lost stream's revenue is avoidable cost. Bars span three ways of splitting recognized revenue across streams (ceiling share; CoC at its audited FY22-23 draw rate of {coc_draw_rate:.0%}; without Sisters Rise); a floor case with OVSJG and CoC fully drawn nearly removes the DHS loss.")
 
 print(al[["fy_label", "ovsjg_award", "coc_award_lagged", "dhs_award", "other_federal", "award_ceiling_known", "recognized_gov_revenue", "recognized_basis", "slfrf_expenditure", "gov_share", "ratio_recognized_ex_slfrf_to_ceiling"]].round(3).to_string())
 print(dur[["detail", "first_year", "first_amount", "latest_year", "latest_amount", "change_first_to_latest"]].to_string())
@@ -337,7 +359,7 @@ print(sel[["event_date", "event_type", "agency", "amount_change", "description"]
 
 # ------------------------------------------------------------------ insights
 r24 = al.set_index("fiscal_year")
-register_insight("M2-01", "M2", "Calvary's recurring government awards rose from $0.9M (2019) to about $4.1M (2024) across three channels: OVSJG, HUD CoC via TCP, and DHS via TCP.",
+register_insight("M2-01", "M2", "Calvary's recurring government awards rose from about $0.6M (2020) to about $4.1M (2024) across three channels: OVSJG, HUD CoC via TCP, and DHS via TCP; about three-quarters (78% of the 2024 base) passes through TCP.",
                  f"OVSJG recurring {money(ovs.get(2020))} FY20 -> {money(ovs.get(2026))} FY26; CoC {money(cocs.get(2020))} (2019 awards) -> {money(cocs.get(2026))} (FY2025 awards); DHS/TCP {money(dhss.get(2024))} in FY2024.",
                  ["m2_01_stream_map", "m2_03_stream_durability"], ["fact_gov_awards"], "$4.1M/yr award base", "high",
                  "Three channels, two pass-through intermediaries (TCP for both CoC and DHS) and one direct grantor: concentration sits in TCP more than in any single program.", "both")
@@ -348,18 +370,18 @@ register_insight("M2-02", "M2", f"In FY24-FY25 Calvary recognized only about {r2
 register_insight("M2-03", "M2", "DC's budgets behind Calvary's local streams stayed flat to rising through FY2027, but the Mayor proposed cuts to victim services and DV lines in both FY2026 and FY2027 and the Council restored them.",
                  "OVSJG Victim Services grants approved $45.5M FY24, $55.9M FY25, $55.4M FY26, $55.3M FY27; Mayor's FY26 proposal $50.1M; DHS continuum $170M FY24 -> $206M FY26; PSH ~$145-166M.",
                  ["m2_04_dc_budget_context", "m2_06_policy_timeline"], ["supp_dc_budget_lines", "fact_policy_events"], "flat pools, annual threat", "high",
-                 "The local risk is annual political, not structural: a Council-restoration dependency, with actual spending running 9-14% under approved.", "both")
+                 "The local risk is annual and political rather than structural: the line has held through Council restorations, the FY27 restoration is mostly one-time ($5.1M of $5.6M), and actual spending runs 9-14% under approved.", "both")
 register_insight("M2-04", "M2", "Calvary receives about 5% of DC's CoC awards and about 1% of OVSJG's awards.",
                  f"CoC share {sh.set_index('fiscal_year').coc_share.get(2025):.1%} (FY2025, $1.77M of $33.5M); OVSJG share {sh.set_index('fiscal_year').ovsjg_share.get(2026):.1%} (FY2026, $1.05M of $96.7M).",
                  ["m2_05_pool_shares"], ["fact_gov_awards"], "5% and 1% of pools", "high",
                  "Calvary is a price-taker in both pools; growth comes from winning projects in competitions it does not control, not from pool growth.", "both")
 s5 = scn.set_index("scenario_id")
-register_insight("M2-05", "M2", f"A non-renewed DHS/TCP contract would remove about {money(s5.loc['S5','revenue_loss'])} ({s5.loc['S5','loss_pct_of_total_revenue']:.0%} of revenue); the combined worst case removes {money(s5.loc['S6','revenue_loss'])} and leaves roughly {s5.loc['S6','months_of_cash_after_12m_net']:.1f} months of cash after one year even with 50% cost avoidance.",
-                 f"Baseline FY25: revenue {money(total_rev)}, expenses {money(expenses)}, cash {money(cash)}, deficit {money(base_deficit)}. OVSJG -10% costs {money(s5.loc['S1','revenue_loss'])}; CoC -15% {money(s5.loc['S3','revenue_loss'])}.",
-                 ["m2_07_scenarios"], ["fact_gov_awards", "fact_org_financials"], "up to $1.3M/yr", "medium",
+register_insight("M2-05", "M2", f"A non-renewed DHS/TCP contract would remove about {money(s5.loc['S5','revenue_loss_low'])}-{money(s5.loc['S5','revenue_loss_high'])} a year, depending on how recognized revenue splits across streams; the combined worst case removes {money(s5.loc['S6','revenue_loss_low'])}-{money(s5.loc['S6','revenue_loss_high'])} and leaves about {s5.loc['S6','months_of_cash_after_12m_net_low']:.1f}-{s5.loc['S6','months_of_cash_after_12m_net_high']:.1f} months of cash after one year even with 50% cost avoidance.",
+                 f"Baseline FY25: revenue {money(total_rev)}, expenses {money(expenses)}, cash {money(cash)}, deficit {money(base_deficit)}. OVSJG -10% costs {money(s5.loc['S1','revenue_loss_low'])}-{money(s5.loc['S1','revenue_loss_high'])}; CoC -15% {money(s5.loc['S3','revenue_loss_low'])}-{money(s5.loc['S3','revenue_loss_high'])}. Ranges span three apportionments (review finding R01).",
+                 ["m2_07_scenarios"], ["fact_gov_awards", "fact_org_financials"], f"up to {money(s5.loc['S6','revenue_loss_high'])}/yr", "medium",
                  "The DHS/TCP contract is the single largest exposure and the least documented; the OVSJG cuts that make headlines are survivable, a TCP contract loss is not without new money or cuts.", "both")
 register_insight("M2-06", "M2", "Sisters Rise (24 EHV-paired PSH beds in the HIC; DHS contract capacity 25; $593K in FY2024) disappeared from the 2025 Housing Inventory Count.",
-                 "supp_hic_projects: 'CWS - Sisters Rise - PSH' 24 beds in 2024, absent in 2025; EHV is a sunsetting federal voucher program.",
+                 "supp_hic_projects: 'CWS - Sisters Rise - PSH' 24 beds in 2024, absent in 2025; HUD's 29 September 2026 notice ends the EHV program, with vouchers converting by 31 December 2026.",
                  ["m2_03_stream_durability"], ["supp_hic_projects", "fact_gov_awards"], "$593K stream at risk or gone", "medium",
                  "Confirm with Calvary whether the EHV program ended in FY25; if so, part of the FY25 revenue drop is already this.", "both")
 log(S, [f"streams: OVSJG recurring FY26 {ovs.get(2026):,.0f}; CoC FY2025 awards {coc[coc.fiscal_year==2025].amount.sum():,.0f}; DHS FY2024 {dhss.get(2024):,.0f}",

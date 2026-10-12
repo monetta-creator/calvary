@@ -197,9 +197,9 @@ register_insight("M4-01", "M4", f"DMV funders put about {money(tot_a/5)} a year 
                  "The pool is large relative to Calvary's $1M/yr of filed grants; the constraint is access, not supply.", "both")
 register_insight("M4-02", "M4", f"The institutional pool is concentrated: the top 10 funders give {top10:.0%} of institutional dollars to the DC sector, and {int(ft.head(25).gives_to_calvary.sum())} of the top 25 already fund Calvary.",
                  "m4_03, m4_04", ["m4_03_top_institutional_funders", "m4_04_concentration"], ["fact_grants", "dim_funder"], f"top 10 = {top10:.0%}", "high",
-                 "Calvary's institutional coverage of the majors is already broad; the next wins are the large non-funders on the list (Clark, Weinberg, Casey, Wal-Mart, Morningstar) and deeper grants from current majors.", "both")
+                 "Calvary's institutional coverage of the majors is already broad; the next wins are deeper grants from current majors and the open large non-funders (Casey, Wal-Mart, Morningstar). Clark has closed, Meyer is closed to new applicants and Weinberg's grants center outside DC.", "both")
 register_insight("M4-03", "M4", f"The typical institutional grant to a DC-sector organization is small (median {money(a[~a.is_daf].amount.median(), 'K')}); six-figure grants are the top decile and come from community and private foundations.",
-                 "m4_05", ["m4_05_grant_size_by_type"], ["fact_grants", "dim_funder"], "median ~$15K", "high",
+                 "m4_05", ["m4_05_grant_size_by_type"], ["fact_grants", "dim_funder"], f"median {money(a[~a.is_daf].amount.median(), 'K')}", "high",
                  "Moving the needle by $0.5M needs a handful of six-figure, multi-year relationships, not dozens of new $10K grants.", "both")
 register_insight("M4-04", "M4", f"Fidelity Charitable moved {money(daf.total.iloc[0])} into DC-sector organizations in five years, more than any foundation; DAF money is a donor-cultivation channel, not a grant pipeline.",
                  "m4_06", ["m4_06_daf_sponsors"], ["fact_grants", "dim_funder"], f"{money(daf_total)} DAF total", "high",

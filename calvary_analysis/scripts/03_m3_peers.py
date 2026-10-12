@@ -200,15 +200,20 @@ style.finish(f, ax, "m3_06_institutional_base",
 dist_rows = []
 for u, fy, label in [("dc_sector", 2023, "DC sector, FY2023"), ("size_matched", 2022, "Size-matched national, FY2022"), ("national_women", 2022, "National women's/DV orgs, FY2022")]:
     e_ = set(universe(u))
-    s_ = fin[fin.ein.isin(e_) & (fin.fiscal_year == fy) & fin.gov_share_of_revenue.notna() & (fin.total_revenue > 0)]
+    # Comparison set: organizations whose return reports a government line (review finding R07). Against all filers
+    # in the universe, with no line counted as 0%, the percentile is much higher; both are kept.
+    all_ = fin[fin.ein.isin(e_) & (fin.fiscal_year == fy) & (fin.total_revenue > 0)]
+    s_ = all_[all_.gov_share_of_revenue.notna()]
     cal_v = float(pf[(pf.ein == CALVARY) & (pf.fiscal_year == fy)].gov_share.iloc[0])
     pct = float((s_.gov_share_of_revenue < cal_v).mean())
+    pct_all = float((all_.gov_share_of_revenue.fillna(0) < cal_v).mean())
     dist_rows.append({"universe": u, "label": label, "fiscal_year": fy, "n": len(s_), "p10": s_.gov_share_of_revenue.quantile(.1), "p25": s_.gov_share_of_revenue.quantile(.25),
                       "median": s_.gov_share_of_revenue.median(), "p75": s_.gov_share_of_revenue.quantile(.75), "p90": s_.gov_share_of_revenue.quantile(.9),
-                      "calvary_gov_share": cal_v, "calvary_percentile": pct, "median_revenue": s_.total_revenue.median()})
+                      "calvary_gov_share": cal_v, "calvary_percentile": pct, "n_all_filers": len(all_), "calvary_percentile_all_filers": pct_all,
+                      "median_all_filers": all_.gov_share_of_revenue.fillna(0).median(), "median_revenue": s_.total_revenue.median()})
 dist = pd.DataFrame(dist_rows)
 save_chart_data(dist, "m3_07_sector_distributions", "Government share distributions in the comparison universes, with Calvary's percentile",
-                ["fact_org_financials", "dim_universe_membership"], src, S, "990 line 1e basis; benchmark years chosen for coverage (TY2024+ returns incomplete)")
+                ["fact_org_financials", "dim_universe_membership"], src, S, "990 line 1e basis; percentile among organizations that report a government line, and among all filers with no line counted as 0%; benchmark years chosen for coverage (TY2024+ returns incomplete)")
 f, ax = style.fig(10, 4.6)
 for i, r in dist.iterrows():
     ax.plot([r.p10, r.p90], [i, i], color=style.GRID, lw=6, solid_capstyle="round")
@@ -221,9 +226,9 @@ ax.set_yticks(range(len(dist)), dist.label); ax.invert_yaxis(); ax.set_ylim(len(
 style.pct_axis(ax, "x"); ax.set_xlim(0, 1.08); ax.grid(axis="y", visible=False); ax.grid(axis="x", visible=True)
 ax.text(0.005, -0.62, "bars: 10th-90th (light) and 25th-75th (dark) percentiles; tick = median", fontsize=8, color=style.TEXT_MUTED)
 style.finish(f, ax, "m3_07_sector_distributions",
-             "Against the broader sector Calvary is typical: its government share sits near the median of DC human-services and national women's organizations",
+             "Among organizations that report government revenue Calvary's share is near the median; against all filers it is in the top quarter",
              "fact_org_financials (990 line 1e / revenue, preferred rows) by universe from dim_universe_membership",
-             note="Organizations with no government line are included at 0%. Universe years chosen for filing coverage.")
+             note="Distributions cover organizations whose return reports a government line (990 line 1e). Against all filers in each universe, counting no line as 0%, Calvary sits at the " + ", ".join(f"{r.calvary_percentile_all_filers:.0%}" for _, r in dist.iterrows()) + " percentile. Universe years chosen for filing coverage.")
 
 # ------------------------------------------------------------------ m3_08 diversifier / model case studies (mix over time)
 cases = {"521474935": "Samaritan Inns: government fell from 72% to 11% while revenue held", "521007373": "N Street Village: 40% government, grew on private money",
@@ -290,8 +295,8 @@ cal_rank = int(rank.index[rank.ein == CALVARY][0]) + 1
 register_insight("M3-01", "M3", f"Calvary's government share ({cb.loc[CALVARY,'gov_share_fy2022_24_mean']:.0%}, FY2022-24 mean) ranks {cal_rank} of 19 DC-area organizations: below every DC DV provider (DASH 70%, My Sister's Place 83%, DC SAFE 89%) and above the philanthropy-led models (Christ House, Thrive DC, Miriam's Kitchen).",
                  "m3_00_benchmark_table: DC SAFE 89%, My Sister's Place 83%, Everyone Home DC 76%, N Street Village 42%, Samaritan Inns 44%, Miriam's Kitchen ~1%.", ["m3_01_gov_share_ranked", "m3_02_size_vs_gov_share"],
                  ["fact_org_financials"], "mid-pack, 53%", "high", "Calvary is 'mixed', not an outlier; the exposure problem is concentration in three streams plus a thin private base, not an unusual share.", "both")
-register_insight("M3-02", "M3", "Against the broader sector Calvary is typical: its government share is near the median of DC human-services organizations and of national women's/DV organizations.",
-                 "; ".join(f"{r.label}: median {r['median']:.0%}, Calvary {r.calvary_gov_share:.0%} at the {r.calvary_percentile:.0%} percentile (n={r.n})" for _, r in dist.iterrows()),
+register_insight("M3-02", "M3", "Among organizations that report government revenue, Calvary's government share is near the median in DC human services and among national women's/DV organizations; against all filers (no line counted as 0%) it is in the top quarter. The peer rank (M3-01) is the stronger evidence.",
+                 "; ".join(f"{r.label}: median {r['median']:.0%}, Calvary {r.calvary_gov_share:.0%} at the {r.calvary_percentile:.0%} percentile of {r.n} reporting a government line, {r.calvary_percentile_all_filers:.0%} of all {r.n_all_filers} filers" for _, r in dist.iterrows()),
                  ["m3_07_sector_distributions"], ["fact_org_financials", "dim_universe_membership"], "near median", "high", "The board should not read the government share itself as a crisis; the fragility is in the streams and the cash.", "both")
 register_insight("M3-03", "M3", f"Calvary's real revenue growth FY19-FY24 ({cb.loc[CALVARY,'real_cagr_fy2019_24']:+.1%}/yr) trails only My Sister's Place, DWC and DC SAFE; Miriam's Kitchen grew 12% a year with almost no government money.",
                  "m3_03_real_growth", ["m3_03_real_growth"], ["fact_org_financials", "dim_period"], f"{cb.loc[CALVARY,'real_cagr_fy2019_24']:+.1%}/yr real", "high", "Growth has been possible on both models; the choice is about durability and cash, not growth.", "both")

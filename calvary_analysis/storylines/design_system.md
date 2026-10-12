@@ -123,6 +123,7 @@ Where the method needs more than one clause, the slide footnote cites a numbered
 **Voice (engagement lead, CP2):** this is a pro bono engagement two weeks old, delivered by a corporate volunteer to a nonprofit leadership team. Lead with what Calvary has built and with options it can choose; state the clouds on the horizon plainly but with humility and a path through them; avoid labels like "exposed" or "dependent" in headlines (prefer "concentrated", "reliance", "headroom", "opportunity"); credit the team where the data shows strength. The consulting materials keep the same courtesy with full analytical candor.
 
 - One idea per slide; the headline is the takeaway and the body proves it.
-- Verdicts use plain words: "exposed", "concentrated", "durable", "one-time".
+- Verdicts use plain words: "concentrated", "durable", "one-time", "under pressure". The CP2 voice ruling above wins over the earlier verdict-word list, so "exposed", "dependent", "dependency" and "failure" are not used as labels in any deliverable (fix cycle, 2026-10-11).
+- Funder status is part of the message: a funder is named as a prospect in leadership materials only after its open status is checked on its own page (`config/guideline_notes.csv` `open_status`), and closed funders and giving channels are never presented as grant prospects.
 - Caveats are visible, short, and in text_muted under the chart, never hidden in notes.
 - Provisional items (core peers, reconstructed FY24–25 government share, medium-confidence interlocks) are labeled "provisional", "reconstructed" or "unconfirmed" on the slide where they appear.

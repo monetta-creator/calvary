@@ -3,7 +3,7 @@ ein,org,shared_funders,shared_institutional_funders,peer_funders,peer_institutio
 711019574,DASH,19,14,28,23,0.3220338983050847,0.27450980392156865,0.38,9,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521054102,House of Ruth DC,22,14,93,83,0.18181818181818182,0.12612612612612611,0.44,69,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521547845,New Endeavors by Women,17,12,25,20,0.29310344827586204,0.24,0.34,8,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
-521263256,My Sister's Place,17,12,31,25,0.265625,0.21818181818181817,0.34,13,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521263256,My Sister's Place,17,12,29,23,0.27419354838709675,0.22641509433962265,0.34,11,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521184749,Community of Hope,15,10,50,43,0.17647058823529413,0.13333333333333333,0.3,33,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521007373,N Street Village,17,9,64,54,0.17525773195876287,0.10344827586206896,0.34,45,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 133537709,Covenant House DC,15,9,29,23,0.234375,0.16071428571428573,0.3,14,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

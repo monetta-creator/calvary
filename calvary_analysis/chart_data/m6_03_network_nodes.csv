@@ -39,7 +39,7 @@ node,kind,label,degree,x,y,source_tables,source_ids
 521184749,recipient,Community of Hope,50,-1.7607196978405413,1.282680427372765,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521186250,recipient,Heartly House (MD),21,5.069790312506846,-0.23702976251535998,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521245499,recipient,Coalition for the Homeless,9,3.309070614666304,-1.045650664857405,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
-521263256,recipient,My Sister's Place,31,-5.069790312506847,-0.23702976251535948,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
+521263256,recipient,My Sister's Place,29,-5.069790312506847,-0.23702976251535948,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521283255,funder,VENABLE BAETJER AND HOWARD FOUNDATION,10,1.5377694316888433,-0.5689872997287793,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521307706,recipient,Calvary,50,0.0,0.0,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml
 521331552,recipient,Miriam's Kitchen,75,3.3090706146663043,1.0456506648574049,fact_grants;dim_funder,bulk_gt_datalake;bulk_irs_xml

@@ -35,15 +35,23 @@ EIN_COLS = {"ein", "funder_ein", "recipient_ein", "pass_through_ein", "org_a_ein
             "ein_a", "ein_b", "funder_id", "person_id", "person_id_a", "person_id_b", "recipient_uei"}
 
 
+GRANT_EXCLUSIONS = ANALYSIS / "config" / "grant_exclusions.csv"   # mis-attributed grant rows, dropped on every load
+
+
 def load(table: str, usecols: list[str] | None = None, **kw) -> pd.DataFrame:
-    """Read a clean table with EIN-like columns kept as strings."""
+    """Read a clean table with EIN-like columns kept as strings. fact_grants rows listed in config/grant_exclusions.csv
+    (e.g. grants to a namesake organization in another city) are dropped here, so every module agrees."""
     path = CLEAN / f"{table}.csv"
-    if usecols is None:
-        header = pd.read_csv(path, nrows=0).columns
-    else:
-        header = usecols
+    excl = table == "fact_grants" and GRANT_EXCLUSIONS.exists()
+    cols = usecols if not (excl and usecols is not None and "grant_id" not in usecols) else list(usecols) + ["grant_id"]
+    header = pd.read_csv(path, nrows=0).columns if cols is None else cols
     dtype = {c: str for c in header if c in EIN_COLS}
-    return pd.read_csv(path, usecols=usecols, dtype=dtype, low_memory=False, **kw)
+    df = pd.read_csv(path, usecols=cols, dtype=dtype, low_memory=False, **kw)
+    if excl:
+        df = df[~df.grant_id.isin(set(pd.read_csv(GRANT_EXCLUSIONS, dtype=str).grant_id))]
+        if cols is not usecols:
+            df = df.drop(columns="grant_id")
+    return df
 
 
 def universe(name: str) -> list[str]:
@@ -169,6 +177,14 @@ def register_insight(insight_id: str, module: str, finding: str, evidence_summar
     row = {"insight_id": insight_id, "module": module, "finding": finding, "evidence_summary": evidence_summary,
            "chart_ids": ";".join(chart_ids), "source_tables": ";".join(source_tables), "magnitude": magnitude,
            "confidence": confidence, "implication_for_calvary": implication, "audience": audience, "status": status}
+    # A rerun keeps a reviewed status ("verified") when the finding itself has not changed; a changed finding goes
+    # back to "draft" so it is re-checked.
+    if REGISTER.exists():
+        old = pd.read_csv(REGISTER, dtype=str).fillna("").set_index("insight_id")
+        if insight_id in old.index and status == "draft":
+            prev = old.loc[insight_id]
+            if all(str(prev[k]) == str(row[k]) for k in ("finding", "evidence_summary", "magnitude")):
+                row["status"] = prev["status"] or status
     _upsert_csv(REGISTER, row, key="insight_id")
 
 

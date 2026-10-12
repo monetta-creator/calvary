@@ -28,7 +28,7 @@ For each program area in `dim_program_area`: DMV institutional grant dollars TY2
 4. **Federal direct competition is thin** (M8-02): 36 relevant notices in the feed, mostly HUD programs that flow through DC (ROSS, CDBG, housing counseling), DOJ BJA/OJJDP behavioral-health and reentry, SAMHSA forecasts, DOL VETS HVRP (includes homeless women veterans), VA grants. Realistic direct federal targets: HUD CPF earmark renewal, DOL HVRP (if a veterans track is added), SAMHSA treatment/recovery (with a licensed partner).
 
 ## Trade-offs for the recommendations
-- **Workforce (near, recommended):** SheWorks-style cohort model inside Step Up DC; unlocks DOES/WIOA and workforce funders; modest cost; outcomes are easy to show.
+- **Workforce (near, recommended):** SheWorks-style cohort model inside Step Up DC; unlocks DOES/WIOA and workforce funders; outcomes are easy to show. The first cost is funding Calvary's second workforce position, which is unfunded in FY2026 (Calvary's 2021–24 strategic plan report; internal, Calvary-facing use only); beyond that, modest cost.
 - **Behavioral health (near, recommended with a credential decision):** DBH certification or a partner agreement converts therapy to billable revenue; staffing and compliance cost; the biggest earned-revenue lever.
 - **DV formalization (near):** Calvary already holds a DV-designated site; a formal DV program and VOCA eligibility deepen the OVSJG relationship and open DV funders (DC SAFE, DASH pattern) but add reporting burden.
 - **Health partnership (medium):** on-site clinic hours with an FQHC (Community of Hope is a peer and Ward 8 neighbor); low capital, opens health funders.

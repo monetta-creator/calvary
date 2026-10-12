@@ -344,3 +344,250 @@ Append-only record of environment state, runs, row counts, decisions and failure
 - 2026-10-11: Grantmaker Web focused views: map caption per view, spotlit grantmakers (larger, outlined), names on the map for views of 40 or fewer (four placement tries, caption and legend treated as taken), hover traces a node's lines; fit shrinks only when the caption or legend would cover a circle or peer name.
 - 2026-10-11: fix: standalone file lacked a global [hidden] rule, so the map caption stayed after returning to Overview and an empty search-results box showed under the search field.
 - 2026-10-11: chart pass: 1 px black outline on every bar (PNG polish() and native dataBorder), replacing white gaps; label declutter in polish() (labels nudged off other labels and scatter dots, leader lines when moved 9 pt+): m3_02 17 labels moved, m6_02 2, none left overlapping; m1_02 share labels now sit above the stack top. Modules rerun in README order: data byte-identical; all decks rebuilt, slide text and chart data identical.
+
+### 2026-10-11 18:58 — 05_m5_gaps
+- G1 peer-funder gaps 75 (>=3 peers: 23); lapsed 11 + unclear 1; headroom 15; DC majors 65; web-only 16
+- candidate base 166 funders written to m5_00_candidate_funders.csv
+
+### 2026-10-11 18:58 — 06_m6_network
+- graph: 349 nodes, 701 edges; funders 330; Calvary interlocks 8; paths scored for 166 candidates
+- charts m6_02, m6_03 written; tables m6_01, m6_04, m6_05
+
+### 2026-10-11 18:58 — 07_m7_pipeline
+- pipeline 182 rows; tiers {3: 134, 2: 39, 1: 9}; action plan 9 rows
+- charts m7_02, m7_03 written
+
+### 2026-10-11 18:58 — 12_merge_guidelines
+- guideline notes merged for 27 funders; pipeline and action plan updated
+
+### 2026-10-11 18:58 — 13_m7_sensitivity
+- sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9
+
+### 2026-10-11 18:59 — 02_m2_exposure
+- streams: OVSJG recurring FY26 1,050,651; CoC FY2025 awards 1,766,814; DHS FY2024 1,423,664
+- ceilings vs recognized FY24 3,595,278 vs 2,621,203; FY25 4,289,967 vs 2,892,598
+- scenarios S1-S6 written to chart_data/m2_07_scenarios.csv
+- charts m2_01..m2_07 written
+
+### 2026-10-11 19:00 — 03_m3_peers
+- benchmark table 21 orgs; Calvary gov share FY22-24 mean 0.525; rank 11/19
+- charts m3_01..m3_09 written
+
+### 2026-10-11 19:04 — 01_m1_trajectory
+- charts m1_01..m1_08 written; filed grants TY2020-24 4,433,659 from 50 funders; HHI 1168
+- gov share audit FY14 0.374, FY23 0.512; line 1e FY25 0.582
+- FY25 deficit -607,326; months of cash FY25 4.44
+
+### 2026-10-11 19:04 — 02_m2_exposure
+- streams: OVSJG recurring FY26 1,050,651; CoC FY2025 awards 1,766,814; DHS FY2024 1,423,664
+- ceilings vs recognized FY24 3,595,278 vs 2,621,203; FY25 4,289,967 vs 2,892,598
+- scenarios S1-S6 written to chart_data/m2_07_scenarios.csv
+- charts m2_01..m2_07 written
+
+### 2026-10-11 19:04 — 03_m3_peers
+- benchmark table 21 orgs; Calvary gov share FY22-24 mean 0.525; rank 11/19
+- charts m3_01..m3_09 written
+
+### 2026-10-11 19:04 — 04_m4_landscape
+- lens A dc_sector TY2020-24 660,487,525 (7,148 rows, 568 funders); institutional 276,334,675 from 555 funders; DAF 384,152,850
+- lens B mission-tagged DMV 230,895,076 from 556 funders
+- charts m4_01..m4_08 and landscape table written
+
+### 2026-10-11 19:05 — 05_m5_gaps
+- G1 peer-funder gaps 75 (>=3 peers: 23); lapsed 11 + unclear 1; headroom 15; DC majors 65; web-only 16
+- candidate base 166 funders written to m5_00_candidate_funders.csv
+
+### 2026-10-11 19:05 — 06_m6_network
+- graph: 347 nodes, 699 edges; funders 328; Calvary interlocks 8; paths scored for 166 candidates
+- charts m6_02, m6_03 written; tables m6_01, m6_04, m6_05
+
+### 2026-10-11 19:05 — 07_m7_pipeline
+- pipeline 182 rows; tiers {3: 134, 2: 39, 1: 9}; action plan 9 rows
+- charts m7_02, m7_03 written
+
+### 2026-10-11 19:05 — 08_m8_expansion
+- scan 10 areas; federal relevant 36
+- chart m8_01 written
+
+### 2026-10-11 19:05 — 09_m9_need_capacity
+- ACS wards written; PIT 5138 (2025); Calvary TH share 0.068; map True
+
+### 2026-10-11 19:05 — 10_m10_profiles
+- profiles written; DWC FAC total 21,618,528; DWC DMV-filed funders 8
+- charts m10_01, m10_02 written
+
+### 2026-10-11 19:05 — 12_merge_guidelines
+- guideline notes merged for 27 funders; pipeline and action plan updated
+
+### 2026-10-11 19:05 — 13_m7_sensitivity
+- sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9
+
+### 2026-10-11 19:10 — 01_m1_trajectory
+- charts m1_01..m1_08 written; filed grants TY2020-24 4,433,659 from 50 funders; HHI 1168
+- gov share audit FY14 0.374, FY23 0.512; line 1e FY25 0.582
+- FY25 deficit -607,326; months of cash FY25 4.44
+
+### 2026-10-11 19:17 — 01_m1_trajectory
+- charts m1_01..m1_08 written; filed grants TY2020-24 4,433,659 from 50 funders; HHI 1168
+- gov share audit FY14 0.374, FY23 0.512; line 1e FY25 0.582
+- FY25 deficit -607,326; months of cash FY25 4.44
+
+### 2026-10-11 19:17 — 02_m2_exposure
+- streams: OVSJG recurring FY26 1,050,651; CoC FY2025 awards 1,766,814; DHS FY2024 1,423,664
+- ceilings vs recognized FY24 3,595,278 vs 2,621,203; FY25 4,289,967 vs 2,892,598
+- scenarios S1-S6 written to chart_data/m2_07_scenarios.csv
+- charts m2_01..m2_07 written
+
+### 2026-10-11 19:17 — 03_m3_peers
+- benchmark table 21 orgs; Calvary gov share FY22-24 mean 0.525; rank 11/19
+- charts m3_01..m3_09 written
+
+### 2026-10-11 19:17 — 04_m4_landscape
+- lens A dc_sector TY2020-24 660,487,525 (7,148 rows, 568 funders); institutional 276,334,675 from 555 funders; DAF 384,152,850
+- lens B mission-tagged DMV 230,895,076 from 556 funders
+- charts m4_01..m4_08 and landscape table written
+
+### 2026-10-11 19:17 — 05_m5_gaps
+- G1 peer-funder gaps 75 (>=3 peers: 23); lapsed 11 + unclear 1; headroom 15; DC majors 65; web-only 16
+- candidate base 166 funders written to m5_00_candidate_funders.csv
+
+### 2026-10-11 19:17 — 06_m6_network
+- graph: 347 nodes, 699 edges; funders 328; Calvary interlocks 8; paths scored for 166 candidates
+- charts m6_02, m6_03 written; tables m6_01, m6_04, m6_05
+
+### 2026-10-11 19:17 — 07_m7_pipeline
+- pipeline 182 rows; tiers {3: 134, 2: 39, 1: 9}; action plan 9 rows
+- charts m7_02, m7_03 written
+
+### 2026-10-11 19:18 — 08_m8_expansion
+- scan 10 areas; federal relevant 36
+- chart m8_01 written
+
+### 2026-10-11 19:18 — 09_m9_need_capacity
+- ACS wards written; PIT 5138 (2025); Calvary TH share 0.068; map True
+
+### 2026-10-11 19:18 — 10_m10_profiles
+- profiles written; DWC FAC total 21,618,528; DWC DMV-filed funders 8
+- charts m10_01, m10_02 written
+
+### 2026-10-11 19:18 — 12_merge_guidelines
+- guideline notes merged for 27 funders; pipeline and action plan updated
+
+### 2026-10-11 19:18 — 13_m7_sensitivity
+- sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9
+
+### 2026-10-11 19:18 — 07_m7_pipeline
+- pipeline 182 rows; tiers {3: 134, 2: 39, 1: 9}; action plan 9 rows
+- charts m7_02, m7_03 written
+
+### 2026-10-11 19:18 — 12_merge_guidelines
+- guideline notes merged for 29 funders; pipeline and action plan updated
+
+### 2026-10-11 19:18 — 13_m7_sensitivity
+- sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9
+
+### 2026-10-11 19:28 — 01_m1_trajectory
+- charts m1_01..m1_08 written; filed grants TY2020-24 4,433,659 from 50 funders; HHI 1168
+- gov share audit FY14 0.374, FY23 0.512; line 1e FY25 0.582
+- FY25 deficit -607,326; months of cash FY25 4.44
+
+### 2026-10-11 19:28 — 02_m2_exposure
+- streams: OVSJG recurring FY26 1,050,651; CoC FY2025 awards 1,766,814; DHS FY2024 1,423,664
+- ceilings vs recognized FY24 3,595,278 vs 2,621,203; FY25 4,289,967 vs 2,892,598
+- scenarios S1-S6 written to chart_data/m2_07_scenarios.csv
+- charts m2_01..m2_07 written
+
+### 2026-10-11 19:28 — 03_m3_peers
+- benchmark table 21 orgs; Calvary gov share FY22-24 mean 0.525; rank 11/19
+- charts m3_01..m3_09 written
+
+### 2026-10-11 19:29 — 04_m4_landscape
+- lens A dc_sector TY2020-24 660,487,525 (7,148 rows, 568 funders); institutional 276,334,675 from 555 funders; DAF 384,152,850
+- lens B mission-tagged DMV 230,895,076 from 556 funders
+- charts m4_01..m4_08 and landscape table written
+
+### 2026-10-11 19:29 — 05_m5_gaps
+- G1 peer-funder gaps 75 (>=3 peers: 23); lapsed 11 + unclear 1; headroom 15; DC majors 65; web-only 16
+- candidate base 166 funders written to m5_00_candidate_funders.csv
+
+### 2026-10-11 19:29 — 06_m6_network
+- graph: 347 nodes, 699 edges; funders 328; Calvary interlocks 8; paths scored for 166 candidates
+- charts m6_02, m6_03 written; tables m6_01, m6_04, m6_05
+
+### 2026-10-11 19:29 — 07_m7_pipeline
+- pipeline 182 rows; tiers {3: 134, 2: 39, 1: 9}; action plan 9 rows
+- charts m7_02, m7_03 written
+
+### 2026-10-11 19:29 — 08_m8_expansion
+- scan 10 areas; federal relevant 36
+- chart m8_01 written
+
+### 2026-10-11 19:29 — 09_m9_need_capacity
+- ACS wards written; PIT 5138 (2025); Calvary TH share 0.068; map True
+
+### 2026-10-11 19:29 — 10_m10_profiles
+- profiles written; DWC FAC total 21,618,528; DWC DMV-filed funders 8
+- charts m10_01, m10_02 written
+
+### 2026-10-11 19:29 — 12_merge_guidelines
+- guideline notes merged for 29 funders; pipeline and action plan updated
+
+### 2026-10-11 19:29 — 13_m7_sensitivity
+- sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9
+
+## 2026-10-11 — review fix cycle (Prompt 3 findings R01–R18, M01–M13, N01–N03)
+- Worked every row of `reports/review/review_findings.csv` from the canonical wording in `reports/review/fix_spec.md`; the per-finding record is `reports/review/fix_log.md`.
+- Code and config: scenario ranges (02), sector percentile among reporters and all filers (03), lapsed rule excludes one-time capital grants (05), board-link confidence needs overlapping terms (06), open status, channels, next-step overrides and capacity sequencing in the pipeline (07, 12, `config/scoring_weights.yaml`, `config/guideline_notes.csv`), event receipts = lines 1c + 8a (01), grant exclusions on every load (`config/grant_exclusions.csv`, `lib/common.py`), register keeps `verified` on unchanged reruns.
+- Assumptions: Bunting and Bechtel have no public application process (third-party profiles; treated as invitation-only, Tier 3, not plan targets), confidence medium; Jane Bancroft Robinson grants by periodic RFP (its own grants page), confidence medium.
+- Deliverables: all seven decks, the reports, the module readouts, the storylines and the Grantmaker Web page updated and rebuilt; `reports/full_findings.md` is now generated (`scripts/lib/full_findings.py`). Trace OK; headline checks OK on all decks; guardrail scan clean (run with `REVIEW_OUT` in scratch).
+- Tooling: `decks/build_all.sh` and `decks/lib/theme_colors.js` remove the dependency on an external skill; every horizontal native bar chart labels every bar.
+- Process: `CLAUDE.md` (house rules, analyst approach), `.claude/skills/new-deck` and `.claude/skills/calvary-data`, `storylines/audiences.md`.
+
+### 2026-10-12 11:27 — 01_m1_trajectory
+- charts m1_01..m1_08 written; filed grants TY2020-24 4,433,659 from 50 funders; HHI 1168
+- gov share audit FY14 0.374, FY23 0.512; line 1e FY25 0.582
+- FY25 deficit -607,326; months of cash FY25 4.44
+
+### 2026-10-12 11:27 — 02_m2_exposure
+- streams: OVSJG recurring FY26 1,050,651; CoC FY2025 awards 1,766,814; DHS FY2024 1,423,664
+- ceilings vs recognized FY24 3,595,278 vs 2,621,203; FY25 4,289,967 vs 2,892,598
+- scenarios S1-S6 written to chart_data/m2_07_scenarios.csv
+- charts m2_01..m2_07 written
+
+### 2026-10-12 11:28 — 03_m3_peers
+- benchmark table 21 orgs; Calvary gov share FY22-24 mean 0.525; rank 11/19
+- charts m3_01..m3_09 written
+
+### 2026-10-12 11:28 — 04_m4_landscape
+- lens A dc_sector TY2020-24 660,487,525 (7,148 rows, 568 funders); institutional 276,334,675 from 555 funders; DAF 384,152,850
+- lens B mission-tagged DMV 230,895,076 from 556 funders
+- charts m4_01..m4_08 and landscape table written
+
+### 2026-10-12 11:28 — 05_m5_gaps
+- G1 peer-funder gaps 75 (>=3 peers: 23); lapsed 11 + unclear 1; headroom 15; DC majors 65; web-only 16
+- candidate base 166 funders written to m5_00_candidate_funders.csv
+
+### 2026-10-12 11:28 — 06_m6_network
+- graph: 347 nodes, 699 edges; funders 328; Calvary interlocks 8; paths scored for 166 candidates
+- charts m6_02, m6_03 written; tables m6_01, m6_04, m6_05
+
+### 2026-10-12 11:28 — 07_m7_pipeline
+- pipeline 182 rows; tiers {3: 134, 2: 39, 1: 9}; action plan 9 rows
+- charts m7_02, m7_03 written
+
+### 2026-10-12 11:28 — 08_m8_expansion
+- scan 10 areas; federal relevant 36
+- chart m8_01 written
+
+### 2026-10-12 11:28 — 09_m9_need_capacity
+- ACS wards written; PIT 5138 (2025); Calvary TH share 0.068; map True
+
+### 2026-10-12 11:28 — 10_m10_profiles
+- profiles written; DWC FAC total 21,618,528; DWC DMV-filed funders 8
+- charts m10_01, m10_02 written
+
+### 2026-10-12 11:28 — 12_merge_guidelines
+- guideline notes merged for 29 funders; pipeline and action plan updated
+
+### 2026-10-12 11:28 — 13_m7_sensitivity
+- sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9

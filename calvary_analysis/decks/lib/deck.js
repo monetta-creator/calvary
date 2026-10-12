@@ -5,6 +5,7 @@ const path = require("path");
 const pptxgen = require("pptxgenjs");
 const { parse } = require("csv-parse/sync");
 const { THEME, HEX } = require("../theme");
+const { setThemeColors } = require("./theme_colors");
 
 const ROOT = path.resolve(__dirname, "..", "..");
 const CHART_DATA = path.join(ROOT, "chart_data");
@@ -163,6 +164,7 @@ function chart(slide, type, labels, series, { x = M, y = BODY_Y, w = 8.0, h = BO
   };
   if (type !== "line") opts.dataBorder = { pt: 0.5, color: HEX.text };  // 1 px black outline on bars, as on the PNG charts
   if (valMax != null) opts.valAxisMaxVal = valMax;
+  if (barDir === "bar") opts.catAxisLabelFrequency = 1;  // label every bar: LibreOffice otherwise skips alternate labels on long lists
   const t = type === "line" ? slide._presLayout ? "line" : "line" : type;
   slide.addChart(t === "bar" ? "bar" : t === "line" ? "line" : "bar", data, opts);
 }
@@ -197,9 +199,8 @@ function claimBullets(slide, blocks, { x = M, y = BODY_Y, w = W - 2 * M, h = BOD
 }
 
 async function finish(pres, file) {
-  const { applyTheme } = require(process.env.PPTX_SKILL_APPLY_THEME);
   await pres.writeFile({ fileName: file });
-  await applyTheme(file, THEME);
+  await setThemeColors(file, THEME);  // lib/theme_colors.js: the deck palette into ppt/theme/theme1.xml
   console.log("wrote", file);
 }
 

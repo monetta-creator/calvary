@@ -1,6 +1,6 @@
 # Methodology: Calvary Women's Services funding strategy
 
-Data as of 2026-10-10. Paths are relative to the project root (the folder holding `calvary_funding_data/` and `calvary_analysis/`).
+Data as of 2026-10-10; revised 2026-10-11 for the review fix cycle (`calvary_analysis/reports/review/`). Paths are relative to the project root (the folder holding `calvary_funding_data/` and `calvary_analysis/`).
 
 ---
 
@@ -97,7 +97,7 @@ This report covers the Prompt 1 data foundation, comparison groups, measures, on
 
 `sources/api_catalog.md` records **65 sources probed across 4 areas**. Status counts: ok 55, ok_no_results 4, blocked_needs_key 3, not_applicable 2, failed 1. The blocked sources were Charity Navigator, the SAM.gov Entity API and the DC Council LIMS API. All three were skipped as not needed (`open_questions.md` A).
 
-Prompt 2 added `calvary_analysis/sources/source_registry_extension.csv` (33 rows). These are the web pages found by the approved Tier 1–2 guideline pull (§5, C3).
+Prompt 2 added `calvary_analysis/sources/source_registry_extension.csv` (33 rows). These are the web pages found by the approved Tier 1–2 guideline pull (§5, C3). The review fix cycle added the review's first-party checks (`web_review_*` rows), which the funder open-status column cites (C3).
 
 ### 2.3 Conventions
 
@@ -153,7 +153,7 @@ From `reports/data_quality.md` §9:
 - Calvary's FY22, FY24 and FY25 audits were not provided; FY22 was later found on Candid (`open_questions.md` A3).
 - FAC's audit-year 2023 record repeats FY22 SEFA; the FY23 audit PDF shows $937,999 (both kept, flagged).
 - USAspending shows little DC pass-through money (SLFRF, CoC via TCP, EFSP); FAC and DC sources cover it.
-- DHS provider lists for 2025–2026 were not posted; TCP Schedule I is the fallback.
+- DHS provider lists for 2025–2026 were not posted, and there is no itemized TCP Schedule I list to fall back on, so TCP agreements are the only route to FY25–26 DHS values (corrected in the review fix cycle, finding M09).
 - Non-foundation corporate giving appears only where Calvary or a peer lists it.
 - Individual donors are excluded except as counts per gift band.
 
@@ -234,11 +234,11 @@ Calvary's CEO asked on 2026-10-10 that every analysis include two organizations:
 **Filed grants.**
 - **Included:** grants from funders' own filings, meaning 990-PF grants paid and Schedule I rows.
 - **Window:** TY2020–24. TY2025 is excluded as mostly unfiled.
-- **Excluded:** rows with `cumulative_flag = 1`, and the two funders in `config/landscape_exclusions.csv` for landscape work.
+- **Excluded:** rows with `cumulative_flag = 1`; the two funders in `config/landscape_exclusions.csv` for landscape work; and, everywhere, the grant rows in `config/grant_exclusions.csv`, which `load()` in `scripts/lib/common.py` drops on every read of `fact_grants`. Today these are two Baltimore funders' grants to a Baltimore namesake of My Sister's Place ($131,906 in the TY2020–24 window); the network now has 328 funders and My Sister's Place's institutional figures fall slightly.
 - **Aggregation:** by `funder_id` / EIN, never by raw name.
 - **Trend window:** TY2020–23. TY2024 is "arriving."
 
-**Institutional vs DAF.** `dim_funder.funder_type = daf_sponsor` (Fidelity, Schwab, Benevity/AOGF, NPT, Vanguard, …) marks a channel for individual donors, not a grantmaker. DAF dollars are reported separately and excluded from the pipeline. The T. Rowe Price Program is scored like a DAF.
+**Institutional vs DAF.** `dim_funder.funder_type = daf_sponsor` (Fidelity, Schwab, Benevity/AOGF, NPT, Vanguard, …) marks a channel for individual donors, not a grantmaker. DAF dollars are reported separately and excluded from the pipeline. The T. Rowe Price Program is scored like a DAF and capped at Tier 2.
 
 **Real dollars.**
 - CPI-U US annual average, base 2024, applied by the calendar year in which the fiscal year ends (`dim_period`).
@@ -257,12 +257,12 @@ Calvary's CEO asked on 2026-10-10 that every analysis include two organizations:
 
 **Landscape exclusions** (`config/landscape_exclusions.csv`):
 - **Gates Foundation (562618866):** a national funder whose DC recipients are global-development and research organizations. It is in the data only because it appears in Calvary's CRM (matching gifts), and it distorts landscape totals.
-- **TCP (521681401):** DC's CoC/DHS pass-through intermediary. Its Schedule I grants are public funds already counted in `fact_gov_awards`.
+- **TCP (521681401):** excluded as a pass-through intermediary for DC's CoC and DHS money, which is counted by stream in `fact_gov_awards`. There is no itemized TCP Schedule I list to fall back on, so TCP agreements are the only route to FY25–26 DHS values.
 
 **Need and capacity context (M9):**
 - ACS 2020–24 five-year estimates by ward from `dim_geo`. DC wards are Census state-legislative-district geographies; 90% margins of error are kept.
 - HUD PIT counts for CoC DC-500, 2007–2025.
-- HUD HIC 2022–2025 from `supp_hic_projects`: Calvary's TH, PSH and RRH beds and its share of DC transitional-housing beds.
+- HUD HIC 2022–2025 from `supp_hic_projects`: Calvary's beds across all program types (TH, PSH and RRH), and the share of DC transitional-housing beds held by its transitional beds only. Bed counts and the share therefore use different bases, and outputs say so.
 - A ward map from DC Open Data boundaries, colored by poverty rate.
 
 ---
@@ -286,7 +286,7 @@ Calvary's CEO asked on 2026-10-10 that every analysis include two organizations:
 **Question:** which government streams fund Calvary, and how big is each?
 
 **Data and method.** One source per stream from `fact_gov_awards`, never summed across sources:
-- **OVSJG:** award lists, DC FY2019–2026.
+- **OVSJG:** award lists, DC FY2019–2026. The 2019 value adds two Reach Up records ($292,000 and $368,935) that may be one award recorded twice, so the series is quoted from 2020 ($0.6M), with a footnote on 2019.
 - **HUD CoC via TCP:** award lists, competition years 2019–FY2025. Projects with TCP as applicant are stored once, as a subaward to the sponsor with TCP as pass-through.
 - **DHS provider contracts via TCP:** Council oversight responses, DC FY2024 only.
 - **Small federal pass-throughs (EFSP, SNAP E&T):** audited SEFA lines.
@@ -322,11 +322,16 @@ Calvary's CEO asked on 2026-10-10 that every analysis include two organizations:
 **Question:** what happens to revenue, deficit and cash if government streams are cut?
 
 **Data and method:**
-- **Baseline:** FY25 recognized government revenue ($2.89M) is apportioned to streams by ceiling share: OVSJG 23%, CoC 41%, DHS 33%, other 2%.
-- Each scenario applies its cuts to those stream amounts.
+- **Baseline:** FY25 recognized government revenue ($2.89M) is split across streams three ways, because streams are not drawn at a common rate (the audited FY22–23 SEFA shows CoC expenditure well below its ceilings; A5). Each scenario's loss is reported as the range across the three (review finding R01):
+  - **A, ceiling share:** OVSJG 23%, CoC 41%, DHS 33%, other 2%. This is the point estimate kept in `revenue_loss`.
+  - **B, CoC at its audited draw rate:** OVSJG and other federal fully drawn, CoC at its audited FY22–23 SEFA draw rate (about 38% of the lagged ceilings; `coc_draw_rate_fy22_23_sefa`), DHS the residual.
+  - **C, ceiling share without Sisters Rise:** the $593K Sisters Rise contract (`sisters_rise_dhs`) removed from the DHS ceiling, since it left the HIC in 2025.
+  - **D, floor case:** OVSJG and CoC fully drawn, DHS the residual. It nearly removes the DHS loss and is reported (`revenue_loss_floor_case_d`), not used as a bound.
+- Each scenario applies its cuts to the stream amounts of each split.
 - The **gross** view is the revenue loss.
 - The **net** view assumes a share of a lost stream's revenue disappears as avoidable program cost.
-- Outputs: revenue loss, deficit and months of cash after a year (`m2_07_scenarios`; parameters echoed in `m2_07_scenario_parameters`).
+- Outputs: revenue loss as a range (`revenue_loss_low`, `revenue_loss_high`), deficit, and months of cash after a year at each end of the range (`months_of_cash_after_12m_net_low`, `_high`) in `m2_07_scenarios`; parameters, including the CoC draw rate and the Sisters Rise amount, echoed in `m2_07_scenario_parameters`.
+- The DHS figure depends most on the split. Under every split, CoC and DHS together are $1.8–2.2M, so the conclusion that the TCP channel carries the risk holds.
 
 **Parameters** (`config/scenarios.yaml`):
 
@@ -356,7 +361,8 @@ The scenario levels were set by the CP1 ruling: OVSJG −10%/−25%; CoC −15% 
 - Award ceilings come from the A2 sources, aligned to Calvary's fiscal year: DC FY = Calvary FY, CoC lagged one year, DHS FY2024 carried forward.
 - They are compared with recognized government revenue (990 line 1e) in `m2_02_ceilings_vs_recognized`.
 - The result is discovery flag D1: FY24 ceilings $3.6M vs $2.62M recognized; FY25 $4.3M vs $2.89M. The flag was approved at CP2 as a medium-confidence finding labeled "ceilings vs recognized."
-- Possible explanations: undrawn awards, timing, cost-reimbursement limits, or an overstated DHS carry-forward. The data cannot distinguish them.
+- **FY22–23 SEFA comparison** (added in the review fix cycle, finding R14): the audited FY22 and FY23 single audits already show CoC expenditure at 28% (FY22) and 58% (FY23) of the prior year's CoC award ceilings, while recognized government revenue exceeded the known non-DHS ceilings in those years (`m2_02` ratio of recognized ex-SLFRF to ceilings: 1.05 in FY22, 1.25 in FY23). The gap is therefore specific to the CoC stream and predates FY24; the 2021 Reach Up expansion award ($1.22M, reallocated to $0.42M in 2022) explains part. The recommendation reads: reconcile CoC draw-down first, then DHS. Confidence stays medium.
+- Possible explanations for the remaining gap: undrawn awards, timing, cost-reimbursement limits, or an overstated DHS carry-forward. The data cannot distinguish them.
 
 ### A6 DC budget lines and policy events
 
@@ -381,7 +387,7 @@ The scenario levels were set by the CP1 ruling: OVSJG −10%/−25%; CoC −15% 
 - **Real growth:** CAGR of 2024-dollar revenue FY2019→FY2024. The endpoints avoid Calvary's one-time FY22 award.
 - **Months of cash:** as defined in §4.
 - **Resilience typology:** thresholds in §4.
-- **Sector distributions:** `dc_sector` FY2023 (n=163), `size_matched` FY2022 (n=334), `national_women` FY2022 (n=542), with Calvary's percentile. These years were chosen for filing coverage; the national universes collapse to under 15 filers after FY2022.
+- **Sector distributions:** the comparison set is organizations whose return reports a government line (990 line 1e): `dc_sector` FY2023 (n=163), `size_matched` FY2022 (n=334), `national_women` FY2022 (n=542). Calvary's percentile among them is the 57th, 57th and 46th. Against all filers in each universe, with no government line counted as 0% (n=426, 556 and 1,124), Calvary sits at the 84th, 74th and 74th percentile; both are kept in `m3_07_sector_distributions`. The consulting deck's earlier method line described the first set as all filers with no line at 0%, which was wrong (review finding R07). The "typical" reading leans on the peer rank (11th of 19), not on these percentiles. These years were chosen for filing coverage; the national universes collapse to under 15 filers after FY2022.
 
 **Output:** `m3_00_benchmark_table`.
 
@@ -426,12 +432,13 @@ The scenario levels were set by the CP1 ruling: OVSJG −10%/−25%; CoC −15% 
 - "Funds Calvary" = any filed grant naming Calvary TY2020–24.
 - "Itemized TY2023+" = the funder filed itemized lists in TY2023 or TY2024, so a missing Calvary grant is current, not filing lag.
 - "See attached" filers are flagged.
+- Clark Charitable Foundation's grants stay in the totals as history: its $7.8M to five peers and $32.8M to DC's sector in TY2020–24 were a spend-down; its own FAQ says it was operational until 31 December 2025, so it is historic and now closed. Its grants inflate the 2020–24 landscape and gap totals.
 
 | Code | Definition |
 |---|---|
 | G1 | Institutional funders of ≥2 core peers with no Calvary grant |
-| G2 | Lapsed Calvary funders (last grant ≤TY2022, funder itemized since) |
-| G3 | Current funders whose largest grant to a core peer exceeds their largest to Calvary |
+| G2 | Lapsed Calvary funders (last grant ≤TY2022, funder itemized since). A funder whose every grant to Calvary was a capital-campaign gift made a one-time grant by design and is reported as "one-time capital-campaign grant (not lapsed)" (the World Bank Community Connections Fund; review finding N01) |
+| G3 | Current funders whose largest grant to a core peer exceeds their largest to Calvary. The headline count of 15 is among current funders that also fund two or more peers (20 over all current institutional funders; 27 with DAF sponsors) |
 | G4 | Institutional funders giving ≥$500K to the DC sector with no Calvary grant |
 | G5 | Funders on ≥2 peer donor lists (web) but on no Calvary list or filing |
 | CRM | Reconciliation from `supp_crm_cash_verification` |
@@ -451,6 +458,7 @@ The scenario levels were set by the CP1 ruling: OVSJG −10%/−25%; CoC −15% 
 **Interlock confidence:**
 - Board interlocks come from `fact_org_relationships` (`shared_board_member`), restricted to links touching Calvary, a peer or a named comparator.
 - Prompt 1 linked person records only on an exact normalized name plus a corroborating signal (same metro, overlapping years, matching middle initial or suffix).
+- **Rules added in the review fix cycle (finding R05):** "high" requires overlapping board tenures; a Prompt 1 high link whose tenures never overlap is relabelled medium (the original label is kept in `confidence_source`). The linked organization counts as a funder (`other_is_funder`) only if it has at least one filed grant (990-PF grants paid or Schedule I), not because it belongs to a funder universe. Under these rules there are no high-confidence board links in public filings.
 - **CP1 ruling:** leadership materials use high-confidence links only. Medium links are labeled "unconfirmed" and go to consulting materials, alongside the low-confidence `candidate_interlocks`.
 - Analysis outputs store `person_id` only, never names.
 
@@ -471,7 +479,8 @@ The consulting variant adds 0.05 for a medium link. **Output:** `m6_05_relations
 
 **Candidate base:**
 - The M5 candidates (current funders with headroom, lapsed funders, peer-funder gaps, DC-sector majors), joined to M6 paths and the M4 landscape.
-- DAF sponsors are excluded. The T. Rowe Price Program (311709466) is scored like a DAF.
+- DAF sponsors are excluded. The T. Rowe Price Program (311709466) is scored like a DAF and capped at Tier 2.
+- Current funders that gave Calvary under $10,000 over TY2020–24 (`min_current_funder_total`) are dropped before scoring.
 
 **Weights** (`config/scoring_weights.yaml`):
 
@@ -480,7 +489,7 @@ The consulting variant adds 0.05 for a medium link. **Output:** `m6_05_relations
 | Mission fit | 0.20 | Issue tags (housing/DV/women 1.0; behavioral health/workforce/health 0.7; general operating 0.6) plus the share of DC-sector dollars whose purpose names housing/DV/women |
 | Peer giving | 0.20 | Core peers funded TY2020–24; reaches 1 at 8 peers (`peer_giving_cap`) |
 | Regional giving | 0.10 | Dollars to DC-sector orgs, log-linear $50,000 → $10,000,000 |
-| Award size | 0.15 | Median grant to peers (else median DC-sector grant), log-linear $5,000 → $250,000 |
+| Award size | 0.15 | Median grant to peers (else median DC-sector grant, then the largest grant to Calvary; 31 zero-peer rows use a fallback, and Coca-Cola's Tier 2 place depends on it), log-linear $5,000 → $250,000 |
 | Accessibility | 0.10 | By funder type (table below); −0.15 `placeholder_penalty` for "see attached" filers; −0.30 `in_kind_penalty` for in-kind or workplace channels |
 | Durability | 0.10 | Years funding peers and years active in the DC sector |
 | Relationship | 0.15 | M6 path strength + `relationship_bonus`: current funder 0.35, lapsed 0.20, on Calvary's list or CRM 0.15 |
@@ -491,8 +500,14 @@ The consulting variant adds 0.05 for a medium link. **Output:** `m6_05_relations
 - In-kind: Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively (`in_kind_channels`).
 - DAF-like: T. Rowe Price Program (`daf_like_channels`).
 
+**Channel and status rules** (`config/scoring_weights.yaml`, documented there per review findings M03, R06, R16 and R17):
+- `channels` maps a funder to a channel label (workplace giving, matching gifts with a corporate-relationship path, in-kind goods, in-kind food, online giving platform, employee giving). Channels and DAF-like programs are scored but never placed above Tier 2.
+- Funder status comes from `open_status` in `config/guideline_notes.csv`: `sunset` is kept for the record but never tiered or named as a prospect (track "excluded: closed funder"); `not_eligible` goes to Tier 3 with the reason; `closed_to_new` is at most Tier 2 and labelled "closed to new applicants"; `channel` is at most Tier 2; for `invitation_only` the next step is an introduction that leads to an invitation, never an LOI.
+- `next_step_overrides` holds funder-specific 90-day steps where the generic template does not fit (Abell, GWCF, Schattner, America's Charities).
+- A new-prospect funder of exactly three peers carries `peer_set_note` "depends on the provisional peer set", because swapping three provisional peers drops it.
+
 **Tier rules:**
-- **Tier 1:** score ≥ 0.62 **and** median grant to peers ≥ $25,000, at most 20 funders.
+- **Tier 1:** score ≥ 0.62 **and** median grant to peers ≥ $25,000, at most 20 funders, after the channel and status rules above. The rerun of 2026-10-11 has nine Tier 1 rows: five foundations, three government streams and one corporate partner.
 - **Tier 2:** score ≥ 0.48.
 - **Tier 3:** the rest.
 
@@ -514,10 +529,12 @@ Corporate CRM relationships (≥$50K, no public filing) are also analyst-scored.
    - Sources were added to `sources/source_registry_extension.csv` (33 rows on disk; the run log records 32).
    - The API key is read from the environment and never written to disk.
 2. Hits were hand-reviewed into `config/guideline_notes.csv`.
-   - Columns: `funder_id, funder_name, application_process, next_deadline_or_cycle, guidelines_url, basis, note`.
+   - Columns: `funder_id, funder_name, application_process, next_deadline_or_cycle, guidelines_url, basis, note`, plus four open-status columns added in the review fix cycle: `open_status` (open, invitation_only, closed_to_new, not_eligible, sunset, channel or unverified), `open_status_note`, `open_status_source` and `open_status_checked`. Status is set from the funder's own page with the date checked; a funder is named in leadership materials only after that check.
    - 27 rows by basis: **web (first-party)** 13, **web (third-party)** 7, **no usable hit; analyst note** 7.
    - Third-party pages and misdirected top hits were not trusted as first-party guidelines.
-3. `scripts/12_merge_guidelines.py` merges the notes into the pipeline and the 90-day plan (`m7_04_guideline_notes`, `m7_01_action_plan_90day`).
+3. `scripts/07_m7_pipeline.py` reads `open_status` for the status rules; `scripts/12_merge_guidelines.py` merges the notes, including the status note and date, into the pipeline and the 90-day plan (`m7_04_guideline_notes`, `m7_01_action_plan_90day`).
+
+**90-day plan sequencing** (review finding R09): deadlines are set for the size of Calvary's fundraising team. Month 1 government confirmations (CEO and board chair; day 30); month 2 two current-funder conversations a fortnight (development director; days 45 and 60); month 3 introductions to new funders (day 90). Lapsed-funder calls, when any reach Tier 1, fall at day 75.
 
 **Sensitivity:** `scripts/13_m7_sensitivity.py` tests how Tier 1–2 membership and ranks move when each weight shifts ±0.05 (renormalized) and each tier cutoff ±0.05 (`m7_05_sensitivity`: rank shift in the top 30, top-10 overlap, Tier 1–2 additions and drops). It covers institutional rows only; government, corporate and federal rows carry fixed analyst scores.
 
@@ -551,20 +568,20 @@ Universe rules and sizes are in §3.1, and peer selection and swapping in §3.2.
 
 The consolidated list is in §9.
 
-**Discovery flags** (`discoveries_log.md`), all approved as proposed at CP2:
+**Discovery flags** (`discoveries_log.md`), all approved as proposed at CP2; D3 was closed in the review fix cycle:
 
 | Flag | Finding | Handling |
 |---|---|---|
-| D1 | Calvary recognized ~67–73% of known government award ceilings in FY24–FY25 (ceilings $3.6M / $4.3M vs line 1e $2.62M / $2.89M). Line 1e matched audits exactly in FY22–23 | Medium confidence, labeled "ceilings vs recognized"; FY24/FY25 audits and TCP subgrant agreements go to the top of the questions for Calvary |
+| D1 | Calvary recognized ~67–73% of known government award ceilings in FY24–FY25 (ceilings $3.6M / $4.3M vs line 1e $2.62M / $2.89M). Line 1e matched audits exactly in FY22–23 | Medium confidence, labeled "ceilings vs recognized"; FY24/FY25 audits and TCP subgrant agreements go to the top of the questions for Calvary. The audited FY22–23 SEFA already shows the gap in the CoC stream (A5), so CoC draw-down is reconciled first, then DHS |
 | D2 | Sisters Rise (24-unit PSH with Emergency Housing Vouchers; $593K DHS/TCP contract in FY2024) is absent from the 2025 HIC | DHS stream rated "at risk"; FY2024 value kept in the baseline until Calvary confirms |
-| D3 | Event contributions fell from $538K (FY24) to $55K (FY25) while net special-event income turned positive (+$219K) | Reported as the largest single swing; ask whether the FY25 gala moved across the fiscal-year line |
+| D3 | Event contributions fell from $538K (FY24) to $55K (FY25) while net special-event income turned positive (+$219K) | Closed 2026-10-11, resolved from the 990 itself: event receipts held near $0.53–0.60M (FY24 $596K, FY25 $533K); the FY25 990 presented gala receipts as fundraising-event income (line 8a, with $259K of direct costs netted) instead of contributions (line 1c) |
 
 **Documents requested from Calvary:**
-1. **FY24 and FY25 audits,** including any single audits. Closes the audit-basis government share for FY24–25 and flag D1.
-2. **TCP subgrant agreements FY2023–FY2026.** Closes the DHS/TCP stream, which is public for one year only, and flags D1 and D2. The alternative is the unposted DHS attachments ("Attachment 27 Contracts FY24-FY25"; "Question_13_JA0_2026.xls").
+1. **FY24 and FY25 audits,** including any single audits. Closes the audit-basis government share for FY24–25 and flag D1 (the CoC part of the gap is already visible in the FY22–23 audits).
+2. **TCP subgrant agreements FY2023–FY2026.** Closes the DHS/TCP stream, which is public for one year only, and flags D1 and D2. These agreements are the only route to FY25–26 DHS values; the other source would be the unposted DHS attachments ("Attachment 27 Contracts FY24-FY25"; "Question_13_JA0_2026.xls").
 3. **CRM export definitions.** Is GIFT_TOTAL limited to 2023–2026 or lifetime? Is it by gift date or fiscal year? What is the in-kind, pro bono or matching share of MGAC's $712,730 and Capital One's $367,340? Closes assumptions A1 and A2.
 4. **Sisters Rise / EHV status in FY25.** Closes flag D2.
-5. **FY25 gala timing.** Closes flag D3.
+5. **FY26 gala date.** A small check only; flag D3 was closed from the 990 itself.
 6. **SheWorks program-level budget and funders.**
 
 ---
@@ -578,7 +595,7 @@ The consolidated list is in §9.
 3. **Clean table.** `source_tables` names the tables in `calvary_funding_data/clean/`. Each clean row carries its own `source_id` and `retrieved_date`.
 4. **Registry.** `source_ids` resolve to `calvary_funding_data/sources/source_registry.csv` (238 rows) or, for the web pull, to `calvary_analysis/sources/source_registry_extension.csv`.
 
-**The manifest.** `chart_data/_manifest.csv` has one row per chart-data CSV (60 rows). Columns: `chart_id, title, source_tables, source_ids, script, rows, notes, written`.
+**The manifest.** `chart_data/_manifest.csv` has one row per chart-data CSV (59 rows; an orphan M1 surplus and net-assets CSV that no script wrote was deleted in the review fix cycle). Columns: `chart_id, title, source_tables, source_ids, script, rows, notes, written`.
 
 **`config/png_data_map.csv`.** Some PNGs draw on a differently named CSV, usually a shared table. The map lists those 12 PNGs and the CSV(s) behind each. For example, `m3_01_gov_share_ranked` through `m3_06_institutional_base` read `m3_00_benchmark_table`, and `m6_03_network` reads `m6_03_network_nodes` and `m6_01_central_funders`.
 
@@ -610,7 +627,7 @@ Longer methods go in a numbered method note in the deck's "Data and methods" app
 uv pip install --python calvary_funding_data/.venv/bin/python -r calvary_analysis/requirements.txt
 ```
 
-Scripts read only from `calvary_funding_data/clean/` (and `raw/geo` for the ward map). They resolve paths from their own location, so they run from any working directory.
+Scripts read only from `calvary_funding_data/clean/` (and `raw/geo` for the ward map), plus the analysis config files, including `config/grant_exclusions.csv` on every load of `fact_grants`. They resolve paths from their own location, so they run from any working directory.
 
 **Script order** (`calvary_analysis/scripts/`):
 
@@ -623,7 +640,7 @@ Scripts read only from `calvary_funding_data/clean/` (and `raw/geo` for the ward
 | `04_m4_landscape.py` | M4 funder landscape | `landscape_exclusions.csv` |
 | `05_m5_gaps.py` | M5 gap categories, candidate base | `landscape_exclusions.csv` |
 | `06_m6_network.py` | M6 network, interlocks, path scores | `landscape_exclusions.csv` |
-| `07_m7_pipeline.py` | M7 scoring, tiers, 90-day plan | `scoring_weights.yaml` |
+| `07_m7_pipeline.py` | M7 scoring, tiers, 90-day plan | `scoring_weights.yaml`, `guideline_notes.csv` (`open_status`) |
 | `08_m8_expansion.py` | M8 expansion scan | `expansion_areas.yaml` |
 | `09_m9_need_capacity.py` | M9 need and capacity | — |
 | `10_m10_profiles.py` | M10 comparator profiles | — |
@@ -647,7 +664,8 @@ Scripts read only from `calvary_funding_data/clean/` (and `raw/geo` for the ward
 | Scoring weights or tiers | `calvary_analysis/config/scoring_weights.yaml` | `07`, `12`, `13` |
 | Landscape exclusions | `calvary_analysis/config/landscape_exclusions.csv` | `04`–`07`, `12`, `13` |
 | Expansion areas or distances | `calvary_analysis/config/expansion_areas.yaml` | `08` |
-| Guideline notes | `calvary_analysis/config/guideline_notes.csv` | `12` |
+| Guideline notes | `calvary_analysis/config/guideline_notes.csv` | `12` (`07`, `12`, `13` when `open_status` changes) |
+| Mis-attributed grant rows | `calvary_analysis/config/grant_exclusions.csv` | every script that reads `fact_grants`, then `12`, `13` |
 
 Rebuilding `clean/` itself is covered in `calvary_funding_data/README.md` ("Rebuild").
 
@@ -684,8 +702,8 @@ Consolidated from the module readouts' Caveats sections and the Prompt 1 reports
 | 2 | 990 line 1e understates government money where contracts are booked as program revenue (Calvary FY21; possibly Samaritan Inns FY24–25, whose program-service revenue rose at the same time) | Calvary on the audit basis through FY23; both measures shown; three-year means for peers; reporting breaks flagged |
 | 3 | DHS/TCP amounts are public for FY2024 only; other years are unknown, not zero | FY2024 carried forward as a config assumption; stream rated "at risk"; TCP agreements requested |
 | 4 | HUD CoC amounts are competition years; the one-year lag to Calvary's operating year is an assumption | Lag set in `scenarios.yaml` and named in footnotes |
-| 5 | Scenario stream shares are apportioned from award ceilings, not from Calvary's ledger | Shares published in `m2_07_scenario_parameters`; ceilings vs recognized gap reported as flag D1 at medium confidence |
-| 6 | Federal policy risk (2025 CoC NOFO, EHV sunset) is only partly in the data | Treated as external context in durability ratings, not modeled |
+| 5 | Scenario stream shares are apportioned, not taken from Calvary's ledger, and streams are not drawn at a common rate | Losses reported as ranges across three apportionments (A, B, C), with floor case D reported; shares, CoC draw rate and Sisters Rise amount published in `m2_07_scenario_parameters`; ceilings vs recognized gap reported as flag D1 at medium confidence |
+| 6 | Federal and DC policy risk is only partly in the data: the FY2026 CoC NOFO (the FY2025 NOFO was enjoined and FY2025 renewals were paid in full), HUD's 29 September 2026 notice ending EHV, and the one-time part of the FY2027 OVSJG restoration ($5.1M one-time plus $0.5M recurring) | Treated as external context in durability ratings, not modeled; dated in the review's external check (October 2026) |
 | 7 | Government award sources overlap (awards, payments, SEFA) | One source per stream, never summed across `source_type` |
 | 8 | Funder tax years don't align with Calvary's fiscal year; TY2024 is partial and TY2025 mostly unfiled, so "flat" after TY2023 is partly filing lag | TY2020–23 as the trend window, TY2024 labeled "arriving", TY2025 excluded; "itemized TY2023+" test in M5 |
 | 9 | The 990 cannot split individuals from foundations in private contributions | Institutional giving measured from funders' own filings instead |
@@ -695,13 +713,13 @@ Consolidated from the module readouts' Caveats sections and the Prompt 1 reports
 | 13 | Funder-base, landscape and network metrics cover DMV funders' filings only; DAF Schedule I kept for DC/MD/VA recipients | LA comparators' funders taken from web lists and press; DWC/SheWorks shown as reference rows, not benchmarks |
 | 14 | 10.0% of DC/MD/VA named-recipient grant dollars have no recipient EIN (government units, schools, churches) | Match method and score kept on every row; unmatched mass reported in `data_quality.md` §7 |
 | 15 | Sector universe includes DC-based national and research organizations | Gates and TCP excluded via `landscape_exclusions.csv`; a few research recipients remain and are noted |
-| 16 | Core peers are provisional; benchmarks, gap list, network and pipeline move with them | Labeled provisional everywhere; swap is a config edit plus rerun (§3.2) |
+| 16 | Core peers are provisional; benchmarks, gap list, network and pipeline move with them. Swapping three provisional peers drops the three-peer funders and moves Calvary from 11th to 12th of 19 | Labeled provisional everywhere; three-peer funders carry "depends on the provisional peer set"; swap is a config edit plus rerun (§3.2) |
 | 17 | A filing "gap" may be a gift routed through a DAF, corporate match or fiscal sponsor | Check the CRM before outreach; CRM status feeds the relationship score |
 | 18 | Peer donor lists are undated and amount-less, and only six peers publish them | Used only for gap category G5 and as supporting evidence |
-| 19 | Several high-count gap funders are in-kind or workplace-giving channels (Gifts for the Homeless, Capital Area Food Bank, America's Charities, Give Lively) | −0.30 in-kind penalty; penalized, not removed |
-| 20 | Interlocks depend on name matching; a medium match may be two different people | High-confidence only in leadership materials; medium labeled "unconfirmed"; treated as leads |
+| 19 | Six of the 23 funders of three or more peers are channels, not grantmakers (Gifts for the Homeless, T. Rowe Price Program, Capital Area Food Bank, America's Charities, JPMorgan Chase matching gifts, Give Lively) | −0.30 in-kind penalty; labelled by channel and capped at Tier 2 (`channels`); penalized, not removed |
+| 20 | Interlocks depend on name matching; a medium match may be two different people | "High" requires overlapping board tenures and "funder" requires at least one filed grant (C2); high-confidence only in leadership materials; medium labeled "unconfirmed"; treated as leads |
 | 21 | Path weights, pipeline weights, government and corporate scores, durability and distance ratings are analyst judgment | All weights in YAML; government rows marked basis = inferred; sensitivity script `13`; readouts state "judgment" |
-| 22 | Pipeline scores rank evidence, not fit with funder guidelines | Phase 3 web pull on Tier 1–2 guidelines; notes merged into the pipeline and 90-day plan |
+| 22 | Pipeline scores rank evidence, not fit with funder guidelines or whether a funder is still open | Phase 3 web pull on Tier 1–2 guidelines; notes merged into the pipeline and 90-day plan; open status checked on each funder's own page with a date (`open_status`) before a funder is named in leadership materials (added after the review found that Clark had closed) |
 | 23 | Web-pull top hits were sometimes third-party or unrelated pages, and one registry-extension row (`web_guidelines_526037034`) has a truncated `url_or_file` value | Every hit hand-reviewed; `basis` column separates first-party (13), third-party (7) and no usable hit (7) |
 | 24 | Expansion-scan tagged dollars understate what funders would give (general operating excluded); federal notices are a snapshot | Read as relative pool sizes; distance ratings stated as judgment |
 | 25 | Need data: ward-level ACS has wide margins of error; HIC counts beds, not people, and Calvary's projects were re-labelled in 2024; HUD's PIT workbook has no gender breakdown | 90% MOEs kept, no tract figures; bed shares only, re-labelling noted in M9; CoC's 2024 subpopulation table used (2,167 women among 5,616 people) |
@@ -709,3 +727,4 @@ Consolidated from the module readouts' Caveats sections and the Prompt 1 reports
 | 27 | FAC's "audit year 2023" record for Calvary repeats FY22 amounts | Both kept and flagged; FY23 audit PDF ($937,999) used |
 | 28 | 660 sector orgs have no return since TY2020; paper filers have no XML; national universes fall below 15 filers after FY2022 | Flagged by rule DCS2; SOI/ProPublica where present; FY2022 benchmark year nationally, FY2023 for DC |
 | 29 | Grants.gov feed is mostly irrelevant to Calvary (NIH, NSF, embassies) | Filtered by agency and topic; federal notices Tier 3 by default |
+| 30 | Name matching can attach a grant to a namesake organization in another city | Mis-attributed rows listed in `config/grant_exclusions.csv` and dropped on every load (two Baltimore funders' grants to a Baltimore namesake of My Sister's Place, $131,906) |

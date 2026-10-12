@@ -13,7 +13,7 @@ Headline numbers match `consulting_headline_spine.md`. Each row: layout, evidenc
 | 7 | CHART native stacked column | Revenue mix FY15–FY25 with government share labels | m1_02 | A1 |
 | 8 | CHART native line | Two measures (repeat of 4 with the FY21 reconciliation table: audit $1.98M vs 1e $503K; FY22–23 identical) | m1_03 | A1 |
 | 9 | CHART native column + bar | Surplus/deficit FY11–FY25; months of cash with the 3–6 month band | m1_04, m1_05 | A1 |
-| 10 | CHART native column/line | Event contributions (1c) vs net event income (8c) | m1_06 | A1; flag D3 |
+| 10 | CHART native stacked column | Event receipts: line 1c contributions + line 8a gross fundraising-event income (the FY25 gala moved to 8a) | m1_06 | A1; flag D3 closed |
 | 11 | CHART native bar | Top 12 filed funders with shares; by-year institutional vs DAF | m1_07, m1_08 | fact_grants, dim_funder; A3 |
 | 12 | CHART native stacked column | Recurring streams by award year; one-time awards listed below | m2_01, m2_01b | fact_gov_awards; A2 |
 | 13 | TABLE | Stream durability table: stream, detail, first/latest amount, funding source, renewal mechanism, risk | m2_03 | fact_gov_awards, fact_policy_events, supp_hic_projects; A2 (ratings = analyst judgment) |
@@ -21,9 +21,9 @@ Headline numbers match `consulting_headline_spine.md`. Each row: layout, evidenc
 | 15 | CHART PNG | DC budget small multiples (approved, actual, Mayor's proposal) | m2_04 | supp_dc_budget_lines; A6 |
 | 16 | CHART native bar | Policy events ≥$2M touching Calvary's lines, cuts vs restorations | m2_06 | fact_policy_events; A6 |
 | 17 | CHART native line | Calvary's share of OVSJG and CoC pools by year | m2_05 | fact_gov_awards; A2 |
-| 18 | TABLE + native bar | Scenario table (gross and net) and parameters; bar of revenue loss | m2_07, m2_07 parameters | config/scenarios.yaml; A4 |
+| 18 | TABLE | Scenario table as ranges across three revenue splits, floor case D, months of cash after a year | m2_07, m2_07 parameters | config/scenarios.yaml; A4 |
 | 19 | CHART native bar | Government share ranked, FY22–24 mean, bands | m3_01 | B1 |
-| 20 | CHART native range | Sector distributions with Calvary's percentile | m3_07 | B1 |
+| 20 | CHART PNG | Sector distributions with Calvary's percentile among reporters and among all filers | m3_07 | B1 |
 | 21 | CHART PNG scatter | Size vs government share, typology bands | m3_02 | B1 |
 | 22 | CHART native bar | Real CAGR FY19–24 | m3_03 | B1 |
 | 23 | CHART native bar | Months of cash FY2024 | m3_04 | B1 |
@@ -36,17 +36,17 @@ Headline numbers match `consulting_headline_spine.md`. Each row: layout, evidenc
 | 30 | CHART PNG range | Grant size by funder type | m4_05 | C1 |
 | 31 | CHART native bar | DAF sponsors to DC sector | m4_06 | C1 |
 | 32 | CHART native bar | Purpose tags; mission-tagged funders | m4_07, m4_08 | C1 |
-| 33 | CHART native bar | Peer-funder gaps (23 with 3+ peers) | m5_01 | C1 |
-| 34 | CHART native bar | Lapsed funders with first/last year | m5_02 | C1 |
+| 33 | CHART native bar | Peer-funder gaps (23 with 3+ peers), channels and closed funders labeled | m5_01, m7_04 | C1 |
+| 34 | CHART native bar | Lapsed funders with first/last year (one-time capital grants excluded) | m5_02 | C1 |
 | 35 | CHART native bar pairs | Current-funder headroom: largest grant to Calvary vs to a peer | m5_03 | C1 |
 | 36 | CHART native bar | CRM reconciliation by status | m5_06 | supp_crm_cash_verification; C1; assumptions A1–A2 (Prompt 1) |
 | 37 | CHART PNG | Network diagram | m6_03 | C2 |
 | 38 | CHART native bar pairs | Co-funding overlap by peer | m6_02 | C2 |
 | 39 | TABLE | Interlocks: high-confidence rows (funder-related) and medium rows labeled unconfirmed; candidate_interlocks count | m6_04 | fact_org_relationships, dim_person; C2 (person_id only) |
-| 40 | TABLE | Scoring dimensions, evidence, weights; tier rules | config/scoring_weights.yaml | C3 |
+| 40 | TABLE | Scoring dimensions, evidence, weights; tier rules; status rules (channels, closed, not eligible) | config/scoring_weights.yaml; config/guideline_notes.csv | C3 |
 | 41 | TABLE | Tier 1 rows with scores and tracks | m7_00 | C3 |
 | 42 | CHART native stacked bar | Tier 1 score decomposition | m7_03 | C3 |
-| 43 | TABLE | 90-day plan with application notes | m7_01, m7_04 | C3; sources/web_tier1_guidelines.csv |
+| 43 | TABLE | 90-day plan with open status | m7_01, m7_04 | C3; config/guideline_notes.csv |
 | 44 | TABLE | Sensitivity: ranks under ±0.05 weight changes and alternative tier cutoffs | m7_05 (sensitivity run) | C3 |
 | 45 | CHART native bar | Expansion scan by area with distance | m8_01 | D1 |
 | 46 | TABLE | Options and trade-offs | m8_01 | D1 |
@@ -56,6 +56,6 @@ Headline numbers match `consulting_headline_spine.md`. Each row: layout, evidenc
 | 50 | CHART PNG | DWC and CBWC trajectories; DWC federal programs | m10_01, m10_02 | fact_org_financials, fact_gov_awards (FAC); B3 |
 | 51 | TABLE | Comparator profiles: programs, funders, what transfers | m10_03–05 | fact_grants web rows; B3 |
 | 52 | STAT | Verdict tiles and one paragraph | verdict | recommendations/funding_pressure_verdict.md |
-| 53 | HEADLINE | Five recommendation areas with the target arithmetic ($3M private in three years; 50% share; six-month reserve) | — | recommendations/strategic_recommendations.md |
-| 54 | TABLE | Open flags D1–D3 and documents requested | discoveries_log | discoveries_log.md |
+| 53 | HEADLINE | Five recommendation areas with the target arithmetic ($3M private in three years with no events component; 50% share; six-month reserve) | — | recommendations/strategic_recommendations.md |
+| 54 | TABLE | Flags D1–D2 open and D3 closed, with documents requested | discoveries_log | discoveries_log.md |
 | 55 | HEADLINE | Appendix map and register status | — | insight_register.csv |

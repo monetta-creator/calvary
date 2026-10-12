@@ -58,16 +58,16 @@ const TIER = { "1a_dc_women_homeless": "1a · DC women's homelessness", "1b_dc_d
 
   // 5. Sector distributions: PNG + table
   const sdist = D.readCsv("m3_07_sector_distributions");
-  s = X.head("Sector distributions place Calvary at the 57th percentile in the DC sector and the 46th among national women's and DV organizations.");
+  s = X.head("Among organizations that report government revenue Calvary sits at the 57th percentile in DC and the 46th nationally, and in the top quarter of all filers.");
   C.img(s, "m3_07_sector_distributions", { x: M, y: BODY_Y, w: 7.4, h: 3.4 });
   D.card(s, { x: 8.3, y: BODY_Y, w: W - M - 8.3, h: 3.25, title: "Reading the distributions", fontSize: 11, lines: [
-    "Organizations with no government line count at 0%, so p10 is 0% in every universe.",
+    "Percentiles compare Calvary with organizations that report government revenue; against all filers (no line counted as 0%) it is 84th in DC and 74th in both national universes.",
     "Benchmark years chosen for filing coverage: national universes fall below 15 filers after FY2022.",
     "Calvary's FY2023 share here is line-1e based (51%)."] });
-  tbl(s, ["Universe", "Year", "n", "p10", "p25", "Median", "p75", "p90", "Calvary", "Calvary percentile", "Median revenue"],
-    sdist.map(r => [r.label.replace(/, FY\d+/, ""), `FY${yr(r.fiscal_year)}`, n0(r.n), pct(num(r.p10)), pct(num(r.p25)), pct(num(r.median)), pct(num(r.p75)), pct(num(r.p90)), pct(num(r.calvary_gov_share)), `${Math.round(num(r.calvary_percentile) * 100)}th`, money(r.median_revenue)]),
-    { x: M, y: 5.3, w: FULL_W, colW: [2.9, 0.8, 0.7, 0.8, 0.8, 0.9, 0.8, 0.8, 0.9, 1.3, 1.43], fontSize: 9.5, align: ["left", "left", "right", "right", "right", "right", "right", "right", "right", "right", "right"] });
-  D.footnote(s, { source: `${SRC990}; dim_universe_membership`, method: "990 line 1e basis; universe rules in config/universes.yaml (dc_sector FY2023, size_matched and national_women FY2022)", chart: "m3_07", note: "B1" });
+  tbl(s, ["Universe", "Year", "n reporting", "p25", "Median", "p75", "Calvary", "Percentile (reporters)", "n all filers", "Percentile (all filers)", "Median revenue"],
+    sdist.map(r => [r.label.replace(/, FY\d+/, ""), `FY${yr(r.fiscal_year)}`, n0(r.n), pct(num(r.p25)), pct(num(r.median)), pct(num(r.p75)), pct(num(r.calvary_gov_share)), `${Math.round(num(r.calvary_percentile) * 100)}th`, n0(r.n_all_filers), `${Math.round(num(r.calvary_percentile_all_filers) * 100)}th`, money(r.median_revenue)]),
+    { x: M, y: 5.3, w: FULL_W, colW: [2.9, 0.7, 0.9, 0.75, 0.8, 0.75, 0.85, 1.3, 0.9, 1.3, 1.18], fontSize: 9.5, align: ["left", "left", "right", "right", "right", "right", "right", "right", "right", "right", "right"] });
+  D.footnote(s, { source: `${SRC990}; dim_universe_membership`, method: "990 line 1e basis; percentile among organizations reporting government revenue, all-filers percentile counts no line as 0%; universe rules in config/universes.yaml (dc_sector FY2023, size_matched and national_women FY2022)", chart: "m3_07", note: "B1" });
 
   // 6. Case studies: PNG + table
   X.png("The case studies show three paths: Samaritan Inns replaced government, N Street Village grew private giving alongside it, and DWC scaled with it.", "m3_08_case_studies_mix", null, null,

@@ -70,7 +70,8 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
   D.footnote(s, { source: "calvary_funding_data/sources/source_registry.csv; calvary_analysis/sources/source_registry_extension.csv; sources/api_catalog.md (via methodology.md §2.2)", method: "counts by source_id prefix and by publisher group; extension rows come from the analyst-reviewed Tier 1–2 guideline pull", chart: null, note: "D2" });
 
   // 5. Data quality (three slides)
-  const dq = C.readText("calvary_funding_data/reports/data_quality.md");
+  // Prompt 1's data_quality.md is left untouched; one of its lines was corrected by the review (M09), so the slide quotes the correction.
+  const dq = C.readText("calvary_funding_data/reports/data_quality.md").replace("TCP Schedule I is the fallback.", "TCP files no itemized Schedule I, so TCP's subgrant agreements are the only route to FY25–26 DHS values (review finding M09).");
   const rc = mdTable(dq, /^## 1\. Row counts/).rows.filter((r, i, a) => a.findIndex(x => x[0] === r[0]) === i);
   const H5 = "Data quality: row counts, reconciliation results, match rates and known gaps are documented for every table.";
   const foot5 = { source: "calvary_funding_data/reports/data_quality.md §1, §4, §7–§9; reports/reviewer_guide.md §2 (via methodology.md §2.4–2.5)", method: "pandas row counts (never line counts); checks run by the data build's quality script and the analysis environment check", chart: null, note: "D3" };
@@ -122,6 +123,7 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
       "Government revenue: audit basis (contracts and grants) FY13–FY23; 990 Part VIII line 1e FY24–FY25.",
       "Line 1e misses contracts booked as program revenue: the FY21 audit shows $1,981,161 against $503,222 on line 1e.",
       "Private contributions ex-events = contributions total − government − line 1c events; institutional giving is measured from funders' filings instead (A3).",
+      "Event receipts = line 1c event contributions + line 8a gross fundraising-event income: the FY25 return moved the gala from 1c to 8a, so 1c alone overstates the change.",
       "Real values: CPI-U annual average, base 2024, by the calendar year in which the fiscal year ends.",
       "Peers: line 1e ÷ total revenue on preferred rows, FY2015–FY2025."],
     ["No FY24 or FY25 audits are public; those years rest on the 990.", "The 990 cannot split individuals from foundations in private contributions.", "Months of cash is comparable from FY2020."],
@@ -136,7 +138,7 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
       "One-time money listed separately: SLFRF $3.68M, PPP $327K, HUD CPF $200K.",
       "Calendars: DC FY = Calvary FY; CoC competition year t → Calvary operating year t+1; SEFA = expenditure in the audited year; the FAC 'audit year 2023' record duplicates FY22, so the FY23 audit PDF ($937,999) is used.",
       "Stream durability (annual, renewal, at-risk) is an analyst rating."],
-    ["DHS/TCP amounts are public for FY2024 only; other years are unknown, not zero.", "The one-year CoC lag is an assumption set in config.", "Federal policy risk (2025 CoC NOFO, EHV sunset) is only partly in the data."],
+    ["DHS/TCP amounts are public for FY2024 only; other years are unknown, not zero.", "The one-year CoC lag is an assumption set in config.", "Federal policy risk (the FY2026 CoC competition, the EHV program's end on 31 December 2026) is only partly in the data."],
     "High on the stream map, pool shares and DC budget lines; durability ratings are judgment.",
     { readout: "modules/m2_government_exposure.md", config: "config/scenarios.yaml (coc_award_lag_years)", method: "one source_type per stream from fact_gov_awards", chart: "m2_01, m2_01b, m2_03, m2_05" });
   note("A3", "Method note A3: filed grants to Calvary come from funders' own filings for TY2020–24, exclude cumulative rows and aggregate by funder EIN.",
@@ -149,26 +151,26 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
     ["Funder tax years do not align with Calvary's fiscal year.", "TY2024 filings are partial and TY2025 mostly unfiled, so 'flat' after TY2023 is partly filing lag.", "The CRM covers institutional gifts only."],
     "High on the concentration of filed grants.",
     { readout: "modules/m1_calvary_trajectory.md", config: "calvary_funding_data/config/funder_match_overrides.csv", method: "funder share = funder total ÷ $4.43M; HHI on shares", chart: "m1_07, m1_08" });
-  note("A4", "Method note A4: scenarios split FY25 government revenue by ceiling share and apply configured cuts, and the net view treats half as avoidable cost.",
+  note("A4", "Method note A4: scenarios apply configured cuts to FY25 government revenue split three ways by stream, so each loss is a range.",
     "what happens to revenue, deficit and cash if government streams are cut?", [
-      "Baseline: FY25 recognized government revenue ($2.89M) apportioned by ceiling share: OVSJG 23%, CoC 41%, DHS 33%, other 2%.",
-      "Each scenario applies its cuts to those stream amounts; gross = the revenue loss; net assumes 50% of a lost stream's revenue is avoidable program cost.",
-      "Outputs: revenue loss, deficit, months of cash after a year and months until cash runs out.",
-      "Parameters: baseline_fiscal_year 2025; cost_avoidance_share 0.5; dhs_assumed_flat_from_fy2024 true; coc_award_lag_years 1.",
-      "S1 OVSJG −10%; S2 OVSJG −25%; S3 CoC −15%; S4 New Foundations 2 lost; S5 DHS/TCP not renewed; S6 combined. Levels set by the CP1 ruling."],
-    ["Stream shares come from award ceilings, not Calvary's ledger.", "The DHS value is the FY2024 figure carried forward.", "Cost avoidance of 50% is an assumption."],
-    "Medium: apportionment and carry-forward assumptions drive the stream amounts.",
+      "Baseline: FY25 recognized government revenue ($2.89M). The 990 does not split it by stream, so three splits bound the answer.",
+      "Split A: by FY-aligned award ceiling share (OVSJG 23%, CoC 41%, DHS 33%, other 2%). Split B: OVSJG and other in full, CoC at its audited FY22–23 draw rate (38%), DHS the residual. Split C: split A without Sisters Rise ($593K).",
+      "Floor case D draws OVSJG and CoC in full, which leaves DHS almost nothing; reported separately. CoC plus DHS is $1.8–2.2M under every split.",
+      "Outputs per scenario: loss low and high, % of revenue, months of cash after a year (net) as a range. Net assumes 50% of a lost stream's revenue is avoidable cost.",
+      "S1 OVSJG −10%; S2 OVSJG −25%; S3 CoC −15%; S4 New Foundations 2 lost; S5 DHS/TCP not renewed ($0.65–1.13M); S6 combined ($1.05–1.47M, 1.5–2.0 months)."],
+    ["The DHS figure depends most on the split.", "The DHS value is the FY2024 figure carried forward.", "Cost avoidance of 50% is an assumption."],
+    "Medium: the ranges are robust; any single point estimate is not (review finding R01).",
     { readout: "modules/m2_government_exposure.md", config: "config/scenarios.yaml", method: "scenario arithmetic in scripts/02_m2_exposure.py", chart: "m2_07" });
-  note("A5", "Method note A5: award ceilings are aligned to Calvary's fiscal year and compared with recognized revenue, not substituted for it.",
+  note("A5", "Method note A5: award ceilings are compared with recognized revenue, and the audited years show where the gap starts.",
     "does Calvary recognize the government money it is awarded?", [
       "Ceilings come from the A2 sources, aligned to Calvary's fiscal year: DC FY = Calvary FY, CoC lagged one year, DHS FY2024 carried forward.",
-      "They are compared with recognized government revenue (990 line 1e for FY24–25) in m2_02.",
-      "Result, discovery flag D1: FY24 ceilings $3.6M vs $2.62M recognized; FY25 $4.3M vs $2.89M.",
-      "Approved at CP2 as a medium-confidence finding labeled 'ceilings vs recognized'.",
-      "Possible explanations: undrawn awards, timing, cost-reimbursement limits or an overstated DHS carry-forward; the data cannot distinguish them."],
+      "They are compared with recognized government revenue (990 line 1e for FY24–25) in m2_02. Flag D1: FY24 ceilings $3.6M vs $2.62M recognized; FY25 $4.3M vs $2.89M.",
+      "The FY22 and FY23 single audits (SEFA) show CoC spending at 28% and 58% of the prior year's CoC awards, so the gap is specific to the CoC stream and predates FY24.",
+      "The 2021 Reach Up expansion award ($1.22M, reallocated to $0.42M in 2022) explains part of it.",
+      "Next step: reconcile CoC draw-down first, then DHS."],
     ["DHS values before FY2024 are unknown, so earlier ceilings are understated.", "EFSP and SNAP E&T are held at the audited FY23 level."],
     "Medium. The FY24 and FY25 audits and TCP subgrant agreements would resolve it.",
-    { readout: "modules/m2_government_exposure.md", config: "config/scenarios.yaml (dhs_assumed_flat_from_fy2024, coc_award_lag_years)", method: "ratio = recognized government revenue ex SLFRF ÷ known ceilings", chart: "m2_02" });
+    { readout: "modules/m2_government_exposure.md", config: "config/scenarios.yaml (dhs_assumed_flat_from_fy2024, coc_award_lag_years)", method: "ratio = recognized government revenue ex SLFRF ÷ known ceilings; CoC draw rate = SEFA expenditure ÷ prior-year CoC awards", chart: "m2_02" });
   note("A6", "Method note A6: DC budget lines are activity-level totals from the budget books, and policy events add Council reports and Budget Support Acts.",
     "are the DC pools Calvary draws on growing or shrinking, and when are they cut?", [
       "supp_dc_budget_lines (5,172 rows): activity-level totals from the DC Approved Budget and Financial Plan books FY2024–FY2027, approved vs actual vs Mayor's proposal; each book carries two years of actuals and two approved years.",
@@ -224,7 +226,7 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
       "Graph: bipartite, funders × 19 recipients (Calvary + 18 provisional peers); edges = filed grants TY2020–24 with exclusions; degree = organizations funded; betweenness on the unweighted graph.",
       "Overlap per peer: shared institutional funders (DAF sponsors excluded), Jaccard similarity, and the peer's institutional funders that do not fund Calvary.",
       "Interlocks: shared_board_member links touching Calvary, a peer or a comparator; person records linked only on an exact normalized name plus a corroborating signal; outputs store person_id only, never names.",
-      "CP1 ruling: leadership materials use high-confidence links only; medium links are labeled unconfirmed.",
+      "CP1 ruling: leadership materials use high-confidence links only; medium links are labeled unconfirmed. High confidence needs overlapping board terms, and a linked organization counts as a funder only with a filed grant.",
       "Path strength = 0.40 × peers funded (cap 12) + 0.25 × close peers (cap 8) + 0.25 × overlapping co-funders (cap 20) + 0.10 × any high-confidence board link; consulting variant +0.05 for a medium link."],
     ["Corporate and DAF-routed individual gifts are only partly visible.", "A medium-confidence match may be two different people."],
     "High on the graph and overlap counts; medium on the path-strength construct.",
@@ -263,22 +265,21 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
     { readout: "modules/m3_peer_benchmarking.md; calvary_funding_data/reports/core_peers_proposal.md", config: "calvary_funding_data/config/core_peers.csv, config/universes.yaml", method: "rules and scores as documented in the proposal", chart: null });
 
   // D3: documents + limitations table
-  s = X.head("Method note D3: the main limitations are known and bounded, and six documents from Calvary would close the largest of them.");
+  s = X.head("Method note D3: the main limitations are known and bounded, and five documents from Calvary would close the largest of them.");
   D.card(s, { x: M, y: BODY_Y, w: 6.4, h: BODY_H - 0.15, title: "Documents requested from Calvary", fontSize: 10.5, lines: [
     "FY24 and FY25 audits, including any single audits: closes the audit-basis government share for FY24–25 and flag D1.",
     "TCP subgrant agreements FY2023–FY2026: closes the DHS/TCP stream (public for one year only) and flags D1 and D2.",
     "CRM export definitions: window, gift-date basis and the in-kind share of the largest corporate relationships (assumptions A1 and A2).",
     "Sisters Rise / EHV status in FY25: closes flag D2.",
-    "FY25 gala timing: closes flag D3.",
     "SheWorks program-level budget and funders."] });
   D.card(s, { x: 7.3, y: BODY_Y, w: W - M - 7.3, h: BODY_H - 0.15, title: "Discovery flags (all approved as proposed at CP2)", fontSize: 10.5, lines: [
     "D1: recognized 67–73% of known award ceilings in FY24–FY25; medium confidence, labeled 'ceilings vs recognized'.",
     "D2: Sisters Rise absent from the 2025 HIC; DHS stream rated 'at risk', FY2024 value kept in the baseline.",
-    "D3: event contributions $538K → $55K while net event income turned positive; reported as the largest single swing.",
-    "The full limitation list (29 items, each with its mitigation) follows."] });
+    "D3 (closed 2026-10-11): event receipts held at $596K (FY24) and $533K (FY25); the FY25 return moved the gala from line 1c to line 8a.",
+    `The full limitation list (${mdTable(meth, /^## 9\. Limitations/).rows.length} items, each with its mitigation) follows.`] });
   D.footnote(s, { source: `${METH} §5 D3 and §9; discoveries_log.md; modules/*.md (Caveats)`, method: "limitations consolidated from the module readouts and the data-build reports; duplicates merged", chart: null, note: "D3" });
   const lim = mdTable(meth, /^## 9\. Limitations/);
-  X.table("Method note D3: each of the 29 limitations carries the mitigation used in the analysis.",
+  X.table(`Method note D3: each of the ${lim.rows.length} limitations carries the mitigation used in the analysis.`,
     ["#", "Limitation", "Mitigation used"], lim.rows.map(r => [r[0], trunc(r[1], 140), trunc(r[2], 140)]),
     [0.4, 5.9, 5.83],
     { source: `${METH} §9; modules/*.md (Caveats); calvary_funding_data/reports/data_quality.md`, method: "one row per limitation; mitigations are the steps actually taken", chart: null, note: "D3" },
@@ -288,7 +289,7 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
   X.section("Registers and reruns");
   const ir = C.readAny("calvary_analysis/insight_register.csv");
   const statuses = [...new Set(ir.map(r => r.status))];
-  X.table(`The insight register lists all ${ir.length} findings with confidence and verification status, and ${statuses.length === 1 ? `all are ${statuses[0]}` : "statuses vary"} pending the independent review.`,
+  X.table(`The insight register lists all ${ir.length} findings with confidence and verification status, and ${statuses.length === 1 ? (statuses[0] === "verified" ? "all are verified after the October 2026 review and fix cycle" : `all are ${statuses[0]} pending the independent review`) : "statuses vary"}.`,
     ["ID", "Finding", "Confidence", "Audience", "Status", "Charts"],
     ir.map(r => [r.insight_id, trunc(r.finding, 112), r.confidence, r.audience, r.status, trunc(r.chart_ids.replace(/;/g, ", "), 42)]),
     [0.7, 7.3, 0.85, 0.85, 0.6, 1.83],
@@ -297,9 +298,12 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
 
   // 23. Discoveries log
   const dl = mdTable(C.readText("calvary_analysis/discoveries_log.md"), /^# Discoveries log/);
-  s = X.head(`The discoveries log records every flag and its resolution: ${["no", "one", "two", "three", "four", "five"][dl.rows.length] || dl.rows.length} flags, ${dl.rows.every(r => /approved/.test(r[6])) ? "all approved as proposed at CP2" : "see the response column"}.`);
-  tbl(s, ["#", "Finding", "Why it matters", "Proposed action", "Response"], dl.rows.map(r => [r[0], trunc(r[2], 260), trunc(r[4], 260), trunc(r[5], 230), r[6]]),
-    { x: M, y: BODY_Y, w: FULL_W, colW: [0.45, 3.5, 3.5, 3.0, 1.68], fontSize: 10 });
+  const NW = ["no", "one", "two", "three", "four", "five"], closed = dl.rows.filter(r => /Closed \d{4}/.test(r[6]));
+  s = X.head(`The discoveries log records every flag and its resolution: ${NW[dl.rows.length] || dl.rows.length} flags approved at CP2, ${closed.length ? `${closed.map(r => r[0]).join(", ")} since closed` : "all still open"}.`);
+  // The response column carries later updates; show the latest one, since the finding column keeps the original reading.
+  const latest = (t) => { t = String(t).replace(/\*\*/g, ""); const m = t.match(/(Closed \d{4}-\d{2}-\d{2}.*|Update \d{4}-\d{2}-\d{2}.*)$/); return trunc(m ? m[1] : t, 330); };
+  tbl(s, ["#", "Finding (as raised)", "Why it matters", "Proposed action", "Latest response"], dl.rows.map(r => [/Closed \d{4}/.test(r[6]) ? `${r[0]} (closed)` : r[0], trunc(r[2], 220), trunc(r[4], 170), trunc(r[5], 160), latest(r[6])]),
+    { x: M, y: BODY_Y, w: FULL_W, colW: [0.75, 3.0, 2.4, 2.2, 3.78], fontSize: 9 });
   D.footnote(s, { source: "calvary_analysis/discoveries_log.md (evidence column cites chart_data/m2_02, supp_hic_projects, fact_org_financials)", method: "one entry per flag: date, finding, evidence, why it matters, proposed action, response", chart: "m2_02, m2_03, m1_06", note: "D3" });
 
   // 24. How to rerun

@@ -58,11 +58,11 @@ const SRC_BUDGET = "DC Approved Budget and Financial Plan books FY2024–FY2027,
 
   // 5. m1_06 events: PNG + table
   const ev = D.readCsv("m1_06_events");
-  let s = X.head("Event contributions and net event income by year show the FY25 collapse against positive net income.");
+  let s = X.head("Event receipts (lines 1c and 8a) held near $0.5–0.6M in FY23–FY25, because the FY25 return reported the gala on line 8a.");
   C.img(s, "m1_06_event_income", { x: M, y: BODY_Y + 0.2, w: 7.2, h: 4.4 });
-  tbl(s, ["Fiscal year", "Event contributions (line 1c)", "Net special-event income (line 8c)"], ev.map(r => [r.fy_label, usd(r.event_contributions_line_1c), usd(r.special_events_net)]),
-    { x: 8.1, y: BODY_Y, w: 4.63, colW: [1.0, 1.8, 1.83], fontSize: 10, align: ["left", "right", "right"] });
-  D.footnote(s, { source: "IRS 990 Part VIII lines 1c and 8c; fact_org_financials", method: "as reported; line 8c = gross event income less direct event expenses (discovery flag D3: confirm FY25 gala timing)", chart: "m1_06", note: "A1" });
+  tbl(s, ["Fiscal year", "Line 1c", "Line 8a (gross)", "Receipts 1c + 8a", "Line 8c (net)"], ev.map(r => [r.fy_label, usd(r.event_contributions_line_1c), usd(r.fundraising_event_gross_line_8a), usd(r.event_receipts_total), usd(r.special_events_net)]),
+    { x: 7.75, y: BODY_Y, w: 4.98, colW: [0.8, 1.0, 1.05, 1.13, 1.0], fontSize: 9.5, align: ["left", "right", "right", "right", "right"] });
+  D.footnote(s, { source: "IRS 990 Part VIII lines 1c, 8a and 8c; fact_org_financials; Calvary gala announcements", method: "receipts = line 1c event contributions + line 8a gross fundraising-event income; line 8c = 8a less direct event expenses; flag D3 closed (2025 gala on 23 April 2025, inside FY25)", chart: "m1_06", note: "A1" });
 
   // 6. m1_07 full table
   const fc = D.readCsv("m1_07_calvary_funder_concentration").sort((a, b) => num(a.rank) - num(b.rank));
@@ -168,7 +168,7 @@ const SRC_BUDGET = "DC Approved Budget and Financial Plan books FY2024–FY2027,
     ["Calvary FY", "OVSJG", "HUD CoC (lagged)", "DHS / TCP", "Other federal", "SLFRF spent", "Known ceilings", "Recognized government", "Basis", "Recognized ex SLFRF ÷ ceilings"],
     cv.map(r => [r.fy_label, usd(r.ovsjg_award), usd(r.coc_award_lagged), num(r.dhs_award) == null ? "unknown" : usd(r.dhs_award), usd(r.other_federal), usd(r.slfrf_expenditure), usd(r.award_ceiling_known), usd(r.recognized_gov_revenue), r.recognized_basis, pct(num(r.ratio_recognized_ex_slfrf_to_ceiling))]),
     [0.9, 1.1, 1.2, 1.1, 1.0, 1.1, 1.2, 1.3, 1.1, 2.03],
-    { source: "fact_gov_awards (OVSJG, HUD CoC, DC oversight, audit SEFA) and fact_org_financials (audits to FY23, 990 line 1e FY24–25)", method: "CoC year t → Calvary FY t+1; DHS FY2024 carried forward; EFSP/SNAP at audited FY23 level; DHS unknown before FY2024 (flag D1)", chart: "m2_02", note: "A5" },
+    { source: "fact_gov_awards (OVSJG, HUD CoC, DC oversight, audit SEFA) and fact_org_financials (audits to FY23, 990 line 1e FY24–25)", method: "CoC year t → Calvary FY t+1; DHS FY2024 carried forward; EFSP/SNAP at audited FY23 level; DHS unknown before FY2024 (flag D1); FY22–23 single audits show CoC spending at 28% and 58% of prior-year CoC awards", chart: "m2_02", note: "A5" },
     { rowsPerSlide: 7, fontSize: 10.5 });
 
   // 13. m2_03
@@ -229,15 +229,15 @@ const SRC_BUDGET = "DC Approved Budget and Financial Plan books FY2024–FY2027,
 
   // 17. Scenarios
   const sp = D.readCsv("m2_07_scenario_parameters"); const sc = D.readCsv("m2_07_scenarios");
-  s = X.head("The six scenarios and their parameters are reproducible from config/scenarios.yaml.");
-  const pfmt = (p, v) => /share|gov_share/.test(p) ? pct(num(v), 1) : p === "baseline_fy" ? `FY${yr(v).slice(2)}` : usd(v);
-  const PL = { baseline_fy: "Baseline year", total_revenue: "Total revenue", total_expenses: "Total expenses", baseline_surplus_deficit: "Surplus / deficit", cash_eoy: "Cash at year end", recognized_gov_revenue: "Recognized government revenue", gov_share: "Government share", alloc_ovsjg: "Apportioned: OVSJG", alloc_coc: "Apportioned: HUD CoC", alloc_dhs: "Apportioned: DHS / TCP", alloc_other: "Apportioned: other federal", nf2_share_of_coc: "New Foundations 2 share of CoC", cost_avoidance_share: "Cost-avoidance share (net view)" };
+  s = X.head("The six scenarios, their revenue-split ranges and their parameters are reproducible from config/scenarios.yaml.");
+  const pfmt = (p, v) => /share|gov_share|rate/.test(p) ? pct(num(v), 1) : p === "baseline_fy" ? `FY${yr(v).slice(2)}` : usd(v);
+  const PL = { baseline_fy: "Baseline year", total_revenue: "Total revenue", total_expenses: "Total expenses", baseline_surplus_deficit: "Surplus / deficit", cash_eoy: "Cash at year end", recognized_gov_revenue: "Recognized government revenue", gov_share: "Government share", alloc_ovsjg: "Apportioned: OVSJG", alloc_coc: "Apportioned: HUD CoC", alloc_dhs: "Apportioned: DHS / TCP", alloc_other: "Apportioned: other federal", nf2_share_of_coc: "New Foundations 2 share of CoC", cost_avoidance_share: "Cost-avoidance share (net view)", coc_draw_rate_fy22_23_sefa: "CoC draw rate FY22–23 (split B)", sisters_rise_dhs: "Sisters Rise DHS value (split C)" };
   tbl(s, ["Baseline parameter (FY25)", "Value"], sp.map(r => [PL[r.parameter] || r.parameter.replace(/_/g, " "), pfmt(r.parameter, r.value)]),
     { x: M, y: BODY_Y, w: 3.9, colW: [2.6, 1.3], fontSize: 9.5, align: ["left", "right"] });
-  tbl(s, ["Scenario", "Revenue loss", "% of revenue", "Deficit (gross)", "Deficit (net)", "Cash after 12m (net, months)", "Months to zero (net)"],
-    sc.map(r => [r.scenario, usd(r.revenue_loss), pct(num(r.loss_pct_of_total_revenue), 1), usd(r.deficit_gross), usd(r.deficit_net_of_cost_avoidance), num(r.months_of_cash_after_12m_net).toFixed(1), num(r.months_until_cash_zero_net).toFixed(0)]),
-    { x: 4.8, y: BODY_Y, w: 7.93, colW: [2.5, 0.9, 0.75, 1.0, 1.0, 0.95, 0.83], fontSize: 9.5, align: ["left", "right", "right", "right", "right", "right", "right"] });
-  s.addText("Cuts: S1 OVSJG 10%; S2 OVSJG 25%; S3 CoC 15%; S4 New Foundations 2 lost (30.8% of CoC); S5 DHS/TCP 100%; S6 S2 + S3 + S5. Net view: 50% of a lost stream's revenue is avoidable cost (cost_avoidance_share). Stream amounts are recognized FY25 government revenue apportioned by FY-aligned award ceilings.",
+  tbl(s, ["Scenario", "Loss: split A", "Loss: low", "Loss: high", "Floor D", "Cash after 12m (net, months)", "Months to zero (net, A)"],
+    sc.map(r => [r.scenario, usd(r.revenue_loss), usd(r.revenue_loss_low), usd(r.revenue_loss_high), usd(r.revenue_loss_floor_case_d), r.scenario_id === "S0" ? num(r.months_of_cash_after_12m_net).toFixed(1) : `${num(r.months_of_cash_after_12m_net_low).toFixed(1)}–${num(r.months_of_cash_after_12m_net_high).toFixed(1)}`, num(r.months_until_cash_zero_net).toFixed(0)]),
+    { x: 4.8, y: BODY_Y, w: 7.93, colW: [2.5, 0.9, 0.8, 0.8, 0.8, 1.13, 1.0], fontSize: 9.5, align: ["left", "right", "right", "right", "right", "right", "right"] });
+  s.addText("Cuts: S1 OVSJG 10%; S2 OVSJG 25%; S3 CoC 15%; S4 New Foundations 2 lost (30.8% of CoC); S5 DHS/TCP 100%; S6 S2 + S3 + S5. Splits of FY25 recognized government revenue: A by FY-aligned award ceilings; B OVSJG and other in full, CoC at its FY22–23 draw rate, DHS the residual; C as A without Sisters Rise. Floor D draws OVSJG and CoC in full, which nearly removes the DHS loss. Net view: 50% of a lost stream's revenue is avoidable cost.",
     { x: 4.8, y: 4.75, w: 7.93, h: 1.3, fontSize: 10, color: HEX.text2, margin: 0, isTextBox: true, valign: "top" });
   D.footnote(s, { source: "fact_gov_awards, fact_org_financials (FY25 990); config/scenarios.yaml", method: "apportioned stream amounts × configured cuts; cash after 12 months and months to zero as computed in scripts/02_m2_exposure.py", chart: "m2_07", note: "A4" });
 
