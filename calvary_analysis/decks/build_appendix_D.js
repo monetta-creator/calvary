@@ -36,12 +36,12 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
 
   // 2. Input map
   X.section("Inputs and data quality");
-  const im = mdTable(C.readText("input_map.md"), /^# Input map/);
+  const im = mdTable(C.readText("docs/input_map.md"), /^# Input map/);
   X.table("The input map lists each input and where it lives, and every input the brief described was found.",
     ["Input", "Location (relative to the project root)", "What was found", "Missing or ambiguous"],
     im.rows.map(r => [r[0], trunc(scrub(r[1]), 70), trunc(scrub(r[2]), 110), trunc(scrub(r[3]), 70)]),
     [1.9, 3.0, 4.6, 2.63],
-    { source: "input_map.md (written at CP1)", method: "inventory of every input named in the analysis brief; paths are relative; API keys stay outside the project and are never written to outputs", chart: null, note: "D2" },
+    { source: "docs/input_map.md (written at CP1)", method: "inventory of every input named in the analysis brief; paths are relative; API keys stay outside the project and are never written to outputs", chart: null, note: "D2" },
     { rowsPerSlide: 9, fontSize: 8.5 });
 
   // 3. Universes
@@ -105,7 +105,7 @@ const scrub = (s) => String(s).replace(/~\/\.config\/calvary\/keys\.env/g, "user
     ["#", "Item", "Memory said", "Files show", "Severity", "Ruling (2026-10-10)"],
     mr.rows.map(r => [r[0], r[1], trunc(r[2], 60), trunc(r[3], 95), trunc(r[4], 40), trunc(r[5], 80)]),
     [0.35, 1.9, 2.3, 3.6, 1.5, 2.48],
-    { source: "memory_reconciliation.md (CP1); methodology.md §8", method: "project memory compared with project files; files are the working source of truth; no item rated High", chart: null, note: "D3" },
+    { source: "docs/memory_reconciliation.md (CP1); methodology.md §8", method: "project memory compared with project files; files are the working source of truth; no item rated High", chart: null, note: "D3" },
     { rowsPerSlide: 8, fontSize: 8.5 });
 
   // 7-21. Method notes

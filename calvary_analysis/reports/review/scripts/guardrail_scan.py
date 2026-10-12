@@ -26,7 +26,7 @@ for dp, dns, fns in os.walk(AN):
         if fn.endswith(".lock"): continue
         if os.path.splitext(fn)[1].lower() in EXTS:
             text_files.append(os.path.join(dp, fn))
-for extra in ("input_map.md", "README.md"):
+for extra in ("docs/input_map.md", "README.md", "CLAUDE.md"):
     p = os.path.join(ROOT, extra)
     if os.path.exists(p): text_files.append(p)
 text_files.sort()

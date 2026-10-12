@@ -4,7 +4,7 @@ Written 2026-10-10, before the first chart. Applies to every chart (PNG), every 
 
 ## 1. Brand inputs
 
-From `2019 CalvaryPPT_White.pptx`: the logo (hand-drawn house over a gold heart, wordmark "Calvary Women's Services", tagline "Ending homelessness. Inspiring hope. Transforming lives.") and a theme with plum `41242F`, gold `D39F28`, light gold `FFDD7F`, teal `52C5DA` / `B1E1E9`. The template's layouts are placeholders only, so everything else here is original.
+From the client template `calvary_funding_data/inputs/2019 CalvaryPPT_White.pptx`: the logo (hand-drawn house over a gold heart, wordmark "Calvary Women's Services", tagline "Ending homelessness. Inspiring hope. Transforming lives.") and a theme with plum `41242F`, gold `D39F28`, light gold `FFDD7F`, teal `52C5DA` / `B1E1E9`. The template's layouts are placeholders only, so everything else here is original.
 
 Logo files: `decks/assets/calvary_logo_white_bg.png` (use on white), `decks/assets/calvary_logo_gold_chevron.png` (title slides only, bottom-right).
 

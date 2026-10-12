@@ -3,7 +3,7 @@
 *How to pick this work up, what it concluded, what is fragile, and what to do next. Data as of 2026-10-10; revised 2026-10-11 after the review fix cycle (`reports/review/`). Paths are relative to `calvary_analysis/`; the data build is in `../calvary_funding_data/`.*
 
 ## 1. Orientation in ten minutes
-1. `../input_map.md` and `../memory_reconciliation.md`: where every input lives and the eight documented differences between the build's memory and its files (none affecting a finding).
+1. `../docs/input_map.md` and `../docs/memory_reconciliation.md`: where every input lives and the eight documented differences between the build's memory and its files (none affecting a finding).
 2. `analysis_plan.md`: the approved plan (CP1), modules M1–M10, data profile.
 3. `insight_register.csv`: 36 findings with evidence summaries, chart IDs, confidence and status.
 4. `recommendations/funding_pressure_verdict.md` and `strategic_recommendations.md`.
@@ -37,7 +37,7 @@
 - Change scoring weights or tiers: `config/scoring_weights.yaml` → rerun 07, 12, 13.
 - Change landscape exclusions or expansion distances: `config/landscape_exclusions.csv`, `config/expansion_areas.yaml`. Mis-attributed grant rows go in `config/grant_exclusions.csv` (dropped on every load of `fact_grants`; today two Baltimore funders' grants to a Baltimore namesake of My Sister's Place, $131,906).
 - Change a funder's open status: `config/guideline_notes.csv` `open_status` → rerun 07, 12, 13.
-- Decks: `cd decks && NODE_PATH=$PWD/node_modules PPTX_SKILL_APPLY_THEME=<pptx skill>/scripts/apply_theme.js node build_leadership.js` (and `build_consulting.js`, `build_appendix_*.js`, `build_onepager.js`); validate with the pptx skill's `validate.py`; render with `soffice --headless --convert-to pdf` and `pdftoppm`.
+- Decks: `cd decks && ./build_all.sh` (or `./build_all.sh leadership appendix_C`) builds the PPTX, renders the PDF into `decks/pdf/` and slide images into `decks/qa/`, and runs the headline check. It needs Node (`npm install` once), LibreOffice and poppler.
 
 ## 5. Open items for the team
 1. Ask Calvary for the FY24/FY25 audits and the TCP subgrant agreements (FY2023–FY2026); reconcile CoC draw-down first (the audited FY22–23 years already show the gap there), then DHS; confirm the FY26 gala date as a small check. Update M1, M2 and the verdict when the documents arrive.

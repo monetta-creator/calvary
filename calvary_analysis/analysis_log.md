@@ -591,3 +591,45 @@ Append-only record of environment state, runs, row counts, decisions and failure
 
 ### 2026-10-12 11:28 — 13_m7_sensitivity
 - sensitivity: max mean rank shift in top 30 = 1.70; min top-10 overlap = 9
+
+### 2026-10-12 11:40 — 00_env_check
+- candidate_interlocks: 1,270 rows
+- data_dictionary: 542 rows
+- dim_funder: 8,928 rows
+- dim_geo: 246 rows
+- dim_org: 105,189 rows
+- dim_period: 28 rows
+- dim_person: 48,563 rows
+- dim_program_area: 13 rows
+- dim_universe_membership: 17,210 rows
+- entity_aliases: 231,647 rows
+- fact_gov_awards: 40,300 rows
+- fact_grants: 928,658 rows
+- fact_opportunities: 286 rows
+- fact_org_financials: 150,461 rows
+- fact_org_relationships: 544,041 rows
+- fact_policy_events: 297 rows
+- fact_roles: 163,473 rows
+- ref_ntee_codes: 623 rows
+- supp_calvary_individual_donor_bands: 4 rows
+- supp_calvary_program_metrics: 178 rows
+- supp_calvary_strategic_targets: 18 rows
+- supp_crm_cash_verification: 160 rows
+- supp_dc_budget_lines: 5,172 rows
+- supp_hic_projects: 1,257 rows
+- supp_homeless_counts: 49,393 rows
+- self-check PASS: Calvary FY25 revenue 4,967,995
+- self-check PASS: DWC FY2024 revenue 34,403,997
+- self-check PASS: FY23 audit SEFA sums to 937,999
+- self-check PASS: OVSJG FY2026 New Foundations 543,056 / Reach Up 507,595
+- self-check PASS: Ward 8 poverty 0.306
+- self-check PASS: Cafritz TY2024 grant 170,000
+- pandas 3.0.6
+- numpy 2.5.3
+- matplotlib 3.11.2
+- networkx 3.7
+- pptx 1.0.2
+- yaml 6.0.3
+- shapely 2.2.0
+- raw/ present: True
+- RESULT: OK

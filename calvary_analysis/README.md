@@ -3,11 +3,11 @@
 This folder holds the analysis, recommendations and deliverables built on the Prompt 1 data foundation in `../calvary_funding_data/`. Two questions anchor it: how much pressure Calvary's reliance on government funding creates, and which other funding fits its mission now or with a plausible expansion. Data as of 2026-10-10. All paths are relative; everything is Markdown, CSV, PNG or PPTX.
 
 ## Start here
-1. `../input_map.md` and `../memory_reconciliation.md` (project root): inputs and the eight reconciled memory-vs-file differences.
+1. `../docs/input_map.md` and `../docs/memory_reconciliation.md`: inputs and the eight reconciled memory-vs-file differences. The original briefs are in `../docs/briefs/`.
 2. `analysis_plan.md` (approved at CP1), `checkpoints/cp1_memo.md`, `cp2_memo.md`, `cp3_memo.md`.
 3. `reports/executive_summary.md` → `recommendations/funding_pressure_verdict.md` → `recommendations/strategic_recommendations.md`.
 4. `insight_register.csv` (36 findings, confidence and verification status, all `verified` after the 2026-10-11 fix cycle) and `discoveries_log.md` (flags D1–D3; D3 closed).
-5. `reports/consulting_briefing.md` for how to pick the work up, and `../CLAUDE.md` for the house rules and how an analyst approaches a new request (project skills in `../.claude/skills/`: `new-deck`, `calvary-data`).
+5. `reports/consulting_briefing.md` for how to pick the work up, and `../CLAUDE.md` for the house rules and how an analyst approaches a new request (project skills in `../.claude/skills/`: `new-deck`, `deck-edits`, `calvary-data`; the lead's rulings in `../docs/decisions.md`).
 
 ## Folder map
 ```

@@ -673,7 +673,7 @@ Rebuilding `clean/` itself is covered in `calvary_funding_data/README.md` ("Rebu
 
 ## 8. Memory reconciliation summary
 
-On 2026-10-10 (CP1), project memory was compared with the project files (`memory_reconciliation.md`). The project files are the working source of truth. No item was rated High, so nothing blocked the analysis.
+On 2026-10-10 (CP1), project memory was compared with the project files (`docs/memory_reconciliation.md`). The project files are the working source of truth. No item was rated High, so nothing blocked the analysis.
 
 Agreements checked with no difference include FY25 revenue $4,967,995, the FY21 audit-vs-1e figures, GWCF $1,206,500, the 18 peers, the two comparators, 88 known funders, the large-table row counts and the DAF DC/MD/VA filter.
 

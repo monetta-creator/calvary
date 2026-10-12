@@ -1,6 +1,6 @@
 # Input map (Prompt 2)
 
-Written 2026-10-10 at CP1. Paths are relative to the project root (the folder holding `calvary_funding_data/` and `calvary_analysis/`). Every input the Prompt 2 brief describes was found; nothing is missing.
+Written 2026-10-10 at CP1; moved to `docs/` on 2026-10-12, when the client template moved to `calvary_funding_data/inputs/` and the root copies of Calvary's documents (identical to those in `inputs/`) were removed. Paths are relative to the project root (the folder holding `calvary_funding_data/` and `calvary_analysis/`). Every input the Prompt 2 brief describes was found; nothing is missing.
 
 | Input | Actual path | What was found | Missing / ambiguous |
 |---|---|---|---|
@@ -17,7 +17,7 @@ Written 2026-10-10 at CP1. Paths are relative to the project root (the folder ho
 | Requirements file | `calvary_funding_data/requirements.txt`; environment `calvary_funding_data/.venv/` (Python 3.12, pandas 3.0.6) | 36 pinned packages | Analysis packages added in `calvary_analysis/requirements.txt` |
 | Raw data | `calvary_funding_data/raw/` | Present, 7.0 GB | Not needed for analysis |
 | Build log | `calvary_funding_data/logs/build_log.md` | 6,760 lines, append-only, per-script sections with timestamps | — |
-| Client template | `2019 CalvaryPPT_White.pptx` (project root) | 4:3 deck (13.54 × 10.16 in), 6 placeholder slides, two logo PNGs (`ppt/media/image1.png` white background, `image2.png` gold chevron), theme colors plum `41242F`, gold `D39F28`, light gold `FFDD7F`, teal `52C5DA` / `B1E1E9` | No layouts worth reusing; Prompt 2 builds its own 16:9 design system around the logo and palette |
+| Client template | `calvary_funding_data/inputs/2019 CalvaryPPT_White.pptx` | 4:3 deck (13.54 × 10.16 in), 6 placeholder slides, two logo PNGs (`ppt/media/image1.png` white background, `image2.png` gold chevron), theme colors plum `41242F`, gold `D39F28`, light gold `FFDD7F`, teal `52C5DA` / `B1E1E9` | No layouts worth reusing; Prompt 2 builds its own 16:9 design system around the logo and palette |
 | Client data | `calvary_funding_data/inputs/` (30 files) | CRM export `Foundation & Corporate Funders_2023-2026.xlsx`; audits FY15–FY21, FY23; 990 PDFs TY2014–TY2019 and the ProPublica TY2024 render; annual reports FY15, FY17, FY18, FY20, FY21, FY23, FY24 at-a-glance; strategic plans 2016–19 and 2021–24 with reports; donor privacy policy; support-page printout | Copies of the same files also sit at the project root and in `pdf-data/`; `inputs/` is the canonical set |
 | Supporting reports | `calvary_funding_data/reports/reviewer_guide.md`, `core_peers_proposal.md`, `universe_summary.md`, `calvary_financials_reconciliation.csv` | Trust guide with 6 self-checks; provisional peer rationale and alternates; universe rule counts | — |
 | Config | `calvary_funding_data/config/` | `core_peers.csv` (18, provisional), `named_comparators.csv` (2), `universes.yaml`, `program_areas.yaml`, overrides, CPI, counties | — |
@@ -28,8 +28,9 @@ Written 2026-10-10 at CP1. Paths are relative to the project root (the folder ho
 | Output | Path |
 |---|---|
 | Analysis workspace | `calvary_analysis/` (plan, log, discoveries, insight register, scripts, chart data, charts, modules, recommendations, storylines, decks, reports, checkpoints) |
-| This map | `input_map.md` |
-| Memory reconciliation | `memory_reconciliation.md` |
+| This map | `docs/input_map.md` |
+| Memory reconciliation | `docs/memory_reconciliation.md` |
+| The three engagement briefs | `docs/briefs/prompt_1_data_foundation.md`, `prompt_2_analysis_and_deliverables.md`, `prompt_3_audit_and_adversarial_review.md` |
 
 ## Prompt 3 outputs (independent review, 2026-10-10)
 

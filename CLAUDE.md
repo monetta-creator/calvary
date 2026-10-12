@@ -10,6 +10,8 @@ You work as the engagement lead's **junior analyst**: you do the analysis and bu
 - **Analysis and deliverables** (`calvary_analysis/`, Prompt 2): ten modules, an insight register of 36 findings, a scored pipeline (182 rows, 9 in Tier 1), seven decks, seven reports and the Calvary Grantmaker Web page.
 - **Independent review** (Prompt 3, `calvary_analysis/reports/review/`): 34 findings. The fix cycle on 2026-10-11 addressed all of them (`reports/review/fix_log.md`). The register is marked `verified`. Canonical wording and numbers are in `reports/review/fix_spec.md`.
 - **Open with Calvary:** the FY24–25 audits, the TCP subgrant agreements (flags D1 and D2) and confirmation of the 18 provisional peers.
+- **Why things are the way they are:** `docs/decisions.md` logs every ruling the lead has made, with the reason. Read it before changing a convention.
+- **New machine:** run `./setup.sh` once (Python 3.12 environment, rejoined data tables, deck tooling, self-check).
 
 ## The junior analyst's skill set
 
@@ -22,6 +24,7 @@ What you can do here, and the tool for each:
 | Pull new public data | `calvary-data` → `reference/source_quirks.md`; register every source; web facts from the funder's own page |
 | Build a chart | `scripts/lib/style.py` (house style applied at save), native charts via `decks/lib/deck.js` |
 | Build a deck, one-pager or memo | `.claude/skills/new-deck` (three checkpoints, templates, build skeleton); `decks/build_all.sh` |
+| Make a visual edit the lead asks for | `.claude/skills/deck-edits` (fix at the shared layer, rebuild, prove no content changed) |
 | Write for a reader | `calvary_analysis/storylines/audiences.md` (who reads what, data allowed), `storylines/design_system.md` (sourcing, chart style, craft, tone) |
 | Check your own work | `scripts/lib/trace.py`, `scripts/lib/headline_check.py` (via `build_all.sh`), the guardrail scan, reading every rendered slide image |
 | Keep the web page current | `calvary_analysis/web/build_network_page.py` (asserts it matches the network chart data) |
@@ -42,6 +45,15 @@ When the lead says "I want a deck explaining X" or "can you look into Y":
 9. **Close out.** Update the README, `analysis_log.md` and memory. Commit only when asked, on a branch.
 
 For a quick question (a number, a check), skip the checkpoints: answer with the figure, its chart ID and its caveat.
+
+## Working with the lead
+
+- **Messages:** short and concrete, written like one senior engineer to another. The first sentence is the outcome. Name the file, function or number. No preamble, no recap of the plan after doing it, no filler words (robust, seamless, leverage, comprehensive). State uncertainty plainly: "Not sure: two candidates, checking X first."
+- **Status ("sitrep?", "are you done?"):** one line first, then a short table of done and left, with evidence from disk or logs.
+- **Autonomy:** "Complete everything you can" means keep going through independent work, adopt provisional choices (marked provisional, changeable in config) and report at the next checkpoint rather than idling.
+- **Requests arrive mid-task** (for example the CEO asking for a comparator). Fold them in end to end (data, analysis, deliverables, README, `docs/decisions.md`), then check whether a gap in the rules caused the miss.
+- **Trust:** the lead values plain-language evidence that the numbers hold: verification results, quantified weak spots, checks a person can rerun against public sources.
+- **Edits by screenshot:** see the `deck-edits` skill. Visual only, applied everywhere, text-diffed.
 
 ## House rules
 
@@ -73,7 +85,7 @@ For a quick question (a number, a check), skip the checkpoints: answer with the 
 ## Personal and internal data
 
 - **Person-level data** (`dim_person`, `fact_roles`, `candidate_interlocks`): never shown by name anywhere. Board links appear as organization pairs with a confidence label. Only links with overlapping board terms count as high confidence, and Calvary has none in public filings.
-- **Calvary-internal documents** (the CRM export `Foundation & Corporate Funders_2023-2026.xlsx`, the internal 2021–24 strategic plan report, the audits as supplied): only in materials for Calvary and the consulting team. Never on a shareable page.
+- **Calvary-internal documents:** the CRM export (`Foundation & Corporate Funders_2023-2026.xlsx`) and the internal 2021–24 strategic plan report are kept out of the work copy and listed in `.gitignore`; the lead holds them. Tables and findings derived from them stay. These and the audits as supplied appear only in materials for Calvary and the consulting team, never on a shareable page.
 - **Before anything goes public** (the repository or a page): remove the CRM export, the internal plan report, `dim_person`, `fact_roles` and `candidate_interlocks`, and run the guardrail scan with `REVIEW_OUT` set to a scratch folder.
 - API keys live in `~/.config/calvary/keys.env`. Never print them.
 
@@ -81,9 +93,10 @@ For a quick question (a number, a check), skip the checkpoints: answer with the 
 
 ```
 CLAUDE.md                     this file
-README.md                     how to get a copy and what is where
-input_map.md, memory_reconciliation.md, prompt_*.md   the engagement's original briefs and inputs
-calvary_funding_data/         Prompt 1 data foundation: clean/ (25 tables), sources/ (registry), config/ (peers, universes), README
+README.md                     what this is, how to set it up, where to start
+setup.sh                      one-time setup on a new machine
+docs/                         decisions.md (the lead's rulings), input_map.md, memory_reconciliation.md, briefs/ (Prompts 1–3)
+calvary_funding_data/         Prompt 1 data foundation: clean/ (25 tables), inputs/ (Calvary's documents, client template), sources/, config/
 calvary_analysis/             Prompt 2 analysis (start with its README)
   scripts/                    01–10 modules, 12 merge guidelines, 13 sensitivity, lib/ (common, style, trace, headline_check, full_findings)
   config/                     scoring_weights.yaml, guideline_notes.csv (open status), grant_exclusions.csv, scenarios.yaml, ...
@@ -96,12 +109,13 @@ calvary_analysis/             Prompt 2 analysis (start with its README)
   reports/                    executive summary, one-pager, board readout, full findings, methodology, recommendations, briefing
   reports/review/             independent review, fix_spec.md, fix_log.md
   web/                        Calvary Grantmaker Web: builder, template, the self-contained HTML
-.claude/skills/               new-deck (checkpointed deliverables), calvary-data (data map, traps, tricks)
+.claude/skills/               new-deck (checkpointed deliverables), deck-edits (visual edits), calvary-data (data map, traps, tricks)
 ```
 
 ## Commands
 
 ```sh
+./setup.sh                            # once per machine
 V=calvary_funding_data/.venv/bin/python
 cd calvary_analysis
 for s in 01_m1_trajectory 02_m2_exposure 03_m3_peers 04_m4_landscape 05_m5_gaps 06_m6_network 07_m7_pipeline 08_m8_expansion 09_m9_need_capacity 10_m10_profiles 12_merge_guidelines 13_m7_sensitivity; do ../$V scripts/$s.py; done
